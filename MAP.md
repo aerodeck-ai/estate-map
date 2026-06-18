@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-18T06:27:43+00:00`
+Generated: `2026-06-18T06:47:35+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -57,7 +57,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **company-brain-recall-api** - `aeros:8647` - live - service/company-brain - GET http://127.0.0.1:8647/recall?q=
 - **rocketchat** - `aeros:3200` - live - service/comms - https://chat.aerodeck.ai — Rocket.Chat team chat (Mally agency), aeros nginx -> localhost:3200; Mongo rs0 :27017
 - **jiddlers-os** - `jiddlers:3019` - idle - MCP/client - jiddlers box; UP, serving jiddlers.aeros-app.ai; image template-v1.0.0 since 2026-06-11 (verified 2026-06-11); still PENDING federation into Hub-Jiddlers (B3)
-- **mac-mini-staging** - `mac-mini` - idle - service/customs-house - ssh mac-mini:/Users/hberliand/staging/ — Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited r...
+- **mac-mini-staging** - `mac-mini:/Users/hberliand/customs-house/v2/master.db` - live - service/customs-house - ssh mac-mini:/Users/hberliand/staging/ — Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited r...
 - **@BerlosCoS_bot** - `personal` - live - CLI/comms - host=personal unit=hermes-gateway-chief-of-staff.service, hermes-litellm-tunnel.service, telegram-voice-gateway.service
 - **@henry_personal_hermes_bot** - `personal` - live - CLI/comms - host=personal unit=hermes-litellm-tunnel.service, telegram-voice-gateway.service
 - **gmail-send** - `personal:3000` - live - MCP/comms - http://100.99.185.36:3000/mcp/gmail-send (PERSONAL hub — the only working route)

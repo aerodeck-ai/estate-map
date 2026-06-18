@@ -2795,13 +2795,13 @@
       "updated_at": "2026-06-17 19:29:16"
     },
     {
-      "actively_collecting": 0,
+      "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": "private",
       "category": "service",
-      "collecting_notes": "\u00a717 ruling 2026-06-12 (GOVERNANCE-DECISIONS-20260612.md); push-out-only; ZERO models on host; QNAP cold tier pending P2; estate: mixed(input)->business/life(output); status=building (flip to active once stage-1 probes pass); registered for card kt_1781305702272_8def12.",
+      "collecting_notes": "Customs House LIVE (verified 2026-06-18, card kt_1781764355865_bb1538). v1 meeting-ingest fires every 5 min (launchd com.aerodeck.customs-house), business->aeros, personal HELD. v2 local corpus master.db = 526 meetings / 7620 bge-m3 vectors (granola+otter). Push-out-only quarantine -> classify -> leak-audited routing (LIFE->personal, business->aeros). CAVEAT: v2 enrich runs local qwen2.5:7b ON the Mini for privacy-classify (transcripts never leave the box) - conflicts with the zero-models-on-Mini ruling, pending Henry reconcile. Supersedes status=building.",
       "connection_type": "ssh",
-      "db_path": null,
+      "db_path": "mac-mini:/Users/hberliand/customs-house/v2/master.db",
       "gaps_notes": null,
       "host": "mac-mini",
       "human_owner": "Henry Berliand",
@@ -2812,9 +2812,9 @@
       "quality_notes": null,
       "query_method": "ssh mac-mini:/Users/hberliand/staging/ \u2014 Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited routing (LIFE->personal, business->aeros). No listening port; reached over Tailscale SSH.",
       "recon_status": null,
-      "reliability_rating": 0,
+      "reliability_rating": 4,
       "subcategory": "customs-house",
-      "updated_at": "2026-06-14 03:55:51"
+      "updated_at": "2026-06-18T06:50:00Z"
     },
     {
       "actively_collecting": 1,
@@ -3619,7 +3619,7 @@
       "writer_host": null
     }
   ],
-  "generated_at": "2026-06-18T06:27:43+00:00",
+  "generated_at": "2026-06-18T06:47:35+00:00",
   "machines": [
     {
       "created_at": "2026-06-11 10:20:41",
