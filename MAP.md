@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-17T10:43:15+00:00`
+Generated: `2026-06-18T06:27:43+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -19,13 +19,13 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### FACTORY
 
-- **@aerodeck_gates_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-apiserver-jack.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashbo...
-- **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-apiserver-jack.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashbo...
+- **@aerodeck_gates_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-jack.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-gateway-mally-chief-of-staff.service,...
+- **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-jack.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-gateway-mally-chief-of-staff.service,...
 - **Audit-Lane-Panel** - `aerodeck:8772` - live - Dashboard/business - http://127.0.0.1:8772 — /health, /api/status, /api/lane/<name>; read-only
 - **Plan-Surface** - `aerodeck:8930` - live - Dashboard/business - https://plan.aerodeck.ai (behind Cloudflare Access) or http://127.0.0.1:8930 / http://100.74.200.84:8930 on aerodeck — read-only factory dashboard (board/epics, codex verdicts,...
 - **antislop-canon** - `aerodeck:/home/henry/work/business/antislop/canon/antislop-canon.json` - live - Database/comms - humanize.py / antislop.py (Vale) / build_canon.py
 - **kanban-board-connector** - `aerodeck` - live - Database/infra - sqlite /home/ubuntu/apps/kanban-mcp/board.db (aerodeck :8649 kanban-mcp); read-only snapshot, sudo
-- **kanban-readonly** - `aerodeck:8650` - live - MCP/infra - http://127.0.0.1:3001/mcp/kanban-readonly via Hub-Aerodeck (backend aerodeck :8650)
+- **kanban-readonly** - `aerodeck:8650` - live - MCP/infra - http://127.0.0.1:3001/mcp/kanban-readonly via Hub-Aerodeck (backend aerodeck :8650; Docker bridge allowed, off-box tailnet rejected since 2026-06-17)
 - **kanban-tools** - `aerodeck:8649` - live - MCP/infra - http://127.0.0.1:8649/mcp (loopback/docker only — tailnet REJECTED since 2026-06-12)
 - **obsidian-shared** - `aerodeck:3000` - idle - MCP/infra - disabled on hub
 - **Hub-Aerodeck** - `aerodeck:3001` - live - MCP-Hub/business - http://127.0.0.1:3001/mcp (aerodeck-local) AND http://100.74.200.84:3001/mcp (tailnet-exposed 2026-06-14 = personal-business-shadow upstream); container aerodeck-mcphub-shadow —...
@@ -33,12 +33,13 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **hermes-gateway-cos-personal** - `aerodeck:8642` - live - agent-gateway/hermes - hermes-cos gateway http://127.0.0.1:8642 on personal (localhost-bound; auth=API_SERVER_KEY env). probe 2026-06-15T22:25:00Z: root/healthz 404 (server up, no root route).
 - **hermes-gateway-opportunity-scanner** - `aerodeck` - idle - agent-gateway/hermes - RETIRED 2026-06-15 — Hermes-decommission (Oracle service), Henry-ruled; archived reversibly on host. personal unit hermes-gateway-opportunity-scanner.service, enabled+active, Ti...
 - **shadow-hub-bearer-jack-tibbs-readonly** - `aerodeck:3001` - live - auth-key/mcphub-shadow - Scoped READ-ONLY: kanban-readonly, vault-search, cube-jiddlers, fetch-context, connection-registry. NO kanban-tools. Neg-tested 401 out-of-scope. verified 2026-06-11
+- **claude-usage-warden** - `aerodeck:8689` - live - infra/usage-monitoring - curl -sf http://127.0.0.1:8689/status
 - **aero-govern-feed** - `aerodeck:8652` - live - service/infra - curl http://127.0.0.1:8652/{health,act,decisions} (loopback-only, read-only over govern.db views)
 - **aero-pep-service** - `aerodeck:8951` - live - service/infra - curl http://127.0.0.1:8951/status (loopback-only); CLI: aero-pep decide/selftest/status/check
 - **aeros-flight-deck** - `aerodeck:3099` - live - service/web-app - http://100.74.200.84:3099 — 'Flight Deck · AerOS' Next.js app on aerodeck
 - **cloudflared-metrics** - `aerodeck:20242` - live - service/observability - http://127.0.0.1:20242/metrics — aerodeck cloudflared tunnel metrics (go build_info answers)
 - **deerflow** - `aerodeck:2026` - live - service/research - http://100.74.200.84:2026 (tailnet-only via nginx; localhost NOT bound). API under /api/*
-- **gates-bot** - `aerodeck:8688` - live - service - http://127.0.0.1:8688/notify — aerodeck localhost only
+- **gates-bot** - `aerodeck:8688` - live - service/comms - HTTP gate API aerodeck 0.0.0.0:8688 (X-Gates-Key); CoS approval gates mirror to Telegram + RC #aerodeck-gates
 - **librechat** - `aerodeck:3080` - live - service/chat-ui - http://100.74.200.84:3080 — LibreChat web UI on aerodeck (docker LibreChat; Mongo sidecar unpublished)
 - **ntfy** - `aerodeck:8080` - live - service/notifications - http://100.74.200.84:8080 — ntfy push-notification relay on aerodeck (docker ntfy, container :80)
 - **open-notebook-ui** - `aerodeck:8502` - live - service/research - http://100.74.200.84:8502 — Open Notebook Streamlit UI on aerodeck (docker on-app)
@@ -53,7 +54,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **Hub-AerOS** - `aeros:3000` - live - MCP-Hub/business - http://100.64.135.5:3000/mcp (or /mcp/<server>) — aeros hub, bearer auth (fleet secret mcphub-bearer)
 - **hermes-gateway-mally** - `aeros` - idle - agent-gateway/hermes - RETIRED 2026-06-15 — Hermes-decommission (Oracle service), Henry-ruled; archived reversibly on host. aeros unit hermes-gateway-mally.service, enabled+active, bot MasterChieff_bo...
 - **aerodeck-db-business-core** - `aeros:/home/ubuntu/data/sqlite-local/aerodeck/aerodeck.db` - live - database/business-core - sqlite3 (host-side, ro)
-- **company-brain-recall-api** - `aeros:8647` - live - intelligence/company-brain - GET http://127.0.0.1:8647/recall?q=
+- **company-brain-recall-api** - `aeros:8647` - live - service/company-brain - GET http://127.0.0.1:8647/recall?q=
+- **rocketchat** - `aeros:3200` - live - service/comms - https://chat.aerodeck.ai — Rocket.Chat team chat (Mally agency), aeros nginx -> localhost:3200; Mongo rs0 :27017
 - **jiddlers-os** - `jiddlers:3019` - idle - MCP/client - jiddlers box; UP, serving jiddlers.aeros-app.ai; image template-v1.0.0 since 2026-06-11 (verified 2026-06-11); still PENDING federation into Hub-Jiddlers (B3)
 - **mac-mini-staging** - `mac-mini` - idle - service/customs-house - ssh mac-mini:/Users/hberliand/staging/ — Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited r...
 - **@BerlosCoS_bot** - `personal` - live - CLI/comms - host=personal unit=hermes-gateway-chief-of-staff.service, hermes-litellm-tunnel.service, telegram-voice-gateway.service
@@ -79,6 +81,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### AGENTS
 
+- **@aerodeck_alerts_bot** - `unknown` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap.certbot.renew.timer
 - **repo:agent-cockpit** - `aerodeck` - live - Repo/infra
 - **repo:vectos-hermes** - `aerodeck` - live - Repo/infra
 - **hermes-brain** - `aerodeck:8658` - idle - agent - hermes brain http://100.74.200.84:8658 (aerodeck, runs as henry)
@@ -115,8 +118,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aeros-business-dbs** - `aeros` - idle - MCP/business - PENDING B2: wrap 8 aeros prod business DBs as RW Postgres-MCP, add as Hub-AerOS group over Tailscale
 - **deep-research-search** - `aeros:8440` - live - MCP/research - /mcp/deep-research-search on Hub-Aerodeck :3001 (shadow); backend aeros 100.64.135.5:8440
 - **ms-query** - `aeros:3000` - live - MCP/personal - http://100.64.135.5:3000/mcp/ms-query
-- **company-brain-store** - `aeros:5441` - live - intelligence/company-brain - docker exec brain-pg-dev psql -d company_brain
-- **rocketchat** - `aeros:3200` - live - service/comms - https://chat.aerodeck.ai — Rocket.Chat team chat (Mally agency), aeros nginx -> localhost:3200; Mongo rs0 :27017
+- **company-brain-store** - `aeros:5441` - live - service/company-brain - docker exec brain-pg-dev psql -d company_brain
+- **jiddlers-live** - `jiddlers:8646` - live - MCP/client - jiddlers box; member of Hub-Jiddlers; $smart-indexed verified 2026-06-17: canonical bronze is jiddlers:/home/ubuntu/data/sqlite/shared/jiddlers/live.db on jiddlers VM 100.117.36...
 - **personal-whatsapp-mcp** - `personal:3001` - live - MCP/whatsapp - MCP (Streamable HTTP) at http://100.99.185.36:3001/mcp — this is an MCP server, NOT REST. Tools incl. send_message + read_messages; read_messages takes chat_jid (NOT jid). Host-...
 - **whatsapp-golden-store** - `personal:/var/lib/docker/volumes/miranda_whatsapp-data/_data/store.db` - live - database/whatsapp - Do NOT open with sqlite3 on the host while the bridge runs — query in-container (docker exec personal-whatsapp-mcp node + better-sqlite3 readonly) or via the MCP servers. messag...
 
@@ -142,9 +145,9 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **plex-mcp** - `aeros:3000` - live - MCP/personal - http://100.64.135.5:3000/mcp/plex-mcp
 - **rewoo-wrapper** - `aeros:3000` - idle - MCP/AI - http://100.64.135.5:3000/mcp/rewoo-wrapper
 - **uk-transport** - `aeros:3000` - live - MCP/travel - http://100.64.135.5:3000/mcp/uk-transport
-- **company-brain-mcp** - `aeros:8459` - live - intelligence/company-brain - MCP brain_recall via mcphub-aerodeck / aeros hub
-- **jiddlers-live** - `jiddlers:8646` - live - MCP/client - jiddlers box; member of Hub-Jiddlers; $smart-indexed
+- **company-brain-mcp** - `aeros:8459` - live - service/company-brain - MCP brain_recall via mcphub-aerodeck / aeros hub
 - **Hub-Jiddlers** - `jiddlers:3001` - live - MCP-Hub/client - http://127.0.0.1:3001/mcp on the jiddlers box (container mcphub-jiddlers; loopback-only — reach via ssh jiddlers; bearer auth pending)
+- **linkedin** - `mac-mini:8782` - live - MCP/comms - mcphub-aerodeck -> linkedin-* (17 tools). Path: hub container -> http://host.docker.internal:8782/mcp -> aerodeck SSH tunnel (systemd --user linkedin-mcp-tunnel: 172.17.0.1:8782...
 - **airbnb** - `personal` - idle - MCP/travel - mcphub-personal → http://100.99.185.36:3000/mcp — personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)
 - **amadeus-flights** - `personal` - idle - MCP/travel - mcphub-personal → http://100.99.185.36:3000/mcp — personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)
 - **amadeus-hotel** - `personal` - idle - MCP/travel - mcphub-personal → http://100.99.185.36:3000/mcp — personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)
@@ -152,6 +155,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **booking-hotels** - `personal` - idle - MCP/travel - mcphub-personal → http://100.99.185.36:3000/mcp — personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)
 - **duffel** - `personal` - idle - MCP/travel - mcphub-personal → http://100.99.185.36:3000/mcp — personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)
 - **fli-flights** - `personal` - idle - MCP/travel - mcphub-personal → http://100.99.185.36:3000/mcp — personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)
+- **gmail-aerodeck** - `personal:8543` - live - MCP/comms - direct http://100.99.185.36:8543/mcp; personal hub http://100.99.185.36:3000/mcp/gmail-aerodeck; aerodeck shadow root exposes personal-gmail-aerodeck-* tools
 - **google-calendar** - `personal:3000` - live - MCP/personal - http://100.99.185.36:3000/mcp/google-calendar (PERSONAL hub — the only working route)
 - **google-drive** - `personal:3000` - live - MCP/personal - http://100.99.185.36:3000/mcp/google-drive (PERSONAL hub — the only working route)
 - **google-sheets** - `personal:3000` - live - MCP/personal - http://100.99.185.36:3000/mcp/google-sheets (PERSONAL hub — the only working route)
@@ -178,6 +182,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aerodeck-dev-design** - `aerodeck:3010` - live - service/web-app - http://100.74.200.84:3010 — aerodeck dev-design Next.js app; 401 'Unauthorised · contact Henry' at / is HEALTHY (aerodeck-template auth middleware)
 - **changedetection-competitor-watch** - `aerodeck:8914` - live - service/marketing - HTTP API http://127.0.0.1:8914/api/v1/ (x-api-key in container datastore changedetection.json — never logged)
 - **healthchecks** - `aerodeck:8000` - live - service/observability - http://100.74.200.84:8000 — Healthchecks cron-monitoring on aerodeck (docker healthchecks)
+- **company-brain-capture-producer** - `aeros` - live - intelligence/company-brain - ssh aeros crontab -l | grep brain; scripts under /home/ubuntu/apps/company-brain-dev/brain-capture*.py|sh write to company_brain
 
 ### ACCESS
 
@@ -195,14 +200,18 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **kanban-tools** - `aerodeck:/home/ubuntu/apps/kanban-mcp/board.db` - sqlite - canonical
 - **sqlite-whatsapp-mcp** - `aerodeck:/var/lib/docker/volumes/whatsapp-data/_data/store.db (read replica)` - sqlite - canonical
 - **aerodeck-db-business-core** - `aeros:/home/ubuntu/data/sqlite-local/aerodeck/aerodeck.db` - sqlite - canonical
+- **aeros-shared-sqlite** - `aeros:/home/ubuntu/data/sqlite/shared/aeros.db` - sqlite - canonical
+- **agentic-shared-sqlite** - `aeros:/home/ubuntu/data/sqlite/shared/agentic.db` - sqlite - canonical
 - **antislop-canon-pg-mirror** - `aeros:aerodeck.antislop_canon` - postgres - canonical
+- **company-brain-meetings-gold** - `aeros:/home/ubuntu/apps/company-brain-dev/meetings-gold.db` - sqlite - canonical
+- **jiddlers-live-sqlite** - `aeros:/home/ubuntu/data/sqlite/shared/jiddlers/live.db` - sqlite - canonical
 - **life-kanban** - `personal:/home/ubuntu/apps/life-kanban/board.db` - sqlite - canonical
 - **personal-whatsapp-mcp** - `personal:/var/lib/docker/volumes/miranda_whatsapp-data/_data/store.db (in-container /app/data/store.db)` - sqlite - canonical
 - **whatsapp-golden-store** - `personal:/var/lib/docker/volumes/miranda_whatsapp-data/_data/store.db` - sqlite - canonical
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 36 scheduled jobs
+- **aerodeck** - 37 scheduled jobs
 - **aeros** - 118 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 14 scheduled jobs

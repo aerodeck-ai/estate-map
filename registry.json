@@ -5,7 +5,29 @@
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "category": "CLI",
-      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-apiserver-jack.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-gateway-mally-chief-of-staff.service, voice-bakeoff-judge.service, voice-brain-mally.service, voice-brain.service, v",
+      "collecting_notes": "host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap.certbot.renew.timer",
+      "connection_type": "telegram-bot",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": null,
+      "human_owner": "Henry",
+      "name": "@aerodeck_alerts_bot",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": "[telegram-bot] auto-discovered sealed bot token on aeros",
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 4,
+      "subcategory": "comms",
+      "updated_at": "2026-06-17 22:48:08"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "category": "CLI",
+      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-jack.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-gateway-mally-chief-of-staff.service, voice-bakeoff-judge.service, voice-brain-mally.service, voice-brain.service, voice-call.service, voice-capacity-probe.service, voice-henry-voi",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -17,16 +39,17 @@
       "port": null,
       "quality_notes": "[telegram-bot] Factory gates bot - fires build-gate notifications + /notify alerts to Henry's Telegram",
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
-      "updated_at": "2026-06-17 09:46:12"
+      "updated_at": "2026-06-17 22:48:08"
     },
     {
       "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "category": "CLI",
-      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-apiserver-jack.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-gateway-mally-chief-of-staff.service, voice-bakeoff-judge.service, voice-brain-mally.service, voice-brain.service, v",
+      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-jack.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-gateway-mally-chief-of-staff.service, voice-bakeoff-judge.service, voice-brain-mally.service, voice-brain.service, voice-call.service, voice-capacity-probe.service, voice-henry-voi",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -38,9 +61,10 @@
       "port": null,
       "quality_notes": "[telegram-bot] Aerodeck voice relay bot - Wispr/voice ingest bridge to the aerodeck seat",
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
-      "updated_at": "2026-06-17 09:46:12"
+      "updated_at": "2026-06-17 22:48:08"
     },
     {
       "actively_collecting": 1,
@@ -59,6 +83,7 @@
       "port": 8772,
       "quality_notes": null,
       "query_method": "http://127.0.0.1:8772 \u2014 /health, /api/status, /api/lane/<name>; read-only",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
@@ -80,6 +105,7 @@
       "port": 8930,
       "quality_notes": null,
       "query_method": "https://plan.aerodeck.ai (behind Cloudflare Access) or http://127.0.0.1:8930 / http://100.74.200.84:8930 on aerodeck \u2014 read-only factory dashboard (board/epics, codex verdicts, Henry gates, plans/PRDs, architecture)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
@@ -101,6 +127,7 @@
       "port": null,
       "quality_notes": "Anti-slop canon: human-voice / plain-English word DB. 691 'say this instead' replacements (slop->plain), tiers A/B/C, doc-type profiles incl. regulated/legal. The English benchmark source of truth. git aerodeck-ai/antislop (repo-create pending Henry).",
       "query_method": "humanize.py / antislop.py (Vale) / build_canon.py",
+      "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
       "updated_at": "20260614T103558Z"
@@ -117,14 +144,15 @@
       "host": "aerodeck",
       "human_owner": null,
       "name": "kanban-board-connector",
-      "namespace": "personal",
+      "namespace": "business",
       "owner": null,
       "port": null,
       "quality_notes": "Aerodecks own fleet-build kanban board \u2014 customer-zero direct-to-gold source.",
       "query_method": "sqlite /home/ubuntu/apps/kanban-mcp/board.db (aerodeck :8649 kanban-mcp); read-only snapshot, sudo",
+      "recon_status": null,
       "reliability_rating": 5,
       "subcategory": "infra",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-17 19:03:18Z"
     },
     {
       "actively_collecting": 0,
@@ -143,6 +171,7 @@
       "port": 3000,
       "quality_notes": "Disabled in aeros servers table.",
       "query_method": "disabled on hub",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
@@ -164,6 +193,7 @@
       "port": 8414,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": "live@aerodeck",
       "reliability_rating": 5,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
@@ -185,6 +215,7 @@
       "port": 8590,
       "quality_notes": "Disabled in aeros servers table. Backend RETIRED 2026-06-12 per Henry approval 2026-06-11 (executed with \u00a716 security batch): pm2 stop crawl4ai-mcp + pm2 save under ubuntu (dump .bak ~ubuntu/.pm2/dump.pm2.bak-pre-crawl4ai-retire-20260612). :8590 freed, verified ss. Reversible: pm2 start crawl4ai-mcp.",
       "query_method": "RETIRED 2026-06-12 \u2014 process stopped",
+      "recon_status": "STALE: port 8590 not live on any probed host @ 2026-06-18 06:17:15Z",
       "reliability_rating": 0,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
@@ -206,6 +237,7 @@
       "port": 8440,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": "live@aerodeck,aeros,jiddlers",
       "reliability_rating": 4,
       "subcategory": "client",
       "updated_at": "2026-06-15 23:16:29"
@@ -227,6 +259,7 @@
       "port": 8436,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
@@ -248,6 +281,7 @@
       "port": 8428,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
@@ -269,6 +303,7 @@
       "port": 3000,
       "quality_notes": "Granola meeting notes/transcripts (hosted MCP mcp.granola.ai). MIGRATED aeros hub -> aerodeck shadow hub 2026-06-13: OAuth blob copied DB-to-DB, auto-refreshed, retired from aeros. Verified live 6 tools. CAUTION: ONE account mixes business+personal meetings, no upstream filter.",
       "query_method": "http://127.0.0.1:3001/mcp/granola (aerodeck shadow hub, loopback-only; OAuth access+refresh tokens in shadow-hub servers.oauth blob, auto-refresh)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 4,
       "subcategory": "comms",
       "updated_at": "2026-06-15 23:16:29"
@@ -288,11 +323,12 @@
       "namespace": "business",
       "owner": null,
       "port": 8650,
-      "quality_notes": null,
-      "query_method": "http://127.0.0.1:3001/mcp/kanban-readonly via Hub-Aerodeck (backend aerodeck :8650)",
+      "quality_notes": "| HARDENED 2026-06-17 per tri-audit AGREE-2 kt_1781228607798_5321de: kept 0.0.0.0 bind for hub compatibility; added UFW allow 172.16.0.0/12 + reject all for :8650 and readonly service ts-input reject for tailscale0. Verified local MCP initialize OK, container host.docker.internal/bridge OK, aeros tailnet rc=7 refused.",
+      "query_method": "http://127.0.0.1:3001/mcp/kanban-readonly via Hub-Aerodeck (backend aerodeck :8650; Docker bridge allowed, off-box tailnet rejected since 2026-06-17)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 5,
       "subcategory": "infra",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-17 16:45:37"
     },
     {
       "actively_collecting": 1,
@@ -309,11 +345,12 @@
       "namespace": "business",
       "owner": null,
       "port": 8649,
-      "quality_notes": " | HARDENED 2026-06-12 per \u00a716 ruling 6 / HG-8 card kt_1781253691738_d0fa22: bind stays 0.0.0.0 (hub container needs host.docker.internal \u2014 pure loopback bind proven to break the hub), tailnet access REJECTED via INPUT-1 iptables rule (ts-input pre-accepts tailnet ahead of ufw) + ufw 8649 allow-docker/reject-all defense-in-depth; persisted via kanban-tools-mcp.service.d/20-tailnet-guard.conf ExecStartPre. Backups: .env.bak-pre-bind-harden-20260612, unit .bak-pre-bind-harden-20260612, /etc/ufw/user.rules.bak-pre-board-harden-20260612. Verified: aeros->100.74.200.84:8649 rc=1 refused; loopback+hub+8650+gate consumers all OK; smoke=/home/henry/work/factory/intel-stack/bin/smoke-board-bind.sh (verified 2026-06-12)",
+      "quality_notes": "| HARDENED 2026-06-12 per \u00a716 ruling 6 / HG-8 card kt_1781253691738_d0fa22: bind stays 0.0.0.0 (hub container needs host.docker.internal \u2014 pure loopback bind proven to break the hub), tailnet access REJECTED via INPUT-1 iptables rule (ts-input pre-accepts tailnet ahead of ufw) + ufw 8649 allow-docker/reject-all defense-in-depth; persisted via kanban-tools-mcp.service.d/20-tailnet-guard.conf ExecStartPre. Backups: .env.bak-pre-bind-harden-20260612, unit .bak-pre-bind-harden-20260612, /etc/ufw/user.rules.bak-pre-board-harden-20260612. Verified: aeros->100.74.200.84:8649 rc=1 refused; loopback+hub+8650+gate consumers all OK; smoke=/home/henry/work/factory/intel-stack/bin/smoke-board-bind.sh (verified 2026-06-12) | SIBLING 8650 HARDENED 2026-06-17 by kt_1781228607798_5321de: readonly board port now mirrors HG-8 firewall posture (Docker bridge allowed, tailnet/off-box refused).",
       "query_method": "http://127.0.0.1:8649/mcp (loopback/docker only \u2014 tailnet REJECTED since 2026-06-12)",
+      "recon_status": "live@aerodeck,personal",
       "reliability_rating": 5,
       "subcategory": "infra",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-17 16:45:37"
     },
     {
       "actively_collecting": 0,
@@ -332,6 +369,7 @@
       "port": 3000,
       "quality_notes": "GATED OFF 2026-06-08 (M3 leak fix) \u2014 do not re-enable without Henry.",
       "query_method": "disabled on hub",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
@@ -353,6 +391,7 @@
       "port": 3000,
       "quality_notes": "Otter meeting transcripts (hosted MCP mcp.otter.ai). MIGRATED aeros -> aerodeck shadow 2026-06-13 AND re-authed headless (was deauthed/0-tools estate-wide): web-session cookie login + playwright consent-click + auth-code intercept to hub callback. Verified live 3 tools. Mixed business+personal caveat as granola. Bulk-transcript path otter_pull.py (direct web API) still available.",
       "query_method": "http://127.0.0.1:3001/mcp/otter (aerodeck shadow hub, loopback-only; OAuth tokens in shadow-hub servers.oauth blob)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 4,
       "subcategory": "comms",
       "updated_at": "2026-06-15 23:16:29"
@@ -374,6 +413,7 @@
       "port": 3000,
       "quality_notes": "Disabled in aeros servers table.",
       "query_method": "disabled on hub",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "personal",
       "updated_at": "2026-06-10 16:41:37"
@@ -395,6 +435,7 @@
       "port": 8437,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": "live@aerodeck,aeros",
       "reliability_rating": 4,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
@@ -416,6 +457,7 @@
       "port": 3001,
       "quality_notes": null,
       "query_method": "mcphub-aerodeck \u2192 mcp.serpapi.com (direct, bypasses aeros hub proxy which adds session management)",
+      "recon_status": "live@aerodeck,personal,jiddlers",
       "reliability_rating": 0,
       "subcategory": "shopping",
       "updated_at": "2026-06-15 23:16:29"
@@ -437,6 +479,7 @@
       "port": 8536,
       "quality_notes": "Same LID gotcha as personal-whatsapp-mcp: inbound DMs under <n>@lid chat_jids (Mally = 202610988593344@lid).",
       "query_method": "MCP read replica on personal :8536 (hub server name sqlite-whatsapp on mcphub-personal). READ-ONLY view of the golden store.",
+      "recon_status": "live@personal",
       "reliability_rating": 0,
       "subcategory": "whatsapp",
       "updated_at": "2026-06-15 23:16:29"
@@ -458,6 +501,7 @@
       "port": 8282,
       "quality_notes": null,
       "query_method": "http://127.0.0.1:8282/mcp \u2014 aerodeck loopback-only, NOT on any hub",
+      "recon_status": "live@aerodeck,personal",
       "reliability_rating": 5,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
@@ -479,6 +523,7 @@
       "port": 3001,
       "quality_notes": "Aerodeck local shadow hub \u2014 clean business surface: connection-registry, cube-jiddlers, deep-research, fetch-context, kanban-readonly, kanban-tools, vault-search. Dev seats + jack-tibbs .mcp.json point HERE under the name \"mcphub-aerodeck\".",
       "query_method": "http://127.0.0.1:3001/mcp (aerodeck-local) AND http://100.74.200.84:3001/mcp (tailnet-exposed 2026-06-14 = personal-business-shadow upstream); container aerodeck-mcphub-shadow \u2014 bearer auth",
+      "recon_status": "live@aerodeck,personal,jiddlers",
       "reliability_rating": 5,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
@@ -500,6 +545,7 @@
       "port": 3002,
       "quality_notes": "Built 2026-06-14 symmetric shadows; smart-routing via local ollama+pgvector; ~/work/infra/aerodeck-life-shadow.",
       "query_method": "http://127.0.0.1:3002/mcp (container aerodeck-life-shadow) \u2014 proxies the personal LIFE hub; bearer aerodeck-life-seat. The aerodeck seat .mcp.json mcphub-personal points HERE (not the raw remote).",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "life",
       "updated_at": "2026-06-14 15:25:05"
@@ -521,6 +567,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
@@ -542,6 +589,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
@@ -563,6 +611,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
@@ -584,6 +633,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-14 13:31:05"
@@ -605,6 +655,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
@@ -626,6 +677,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "vendor",
       "updated_at": "2026-06-14 13:31:05"
@@ -647,6 +699,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
@@ -668,6 +721,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-14 13:31:05"
@@ -689,6 +743,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
@@ -710,6 +765,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "life",
       "updated_at": "2026-06-15 23:16:29"
@@ -731,6 +787,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-14 13:31:05"
@@ -752,6 +809,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-14 13:31:05"
@@ -773,6 +831,7 @@
       "port": null,
       "quality_notes": "Humanize benchmark: scores how human/plain each outbound message reads (0-100) against the slop canon + M1-M5 readability rubric; logs a trend per producer. Wired into the Tannoy Telegram digest. English / human-voice / readability benchmark.",
       "query_method": "humanize.py score()/fix(); SELECT producer,avg(human_score),date(ts) FROM humanize_log",
+      "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
       "updated_at": "20260614T103558Z"
@@ -794,6 +853,7 @@
       "port": 8466,
       "quality_notes": "Estate-wide humanize/score gate: any producer POSTs text, gets human_score + plain-English fix; logs the benchmark. Callable by Hermes/email/meeting-summaries.",
       "query_method": "POST /humanize, /score; GET /health",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
       "subcategory": "comms",
       "updated_at": "20260614T104426Z"
@@ -815,6 +875,7 @@
       "port": 8790,
       "quality_notes": "Host reverse proxy for per-PR product-app previews: *.dev.aerodeck.ai pr-<N> -> localhost:31000+(N%1000). systemd --user pr-preview-proxy.service.",
       "query_method": null,
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": null,
       "updated_at": "2026-06-14 18:22:32"
@@ -836,6 +897,7 @@
       "port": 8975,
       "quality_notes": "Family ski-trip + One4All finances static page (AerOS-styled, 2 tabs; ski gallery 7 resorts/17 Airbnb cards + finances reconciliation). LIFE data on personal host; tailnet-only. Now boot-persistent via systemd ski-site.service (User=ubuntu, Restart=on-failure, enabled) \u2014 replaced the nohup launcher. Henry 2026-06-14.",
       "query_method": "http-static",
+      "recon_status": "live@personal",
       "reliability_rating": 5,
       "subcategory": "personal",
       "updated_at": "2026-06-15 23:16:29"
@@ -857,6 +919,7 @@
       "port": 8658,
       "quality_notes": null,
       "query_method": "hermes brain http://100.74.200.84:8658 (aerodeck, runs as henry)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": null,
       "updated_at": "2026-06-15 23:16:29"
@@ -878,6 +941,7 @@
       "port": 9119,
       "quality_notes": null,
       "query_method": "hermes dashboard http://100.74.200.84:9119 (aerodeck, runs as ubuntu)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": null,
       "updated_at": "2026-06-15 23:16:29"
@@ -899,6 +963,7 @@
       "port": 9118,
       "quality_notes": null,
       "query_method": "hermes dashboard http://100.74.200.84:9118 (aerodeck, runs as ubuntu)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": null,
       "updated_at": "2026-06-15 23:16:29"
@@ -920,6 +985,7 @@
       "port": 9117,
       "quality_notes": null,
       "query_method": "hermes dashboard http://127.0.0.1:9117 on aerodeck (jack-tibbs profile, runs as ubuntu) \u2014 LOOPBACK-ONLY bind (not on tailnet 100.74.200.84; verified 2026-06-14 ss -tlnp). Reach via SSH tunnel or from on-box.",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
@@ -941,6 +1007,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "client",
       "updated_at": "2026-06-15 23:16:29"
@@ -962,6 +1029,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
@@ -983,6 +1051,7 @@
       "port": 8642,
       "quality_notes": null,
       "query_method": "hermes-cos gateway http://127.0.0.1:8642 on personal (localhost-bound; auth=API_SERVER_KEY env). probe 2026-06-15T22:25:00Z: root/healthz 404 (server up, no root route).",
+      "recon_status": "live@personal",
       "reliability_rating": 4,
       "subcategory": "hermes",
       "updated_at": "2026-06-15 23:16:29"
@@ -1004,6 +1073,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "hermes",
       "updated_at": "2026-06-15 23:16:29"
@@ -1025,9 +1095,32 @@
       "port": 3001,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": "live@aerodeck,personal,jiddlers",
       "reliability_rating": 0,
       "subcategory": "mcphub-shadow",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "category": "infra",
+      "collecting_notes": null,
+      "connection_type": "http-local",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": null,
+      "name": "claude-usage-warden",
+      "namespace": "business",
+      "owner": "henry",
+      "port": 8689,
+      "quality_notes": "REGISTERED 2026-06-17 by codex-jiddlers: P1 read-only Claude usage warden, systemd unit claude-usage-warden.service, status JSON /home/ubuntu/.cache/claude-usage-status.json; verification probe passed.",
+      "query_method": "curl -sf http://127.0.0.1:8689/status",
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 4,
+      "subcategory": "usage-monitoring",
+      "updated_at": "2026-06-17 17:16:49"
     },
     {
       "actively_collecting": 1,
@@ -1046,6 +1139,7 @@
       "port": null,
       "quality_notes": "Live Emma personal-finance feed (net worth, balances, debt, txns). Recovered headless + migrated Mac-mini->personal 2026-06-14; container emma-mcp on personal-mcp-net; token store personal:~/emma-mcp/state/emma_tokens.json (0600, self-refresh). Backup feed = henryberliand@gmail Drive Emma-transactions sheet -> life.finance.emma_transactions.",
       "query_method": "mcphub-personal -> /mcp/emma -> emma_snapshot/totals/transactions/feed",
+      "recon_status": null,
       "reliability_rating": 5,
       "subcategory": "account-aggregator",
       "updated_at": "2026-06-14 00:09:42"
@@ -1067,6 +1161,7 @@
       "port": 8652,
       "quality_notes": "Honest-empty (HTTP 200/available:false if db missing, never 500); --self-test green; bare logged process -> /home/henry/work/factory/logs/govern-feed.log",
       "query_method": "curl http://127.0.0.1:8652/{health,act,decisions} (loopback-only, read-only over govern.db views)",
+      "recon_status": "live@aerodeck,aeros",
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-15 17:19:48"
@@ -1088,6 +1183,7 @@
       "port": 8951,
       "quality_notes": "PEP-PROBE 8/8 green; selftest WITH unwritable_log_deny=ok; aero-govern-status all-green",
       "query_method": "curl http://127.0.0.1:8951/status (loopback-only); CLI: aero-pep decide/selftest/status/check",
+      "recon_status": "live@aerodeck,aeros,personal,jiddlers",
       "reliability_rating": 5,
       "subcategory": "infra",
       "updated_at": "2026-06-15 21:50:46"
@@ -1109,6 +1205,7 @@
       "port": 3010,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3010 \u2014 aerodeck dev-design Next.js app; 401 'Unauthorised \u00b7 contact Henry' at / is HEALTHY (aerodeck-template auth middleware)",
+      "recon_status": "live@aerodeck,aeros",
       "reliability_rating": 0,
       "subcategory": "web-app",
       "updated_at": "2026-06-12 02:58:52"
@@ -1130,6 +1227,7 @@
       "port": 8922,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8922 \u2014 PRIMARY TTS backend for voice-tts-router; always-up ON-box Kokoro bm_george (~2.7s/chunk RTF~2.9x), self-heal proven; POST /tts {text,voice}->wav, GET /health",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 5,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
@@ -1151,6 +1249,7 @@
       "port": 443,
       "quality_notes": null,
       "query_method": "https://127.0.0.1:443 \u2014 aerodeck loopback HTTPS; 'Aerodeck Waitlist' Next.js app",
+      "recon_status": "live@aerodeck,aeros",
       "reliability_rating": 0,
       "subcategory": "web-app",
       "updated_at": "2026-06-12 02:58:52"
@@ -1172,6 +1271,7 @@
       "port": 4202,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:4202 \u2014 AerOS finance Cube.js on aerodeck (docker aeros-finance-cube, container :4000)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "analytics",
       "updated_at": "2026-06-15 23:16:29"
@@ -1193,6 +1293,7 @@
       "port": 5446,
       "quality_notes": null,
       "query_method": "postgres://100.74.200.84:5446 \u2014 AerOS finance Postgres on aerodeck (docker aeros-finance-pg, pgvector pg16)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
@@ -1214,6 +1315,7 @@
       "port": 3099,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3099 \u2014 'Flight Deck \u00b7 AerOS' Next.js app on aerodeck",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "web-app",
       "updated_at": "2026-06-12 02:58:52"
@@ -1235,6 +1337,7 @@
       "port": 45876,
       "quality_notes": null,
       "query_method": "tcp://*:45876 \u2014 beszel-agent system-metrics agent on aerodeck (dedicated `beszel` system user)",
+      "recon_status": "live@aerodeck,aeros,personal,jiddlers",
       "reliability_rating": 0,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
@@ -1256,6 +1359,7 @@
       "port": 8090,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8090 \u2014 beszel monitoring hub on aerodeck (docker beszel); NB aeros :8090 is a different service (nginx fleet.berl.ai legacy vhost)",
+      "recon_status": "live@aerodeck,aeros",
       "reliability_rating": 0,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
@@ -1277,6 +1381,7 @@
       "port": 4416,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:4416 \u2014 bgutil yt-dlp PO-token provider on aerodeck (docker bgutil-pot-provider)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "youtube-infra",
       "updated_at": "2026-06-12 02:58:52"
@@ -1298,6 +1403,7 @@
       "port": 8914,
       "quality_notes": null,
       "query_method": "HTTP API http://127.0.0.1:8914/api/v1/ (x-api-key in container datastore changedetection.json \u2014 never logged)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "marketing",
       "updated_at": "2026-06-12 11:14:32"
@@ -1319,6 +1425,7 @@
       "port": 8317,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8317 \u2014 Claude OAuth pool proxy on aerodeck (migrated off the Mac 2026-06-08; aeros :8318 sibling noted)",
+      "recon_status": "live@aerodeck,jiddlers",
       "reliability_rating": 5,
       "subcategory": "llm-routing",
       "updated_at": "2026-06-15 23:16:29"
@@ -1340,6 +1447,7 @@
       "port": 20242,
       "quality_notes": null,
       "query_method": "http://127.0.0.1:20242/metrics \u2014 aerodeck cloudflared tunnel metrics (go build_info answers)",
+      "recon_status": "STALE: port 20242 not live on any probed host @ 2026-06-18 06:17:15Z",
       "reliability_rating": 0,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
@@ -1361,6 +1469,7 @@
       "port": 14200,
       "quality_notes": null,
       "query_method": "tcp://127.0.0.1:14200 \u2014 aerodeck ssh -L forward to jiddlers Cube 127.0.0.1:4200",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "tunnel",
       "updated_at": "2026-06-15 23:16:29"
@@ -1382,6 +1491,7 @@
       "port": 2026,
       "quality_notes": "HARDENED 2026-06-11: stripped host docker.sock + ~/.claude + ~/.codex mounts from gateway; nginx bound to tailnet IP 100.74.200.84 ONLY (ufw opens all tailnet ports, so 0.0.0.0 would over-expose); LiteLLM key injected at deploy time, never at rest. Runs/threads persist to sqlite (.deer-flow/data/deerflow.db, WAL); langgraph cross-thread memory store is in-memory (lost on restart \u2014 acceptable for self-contained research jobs). Verified e2e: gateway->LiteLLM->claude-sonnet 200/pong.",
       "query_method": "http://100.74.200.84:2026 (tailnet-only via nginx; localhost NOT bound). API under /api/*",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
@@ -1403,6 +1513,7 @@
       "port": 3025,
       "quality_notes": null,
       "query_method": "https://sign.aerodeck.ai \u2014 Documenso e-sign (Remix), Dockerized on aerodeck (containers documenso + documenso-postgres on documenso-net), app :3025 / pg :5447",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 3,
       "subcategory": "e-sign",
       "updated_at": "2026-06-14 18:36:18"
@@ -1412,21 +1523,22 @@
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "category": "service",
-      "collecting_notes": "aerodeck ~/apps/gates-bot; notify endpoint for census drift alerts + wake-word forwarding; verified live 2026-06-11",
+      "collecting_notes": "aerodeck ~/apps/gates-bot (gates-bot service, detached PPID-1, server.py). HTTP gate API 0.0.0.0:8688 (ufw: tailscale0+loopback only, NOT public; X-Gates-Key on /ask /settle /claim /notify /retract; also the census-drift /notify + wake-word forward). CHAT_TRANSPORT=both since 2026-06-17: Telegram primary (poller, Henry chat) + RocketChat MIRROR. RC bridge (no-license workaround; RC 8.5 blocks paid Apps-Engine): chat.postMessage attachment action-buttons -> tap posts '!gate <data>' -> RC outgoing-webhook 'gates-bot rc-bridge (live)' on #aerodeck-gates -> aerodeck /rc-webhook (RC_WEBHOOK_TOKEN) -> settle(). Bang-commands !gate/!ans/!pending/!seat/!switch/!factory. RC mirror channel #aerodeck-gates (rid 6a32e9b0e710391305ec6df2) on aeros rocketchat:3200 via aerodeck:13200 tunnel. Verified e2e 2026-06-17; flip surface via CHAT_TRANSPORT in .env + restart.",
       "connection_type": "http",
       "db_path": null,
       "gaps_notes": null,
       "host": "aerodeck",
-      "human_owner": null,
+      "human_owner": "henry",
       "name": "gates-bot",
-      "namespace": "personal",
+      "namespace": "business",
       "owner": null,
       "port": 8688,
       "quality_notes": null,
-      "query_method": "http://127.0.0.1:8688/notify \u2014 aerodeck localhost only",
-      "reliability_rating": 0,
-      "subcategory": null,
-      "updated_at": "2026-06-15 23:16:29"
+      "query_method": "HTTP gate API aerodeck 0.0.0.0:8688 (X-Gates-Key); CoS approval gates mirror to Telegram + RC #aerodeck-gates",
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 4,
+      "subcategory": "comms",
+      "updated_at": "2026-06-17 19:02:26Z"
     },
     {
       "actively_collecting": 1,
@@ -1445,6 +1557,7 @@
       "port": 8088,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8088 \u2014 Gatus fleet status page on aerodeck (docker gatus, container :8080)",
+      "recon_status": "live@aerodeck,aeros",
       "reliability_rating": 0,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
@@ -1466,6 +1579,7 @@
       "port": 8000,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8000 \u2014 Healthchecks cron-monitoring on aerodeck (docker healthchecks)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
@@ -1487,6 +1601,7 @@
       "port": 3003,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3003 \u2014 Langfuse web UI/API on aerodeck (containers langfuse-web/-worker/-db/-redis/-clickhouse/-minio)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
@@ -1508,6 +1623,7 @@
       "port": 3080,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3080 \u2014 LibreChat web UI on aerodeck (docker LibreChat; Mongo sidecar unpublished)",
+      "recon_status": "STALE: port 3080 not live on any probed host @ 2026-06-18 06:17:15Z",
       "reliability_rating": 0,
       "subcategory": "chat-ui",
       "updated_at": "2026-06-15 23:16:29"
@@ -1529,6 +1645,7 @@
       "port": 8080,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8080 \u2014 ntfy push-notification relay on aerodeck (docker ntfy, container :80)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "notifications",
       "updated_at": "2026-06-12 02:58:52"
@@ -1550,6 +1667,7 @@
       "port": 5055,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:5055 \u2014 Open Notebook API on aerodeck (docker on-app; surrealdb sidecar unpublished)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "research",
       "updated_at": "2026-06-12 02:58:52"
@@ -1571,6 +1689,7 @@
       "port": 8502,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8502 \u2014 Open Notebook Streamlit UI on aerodeck (docker on-app)",
+      "recon_status": "live@aerodeck,personal",
       "reliability_rating": 0,
       "subcategory": "research",
       "updated_at": "2026-06-12 02:58:52"
@@ -1592,6 +1711,7 @@
       "port": 5455,
       "quality_notes": null,
       "query_method": "postgres://100.74.200.84:5455 \u2014 Sim Studio Postgres on aerodeck (docker sim-db-1, pgvector pg17)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
@@ -1613,6 +1733,7 @@
       "port": 3034,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3034 \u2014 Sim Studio realtime service on aerodeck (docker sim-realtime-1, container :3002)",
+      "recon_status": "live@aerodeck,aeros",
       "reliability_rating": 0,
       "subcategory": "workflow",
       "updated_at": "2026-06-12 02:58:52"
@@ -1634,6 +1755,7 @@
       "port": 3033,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3033 \u2014 Sim Studio web UI on aerodeck (docker sim-simstudio-1, container :3000)",
+      "recon_status": "live@aerodeck,aeros",
       "reliability_rating": 0,
       "subcategory": "workflow",
       "updated_at": "2026-06-12 02:58:52"
@@ -1655,6 +1777,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3000 \u2014 steel-browser API on aerodeck (docker steel-browser; NB aerodeck :3000 is NOT a hub \u2014 the hubs are aeros/personal :3000)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "browser-infra",
       "updated_at": "2026-06-12 02:58:52"
@@ -1676,6 +1799,7 @@
       "port": 9222,
       "quality_notes": null,
       "query_method": "tcp://100.74.200.84:9222 \u2014 steel-browser Chrome DevTools Protocol door on aerodeck",
+      "recon_status": "live@aerodeck,personal",
       "reliability_rating": 0,
       "subcategory": "browser-infra",
       "updated_at": "2026-06-12 02:58:52"
@@ -1697,6 +1821,7 @@
       "port": 9123,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:9123 \u2014 trigger.dev ClickHouse HTTP on aerodeck (docker trigger-clickhouse-1, container :8123)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
@@ -1718,6 +1843,7 @@
       "port": 9192,
       "quality_notes": null,
       "query_method": "tcp://100.74.200.84:9192 \u2014 trigger.dev ClickHouse native protocol on aerodeck (docker trigger-clickhouse-1, container :9000)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
@@ -1739,6 +1865,7 @@
       "port": 9050,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:9050 \u2014 trigger.dev MinIO S3 API on aerodeck (docker trigger-minio-1, container :9000)",
+      "recon_status": "live@aerodeck,personal",
       "reliability_rating": 0,
       "subcategory": "storage",
       "updated_at": "2026-06-15 23:16:29"
@@ -1760,6 +1887,7 @@
       "port": 9052,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:9052 \u2014 trigger.dev MinIO console on aerodeck (docker trigger-minio-1, container :9001)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "storage",
       "updated_at": "2026-06-15 23:16:29"
@@ -1781,6 +1909,7 @@
       "port": 5444,
       "quality_notes": null,
       "query_method": "postgres://100.74.200.84:5444 \u2014 trigger.dev Postgres on aerodeck (docker trigger-postgres-1, pg14)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
@@ -1802,6 +1931,7 @@
       "port": 6390,
       "quality_notes": null,
       "query_method": "redis://100.74.200.84:6390 \u2014 trigger.dev Redis on aerodeck (docker trigger-redis-1, container :6379)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
@@ -1823,6 +1953,7 @@
       "port": 5050,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:5050 \u2014 trigger.dev docker image registry on aerodeck (docker trigger-registry-1, registry:2)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "workflow",
       "updated_at": "2026-06-12 02:58:52"
@@ -1844,6 +1975,7 @@
       "port": 8030,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8030 \u2014 trigger.dev v4-beta webapp on aerodeck (docker trigger-webapp-1, container :3000)",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
       "subcategory": "workflow",
       "updated_at": "2026-06-12 02:58:52"
@@ -1865,6 +1997,7 @@
       "port": 7681,
       "quality_notes": "RETIRED per GOVERNANCE-DECISIONS-20260612.md \u00a716 ruling 7 (Henry): systemd ttyd.service disabled+stopped (unit kept, drop-in .bak cc-workspace.conf.bak-pre-retire-20260612), CF route cc.aerodeck.ai removed from tunnel 5ddaa304 (config v11->v12, .bak /home/henry/work/aerodeck/cf-tunnel-5ddaa304-config.bak-pre-ttyd-retire-20260612.json). Reversible. verified 2026-06-12",
       "query_method": "RETIRED 2026-06-12 (was http://127.0.0.1:7681 web terminal)",
+      "recon_status": "live@personal",
       "reliability_rating": 0,
       "subcategory": "terminal",
       "updated_at": "2026-06-12 02:58:52"
@@ -1886,6 +2019,7 @@
       "port": 8921,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8921",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 3,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
@@ -1907,6 +2041,7 @@
       "port": 8919,
       "quality_notes": null,
       "query_method": "127.0.0.1:8919 \u2014 headless claude -p daemon (loopback-only); reaches tmux via tmux-bridge :8282",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
@@ -1928,6 +2063,7 @@
       "port": 8920,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8920 \u2014 live-call front-end",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 3,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
@@ -1949,6 +2085,7 @@
       "port": 8917,
       "quality_notes": null,
       "query_method": "POST http://100.74.200.84:8917 \u2014 routes to whisper backends per stt_backends.json",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
@@ -1970,6 +2107,7 @@
       "port": 8918,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8918 \u2014 PRIMARY aerodeck-local-kokoro :8922 (on-box bm_george, always-up) -> failover mally/henry-kokoro :8912 (SAME voice, inaudible switch) -> Higgs :8911 / qwen3 :8909 deep failover (different voice), per tts_backends.json",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
@@ -1991,6 +2129,7 @@
       "port": 40000,
       "quality_notes": null,
       "query_method": "tcp://127.0.0.1:40000 \u2014 Cloudflare WARP daemon local API on aerodeck (HTTP probe answers 502 = alive)",
+      "recon_status": "live@aerodeck,personal",
       "reliability_rating": 0,
       "subcategory": "networking",
       "updated_at": "2026-06-15 23:16:29"
@@ -2012,6 +2151,7 @@
       "port": 8771,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8771 \u2014 local whisper STT backend",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 3,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
@@ -2033,6 +2173,7 @@
       "port": null,
       "quality_notes": "[telegram-bot] Miranda Hermes profile gateway (BerlAI-internal) - read-only CoS surface",
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
       "updated_at": "2026-06-15 15:45:28"
@@ -2054,9 +2195,10 @@
       "port": null,
       "quality_notes": "[telegram-bot] Mally's business chief-of-staff bot - business CoS surface to Mally's Telegram",
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
-      "updated_at": "2026-06-17 09:46:12"
+      "updated_at": "2026-06-17 22:48:08"
     },
     {
       "actively_collecting": 1,
@@ -2075,6 +2217,7 @@
       "port": null,
       "quality_notes": "One-way read-only mirror of the anti-slop canon (691 say-this-instead pairs) + humanize benchmark log, for prod query + plan.aero surfacing. Source of truth stays the aerodeck git repo.",
       "query_method": "read-only SQL; refreshed by export_to_pg.py",
+      "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
       "updated_at": "2026-06-14 10:46:08"
@@ -2096,6 +2239,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
@@ -2117,6 +2261,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/deep-research-fanout",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 3,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
@@ -2138,6 +2283,7 @@
       "port": 8440,
       "quality_notes": null,
       "query_method": "/mcp/deep-research-search on Hub-Aerodeck :3001 (shadow); backend aeros 100.64.135.5:8440",
+      "recon_status": "live@aerodeck,aeros,jiddlers",
       "reliability_rating": 0,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
@@ -2159,6 +2305,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/gpt-researcher",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 4,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
@@ -2180,6 +2327,7 @@
       "port": 3000,
       "quality_notes": "Holds LIFE PII at rest on business box \u2014 open item M4 (scrub/tenant-allowlist or move to personal host).",
       "query_method": "http://100.64.135.5:3000/mcp/hermes-memory",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
@@ -2201,6 +2349,7 @@
       "port": 8427,
       "quality_notes": null,
       "query_method": "GET http://100.64.135.5:8427/history-search?q=&k= \u2014 direct on aeros, NOT behind any hub; /health for liveness",
+      "recon_status": "live@aeros",
       "reliability_rating": 4,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
@@ -2222,6 +2371,7 @@
       "port": 3000,
       "quality_notes": "Mounts telegram.db (personal) \u2014 NOT movable to business surfaces (D5 skeptic finding).",
       "query_method": "http://100.64.135.5:3000/mcp/ms-query",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "personal",
       "updated_at": "2026-06-10 16:41:37"
@@ -2243,6 +2393,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/playwright",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
@@ -2264,6 +2415,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/plex-mcp",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "personal",
       "updated_at": "2026-06-10 16:41:37"
@@ -2285,6 +2437,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/rewoo-wrapper",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "AI",
       "updated_at": "2026-06-15 23:16:29"
@@ -2306,6 +2459,7 @@
       "port": 3000,
       "quality_notes": "ZOMBIE 2026-06-11: aeros hub serves cached tool list but backend :8429 is connection-refused \u2014 tool calls fail. Restart rewoo-wrapper2 on aeros (Henry-gated), then re-probe with a real tool call (rewoo_health), not just tools/list.",
       "query_method": "http://100.64.135.5:3000/mcp/rewoo-wrapper2",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "AI",
       "updated_at": "2026-06-15 23:16:29"
@@ -2327,6 +2481,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/uk-transport",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
@@ -2348,6 +2503,7 @@
       "port": 3000,
       "quality_notes": "Business vault hybrid search (Henry vault + Mally Neuron_forest mirrors). On all three hubs, all probed OK 2026-06-11.",
       "query_method": "/mcp/vault-search on ALL THREE hubs (Hub-AerOS :3000, Hub-Aerodeck :3001, Hub-Personal :3000); canonical backend aeros 100.64.135.5:8439 (local hub points straight at it); second instance on personal :8439",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
@@ -2369,6 +2525,7 @@
       "port": 3000,
       "quality_notes": "AEROS production hub (container mcphub, samanhappy). 20 enabled servers incl. granola/otter hosted MCPs, google-*, ms365, vault-search. NOTE: ~/CLAUDE.md historically called this \"mcphub-aerodeck\" \u2014 do not confuse with Hub-Aerodeck :3001. [2026-06-14: cleaned to 13 live (10 dead removed); KEPT lean as estate home, NOT retired; shadows proxy it for estate tools.]",
       "query_method": "http://100.64.135.5:3000/mcp (or /mcp/<server>) \u2014 aeros hub, bearer auth (fleet secret mcphub-bearer)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 3,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
@@ -2390,6 +2547,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "hermes",
       "updated_at": "2026-06-15 23:16:29"
@@ -2411,15 +2569,38 @@
       "port": null,
       "quality_notes": null,
       "query_method": "sqlite3 (host-side, ro)",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "business-core",
       "updated_at": "2026-06-15 23:16:29"
     },
     {
       "actively_collecting": 1,
+      "aerodeck_enabled": 0,
+      "aerodeck_scope": "business",
+      "category": "intelligence",
+      "collecting_notes": "Company Brain capture producer cron family on aeros: brain-capture-batch plus source producers; verified 2026-06-17 via aeros crontab and company_brain row growth surfaces.",
+      "connection_type": "cron-producer",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aeros",
+      "human_owner": null,
+      "name": "company-brain-capture-producer",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": "Registered by codex-infra for brain-audit card kt_1781716484598_be030a; live recall/store verified separately.",
+      "query_method": "ssh aeros crontab -l | grep brain; scripts under /home/ubuntu/apps/company-brain-dev/brain-capture*.py|sh write to company_brain",
+      "recon_status": "verified",
+      "reliability_rating": 4,
+      "subcategory": "company-brain",
+      "updated_at": "2026-06-17 17:42:01"
+    },
+    {
+      "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
-      "category": "intelligence",
+      "category": "service",
       "collecting_notes": "host=aeros brain-mcp.service bind 0.0.0.0:8459 (allowed-hosts); reached at 172.29.0.1:8459 (aeros hub) / 100.64.135.5:8459 (shadow hub)",
       "connection_type": "streamable-http",
       "db_path": null,
@@ -2432,15 +2613,16 @@
       "port": 8459,
       "quality_notes": null,
       "query_method": "MCP brain_recall via mcphub-aerodeck / aeros hub",
+      "recon_status": "live@aeros",
       "reliability_rating": 0,
       "subcategory": "company-brain",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-17 17:57:02"
     },
     {
       "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
-      "category": "intelligence",
+      "category": "service",
       "collecting_notes": "host=aeros brain-recall-api.service; reached cross-host via ssh aeros or the /brain skill",
       "connection_type": "http",
       "db_path": null,
@@ -2453,15 +2635,16 @@
       "port": 8647,
       "quality_notes": null,
       "query_method": "GET http://127.0.0.1:8647/recall?q=",
+      "recon_status": "live@aeros,jiddlers",
       "reliability_rating": 0,
       "subcategory": "company-brain",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-17 17:57:02"
     },
     {
       "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
-      "category": "intelligence",
+      "category": "service",
       "collecting_notes": "host=aeros docker brain-pg-dev 127.0.0.1:5441",
       "connection_type": "postgres",
       "db_path": null,
@@ -2474,9 +2657,10 @@
       "port": 5441,
       "quality_notes": null,
       "query_method": "docker exec brain-pg-dev psql -d company_brain",
+      "recon_status": "live@aeros",
       "reliability_rating": 0,
       "subcategory": "company-brain",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-17 17:57:02"
     },
     {
       "actively_collecting": 1,
@@ -2495,6 +2679,7 @@
       "port": 4000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:4000 \u2014 fleet LLM router on aeros (socat front to localhost litellm; SpendLogs in litellm-db :5433)",
+      "recon_status": "live@aeros,personal",
       "reliability_rating": 5,
       "subcategory": "llm-routing",
       "updated_at": "2026-06-15 23:16:29"
@@ -2504,7 +2689,7 @@
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "category": "service",
-      "collecting_notes": "aeros; Rocket.Chat Community v8.5 (ARM-native), docker rocketchat (127.0.0.1:3200->3000) + rocketchat-mongo (127.0.0.1:27017, rs0); data /mnt/data/rocketchat; public chat.aerodeck.ai via aeros CF tunnel e26976ad-fdb2-4c41-9af9-5bf3a75a0128 (aeros nginx -> localhost:3200). FIREHOSE rc-recorder.service = PAUSED/leak-blocked (inactive+disabled on aeros, stopped 2026-06-15 21:10; was record-everything -> aerodeck.embeddings bge-m3 source_db=rocketchat domain=business; DO NOT re-enable = LIFE-leak). email-2FA disabled + Mally/Jack per-user cleared 2026-06-14; admin .env pass STALE so use Mongo for admin ops; verified live 2026-06-15.",
+      "collecting_notes": "aeros; Rocket.Chat Community v8.5 (ARM-native), docker rocketchat (127.0.0.1:3200->3000) + rocketchat-mongo (127.0.0.1:27017, rs0); data /mnt/data/rocketchat; public chat.aerodeck.ai via aeros CF tunnel e26976ad-fdb2-4c41-9af9-5bf3a75a0128 (aeros nginx -> localhost:3200). FIREHOSE rc-recorder.service = PAUSED/leak-blocked (inactive+disabled on aeros, stopped 2026-06-15 21:10; was record-everything -> aerodeck.embeddings bge-m3 source_db=rocketchat domain=business; DO NOT re-enable = LIFE-leak). email-2FA disabled + Mally/Jack per-user cleared 2026-06-14; admin .env pass STALE so use Mongo for admin ops; verified live 2026-06-15. | gates-bot RC bridge 2026-06-17: gates-bot (aerodeck:8688, CHAT_TRANSPORT=both) mirrors CoS approval gates to #aerodeck-gates here; taps post !gate -> outgoing-webhook 'gates-bot rc-bridge (live)' -> aerodeck /rc-webhook -> settle. See connection 'gates-bot'.",
       "connection_type": "http",
       "db_path": null,
       "gaps_notes": null,
@@ -2516,18 +2701,19 @@
       "port": 3200,
       "quality_notes": null,
       "query_method": "https://chat.aerodeck.ai \u2014 Rocket.Chat team chat (Mally agency), aeros nginx -> localhost:3200; Mongo rs0 :27017",
+      "recon_status": "live@aeros",
       "reliability_rating": 3,
       "subcategory": "comms",
-      "updated_at": "2026-06-15 23:16:06"
+      "updated_at": "2026-06-17 19:00:25Z"
     },
     {
       "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "category": "MCP",
-      "collecting_notes": "jiddlers box; member of Hub-Jiddlers; $smart-indexed",
+      "collecting_notes": "jiddlers box; member of Hub-Jiddlers; $smart-indexed verified 2026-06-17: canonical bronze is jiddlers:/home/ubuntu/data/sqlite/shared/jiddlers/live.db on jiddlers VM 100.117.36.88; aeros-side collection retired.",
       "connection_type": "http",
-      "db_path": null,
+      "db_path": "jiddlers:/home/ubuntu/data/sqlite/shared/jiddlers/live.db",
       "gaps_notes": null,
       "host": "jiddlers",
       "human_owner": "Jacob Liddle",
@@ -2537,9 +2723,10 @@
       "port": 8646,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": "live@jiddlers",
       "reliability_rating": 4,
       "subcategory": "client",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-17 11:06:19"
     },
     {
       "actively_collecting": 0,
@@ -2558,6 +2745,7 @@
       "port": 3019,
       "quality_notes": "Origin of jiddlers.aeros-app.ai (CF remote tunnel oracle-main -> 100.117.36.88:3019). Docker container jiddlers-os on the jiddlers box, image jiddlers-os:template-v1.0.0 (tag template-v1.0.0 = 6db9900, monorepo apps/jiddlers + @aerodeck/template-core 1.0.0), deployed 2026-06-11 card kt_1781182557299_6b5d05. Build source on-box: ~/apps/aerodeck-template-v1.0.0 (shipped tag tree) + Dockerfile.jiddlers; legacy git-less snapshot ~/apps/aerodeck-template retained (mounted .env.local source + history). Rollback: jiddlers-os:bak-pre-template-v1-20260611 / jiddlers-os:snapshot-pre-template-v1-20260611 + ~/jiddlers-os-runargs.bak-20260611.json. Runs --user 1001:1001, restart unless-stopped.",
       "query_method": null,
+      "recon_status": "live@jiddlers",
       "reliability_rating": 0,
       "subcategory": "client",
       "updated_at": "2026-06-15 23:16:29"
@@ -2579,9 +2767,32 @@
       "port": 3001,
       "quality_notes": "Verified live 2026-06-11: hub answers on jiddlers loopback :3001; serves 1 enabled server (jiddlers-live). Not reachable over Tailscale yet \u2014 hardening task open.",
       "query_method": "http://127.0.0.1:3001/mcp on the jiddlers box (container mcphub-jiddlers; loopback-only \u2014 reach via ssh jiddlers; bearer auth pending)",
+      "recon_status": "live@aerodeck,personal,jiddlers",
       "reliability_rating": 4,
       "subcategory": "client",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": 0,
+      "aerodeck_scope": "private",
+      "category": "MCP",
+      "collecting_notes": null,
+      "connection_type": "mcphub-server (business hub)",
+      "db_path": null,
+      "gaps_notes": "Unofficial scraper -> LinkedIn ToS / account-ban risk EXPLICITLY accepted by Henry 2026-06-17. send_message + connect_with_person are destructiveHint write ops (client-confirm). Server wedges if bound to a tailnet IP -> must bind loopback + SSH tunnel (do not re-point at 100.89.244.20). Depends on Mini being awake (caffeinate asserts no-sleep) and the aerodeck tunnel service.",
+      "host": "mac-mini",
+      "human_owner": "henry",
+      "name": "linkedin",
+      "namespace": "business",
+      "owner": "henry",
+      "port": 8782,
+      "quality_notes": "stickerdaniel/linkedin-mcp-server (unofficial, FastMCP 3.4.2). Runs on Henry Mac Mini (residential/mobile IP, Three UK London) so LinkedIn sees a residential egress, not aerodeck datacenter. Login one-time interactive 2026-06-17; session persists. NO personal LinkedIn data at rest on aerodeck (only the loopback tunnel).",
+      "query_method": "mcphub-aerodeck -> linkedin-* (17 tools). Path: hub container -> http://host.docker.internal:8782/mcp -> aerodeck SSH tunnel (systemd --user linkedin-mcp-tunnel: 172.17.0.1:8782 -> mac-mini 127.0.0.1:8783) -> launchd ai.aerodeck.linkedin-mcp (headless Patchright, caffeinate, KeepAlive).",
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 4,
+      "subcategory": "comms",
+      "updated_at": "2026-06-17 19:29:16"
     },
     {
       "actively_collecting": 0,
@@ -2600,6 +2811,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": "ssh mac-mini:/Users/hberliand/staging/ \u2014 Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited routing (LIFE->personal, business->aeros). No listening port; reached over Tailscale SSH.",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "customs-house",
       "updated_at": "2026-06-14 03:55:51"
@@ -2621,6 +2833,7 @@
       "port": null,
       "quality_notes": "[telegram-bot] BerlosCoS - Henry's LIFE chief-of-staff bot on the personal host",
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
       "updated_at": "2026-06-15 22:45:23"
@@ -2642,9 +2855,10 @@
       "port": null,
       "quality_notes": "[telegram-bot] Henry personal Hermes voice bridge - voice-to-CoS relay on the personal host",
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
-      "updated_at": "2026-06-17 09:46:12"
+      "updated_at": "2026-06-17 22:48:08"
     },
     {
       "actively_collecting": 0,
@@ -2663,6 +2877,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
@@ -2684,6 +2899,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
@@ -2705,6 +2921,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
@@ -2726,6 +2943,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
@@ -2747,6 +2965,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
@@ -2768,6 +2987,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
@@ -2789,9 +3009,32 @@
       "port": null,
       "quality_notes": null,
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": 1,
+      "aerodeck_scope": "business",
+      "category": "MCP",
+      "collecting_notes": "Business Google Workspace Gmail for henry@aerodeck.ai. Container gmail-aerodeck-mcp on personal-mcp-net, personal hub row gmail-aerodeck.",
+      "connection_type": "mcphub-server (personal)",
+      "db_path": null,
+      "gaps_notes": "Drive/Calendar/Sheets for aerodeck.ai still need separate enablement/ToS if required; per-server path through local shadow returns 0 but smart root exposes the tools.",
+      "host": "personal",
+      "human_owner": null,
+      "name": "gmail-aerodeck",
+      "namespace": "business",
+      "owner": null,
+      "port": 8543,
+      "quality_notes": "Verified 2026-06-17: direct MCP tools/list=19; personal hub per-server tools/list=19; aerodeck local shadow root exposes 19 personal-gmail-aerodeck-* tools.",
+      "query_method": "direct http://100.99.185.36:8543/mcp; personal hub http://100.99.185.36:3000/mcp/gmail-aerodeck; aerodeck shadow root exposes personal-gmail-aerodeck-* tools",
+      "recon_status": "live@personal",
+      "reliability_rating": 4,
+      "subcategory": "comms",
+      "updated_at": "2026-06-17 22:53:34"
     },
     {
       "actively_collecting": 1,
@@ -2810,6 +3053,7 @@
       "port": 3000,
       "quality_notes": "Gmail send. Account scope unverified \u2014 reconcile during estate rebuild.",
       "query_method": "http://100.99.185.36:3000/mcp/gmail-send (PERSONAL hub \u2014 the only working route)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "comms",
       "updated_at": "2026-06-15 23:16:29"
@@ -2831,6 +3075,7 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-calendar (PERSONAL hub \u2014 the only working route)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "personal",
       "updated_at": "2026-06-11 01:50:06"
@@ -2852,6 +3097,7 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-drive (PERSONAL hub \u2014 the only working route)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "personal",
       "updated_at": "2026-06-11 01:50:06"
@@ -2873,6 +3119,7 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-sheets (PERSONAL hub \u2014 the only working route)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "personal",
       "updated_at": "2026-06-11 01:50:06"
@@ -2894,6 +3141,7 @@
       "port": 8651,
       "quality_notes": "Minimal stdlib+starlette+uvicorn replica of business kanban-mcp tasks store (NO fastmcp dep on personal). Same tasks schema. LIFE estate, never the aerodeck business board.",
       "query_method": "http://127.0.0.1:8651/mcp (personal host, loopback/tailnet-only) \u2014 JSON-RPC tools/call; HTTP /health, /board.json",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 5,
       "subcategory": "personal",
       "updated_at": "2026-06-15 23:16:29"
@@ -2915,6 +3163,7 @@
       "port": 8542,
       "quality_notes": null,
       "query_method": "http://100.99.185.36:8542/mcp \u2014 streamable-HTTP MCP on PERSONAL (Tailscale-only bind); health probe: ssh personal '~/bin/memory-mcp-status'",
+      "recon_status": "live@personal",
       "reliability_rating": 0,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
@@ -2936,6 +3185,7 @@
       "port": 3000,
       "quality_notes": "Mixed-estate caveat (M5-adjacent): custody/divorce toolkits seen in container set.",
       "query_method": "http://100.99.185.36:3000/mcp/ms365 (PERSONAL hub \u2014 the only working route)",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "personal",
       "updated_at": "2026-06-11 01:50:06"
@@ -2957,6 +3207,7 @@
       "port": 3001,
       "quality_notes": "LID GOTCHA: WhatsApp LID migration (~2026-06-02) split DM threads \u2014 inbound lands under <n>@lid chat_jids, outbound under <phone>@s.whatsapp.net. Mally inbound = chat_jid 202610988593344@lid (NOT 447481839911@s.whatsapp.net). Resolve LID<->phone via personal:/home/ubuntu/data/sqlite/personal/identity-index.db (whatsapp-identity-sync, 4x/day). Watchdog: whatsapp-capture-watchdog (5 checks incl. replica-lag + LID-divergence since 2026-06-12).",
       "query_method": "MCP (Streamable HTTP) at http://100.99.185.36:3001/mcp \u2014 this is an MCP server, NOT REST. Tools incl. send_message + read_messages; read_messages takes chat_jid (NOT jid). Host-specific port: personal :3001 = WhatsApp send bridge; aerodeck 127.0.0.1:3001 = shadow hub \u2014 never confuse.",
+      "recon_status": "live@aerodeck,personal,jiddlers",
       "reliability_rating": 0,
       "subcategory": "whatsapp",
       "updated_at": "2026-06-15 23:16:29"
@@ -2978,6 +3229,7 @@
       "port": 3000,
       "quality_notes": "LIFE hub on the personal host. Verified answering 2026-06-10.",
       "query_method": "http://100.99.185.36:3000/mcp \u2014 personal (LIFE) hub, bearer auth, Tailscale-only",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "personal",
       "updated_at": "2026-06-09 19:28:47"
@@ -2999,6 +3251,7 @@
       "port": 3002,
       "quality_notes": "Built 2026-06-14 symmetric shadows; /home/ubuntu/apps/personal-business-shadow.",
       "query_method": "http://127.0.0.1:3002/mcp on the personal host (container personal-business-shadow) \u2014 proxies aerodeck business :3001 (tailnet); bearer personal-business-seat. Personal-side seats reach BUSINESS here.",
+      "recon_status": "live@aerodeck,aeros,personal",
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
@@ -3020,6 +3273,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": null,
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "personal",
       "updated_at": "2026-06-09 19:28:47"
@@ -3041,6 +3295,7 @@
       "port": null,
       "quality_notes": "Inbound DMs split under @lid chat_jids since ~2026-06-02 (LID migration). Mally = 202610988593344@lid.",
       "query_method": "Do NOT open with sqlite3 on the host while the bridge runs \u2014 query in-container (docker exec personal-whatsapp-mcp node + better-sqlite3 readonly) or via the MCP servers. messages table: chat_jid, sender_jid, from_me, timestamp (unix s), text_content.",
+      "recon_status": null,
       "reliability_rating": 0,
       "subcategory": "whatsapp",
       "updated_at": "2026-06-15 23:16:29"
@@ -3062,6 +3317,7 @@
       "port": 2283,
       "quality_notes": null,
       "query_method": "http://100.99.185.36:2283/api/server/ping \u2014 Immich v2.7.5 on personal (Docker Compose at /opt/immich)",
+      "recon_status": "live@personal",
       "reliability_rating": 4,
       "subcategory": "photos",
       "updated_at": "2026-06-11 21:59:34"
@@ -3197,6 +3453,48 @@
     {
       "backup_target": null,
       "canonical": 1,
+      "created_at": "2026-06-17 11:00:39",
+      "dashboard_surface": "aeros",
+      "engine": "sqlite",
+      "expected_freq": null,
+      "host": "aeros",
+      "id": "aeros-shared-sqlite",
+      "last_backup": null,
+      "last_seen": "2026-06-17 11:00:39",
+      "machine_id": "aeros",
+      "medallion_tier": null,
+      "name": "aeros-shared-sqlite",
+      "owner": "Aerodeck",
+      "path": "/home/ubuntu/data/sqlite/shared/aeros.db",
+      "row_count": null,
+      "size_bytes": 658882560,
+      "updated_at": "2026-06-17 11:00:39",
+      "writer_host": null
+    },
+    {
+      "backup_target": null,
+      "canonical": 1,
+      "created_at": "2026-06-17 11:00:39",
+      "dashboard_surface": "factory",
+      "engine": "sqlite",
+      "expected_freq": null,
+      "host": "aeros",
+      "id": "agentic-shared-sqlite",
+      "last_backup": null,
+      "last_seen": "2026-06-17 11:00:39",
+      "machine_id": "aeros",
+      "medallion_tier": null,
+      "name": "agentic-shared-sqlite",
+      "owner": "Aerodeck",
+      "path": "/home/ubuntu/data/sqlite/shared/agentic.db",
+      "row_count": null,
+      "size_bytes": 17182720,
+      "updated_at": "2026-06-17 11:00:39",
+      "writer_host": null
+    },
+    {
+      "backup_target": null,
+      "canonical": 1,
       "created_at": "2026-06-17 10:24:31",
       "dashboard_surface": "private",
       "engine": "postgres",
@@ -3213,6 +3511,48 @@
       "row_count": null,
       "size_bytes": null,
       "updated_at": "2026-06-17 10:32:29",
+      "writer_host": null
+    },
+    {
+      "backup_target": null,
+      "canonical": 1,
+      "created_at": "2026-06-17 11:00:39",
+      "dashboard_surface": "company-brain",
+      "engine": "sqlite",
+      "expected_freq": null,
+      "host": "aeros",
+      "id": "company-brain-meetings-gold",
+      "last_backup": null,
+      "last_seen": "2026-06-17 11:00:39",
+      "machine_id": "aeros",
+      "medallion_tier": null,
+      "name": "company-brain-meetings-gold",
+      "owner": "Aerodeck",
+      "path": "/home/ubuntu/apps/company-brain-dev/meetings-gold.db",
+      "row_count": null,
+      "size_bytes": 29298688,
+      "updated_at": "2026-06-17 11:00:39",
+      "writer_host": null
+    },
+    {
+      "backup_target": null,
+      "canonical": 1,
+      "created_at": "2026-06-17 11:00:39",
+      "dashboard_surface": "jiddlers",
+      "engine": "sqlite",
+      "expected_freq": null,
+      "host": "aeros",
+      "id": "jiddlers-live-sqlite",
+      "last_backup": null,
+      "last_seen": "2026-06-17 11:00:39",
+      "machine_id": "aeros",
+      "medallion_tier": null,
+      "name": "jiddlers-live-sqlite",
+      "owner": "Aerodeck",
+      "path": "/home/ubuntu/data/sqlite/shared/jiddlers/live.db",
+      "row_count": null,
+      "size_bytes": 223289344,
+      "updated_at": "2026-06-17 11:00:39",
       "writer_host": null
     },
     {
@@ -3279,7 +3619,7 @@
       "writer_host": null
     }
   ],
-  "generated_at": "2026-06-17T10:43:15+00:00",
+  "generated_at": "2026-06-18T06:27:43+00:00",
   "machines": [
     {
       "created_at": "2026-06-11 10:20:41",
@@ -3483,6 +3823,18 @@
       "what_it_scans": "Host system metrics (CPU/mem/disk/net/docker stats). beszel = hub container (henrygd/beszel), beszel-agent.service = the local collector daemon (/usr/bin/beszel-agent)"
     },
     {
+      "id": "aerodeck:brain-recall-watchdog",
+      "invokes": "brain_recall on http://100.64.135.5:8460/mcp",
+      "kind": "watchdog",
+      "llm_bearing": 1,
+      "machine_id": "aerodeck",
+      "name": "brain-recall-watchdog",
+      "schedule": "systemd --user timer: OnUnitActiveSec=10min (OnBootSec=3min)",
+      "source_path": "/home/henry/bin/aero-brain-recall-watchdog.sh",
+      "status": "active",
+      "what_it_scans": "Company Brain recall API (brain_recall MCP, aeros :8460) for intermittent HTTP 500 / silent read failure"
+    },
+    {
       "id": "aerodeck:cloudflared-update-timer",
       "invokes": "Local only: cloudflared update check. No LLM, no tokens.",
       "kind": "systemd-timer",
@@ -3683,7 +4035,7 @@
       "name": "henry cron: registry-reconcile.py",
       "schedule": "17 */2 * * *",
       "source_path": null,
-      "status": "active",
+      "status": "gone",
       "what_it_scans": null
     },
     {
