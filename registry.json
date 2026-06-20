@@ -21,7 +21,7 @@
       "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 06:07:58"
+      "updated_at": "2026-06-20 09:11:08"
     },
     {
       "actively_collecting": 1,
@@ -67,7 +67,7 @@
       "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 06:07:58"
+      "updated_at": "2026-06-20 09:11:08"
     },
     {
       "actively_collecting": 1,
@@ -90,7 +90,7 @@
       "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 06:07:58"
+      "updated_at": "2026-06-20 09:11:08"
     },
     {
       "actively_collecting": 1,
@@ -137,6 +137,29 @@
       "reliability_rating": 0,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": 1,
+      "aerodeck_scope": "business",
+      "architecture_significant": 0,
+      "category": "Dashboard",
+      "collecting_notes": "Aerodeck Factory Audit/AerLock panel on 127.0.0.1:8772. Health endpoint /health; status endpoint /api/status; surfaces nightly independent audit sweeps and board findings. Exact row added 2026-06-20 for kt_1781940199276_96d6cf; broad legacy row is Audit-Lane-Panel.",
+      "connection_type": "http",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": null,
+      "name": "aerlock-panel",
+      "namespace": "business",
+      "owner": null,
+      "port": 8772,
+      "quality_notes": "Live local stdlib Python HTTP panel; verified healthy before registration.",
+      "query_method": "curl http://127.0.0.1:8772/health; curl http://127.0.0.1:8772/api/status",
+      "recon_status": null,
+      "reliability_rating": 4,
+      "subcategory": "factory-audit",
+      "updated_at": "2026-06-20 07:26:41"
     },
     {
       "actively_collecting": 1,
@@ -876,6 +899,29 @@
     },
     {
       "actively_collecting": 1,
+      "aerodeck_enabled": 1,
+      "aerodeck_scope": "business",
+      "architecture_significant": 0,
+      "category": "Scheduled Job",
+      "collecting_notes": "Nightly independent audit sweep feeding the aerlock-panel/Audit-Lane-Panel state under /home/henry/work/factory/audit-lane/state. Registered as an exact searchable row 2026-06-20 for kt_1781940199276_96d6cf.",
+      "connection_type": "cron",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": null,
+      "name": "nightly-sweep",
+      "namespace": "business",
+      "owner": null,
+      "port": 8772,
+      "quality_notes": "Last live panel status showed code/factory/cloud lane run timestamps and board reachability.",
+      "query_method": "curl http://127.0.0.1:8772/api/status and inspect lanes.*.last_run",
+      "recon_status": null,
+      "reliability_rating": 4,
+      "subcategory": "factory-audit",
+      "updated_at": "2026-06-20 07:26:41"
+    },
+    {
+      "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
@@ -1588,12 +1634,12 @@
       "updated_at": "2026-06-20 06:17:13"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "service",
-      "collecting_notes": null,
+      "collecting_notes": "2026-06-20: aerodeck-local ollama models removed per No-LLM-on-servers epic (kt_1781907478205_b7ba3c). anna-relay brain now served by Mac Mini via the existing aerodeck->mac :11437 tunnel (see bge-host-proxy id 159). Local :11434 listener remains but serves zero models.",
       "connection_type": "http",
       "db_path": null,
       "gaps_notes": null,
@@ -1605,10 +1651,10 @@
       "port": 11434,
       "quality_notes": "Sealed local Ollama for anna-relay (Ariel kid companion) \u2014 brain qwen2.5:1.5b-instruct + guard llama-guard3:1b. Loopback 127.0.0.1:11434 (docker anna-ollama), no estate creds. Registered 2026-06-18 for Anna red-team.",
       "query_method": null,
-      "recon_status": "live@aerodeck",
+      "recon_status": "MIGRATED: anna brain models moved to Mac Mini 2026-06-20 (no-LLM-on-servers); aerodeck:11434 daemon now empty, anna-relay repointed to :11437 Mac tunnel",
       "reliability_rating": 0,
       "subcategory": null,
-      "updated_at": "2026-06-18 16:26:34"
+      "updated_at": "2026-06-20T09:09:35Z"
     },
     {
       "actively_collecting": 1,
@@ -2965,7 +3011,7 @@
       "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 06:07:58"
+      "updated_at": "2026-06-20 09:11:08"
     },
     {
       "actively_collecting": 1,
@@ -5771,7 +5817,30 @@
       "recon_status": null,
       "reliability_rating": 4,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 06:07:58"
+      "updated_at": "2026-06-20 09:11:08"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": 0,
+      "aerodeck_scope": "private",
+      "architecture_significant": 0,
+      "category": "Dashboard",
+      "collecting_notes": "Personal-host port of the aerodeck Factory Audit Panel. systemd aerlock-panel.service, 127.0.0.1:8772. Views the personal AerLock: reads the :8651 LIFE board via MCP kanban_list (life-kanban /board.json is summary-only) + audit-lane state. Audit-lane sweep ported to personal (cron 02:17) with codex+agy engines installed. Registered 2026-06-20.",
+      "connection_type": "http",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "personal",
+      "human_owner": null,
+      "name": "Aerlock-Panel-Personal",
+      "namespace": "personal",
+      "owner": null,
+      "port": 8772,
+      "quality_notes": "Built + verified 2026-06-20: /health board_reachable, 243 cards. Sibling of aerodeck Audit-Lane-Panel.",
+      "query_method": "http://127.0.0.1:8772 \u2014 /health, /api/status; read-only loopback (ssh -L 8772 tunnel to view)",
+      "recon_status": null,
+      "reliability_rating": 0,
+      "subcategory": "personal",
+      "updated_at": "2026-06-20 06:33:33"
     },
     {
       "actively_collecting": 0,
@@ -6240,7 +6309,7 @@
       "architecture_significant": 0,
       "category": "Tunnel",
       "collecting_notes": null,
-      "connection_type": "static-http",
+      "connection_type": "static-http (public via cloudflare-access)",
       "db_path": null,
       "gaps_notes": null,
       "host": "personal",
@@ -6249,12 +6318,12 @@
       "namespace": "personal",
       "owner": null,
       "port": 8975,
-      "quality_notes": "Family ski-trip + One4All finances static page (AerOS-styled, 2 tabs; ski gallery 7 resorts/17 Airbnb cards + finances reconciliation). LIFE data on personal host; tailnet-only. Now boot-persistent via systemd ski-site.service (User=ubuntu, Restart=on-failure, enabled) \u2014 replaced the nohup launcher. Henry 2026-06-14.",
+      "quality_notes": "Family ski-trip + One4All finances static page (AerOS-styled, 2 tabs; ski gallery 7 resorts/17 Airbnb cards + finances reconciliation). LIFE data on personal host. PUBLIC EXPOSURE MOVED 2026-06-20 (Henry-ruled, card life_6f95c9a22398 / naming-ruling life_6b02e3259a82): now served at https://finances.berl.ai - LIFE zone berl.ai (ab848407), OFF the business aerodeck.ai apex - via the aerodeck-dev cloudflared tunnel (5ddaa304) -> personal:8975, gated by Cloudflare Access app 'Finances - Berliand (berl.ai)' (557507ab; allow Henry 3 emails + Richard/Dad richard@berliand.com). finances.aerodeck.ai DECOMMISSIONED: no DNS in aerodeck.ai zone, no tunnel ingress, orphan Access app 99a8a53f deleted. Origin boot-persistent via systemd ski-site.service (User=ubuntu, Restart=on-failure). Old 'tailnet-only' note SUPERSEDED - publicly reachable but CF-Access email-OTP gated (fleet svc-token does NOT satisfy it). (verified 2026-06-20)",
       "query_method": "http-static",
       "recon_status": "live@personal",
       "reliability_rating": 5,
       "subcategory": "personal",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-20 09:12:27"
     },
     {
       "actively_collecting": 0,
@@ -6645,7 +6714,7 @@
       "writer_host": null
     }
   ],
-  "generated_at": "2026-06-20T06:27:43+00:00",
+  "generated_at": "2026-06-20T09:13:56+00:00",
   "machines": [
     {
       "created_at": "2026-06-11 10:20:41",
@@ -6849,6 +6918,18 @@
       "what_it_scans": "AeroFlow lane:overflow ready-queue depth + MacBook model state (:8011)"
     },
     {
+      "id": "aerodeck:henry-timer-aero-pool-doctor",
+      "invokes": "Local python aero-pool-doctor; systemctl --user + claude-pool-health. NO LLM. Reciprocal watch with aero-pool-monitor.",
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-pool-doctor.timer",
+      "schedule": "OnBootSec=4min, then every 10min (OnUnitActiveSec=10min)",
+      "source_path": "/home/henry/bin/aero-pool-doctor",
+      "status": "active",
+      "what_it_scans": "The whole OAuth pool rotation system: asserts every pool timer (rotate/keepalive/monitor/sync/cred-mirror/self) is enabled+active+fresh, linger on, >=2 live accounts, no failed service. SELF-HEALS recoverable failures (re-enable stale/disabled timer, reset failed service, restore linger); pages on the account FLOOR (re-login needed)."
+    },
+    {
       "id": "aerodeck:aero-watch-govern-ledger-watcher",
       "invokes": "python3 (no LLM)",
       "kind": "cron",
@@ -6859,6 +6940,18 @@
       "source_path": "/home/henry/work/factory/govern/bin/aero-watch",
       "status": "active",
       "what_it_scans": "GOVERN act-ledger: aged-intent / stalled-chain / anomaly; dedup; heartbeat; advisory-only"
+    },
+    {
+      "id": "aerodeck:aerodeck-board-json-push-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aerodeck-board-json-push.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:beszel-beszel-agent-system-metrics-monitor",
@@ -6969,6 +7062,18 @@
       "what_it_scans": "Cron/job liveness monitor \u2014 expects periodic pings from scheduled jobs and alerts when a job FAILS to ping (silent-failure detection). SITE_NAME 'Henry Healthchecks', :8000"
     },
     {
+      "id": "aerodeck:henry-cron-dedicated-mirror-label-henryberliand-hotmail-com",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: DEDICATED_MIRROR_LABEL=henryberliand@hotmail.com",
+      "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-aero-blocker-sweep",
       "invokes": "Local only: GET board.json + tmux capture-pane regex scan. No LLM, no tokens.",
       "kind": "cron",
@@ -7003,6 +7108,18 @@
       "source_path": "/home/henry/bin/aero-census",
       "status": "active",
       "what_it_scans": "Hourly estate census across aerodeck(local)+aeros+personal(ssh): live TCP listeners (port->proc), docker containers, hermes* units + failed-unit count, MCP hub HTTP liveness; reconciles (host,port) reality vs the connection-registry, detects drift"
+    },
+    {
+      "id": "aerodeck:henry-cron-aero-critical-backup",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-critical-backup",
+      "schedule": "33 3 * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:henry-cron-aero-gate-sweep-sk1-sweeper",
@@ -7053,6 +7170,30 @@
       "what_it_scans": "Hold-bay BAY.yaml manifests under /home/henry/work/factory/plans/*/ \u2014 per-pack FRESH|STALE|NEWER-EXISTS verdict + gates n/m met; exit 1 if anything not fresh"
     },
     {
+      "id": "aerodeck:henry-cron-aero-supply-stall-monitor-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-supply-stall-monitor.sh",
+      "schedule": "*/15 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:henry-cron-aerodeck-resource-watchdog-sh",
+      "invokes": "log ~/.relay-status/aerodeck-resource-watchdog.log + best-effort notify-telegram-sandbox.sh ([SANDBOX]; real notifier not yet present)",
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aerodeck-resource-watchdog.sh",
+      "schedule": "*/15 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": "aerodeck (22-core dev/factory box) resources: load (1m acute>2x cores + 5m sustained>=1.5x cores, top-CPU capture), swap, RAM, disk free-GiB vs factory <5GiB wedge"
+    },
+    {
       "id": "aerodeck:henry-cron-brain-kanban",
       "invokes": "LiteLLM claude-haiku-4-5 :4000 (condense) + ssh aeros brain-capture-batch.py (ship); per-source cap 400/day via brain_meter",
       "kind": "cron",
@@ -7075,6 +7216,30 @@
       "source_path": "/home/henry/bin/cc-auth-preflight",
       "status": "active",
       "what_it_scans": "Claude auth health: mode 'pool' probes cliproxy :8317/v1/models + counts enabled claude-*.json accounts in the pool auth-dir; mode 'native' checks the seat's on-disk OAuth credential expiry"
+    },
+    {
+      "id": "aerodeck:henry-cron-gh-auth-refresh-sh",
+      "invokes": "gh auth login --with-token to keep the henry-seat gh CLI keyring valid (App tokens expire ~1h)",
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: gh-auth-refresh.sh",
+      "schedule": "*/30 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": "nothing \u2014 mints a fresh GitHub App installation token (gh-app-token) every 30min"
+    },
+    {
+      "id": "aerodeck:henry-cron-mcphub-personal-refresh-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: mcphub-personal-refresh.sh",
+      "schedule": "*/20 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:henry-cron-registry-reconcile-py",
@@ -7137,6 +7302,30 @@
       "what_it_scans": "Claude Code session JSONLs (henry + mally projects dirs) \u2014 pushes to per-source dirs on the MacBook for history archival"
     },
     {
+      "id": "aerodeck:henry-cron-sweep-report-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: sweep_report.sh",
+      "schedule": "25 4 20 6 *",
+      "source_path": null,
+      "status": "gone",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:henry-cron-sync-skills-to-personal-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: sync-skills-to-personal.sh",
+      "schedule": "*/30 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-vault-sync-jack-sh",
       "invokes": "Local only: rsync/sync script. No LLM, no tokens.",
       "kind": "cron",
@@ -7147,6 +7336,18 @@
       "source_path": "/home/henry/vault-sync-jack/bin/vault-sync-jack.sh",
       "status": "active",
       "what_it_scans": "Jack's vault sync (file sync job, not a watchdog) every 6h"
+    },
+    {
+      "id": "aerodeck:henry-cron-warm-models-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: warm-models.sh",
+      "schedule": "*/15 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:hermes-floor-watch-factory-floor-live-pane",
@@ -7171,6 +7372,18 @@
       "source_path": "container: ntfy (binwiederhier/ntfy:latest)",
       "status": "active",
       "what_it_scans": "Pub/sub notification broker \u2014 receives alerts from gatus (henry-infra topic) and other publishers; the alert delivery bus, not itself a scanner"
+    },
+    {
+      "id": "aerodeck:ubuntu-cron-archive-sweeper-py",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "ubuntu cron: archive_sweeper.py",
+      "schedule": "17 4 * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:unified-monitoring-agent-service-oracle-oci-fluentd-collecto",
@@ -8913,6 +9126,18 @@
       "what_it_scans": "Weekly full reconcile of silver-tier vendor mirrors: pulls every current row from each vendor API, diffs vs local mirror, soft-deletes missing rows; staleness/outage sensor flags ALERT if delta >5% AND >5 missing rows (outage vs real deletes)"
     },
     {
+      "id": "jiddlers:ubuntu-cron-jiddlers-resource-watchdog-sh",
+      "invokes": "alert()->log ~/.relay-status/jiddlers-resource-watchdog.log + best-effort notify (no notify path wired yet => log-only in practice)",
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "jiddlers",
+      "name": "ubuntu cron: jiddlers-resource-watchdog.sh",
+      "schedule": "*/15 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": "jiddlers VM resources: load (1m acute + 5m sustained, with top-CPU capture), swap, RAM, disk"
+    },
+    {
       "id": "jiddlers:unified-monitoring-agent-service-unified-monitoring-agent-co",
       "invokes": "/opt/unified-monitoring-agent/embedded/bin/fluentd (daemon) + ruby fluent_config_updater.rb (downloader). Vendor agent. NO LLM. No tokens.",
       "kind": "systemd-daemon",
@@ -9811,6 +10036,66 @@
       "source_path": "systemd telegram-voice-gateway.service; /home/ubuntu/bin/voice-bridge-real.py",
       "status": "active",
       "what_it_scans": "HERMES UNIVERSE (flagged) \u2014 polls Telegram for Henry's voice messages (Chief-of-Staff Path A sidecar)"
+    },
+    {
+      "id": "personal:ubuntu-cron-aerodeck-cold-tier-sh",
+      "invokes": "rsync-pull from aeros -> restic push to Google Drive (rclone gdrive-life, client-side encrypted) \u2014 2nd offsite COLD copy of aerodeck-critical backups",
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: aerodeck-cold-tier.sh",
+      "schedule": "5 4 * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": "aeros:~/backups/aerodeck-critical/<date>/ dirs (rsync pull, read-only on source)"
+    },
+    {
+      "id": "personal:ubuntu-cron-aeros-pg-cold-tier-sh",
+      "invokes": "pg_dump -Fc -> pg_restore --list verify -> restic push to Google Drive (gdrive-life, encrypted); removes local dumps after \u2014 offsite COLD pg tier",
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: aeros-pg-cold-tier.sh",
+      "schedule": "30 4 * * 0",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": "aeros canonical Postgres set (aerodeck/mcphub/youtube_research/command_centre/jiddlers_dev/vectos/documenso/...) via pg_dump -Fc over ssh, read-only"
+    },
+    {
+      "id": "personal:ubuntu-cron-camoufox-watchdog",
+      "invokes": "kill -TERM then -KILL on any camoufox python sustaining >50% core-rate after >10min uptime (a hung spinner)",
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: camoufox-watchdog",
+      "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": "camoufox-venv/bin/python processes \u2014 CPU rate (utime+stime \u00f7 elapsed via /proc); excludes the long-lived camoufox_mcp_server.py"
+    },
+    {
+      "id": "personal:ubuntu-cron-obsidian-todo-sync-py",
+      "invokes": "writes the aggregated ~/Obsidian/Henry/TODO.md (Henry auto TODO list)",
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: obsidian-todo-sync.py",
+      "schedule": "0 3 * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": "Claude Code sessions + Obsidian notes + Asana tasks for open TODOs"
+    },
+    {
+      "id": "personal:ubuntu-cron-run-audit-sh",
+      "invokes": "runs audit-lane/{code,factory,cloud} lane scripts sequentially -> writes a nightly audit summary",
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: run-audit.sh",
+      "schedule": "17 2 * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": "the 3 audit lanes \u2014 code, factory, cloud \u2014 over the LIFE factory (FACTORY_ROOT=~/work/factory, kanban :8651)"
     },
     {
       "id": "personal:unified-monitoring-agent-service",

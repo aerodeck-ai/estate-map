@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-20T06:27:43+00:00`
+Generated: `2026-06-20T09:13:56+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -23,12 +23,14 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=personal unit=hermes-litellm-tunnel.service, telegram-voice-gateway.service
 - **Audit-Lane-Panel** - `aerodeck:8772` - live - Dashboard/business - http://127.0.0.1:8772 — /health, /api/status, /api/lane/<name>; read-only
 - **Plan-Surface** - `aerodeck:8930` - live - Dashboard/business - https://plan.aerodeck.ai (behind Cloudflare Access) or http://127.0.0.1:8930 / http://100.74.200.84:8930 on aerodeck — read-only factory dashboard (board/epics, codex verdicts,...
+- **aerlock-panel** - `aerodeck:8772` - live - Dashboard/factory-audit - curl http://127.0.0.1:8772/health; curl http://127.0.0.1:8772/api/status
 - **antislop-canon** - `aerodeck:/home/henry/work/business/antislop/canon/antislop-canon.json` - live - Database/comms - humanize.py / antislop.py (Vale) / build_canon.py
 - **kanban-board-connector** - `aerodeck` - live - Database/infra - sqlite /home/ubuntu/apps/kanban-mcp/board.db (aerodeck :8649 kanban-mcp); read-only snapshot, sudo
 - **kanban-readonly** - `aerodeck:8650` - live - MCP/infra - http://127.0.0.1:3001/mcp/kanban-readonly via Hub-Aerodeck (backend aerodeck :8650; Docker bridge allowed, off-box tailnet rejected since 2026-06-17)
 - **kanban-tools** - `aerodeck:8649` - live - MCP/infra - http://127.0.0.1:8649/mcp (loopback/docker only — tailnet REJECTED since 2026-06-12)
 - **obsidian-shared** - `aerodeck:3000` - idle - MCP/infra - disabled on hub
 - **Hub-Aerodeck** - `aerodeck:3001` - live - MCP-Hub/business - http://127.0.0.1:3001/mcp (aerodeck-local) AND http://100.74.200.84:3001/mcp (tailnet-exposed 2026-06-14 = personal-business-shadow upstream); container aerodeck-mcphub-shadow —...
+- **nightly-sweep** - `aerodeck:8772` - live - Scheduled Job/factory-audit - curl http://127.0.0.1:8772/api/status and inspect lanes.*.last_run
 - **humanize-service** - `aerodeck:8466` - live - Script/comms - POST /humanize, /score; GET /health
 - **shadow-hub-bearer-jack-tibbs-readonly** - `aerodeck:3001` - live - auth-key/mcphub-shadow - Scoped READ-ONLY: kanban-readonly, vault-search, cube-jiddlers, fetch-context, connection-registry. NO kanban-tools. Neg-tested 401 out-of-scope. verified 2026-06-11
 - **claude-usage-warden** - `aerodeck:8689` - live - infra/usage-monitoring - curl -sf http://127.0.0.1:8689/status
@@ -42,7 +44,6 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aero-pep-service** - `aerodeck:8951` - live - service/infra - curl http://127.0.0.1:8951/status (loopback-only); CLI: aero-pep decide/selftest/status/check
 - **aeros-flight-deck** - `aerodeck:3099` - live - service/web-app - http://100.74.200.84:3099 — 'Flight Deck · AerOS' Next.js app on aerodeck
 - **aeros-os-jiddlers** - `aerodeck:3014` - live - service - DISCOVERED 2026-06-20 06:17:04Z by registry-reconcile (proc=docker-proxy); needs enrichment
-- **anna-ollama** - `aerodeck:11434` - live - service - Sealed local Ollama for anna-relay (Ariel kid companion) — brain qwen2.5:1.5b-instruct + guard llama-guard3:1b. Loopback 127.0.0.1:11434 (docker anna-ollama), no estate creds. R...
 - **deerflow** - `aerodeck:2026` - live - service/research - http://100.74.200.84:2026 (tailnet-only via nginx; localhost NOT bound). API under /api/*
 - **design-discovery-shadow** - `aerodeck:8525` - live - service/business - design-discovery shadow server; /home/ubuntu/dev/design-discovery-shadow/server.py
 - **factory-review-doorman** - `aerodeck:8941` - live - service/infra - factory-review doorman gate; /srv/factory-review/bin/doorman.py
@@ -136,8 +137,10 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **mac-mini-staging** - `mac-mini:/Users/hberliand/customs-house/v2/master.db` - live - service/customs-house - ssh mac-mini:/Users/hberliand/staging/ — Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited r...
 - **@BerlosCoS_bot** - `personal` - live - CLI/comms - host=personal unit=hermes-gateway-chief-of-staff.service, hermes-litellm-tunnel.service, telegram-voice-gateway.service
 - **@henry_personal_hermes_bot** - `personal` - live - CLI/comms - host=personal unit=hermes-litellm-tunnel.service, telegram-voice-gateway.service
+- **Aerlock-Panel-Personal** - `personal:8772` - live - Dashboard/personal - http://127.0.0.1:8772 — /health, /api/status; read-only loopback (ssh -L 8772 tunnel to view)
 - **gmail-send** - `personal:3000` - live - MCP/comms - http://100.99.185.36:3000/mcp/gmail-send (PERSONAL hub — the only working route)
 - **life-kanban** - `personal:8651` - live - MCP/personal - http://127.0.0.1:8651/mcp (personal host, loopback/tailnet-only) — JSON-RPC tools/call; HTTP /health, /board.json
+- **ski-finances-site** - `personal:8975` - live - Tunnel/personal - http-static
 - **hermes-gateway-cos-personal** - `personal:8642` - live - agent-gateway/hermes - hermes-cos gateway http://127.0.0.1:8642 on personal (localhost-bound; auth=API_SERVER_KEY env). probe 2026-06-15T22:25:00Z: root/healthz 404 (server up, no root route).
 - **immich** - `personal:2283` - live - service/photos - http://100.99.185.36:2283/api/server/ping — Immich v2.7.5 on personal (Docker Compose at /opt/immich)
 
@@ -147,6 +150,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **humanize-benchmark** - `aerodeck:/home/henry/work/business/antislop/humanize_log.db` - live - Script/comms - humanize.py score()/fix(); SELECT producer,avg(human_score),date(ts) FROM humanize_log
 - **voice-brain-mally** - `aerodeck:8929` - live - agent/voice - Mally voice-brain instance (voice-brain-mally.service)
 - **aerodeck-local-kokoro** - `aerodeck:8922` - live - service/voice - http://100.74.200.84:8922 — PRIMARY TTS backend for voice-tts-router; always-up ON-box Kokoro bm_george (~2.7s/chunk RTF~2.9x), self-heal proven; POST /tts {text,voice}->wav, GE...
+- **anna-ollama** - `aerodeck:11434` - idle - service - 2026-06-20: aerodeck-local ollama models removed per No-LLM-on-servers epic (kt_1781907478205_b7ba3c). anna-relay brain now served by Mac Mini via the existing aerodeck->mac :11...
 - **bge-host-proxy** - `aerodeck:11436` - live - service/infra - bge embedding host-proxy — routes embeds to the Mac GPUs (no models on Oracle boxes); /home/henry/bin/bge-host-proxy.py
 - **cliproxy** - `aerodeck:8317` - live - service/llm-routing - http://100.74.200.84:8317 — Claude OAuth pool proxy on aerodeck (migrated off the Mac 2026-06-08; aeros :8318 sibling noted)
 - **gatus** - `aerodeck:8088` - live - service/observability - http://100.74.200.84:8088 — Gatus fleet status page on aerodeck (docker gatus, container :8080)
@@ -315,7 +319,6 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **start-guide** - `aerodeck:3013` - live - service/infra - Static server for the Start-Here onboarding guide; CF tunnel start.aerodeck.ai -> 127.0.0.1:3013 (registered 2026-06-18, card kt_1781764355865_bb1538).
 - **warp-svc** - `aerodeck:40000` - live - service/networking - tcp://127.0.0.1:40000 — Cloudflare WARP daemon local API on aerodeck (HTTP probe answers 502 = alive)
 - **oauth_router** - `aeros:9317` - live - service - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment
-- **ski-finances-site** - `personal:8975` - live - Tunnel/personal - http-static
 
 ## Databases
 
@@ -336,10 +339,10 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 39 scheduled jobs
+- **aerodeck** - 51 scheduled jobs
 - **aeros** - 118 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
-- **jiddlers** - 14 scheduled jobs
+- **jiddlers** - 15 scheduled jobs
 - **mac-mini** - 38 scheduled jobs
 - **macbook** - 12 scheduled jobs
-- **personal** - 32 scheduled jobs
+- **personal** - 37 scheduled jobs
