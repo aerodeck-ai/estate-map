@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-20T09:13:56+00:00`
+Generated: `2026-06-20T09:15:05+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.

@@ -1649,12 +1649,12 @@
       "namespace": "personal",
       "owner": null,
       "port": 11434,
-      "quality_notes": "Sealed local Ollama for anna-relay (Ariel kid companion) \u2014 brain qwen2.5:1.5b-instruct + guard llama-guard3:1b. Loopback 127.0.0.1:11434 (docker anna-ollama), no estate creds. Registered 2026-06-18 for Anna red-team.",
+      "quality_notes": "MIGRATED 2026-06-20: brain models (qwen2.5:1.5b-instruct + llama-guard3:1b) moved to Mac Mini per No-LLM-on-servers; anna-relay (Ariel kid companion) now reaches them via the aerodeck->mac :11437 tunnel. Local :11434 daemon serves zero models. Voice stays chatterbox ariel clone (unaffected).",
       "query_method": null,
       "recon_status": "MIGRATED: anna brain models moved to Mac Mini 2026-06-20 (no-LLM-on-servers); aerodeck:11434 daemon now empty, anna-relay repointed to :11437 Mac tunnel",
       "reliability_rating": 0,
       "subcategory": null,
-      "updated_at": "2026-06-20T09:09:35Z"
+      "updated_at": "2026-06-20T09:14:45Z"
     },
     {
       "actively_collecting": 1,
@@ -6714,7 +6714,7 @@
       "writer_host": null
     }
   ],
-  "generated_at": "2026-06-20T09:13:56+00:00",
+  "generated_at": "2026-06-20T09:15:05+00:00",
   "machines": [
     {
       "created_at": "2026-06-11 10:20:41",
