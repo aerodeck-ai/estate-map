@@ -1,6 +1,6 @@
 # Intelligence Stack + Company Brain — ownership / access
 
-_Generated from registry.json (2026-06-19T06:27:39+00:00). The handover contract: what Mally co-owns vs what stays Henry-only._
+_Generated from registry.json (2026-06-20T06:27:43+00:00). The handover contract: what Mally co-owns vs what stays Henry-only._
 
 **Model:** Mally has **co-ownership / operational parity** on the **business legs** (`aerodeck` + `aeros`). The **LIFE legs** (`personal` host) stay Henry-only. There is **one Chief of Staff — `hermes-chief-of-staff`** — and Mally is a **profile** on it; the profile/passport is the estate boundary (never a separate agent).
 
