@@ -6,6 +6,30 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
+      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-gateway-mally-chief-of-staff.service, hermes-gateway-miranda-berliand.service, hermes-hub-watchdog.timer, hermes-session-reaper.timer, jack-voice-tts-router.service, mally-voice-t",
+      "connection_type": "telegram-bot",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": null,
+      "human_owner": "Henry",
+      "name": "@Miranda_hermes_cos_bot",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": "[telegram-bot] auto-discovered sealed bot token on aerodeck",
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 4,
+      "repo": null,
+      "subcategory": "comms",
+      "updated_at": "2026-06-21 05:30:23"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "CLI",
       "collecting_notes": "host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap.certbot.renew.timer",
       "connection_type": "telegram-bot",
       "db_path": null,
@@ -20,8 +44,33 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 09:11:08"
+      "updated_at": "2026-06-21 05:30:23"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": 0,
+      "aerodeck_scope": "private",
+      "architecture_significant": 0,
+      "category": "service",
+      "collecting_notes": "host=mallymac (Mally 64GB M4 Pro Mini, 100.114.38.97); launchd com.aerodeck.diarize-endpoint (KeepAlive); repo aerodeck-ai/customs-diarize; called PRIMARY by customs-house transcribe-local.py (tier remote-diarize), raw :8910 whisper + local mlx fallback. Built card T4; verified live 2026-06-21 (2 speakers, zero audio at rest).",
+      "connection_type": "http",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": null,
+      "human_owner": "Henry",
+      "name": "diarize-endpoint-8913",
+      "namespace": "business",
+      "owner": null,
+      "port": 8913,
+      "quality_notes": "[service] Customs House speaker-diarization endpoint on Mally Mini (T4); no audio persisted",
+      "query_method": "http://100.114.38.97:8913 \u2014 Customs House diarization endpoint. POST /diarize (wav16k body) -> {summary,transcript,participants,speakers}; GET /health. pyannote+ECAPA speaker attribution via meeting-attribute.sh, RAM-disk scratch, audio shredded (rm -P, no at-rest -> LIFE-safe), single-flight OOM guard, binds tailscale IP.",
+      "recon_status": null,
+      "reliability_rating": 3,
+      "repo": null,
+      "subcategory": "voice",
+      "updated_at": "2026-06-21 00:29:58"
     },
     {
       "actively_collecting": 1,
@@ -43,6 +92,7 @@
       "query_method": "mcp",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-20 06:11:40"
     },
@@ -52,7 +102,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
-      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-jack.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-gateway-mally-chief-of-staff.service, hermes-hub-watchdog.timer, jack-voice-tts-router.service, mally-voice-tts-router.service, rc-voice-responder.s",
+      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-gateway-mally-chief-of-staff.service, hermes-gateway-miranda-berliand.service, hermes-hub-watchdog.timer, hermes-session-reaper.timer, jack-voice-tts-router.service, mally-voice-t",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -66,8 +116,9 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 09:11:08"
+      "updated_at": "2026-06-21 05:30:23"
     },
     {
       "actively_collecting": 1,
@@ -75,7 +126,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
-      "collecting_notes": "host=personal unit=hermes-litellm-tunnel.service, telegram-voice-gateway.service",
+      "collecting_notes": "host=personal unit=gates-bot.service, telegram-voice-gateway.service",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -89,8 +140,57 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 09:11:08"
+      "updated_at": "2026-06-21 05:30:23"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "CLI",
+      "collecting_notes": "Per-ChatGPT-account concurrency cap for Codex seats (card kt_1781998446396_02e627). All codex seats (gpt-5.5) share ONE OAuth account (~/.codex/auth.json, account 670497d4, direct backend); a big rally would 429 them all at once. seat-codex.sh acquires a lease here before exec codex (lease keyed to the codex PID -> auto-released on exit, crash-safe). Per-account leases under ~/.codex/quota-cap/<account_id>/leases; default cap=4, stagger-wait then soft-proceed. Subcmds: --status/--account/--acquire/--release/--list/--max.",
+      "connection_type": "script",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": null,
+      "name": "aero-codex-quota-cap",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": null,
+      "query_method": "/home/henry/bin/aero-codex-quota-cap --status (CLI; loopback, no port)",
+      "recon_status": "live@aerodeck (verified 2026-06-21)",
+      "reliability_rating": 5,
+      "repo": null,
+      "subcategory": "infra",
+      "updated_at": "2026-06-21 02:32:34"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "CLI",
+      "collecting_notes": "Carded+built+gate-closed 2026-06-20 (kt_1781998324402_db6c55, codex-business); behaviour re-verified 2026-06-21 (deny/dry-run/audit/delegation-targets all pass). Delegates: /home/henry/bin/aero-disk-prune.sh, /home/henry/work/factory/staged/rotate-pool-key-v2.sh.",
+      "connection_type": "local-cli",
+      "db_path": "/home/henry/bin/aero-write-broker",
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "Henry",
+      "name": "aero-write-broker",
+      "namespace": "personal",
+      "owner": "Henry",
+      "port": null,
+      "quality_notes": null,
+      "query_method": "aero-write-broker --scope | disk-reclaim [--execute] | pool-key [--execute]  (default dry-run; unknown ops default-deny)",
+      "recon_status": "live@aerodeck (verified 2026-06-21)",
+      "reliability_rating": 4,
+      "repo": null,
+      "subcategory": "governance",
+      "updated_at": "2026-06-21T00:09:08Z"
     },
     {
       "actively_collecting": 1,
@@ -112,6 +212,7 @@
       "query_method": "http://127.0.0.1:8772 \u2014 /health, /api/status, /api/lane/<name>; read-only",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -135,6 +236,7 @@
       "query_method": "https://plan.aerodeck.ai (behind Cloudflare Access) or http://127.0.0.1:8930 / http://100.74.200.84:8930 on aerodeck \u2014 read-only factory dashboard (board/epics, codex verdicts, Henry gates, plans/PRDs, architecture)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -156,8 +258,9 @@
       "port": 8772,
       "quality_notes": "Live local stdlib Python HTTP panel; verified healthy before registration.",
       "query_method": "curl http://127.0.0.1:8772/health; curl http://127.0.0.1:8772/api/status",
-      "recon_status": null,
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "factory-audit",
       "updated_at": "2026-06-20 07:26:41"
     },
@@ -181,6 +284,7 @@
       "query_method": "humanize.py / antislop.py (Vale) / build_canon.py",
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": "https://github.com/aerodeck-ai/antislop",
       "subcategory": "comms",
       "updated_at": "20260614T103558Z"
     },
@@ -204,6 +308,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -227,6 +332,7 @@
       "query_method": "sqlite /home/ubuntu/apps/kanban-mcp/board.db (aerodeck :8649 kanban-mcp); read-only snapshot, sudo",
       "recon_status": null,
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-17 19:03:18Z"
     },
@@ -250,6 +356,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-18 07:25:32"
     },
@@ -273,6 +380,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -296,6 +404,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-18 07:25:32"
     },
@@ -319,6 +428,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "client",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -342,6 +452,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -365,6 +476,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -386,8 +498,9 @@
       "port": 3000,
       "quality_notes": "Granola meeting notes/transcripts (hosted MCP mcp.granola.ai). MIGRATED aeros hub -> aerodeck shadow hub 2026-06-13: OAuth blob copied DB-to-DB, auto-refreshed, retired from aeros. Verified live 6 tools. CAUTION: ONE account mixes business+personal meetings, no upstream filter.",
       "query_method": "http://127.0.0.1:3001/mcp/granola (aerodeck shadow hub, loopback-only; OAuth access+refresh tokens in shadow-hub servers.oauth blob, auto-refresh)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -411,6 +524,7 @@
       "query_method": "http://127.0.0.1:3001/mcp/kanban-readonly via Hub-Aerodeck (backend aerodeck :8650; Docker bridge allowed, off-box tailnet rejected since 2026-06-17)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-17 16:45:37"
     },
@@ -434,6 +548,7 @@
       "query_method": "http://127.0.0.1:8649/mcp (loopback/docker only \u2014 tailnet REJECTED since 2026-06-12)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-17 16:45:37"
     },
@@ -457,6 +572,7 @@
       "query_method": "http://172.17.0.1:8438 \u2014 host MCP federated into mcphub-aerodeck (via mcp-server-link); systemd --user notebooklm-mcp.service --profile business",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-19T19:37:40Z"
     },
@@ -478,8 +594,9 @@
       "port": 3000,
       "quality_notes": "GATED OFF 2026-06-08 (M3 leak fix) \u2014 do not re-enable without Henry.",
       "query_method": "disabled on hub",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -501,8 +618,9 @@
       "port": 3000,
       "quality_notes": "Otter meeting transcripts (hosted MCP mcp.otter.ai). MIGRATED aeros -> aerodeck shadow 2026-06-13 AND re-authed headless (was deauthed/0-tools estate-wide): web-session cookie login + playwright consent-click + auth-code intercept to hub callback. Verified live 3 tools. Mixed business+personal caveat as granola. Bulk-transcript path otter_pull.py (direct web API) still available.",
       "query_method": "http://127.0.0.1:3001/mcp/otter (aerodeck shadow hub, loopback-only; OAuth tokens in shadow-hub servers.oauth blob)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -526,6 +644,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -547,8 +666,9 @@
       "port": 3001,
       "quality_notes": "Verified live 2026-06-18 (claude-aeros): 3 tools reachable via mcp.serpapi.com direct.",
       "query_method": "mcphub-aerodeck \u2192 mcp.serpapi.com (direct, bypasses aeros hub proxy which adds session management)",
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "shopping",
       "updated_at": "2026-06-18 14:24:56Z"
     },
@@ -572,6 +692,7 @@
       "query_method": "http://127.0.0.1:8282/mcp \u2014 aerodeck loopback-only, NOT on any hub",
       "recon_status": "live@aerodeck",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -595,6 +716,7 @@
       "query_method": "http://127.0.0.1:3001/mcp (aerodeck-local) AND http://100.74.200.84:3001/mcp (tailnet-exposed 2026-06-14 = personal-business-shadow upstream); container aerodeck-mcphub-shadow \u2014 bearer auth",
       "recon_status": "live@aerodeck",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -618,6 +740,7 @@
       "query_method": "http://127.0.0.1:3002/mcp (container aerodeck-life-shadow) \u2014 proxies the personal LIFE hub; bearer aerodeck-life-seat. The aerodeck seat .mcp.json mcphub-personal points HERE (not the raw remote).",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "life",
       "updated_at": "2026-06-14 15:25:05"
     },
@@ -641,6 +764,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -664,6 +788,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -687,6 +812,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -710,6 +836,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -733,6 +860,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -756,6 +884,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "vendor",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -779,6 +908,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -802,6 +932,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -825,6 +956,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -848,6 +980,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "life",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -871,6 +1004,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -894,6 +1028,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-14 13:31:05"
     },
@@ -915,8 +1050,9 @@
       "port": 8772,
       "quality_notes": "Last live panel status showed code/factory/cloud lane run timestamps and board reachability.",
       "query_method": "curl http://127.0.0.1:8772/api/status and inspect lanes.*.last_run",
-      "recon_status": null,
+      "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "factory-audit",
       "updated_at": "2026-06-20 07:26:41"
     },
@@ -940,6 +1076,7 @@
       "query_method": "humanize.py score()/fix(); SELECT producer,avg(human_score),date(ts) FROM humanize_log",
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": "https://github.com/aerodeck-ai/antislop",
       "subcategory": "comms",
       "updated_at": "20260614T103558Z"
     },
@@ -963,6 +1100,7 @@
       "query_method": "POST /humanize, /score; GET /health",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "20260614T104426Z"
     },
@@ -986,6 +1124,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-14 18:22:32"
     },
@@ -1009,6 +1148,7 @@
       "query_method": "ssh -N -L 127.0.0.1:13200 -> aeros:3200 (RocketChat) \u2014 leg of the RC<->Hermes bridge",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-19T19:37:40Z"
     },
@@ -1021,7 +1161,7 @@
       "collecting_notes": "aerodeck hermes core agent runner; verified live 2026-06-13",
       "connection_type": "hermes_brain",
       "db_path": null,
-      "gaps_notes": " [5a72b8 2026-06-15T22:25:00Z] confirmed ghost, marked dead.",
+      "gaps_notes": "De-staled 2026-06-20 (card kt_1781951065849_af92e0): :8658 verified LIVE \u2014 hermes agent runner, listener owned by user 'hermes' (pid 1097915). Prior 5a72b8 2026-06-15 dead/ghost verdict was stale (agent restarted since).",
       "host": "aerodeck",
       "human_owner": null,
       "name": "hermes-brain",
@@ -1032,8 +1172,9 @@
       "query_method": "hermes brain http://100.74.200.84:8658 (aerodeck, runs as henry)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-20 11:35:37"
     },
     {
       "actively_collecting": 1,
@@ -1055,6 +1196,7 @@
       "query_method": "hermes dashboard http://100.74.200.84:9119 (aerodeck, runs as ubuntu)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1078,6 +1220,7 @@
       "query_method": "hermes dashboard http://100.74.200.84:9118 (aerodeck, runs as ubuntu)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1101,6 +1244,7 @@
       "query_method": "hermes dashboard http://127.0.0.1:9117 on aerodeck (jack-tibbs profile, runs as ubuntu) \u2014 LOOPBACK-ONLY bind (not on tailnet 100.74.200.84; verified 2026-06-14 ss -tlnp). Reach via SSH tunnel or from on-box.",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1124,6 +1268,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "client",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1147,6 +1292,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1170,8 +1316,33 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-18 07:25:32"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 1,
+      "category": "agent-gateway",
+      "collecting_notes": "Enabled 2026-06-21 after Miranda TG user-id allowlist and DENY e2e gate PASS. Read-only business observer; denies ALL LIFE (MIR-ID). Secrets remain sealed: miranda-bot-token, miranda-api-server-key; hub bearer from mcphub-bearer.",
+      "connection_type": "systemd-service",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": null,
+      "name": "hermes-gateway-miranda-berliand",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": "Verified live 2026-06-21 by card kt_1781011498855_41bc0a: service enabled+active; telegram/api_server connected; API model miranda-berliand; write toolsets disabled; kanban-readonly exposes no mutators; no LIFE tools; unknown API verb returns 404.",
+      "query_method": "systemd hermes-gateway-miranda-berliand.service on aerodeck; API health http://127.0.0.1:8642/health/detailed with miranda-api-server-key; Telegram @Miranda_hermes_cos_bot; read-only MCP via Hub-Aerodeck :3001 / kanban-readonly :8650",
+      "recon_status": null,
+      "reliability_rating": 5,
+      "repo": null,
+      "subcategory": "hermes",
+      "updated_at": "2026-06-21 02:10:45"
     },
     {
       "actively_collecting": 1,
@@ -1191,8 +1362,9 @@
       "port": 3001,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "mcphub-shadow",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1216,6 +1388,7 @@
       "query_method": "curl -sf http://127.0.0.1:8689/status",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "usage-monitoring",
       "updated_at": "2026-06-17 17:16:49"
     },
@@ -1239,146 +1412,33 @@
       "query_method": "mcphub-personal -> /mcp/emma -> emma_snapshot/totals/transactions/feed",
       "recon_status": null,
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "account-aggregator",
       "updated_at": "2026-06-14 00:09:42"
     },
     {
-      "actively_collecting": 0,
+      "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "service",
-      "collecting_notes": "[audit smart-apply 2026-06-19] promoted from reconciler proposal \u2014 UNREGISTERED placeholder, needs name/role enrichment",
-      "connection_type": "http",
+      "collecting_notes": null,
+      "connection_type": "discovered",
       "db_path": null,
       "gaps_notes": null,
       "host": "aerodeck",
-      "human_owner": null,
-      "name": "UNREGISTERED-aerodeck-8082",
-      "namespace": "personal",
+      "human_owner": "auto",
+      "name": "aero-board-ui",
+      "namespace": "business",
       "owner": null,
-      "port": 8082,
-      "quality_notes": null,
+      "port": 8660,
+      "quality_notes": "DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=python3); needs enrichment",
       "query_method": null,
-      "recon_status": "STALE(idle): port 8082 dead @ 2026-06-20 06:17:04Z",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
-      "subcategory": "infra",
-      "updated_at": "2026-06-19T19:48:37Z"
-    },
-    {
-      "actively_collecting": 0,
-      "aerodeck_enabled": null,
-      "aerodeck_scope": null,
-      "architecture_significant": 0,
-      "category": "service",
-      "collecting_notes": "[audit smart-apply 2026-06-19] promoted from reconciler proposal \u2014 UNREGISTERED placeholder, needs name/role enrichment",
-      "connection_type": "http",
-      "db_path": null,
-      "gaps_notes": "census 20260613T181936Z: live but unregistered",
-      "host": "aerodeck",
-      "human_owner": null,
-      "name": "UNREGISTERED-aerodeck-8443",
-      "namespace": "personal",
-      "owner": null,
-      "port": 8443,
-      "quality_notes": null,
-      "query_method": null,
-      "recon_status": "STALE(idle): port 8443 dead @ 2026-06-20 06:17:04Z",
-      "reliability_rating": 0,
-      "subcategory": "infra",
-      "updated_at": "2026-06-19T19:48:37Z"
-    },
-    {
-      "actively_collecting": 0,
-      "aerodeck_enabled": null,
-      "aerodeck_scope": null,
-      "architecture_significant": 0,
-      "category": "service",
-      "collecting_notes": "[audit smart-apply 2026-06-19] promoted from reconciler proposal \u2014 UNREGISTERED placeholder, needs name/role enrichment",
-      "connection_type": "http",
-      "db_path": null,
-      "gaps_notes": "census 20260613T181936Z: live but unregistered",
-      "host": "aerodeck",
-      "human_owner": null,
-      "name": "UNREGISTERED-aerodeck-8931",
-      "namespace": "personal",
-      "owner": null,
-      "port": 8931,
-      "quality_notes": null,
-      "query_method": null,
-      "recon_status": "STALE(idle): port 8931 dead @ 2026-06-20 06:17:04Z",
-      "reliability_rating": 0,
-      "subcategory": "infra",
-      "updated_at": "2026-06-19T19:48:37Z"
-    },
-    {
-      "actively_collecting": 0,
-      "aerodeck_enabled": null,
-      "aerodeck_scope": null,
-      "architecture_significant": 0,
-      "category": "service",
-      "collecting_notes": "[audit smart-apply 2026-06-19] promoted from reconciler proposal \u2014 UNREGISTERED placeholder, needs name/role enrichment",
-      "connection_type": "http",
-      "db_path": null,
-      "gaps_notes": "census 20260618T144759Z: live but unregistered",
-      "host": "aerodeck",
-      "human_owner": null,
-      "name": "UNREGISTERED-aerodeck-8971",
-      "namespace": "personal",
-      "owner": null,
-      "port": 8971,
-      "quality_notes": null,
-      "query_method": null,
-      "recon_status": "STALE(idle): port 8971 dead @ 2026-06-20 06:17:04Z",
-      "reliability_rating": 0,
-      "subcategory": "infra",
-      "updated_at": "2026-06-19T19:48:37Z"
-    },
-    {
-      "actively_collecting": 0,
-      "aerodeck_enabled": null,
-      "aerodeck_scope": null,
-      "architecture_significant": 0,
-      "category": "service",
-      "collecting_notes": "[audit smart-apply 2026-06-19] promoted from reconciler proposal \u2014 UNREGISTERED placeholder, needs name/role enrichment",
-      "connection_type": "http",
-      "db_path": null,
-      "gaps_notes": "census 20260618T144759Z: live but unregistered",
-      "host": "aerodeck",
-      "human_owner": null,
-      "name": "UNREGISTERED-aerodeck-8972",
-      "namespace": "personal",
-      "owner": null,
-      "port": 8972,
-      "quality_notes": null,
-      "query_method": null,
-      "recon_status": "STALE(idle): port 8972 dead @ 2026-06-20 06:17:04Z",
-      "reliability_rating": 0,
-      "subcategory": "infra",
-      "updated_at": "2026-06-19T19:48:37Z"
-    },
-    {
-      "actively_collecting": 0,
-      "aerodeck_enabled": null,
-      "aerodeck_scope": null,
-      "architecture_significant": 0,
-      "category": "service",
-      "collecting_notes": "[audit smart-apply 2026-06-19] promoted from reconciler proposal \u2014 UNREGISTERED placeholder, needs name/role enrichment",
-      "connection_type": "http",
-      "db_path": null,
-      "gaps_notes": "census 20260613T181936Z: live but unregistered",
-      "host": "aerodeck",
-      "human_owner": null,
-      "name": "UNREGISTERED-aerodeck-8999",
-      "namespace": "personal",
-      "owner": null,
-      "port": 8999,
-      "quality_notes": null,
-      "query_method": null,
-      "recon_status": "STALE(idle): port 8999 dead @ 2026-06-20 06:17:04Z",
-      "reliability_rating": 0,
-      "subcategory": "infra",
-      "updated_at": "2026-06-19T19:48:37Z"
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-06-21 06:17:50"
     },
     {
       "actively_collecting": 1,
@@ -1400,6 +1460,7 @@
       "query_method": "curl http://127.0.0.1:8652/{health,act,decisions} (loopback-only, read-only over govern.db views)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-15 17:19:48"
     },
@@ -1423,6 +1484,7 @@
       "query_method": "curl http://127.0.0.1:8951/status (loopback-only); CLI: aero-pep decide/selftest/status/check",
       "recon_status": "live@aerodeck",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-15 21:50:46"
     },
@@ -1446,6 +1508,7 @@
       "query_method": "https://dev-design.aerodeck.ai (CF Access svc-token) / http://127.0.0.1:3010 \u2014 container aeros-os-dev-design, MALLY CI (GitHub Actions runner aerodeck-dev-design), image aeros-os:dev-design",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "web-app",
       "updated_at": "2026-06-19 13:50:17"
     },
@@ -1469,6 +1532,7 @@
       "query_method": "http://100.74.200.84:8922 \u2014 PRIMARY TTS backend for voice-tts-router; always-up ON-box Kokoro bm_george (~2.7s/chunk RTF~2.9x), self-heal proven; POST /tts {text,voice}->wav, GET /health",
       "recon_status": "live@aerodeck",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1492,6 +1556,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-20 06:17:13"
     },
@@ -1515,6 +1580,7 @@
       "query_method": "https://127.0.0.1:443 \u2014 aerodeck loopback HTTPS; 'Aerodeck Waitlist' Next.js app",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "web-app",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -1538,6 +1604,7 @@
       "query_method": "http://100.74.200.84:4202 \u2014 AerOS finance Cube.js on aerodeck (docker aeros-finance-cube, container :4000)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "analytics",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1561,6 +1628,7 @@
       "query_method": "postgres://100.74.200.84:5446 \u2014 AerOS finance Postgres on aerodeck (docker aeros-finance-pg, pgvector pg16)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1584,6 +1652,7 @@
       "query_method": "http://100.74.200.84:3099 \u2014 'Flight Deck \u00b7 AerOS' Next.js app on aerodeck",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "web-app",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -1607,6 +1676,7 @@
       "query_method": "https://dev-data.aerodeck.ai (CF Access svc-token) / http://127.0.0.1:3012 \u2014 container aeros-os-dev-data (gha-deploy CI), image aeros-os:dev-data",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-19 13:50:17"
     },
@@ -1630,6 +1700,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-20 06:17:13"
     },
@@ -1651,8 +1722,9 @@
       "port": 11434,
       "quality_notes": "MIGRATED 2026-06-20: brain models (qwen2.5:1.5b-instruct + llama-guard3:1b) moved to Mac Mini per No-LLM-on-servers; anna-relay (Ariel kid companion) now reaches them via the aerodeck->mac :11437 tunnel. Local :11434 daemon serves zero models. Voice stays chatterbox ariel clone (unaffected).",
       "query_method": null,
-      "recon_status": "MIGRATED: anna brain models moved to Mac Mini 2026-06-20 (no-LLM-on-servers); aerodeck:11434 daemon now empty, anna-relay repointed to :11437 Mac tunnel",
+      "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-20T09:14:45Z"
     },
@@ -1676,6 +1748,7 @@
       "query_method": "tcp://*:45876 \u2014 beszel-agent system-metrics agent on aerodeck (dedicated `beszel` system user)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1699,6 +1772,7 @@
       "query_method": "http://100.74.200.84:8090 \u2014 beszel monitoring hub on aerodeck (docker beszel); NB aeros :8090 is a different service (nginx fleet.berl.ai legacy vhost)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1722,6 +1796,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-18 07:25:32"
     },
@@ -1745,6 +1820,7 @@
       "query_method": "http://100.74.200.84:4416 \u2014 bgutil yt-dlp PO-token provider on aerodeck (docker bgutil-pot-provider)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "youtube-infra",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -1768,6 +1844,7 @@
       "query_method": "HTTP API http://127.0.0.1:8914/api/v1/ (x-api-key in container datastore changedetection.json \u2014 never logged)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "marketing",
       "updated_at": "2026-06-12 11:14:32"
     },
@@ -1791,6 +1868,7 @@
       "query_method": "http://100.74.200.84:8317 \u2014 Claude OAuth pool proxy on aerodeck (migrated off the Mac 2026-06-08; aeros :8318 sibling noted)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "llm-routing",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1814,6 +1892,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -1837,6 +1916,7 @@
       "query_method": "tcp://127.0.0.1:14200 \u2014 aerodeck ssh -L forward to jiddlers Cube 127.0.0.1:4200",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "tunnel",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1860,6 +1940,7 @@
       "query_method": "http://100.74.200.84:2026 (tailnet-only via nginx; localhost NOT bound). API under /api/*",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -1883,6 +1964,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-18 07:25:32"
     },
@@ -1906,6 +1988,7 @@
       "query_method": "https://sign.aerodeck.ai \u2014 Documenso e-sign (Remix), Dockerized on aerodeck (containers documenso + documenso-postgres on documenso-net), app :3025 / pg :5447",
       "recon_status": "live@aerodeck",
       "reliability_rating": 3,
+      "repo": null,
       "subcategory": "e-sign",
       "updated_at": "2026-06-14 18:36:18"
     },
@@ -1929,6 +2012,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-18 07:25:32"
     },
@@ -1952,6 +2036,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-18 07:25:32"
     },
@@ -1975,6 +2060,7 @@
       "query_method": "HTTP gate API aerodeck 0.0.0.0:8688 (X-Gates-Key); CoS approval gates mirror to Telegram + RC #aerodeck-gates",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-17 19:02:26Z"
     },
@@ -1998,6 +2084,7 @@
       "query_method": "http://100.74.200.84:8088 \u2014 Gatus fleet status page on aerodeck (docker gatus, container :8080)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2021,8 +2108,33 @@
       "query_method": "http://100.74.200.84:8000 \u2014 Healthchecks cron-monitoring on aerodeck (docker healthchecks)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "service",
+      "collecting_notes": null,
+      "connection_type": "discovered",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "hermes-8642",
+      "namespace": "business",
+      "owner": null,
+      "port": 8642,
+      "quality_notes": "DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=hermes); needs enrichment",
+      "query_method": null,
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-06-21 06:17:50"
     },
     {
       "actively_collecting": 1,
@@ -2044,6 +2156,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -2065,8 +2178,9 @@
       "port": 8653,
       "quality_notes": "DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=hermes); needs enrichment",
       "query_method": null,
-      "recon_status": "live@aerodeck",
+      "recon_status": "STALE: port 8653 dead 1x (auto-retire at 2) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -2090,8 +2204,57 @@
       "query_method": "http://0.0.0.0:8924 \u2014 tts_router.py (~/work/infra/voice-routers); routes Jack hermes RC replies to a Jessie Buckley voice clone via Voicebox",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-19T19:37:40Z"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "service",
+      "collecting_notes": null,
+      "connection_type": "discovered",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "jambonz-aerodeck-api-server-1",
+      "namespace": "business",
+      "owner": null,
+      "port": 3201,
+      "quality_notes": "DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=docker-proxy); needs enrichment",
+      "query_method": null,
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-06-21 06:17:50"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "service",
+      "collecting_notes": null,
+      "connection_type": "discovered",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "jambonz-aerodeck-drachtio-1",
+      "namespace": "business",
+      "owner": null,
+      "port": 5062,
+      "quality_notes": "DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=docker-proxy); needs enrichment",
+      "query_method": null,
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-06-21 06:17:50"
     },
     {
       "actively_collecting": 1,
@@ -2113,8 +2276,57 @@
       "query_method": "http://100.74.200.84:3003 \u2014 Langfuse web UI/API on aerodeck (containers langfuse-web/-worker/-db/-redis/-clickhouse/-minio)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "observability",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 1,
+      "category": "service",
+      "collecting_notes": null,
+      "connection_type": "discovered",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "litellm-4001",
+      "namespace": "business",
+      "owner": null,
+      "port": 4001,
+      "quality_notes": "DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=litellm); needs enrichment",
+      "query_method": null,
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-06-21 06:17:50"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 1,
+      "category": "service",
+      "collecting_notes": null,
+      "connection_type": "discovered",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "litellm-aerodeck-pg",
+      "namespace": "business",
+      "owner": null,
+      "port": 5433,
+      "quality_notes": "DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=docker-proxy); needs enrichment",
+      "query_method": null,
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-06-21 06:17:50"
     },
     {
       "actively_collecting": 1,
@@ -2136,6 +2348,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 16:59:58"
     },
@@ -2159,6 +2372,7 @@
       "query_method": "http://172.17.0.1:8782 \u2014 mcp-server-link: federation linker exposing host MCPs (e.g. notebooklm-mcp:8438) into the mcphub-aerodeck shadow hub",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:37:40Z"
     },
@@ -2182,11 +2396,12 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
@@ -2203,8 +2418,9 @@
       "port": 3055,
       "quality_notes": "DISCOVERED 2026-06-19 22:15:58Z by registry-reconcile (proc=next-server (v1); needs enrichment",
       "query_method": null,
-      "recon_status": "STALE: port 3055 dead 1x (auto-retire at 2) @ 2026-06-20 06:17:04Z",
+      "recon_status": "AUTO-RETIRED idle: port 3055 dead 2 consecutive runs @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 22:16:11"
     },
@@ -2228,6 +2444,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 06:17:51"
     },
@@ -2251,6 +2468,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 19:55:49"
     },
@@ -2272,8 +2490,9 @@
       "port": 31305,
       "quality_notes": "DISCOVERED 2026-06-19 19:55:38Z by registry-reconcile (proc=next-server (v1); needs enrichment",
       "query_method": null,
-      "recon_status": "STALE(idle): port 31305 dead @ 2026-06-20 06:17:04Z",
+      "recon_status": "STALE(idle): port 31305 dead @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 19:55:49"
     },
@@ -2297,6 +2516,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 21:00:59"
     },
@@ -2320,8 +2540,33 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-20 06:17:13"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "service",
+      "collecting_notes": null,
+      "connection_type": "discovered",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "next-server-31350",
+      "namespace": "business",
+      "owner": null,
+      "port": 31350,
+      "quality_notes": "DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=next-server (v1); needs enrichment",
+      "query_method": null,
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-06-21 06:17:50"
     },
     {
       "actively_collecting": 1,
@@ -2343,6 +2588,7 @@
       "query_method": "http://100.74.200.84:8080 \u2014 ntfy push-notification relay on aerodeck (docker ntfy, container :80)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "notifications",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -2366,6 +2612,7 @@
       "query_method": "http://100.74.200.84:5055 \u2014 Open Notebook API on aerodeck (docker on-app; surrealdb sidecar unpublished)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -2389,8 +2636,33 @@
       "query_method": "http://100.74.200.84:8502 \u2014 Open Notebook Streamlit UI on aerodeck (docker on-app)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-12 02:58:52"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "service",
+      "collecting_notes": null,
+      "connection_type": "discovered",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "python3-5060",
+      "namespace": "business",
+      "owner": null,
+      "port": 5060,
+      "quality_notes": "DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=python3); needs enrichment",
+      "query_method": null,
+      "recon_status": "live@aerodeck",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-06-21 06:17:50"
     },
     {
       "actively_collecting": 1,
@@ -2412,6 +2684,7 @@
       "query_method": "postgres://100.74.200.84:5455 \u2014 Sim Studio Postgres on aerodeck (docker sim-db-1, pgvector pg17)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2435,6 +2708,7 @@
       "query_method": "http://100.74.200.84:3034 \u2014 Sim Studio realtime service on aerodeck (docker sim-realtime-1, container :3002)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "workflow",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -2458,6 +2732,7 @@
       "query_method": "http://100.74.200.84:3033 \u2014 Sim Studio web UI on aerodeck (docker sim-simstudio-1, container :3000)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "workflow",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -2481,6 +2756,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-18 14:08:46"
     },
@@ -2502,8 +2778,9 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3000 \u2014 steel-browser API on aerodeck (docker steel-browser; NB aerodeck :3000 is NOT a hub \u2014 the hubs are aeros/personal :3000)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "browser-infra",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -2527,6 +2804,7 @@
       "query_method": "tcp://100.74.200.84:9222 \u2014 steel-browser Chrome DevTools Protocol door on aerodeck",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "browser-infra",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -2550,6 +2828,7 @@
       "query_method": "127.0.0.1:8283 \u2014 second port of tmux-bridge server.py (sibling to MCP :8282)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:37:40Z"
     },
@@ -2573,6 +2852,7 @@
       "query_method": "http://100.74.200.84:9123 \u2014 trigger.dev ClickHouse HTTP on aerodeck (docker trigger-clickhouse-1, container :8123)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2596,6 +2876,7 @@
       "query_method": "tcp://100.74.200.84:9192 \u2014 trigger.dev ClickHouse native protocol on aerodeck (docker trigger-clickhouse-1, container :9000)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2619,6 +2900,7 @@
       "query_method": "http://100.74.200.84:9050 \u2014 trigger.dev MinIO S3 API on aerodeck (docker trigger-minio-1, container :9000)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "storage",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2642,6 +2924,7 @@
       "query_method": "http://100.74.200.84:9052 \u2014 trigger.dev MinIO console on aerodeck (docker trigger-minio-1, container :9001)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "storage",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2665,6 +2948,7 @@
       "query_method": "postgres://100.74.200.84:5444 \u2014 trigger.dev Postgres on aerodeck (docker trigger-postgres-1, pg14)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2688,6 +2972,7 @@
       "query_method": "redis://100.74.200.84:6390 \u2014 trigger.dev Redis on aerodeck (docker trigger-redis-1, container :6379)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "database",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2711,6 +2996,7 @@
       "query_method": "http://100.74.200.84:5050 \u2014 trigger.dev docker image registry on aerodeck (docker trigger-registry-1, registry:2)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "workflow",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -2734,6 +3020,7 @@
       "query_method": "http://100.74.200.84:8030 \u2014 trigger.dev v4-beta webapp on aerodeck (docker trigger-webapp-1, container :3000)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "workflow",
       "updated_at": "2026-06-12 02:58:52"
     },
@@ -2757,6 +3044,7 @@
       "query_method": "http://100.74.200.84:8921",
       "recon_status": "live@aerodeck",
       "reliability_rating": 3,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2780,6 +3068,7 @@
       "query_method": "127.0.0.1:8919 \u2014 headless claude -p daemon (loopback-only); reaches tmux via tmux-bridge :8282",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2803,6 +3092,7 @@
       "query_method": "http://100.74.200.84:8920 \u2014 live-call front-end",
       "recon_status": "live@aerodeck",
       "reliability_rating": 3,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2826,6 +3116,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-18 07:25:32"
     },
@@ -2849,6 +3140,7 @@
       "query_method": "POST http://100.74.200.84:8917 \u2014 routes to whisper backends per stt_backends.json",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2872,6 +3164,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-18 07:25:32"
     },
@@ -2895,6 +3188,7 @@
       "query_method": "http://100.74.200.84:8918 \u2014 PRIMARY aerodeck-local-kokoro :8922 (on-box bm_george, always-up) -> failover mally/henry-kokoro :8912 (SAME voice, inaudible switch) -> Higgs :8911 / qwen3 :8909 deep failover (different voice), per tts_backends.json",
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2918,6 +3212,7 @@
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-18 07:25:32"
     },
@@ -2941,6 +3236,7 @@
       "query_method": "tcp://127.0.0.1:40000 \u2014 Cloudflare WARP daemon local API on aerodeck (HTTP probe answers 502 = alive)",
       "recon_status": "live@aerodeck",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "networking",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2964,6 +3260,7 @@
       "query_method": "http://100.74.200.84:8771 \u2014 local whisper STT backend",
       "recon_status": "live@aerodeck",
       "reliability_rating": 3,
+      "repo": null,
       "subcategory": "voice",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -2973,7 +3270,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
-      "collecting_notes": "host=aeros unit=certbot.timer, hermes-audit-runner.service, hermes-gateway-miranda.service, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap.certbot.renew.timer",
+      "collecting_notes": "host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap.certbot.renew.timer [de-staled 2026-06-20 card kt_1781951066137_fe00a9: removed 2 decommissioned unit refs (miranda gateway + audit-runner), both inactive+disabled per HERMES-DECOMMISSION-PLAN-20260615]",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -2987,8 +3284,9 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-15 15:45:28"
+      "updated_at": "2026-06-20 11:35:37"
     },
     {
       "actively_collecting": 1,
@@ -3010,8 +3308,9 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 09:11:08"
+      "updated_at": "2026-06-21 05:30:23"
     },
     {
       "actively_collecting": 1,
@@ -3033,6 +3332,7 @@
       "query_method": "aeros \u2014 canonical AerOS GOLD store (~659MB). Built hourly by aeros-gold-derivation.timer (aeros-medallion/scripts/aeros-derivation.py) from silver/sources incl. sqlite-local/berlai/aerodeck.db.",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-19 13:50:17"
     },
@@ -3056,6 +3356,7 @@
       "query_method": "read-only SQL; refreshed by export_to_pg.py",
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-14 10:46:08"
     },
@@ -3079,6 +3380,7 @@
       "query_method": "bge-m3 semantic search (aeros :8427) + Company Brain; cross-searchable with youtube_research (same embeddings store)",
       "recon_status": null,
       "reliability_rating": 2,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-18 12:39:52"
     },
@@ -3102,6 +3404,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3125,6 +3428,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3148,6 +3452,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3171,6 +3476,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3194,6 +3500,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3217,6 +3524,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3240,6 +3548,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3263,6 +3572,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3286,6 +3596,7 @@
       "query_method": "bge-m3 semantic search (aeros :8427 history-search.py over aerodeck.embeddings source_db=youtube_research) + youtube-search MCP (business hub) + vectos-data REST (:3003 /api/data/youtube) + Company Brain",
       "recon_status": null,
       "reliability_rating": 3,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-18 12:43:19"
     },
@@ -3309,6 +3620,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3332,6 +3644,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3355,6 +3668,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3378,6 +3692,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3401,6 +3716,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3422,8 +3738,9 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/deep-research-fanout",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 3,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -3445,8 +3762,9 @@
       "port": 8435,
       "quality_notes": "DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment",
       "query_method": null,
-      "recon_status": "STALE(idle): port 8435 dead @ 2026-06-20 06:17:04Z",
+      "recon_status": "STALE(idle): port 8435 dead @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19T19:37:19Z"
     },
@@ -3470,6 +3788,7 @@
       "query_method": "/mcp/deep-research-search on Hub-Aerodeck :3001 (shadow); backend aeros 100.64.135.5:8440",
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -3493,6 +3812,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3516,6 +3836,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 19:55:49"
     },
@@ -3537,8 +3858,9 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/gpt-researcher",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -3560,8 +3882,9 @@
       "port": 8480,
       "quality_notes": "DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python); needs enrichment",
       "query_method": null,
-      "recon_status": "STALE(idle): port 8480 dead @ 2026-06-20 06:17:04Z",
+      "recon_status": "STALE(idle): port 8480 dead @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19T19:37:19Z"
     },
@@ -3585,6 +3908,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3606,8 +3930,9 @@
       "port": 3000,
       "quality_notes": "Holds LIFE PII at rest on business box \u2014 open item M4 (scrub/tenant-allowlist or move to personal host).",
       "query_method": "http://100.64.135.5:3000/mcp/hermes-memory",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -3631,6 +3956,7 @@
       "query_method": "GET http://100.64.135.5:8427/history-search?q=&k= \u2014 direct on aeros, NOT behind any hub; /health for liveness",
       "recon_status": "live@aeros",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -3652,8 +3978,9 @@
       "port": 3000,
       "quality_notes": "Mounts telegram.db (personal) \u2014 NOT movable to business surfaces (D5 skeptic finding).",
       "query_method": "http://100.64.135.5:3000/mcp/ms-query",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-10 16:41:37"
     },
@@ -3677,6 +4004,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3698,8 +4026,9 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/playwright",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -3721,8 +4050,9 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/plex-mcp",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-10 16:41:37"
     },
@@ -3746,6 +4076,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3769,6 +4100,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3792,6 +4124,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3815,6 +4148,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3838,6 +4172,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3861,6 +4196,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3882,8 +4218,9 @@
       "port": 3000,
       "quality_notes": "Verified live 2026-06-18 (claude-aeros): container Up, 10 tools reachable via http://uk-transport:3000/mcp (aeros docker net). Prior OFFLINE note was a stale wrong-port probe.",
       "query_method": "http://100.64.135.5:3000/mcp/uk-transport",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "travel",
       "updated_at": "2026-06-18 14:24:56Z"
     },
@@ -3905,8 +4242,9 @@
       "port": 3000,
       "quality_notes": "Business vault hybrid search (Henry vault + Mally Neuron_forest mirrors). On all three hubs, all probed OK 2026-06-11.",
       "query_method": "/mcp/vault-search on ALL THREE hubs (Hub-AerOS :3000, Hub-Aerodeck :3001, Hub-Personal :3000); canonical backend aeros 100.64.135.5:8439 (local hub points straight at it); second instance on personal :8439",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "research",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -3930,6 +4268,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3953,6 +4292,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -3976,6 +4316,7 @@
       "query_method": "http://100.64.135.5:3000/mcp (or /mcp/<server>) \u2014 aeros hub, bearer auth (fleet secret mcphub-bearer)",
       "recon_status": "live@aeros",
       "reliability_rating": 3,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -3999,8 +4340,57 @@
       "query_method": "sqlite3 (host-side, ro)",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business-core",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "infra",
+      "collecting_notes": "Freshness gate script for T7/T9. Verified 2026-06-21: /home/ubuntu/bin/history-freshness-check.sh returned FRESH-60M-OK.",
+      "connection_type": "script",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aeros",
+      "human_owner": null,
+      "name": "history-freshness-check",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": null,
+      "query_method": "ssh aeros bash /home/ubuntu/bin/history-freshness-check.sh",
+      "recon_status": null,
+      "reliability_rating": 4,
+      "repo": null,
+      "subcategory": "claude-history-pipeline",
+      "updated_at": "2026-06-21 00:34:41"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "infra",
+      "collecting_notes": "Aeros-side watchdog for the mini-homed history pipeline; runs off the always-on host so a dead mini trips stale heartbeat/corpus alarms. Verified active 2026-06-21.",
+      "connection_type": "systemd-user-timer",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aeros",
+      "human_owner": null,
+      "name": "history-freshness-watchdog",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": null,
+      "query_method": "ssh aeros systemctl --user is-active history-freshness-watchdog.timer && ssh aeros bash /home/ubuntu/bin/history-freshness-check.sh",
+      "recon_status": null,
+      "reliability_rating": 4,
+      "repo": null,
+      "subcategory": "claude-history-pipeline",
+      "updated_at": "2026-06-21 00:34:41"
     },
     {
       "actively_collecting": 1,
@@ -4022,6 +4412,7 @@
       "query_method": "ssh aeros crontab -l | grep brain; scripts under /home/ubuntu/apps/company-brain-dev/brain-capture*.py|sh write to company_brain",
       "recon_status": "verified",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "company-brain",
       "updated_at": "2026-06-17 17:42:01"
     },
@@ -4045,6 +4436,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4066,8 +4458,9 @@
       "port": 3002,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "hub-routed :3002 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3002 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -4091,6 +4484,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -4114,6 +4508,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -4137,6 +4532,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -4160,29 +4556,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
-      "subcategory": "infra",
-      "updated_at": "2026-06-19T19:48:37Z"
-    },
-    {
-      "actively_collecting": 0,
-      "aerodeck_enabled": null,
-      "aerodeck_scope": null,
-      "architecture_significant": 0,
-      "category": "service",
-      "collecting_notes": "[audit smart-apply 2026-06-19] promoted from reconciler proposal \u2014 UNREGISTERED placeholder, needs name/role enrichment",
-      "connection_type": "http",
-      "db_path": null,
-      "gaps_notes": "census 20260613T202501Z: live but unregistered",
-      "host": "aeros",
-      "human_owner": null,
-      "name": "UNREGISTERED-aeros-8646",
-      "namespace": "personal",
-      "owner": null,
-      "port": 8646,
-      "quality_notes": null,
-      "query_method": null,
-      "recon_status": "STALE(idle): port 8646 dead @ 2026-06-20 06:17:04Z",
-      "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -4206,6 +4580,7 @@
       "query_method": "https://os.aerodeck.ai (CF Access) \u2014 AerOS PRODUCTION cockpit. No os-prod container on aerodeck; serving host = aeros (CONFIRM).",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-19 13:50:17"
     },
@@ -4229,6 +4604,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4252,6 +4628,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4275,6 +4652,7 @@
       "query_method": "MCP brain_recall via mcphub-aerodeck / aeros hub",
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "company-brain",
       "updated_at": "2026-06-17 17:57:02"
     },
@@ -4298,6 +4676,7 @@
       "query_method": "GET http://127.0.0.1:8647/recall?q=",
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "company-brain",
       "updated_at": "2026-06-17 17:57:02"
     },
@@ -4321,6 +4700,7 @@
       "query_method": "docker exec brain-pg-dev psql -d company_brain",
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "company-brain",
       "updated_at": "2026-06-17 17:57:02"
     },
@@ -4344,6 +4724,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4367,6 +4748,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4390,6 +4772,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4413,6 +4796,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4436,6 +4820,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4459,6 +4844,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4482,6 +4868,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4505,6 +4892,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4528,6 +4916,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4551,6 +4940,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4574,6 +4964,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4597,6 +4988,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4620,6 +5012,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4643,6 +5036,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": "https://github.com/jambonz/jambonz-feature-server",
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4666,6 +5060,7 @@
       "query_method": "http://100.64.135.5:4000 \u2014 fleet LLM router on aeros (socat front to localhost litellm; SpendLogs in litellm-db :5433)",
       "recon_status": "live@aeros",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "llm-routing",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -4689,6 +5084,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4712,6 +5108,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4735,6 +5132,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4758,6 +5156,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4781,6 +5180,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4804,6 +5204,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4827,6 +5228,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4850,6 +5252,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4873,6 +5276,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 19:55:49"
     },
@@ -4896,6 +5300,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 06:17:51"
     },
@@ -4919,6 +5324,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4942,6 +5348,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4965,6 +5372,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -4988,6 +5396,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5011,6 +5420,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5034,6 +5444,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5057,6 +5468,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5080,6 +5492,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5103,6 +5516,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5126,6 +5540,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5149,6 +5564,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5172,6 +5588,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 06:17:51"
     },
@@ -5195,6 +5612,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5218,6 +5636,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5241,6 +5660,7 @@
       "query_method": "https://chat.aerodeck.ai \u2014 Rocket.Chat team chat (Mally agency), aeros nginx -> localhost:3200; Mongo rs0 :27017",
       "recon_status": "live@aeros",
       "reliability_rating": 3,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-17 19:00:25Z"
     },
@@ -5264,6 +5684,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5287,6 +5708,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5310,6 +5732,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-19 21:00:59"
     },
@@ -5333,6 +5756,7 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
     },
@@ -5356,8 +5780,33 @@
       "query_method": null,
       "recon_status": "live@aeros",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-18 07:56:40"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "Script",
+      "collecting_notes": "WORKING 2026-06-20: 561 meetings (369 business/192 personal), 963 action_items, ingest runs status=success. Capture on Jack/Henry/Mally MacBooks (Meetily) -> pull-from-mally.sh -> Customs House on Henry Mini -> business=aeros, personal=life ledger (ledger-v2.db on personal). Models/transcription on Mally Mini (mallymac@100.114.38.97).",
+      "connection_type": "pipeline",
+      "db_path": "~/customs-house/v2/master.db (Henry Mac Mini, hberliand@100.89.244.20)",
+      "gaps_notes": "Open question only: whether the life CoS actually surfaces the 192 personal meetings action_items (route lands in life ledger / ledger-v2, not core.personal_meeting_tasks). Earlier FDA/empty-table diagnosis was WRONG (see memory meetily-customs-house-fda-break).",
+      "host": "henry-mac-mini",
+      "human_owner": "henry",
+      "name": "meetily-customs-house-ingest",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": null,
+      "query_method": "n/a (pipeline)",
+      "recon_status": null,
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": "comms",
+      "updated_at": "2026-06-20 17:35:25"
     },
     {
       "actively_collecting": 1,
@@ -5379,6 +5828,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "client",
       "updated_at": "2026-06-17 11:06:19"
     },
@@ -5402,6 +5852,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "client",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -5425,8 +5876,33 @@
       "query_method": "http://127.0.0.1:3001/mcp on the jiddlers box (container mcphub-jiddlers; loopback-only \u2014 reach via ssh jiddlers; bearer auth pending)",
       "recon_status": "live@jiddlers",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "client",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 1,
+      "category": "agent-gateway",
+      "collecting_notes": null,
+      "connection_type": "systemd-service",
+      "db_path": null,
+      "gaps_notes": "Registered 2026-06-20 by card kt_1781951065993_edeb78 \u2014 canonical-3 keeper (jiddlers leg) was missing from the registry.",
+      "host": "jiddlers",
+      "human_owner": null,
+      "name": "hermes-gateway-jiddlers",
+      "namespace": "personal",
+      "owner": null,
+      "port": 8645,
+      "quality_notes": null,
+      "query_method": "hermes gateway http://127.0.0.1:8645 on jiddlers (profile jiddlers, bot @Hermesjiddlers_bot; localhost-bound). probe 2026-06-20: :8645 listening (python pid 637868), unit hermes-gateway-jiddlers.service active.",
+      "recon_status": "live@jiddlers",
+      "reliability_rating": 4,
+      "repo": null,
+      "subcategory": "hermes",
+      "updated_at": "2026-06-20 11:13:37"
     },
     {
       "actively_collecting": 1,
@@ -5448,6 +5924,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5471,6 +5948,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5494,6 +5972,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5517,6 +5996,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5540,6 +6020,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5563,6 +6044,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5586,6 +6068,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5609,6 +6092,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5632,6 +6116,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5655,6 +6140,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5678,6 +6164,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5701,6 +6188,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5724,6 +6212,7 @@
       "query_method": null,
       "recon_status": "live@jiddlers",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-19T19:48:37Z"
     },
@@ -5745,10 +6234,35 @@
       "port": 8782,
       "quality_notes": "stickerdaniel/linkedin-mcp-server (unofficial, FastMCP 3.4.2). Runs on Henry Mac Mini (residential/mobile IP, Three UK London) so LinkedIn sees a residential egress, not aerodeck datacenter. Login one-time interactive 2026-06-17; session persists. NO personal LinkedIn data at rest on aerodeck (only the loopback tunnel).",
       "query_method": "mcphub-aerodeck -> linkedin-* (17 tools). Path: hub container -> http://host.docker.internal:8782/mcp -> aerodeck SSH tunnel (systemd --user linkedin-mcp-tunnel: 172.17.0.1:8782 -> mac-mini 127.0.0.1:8783) -> launchd ai.aerodeck.linkedin-mcp (headless Patchright, caffeinate, KeepAlive).",
-      "recon_status": "STALE(idle): port 8782 dead @ 2026-06-20 06:17:04Z",
+      "recon_status": "STALE(idle): port 8782 dead @ 2026-06-21 06:17:43Z",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-17 19:29:16"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "infra",
+      "collecting_notes": "Mini-homed claude-history pipeline runner. Verified 2026-06-21: runner script present, launchd com.aerodeck.history-pipeline loaded, T7 freshness probe FRESH-60M-OK.",
+      "connection_type": "launchd",
+      "db_path": "mac-mini:/Users/hberliand/customs-house/history/history.db",
+      "gaps_notes": null,
+      "host": "mac-mini",
+      "human_owner": null,
+      "name": "history-pipeline-mini",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": null,
+      "query_method": "ssh mac-mini ~/customs-house/history/history-pipeline-runner.sh (launchd) plus ssh aeros bash /home/ubuntu/bin/history-freshness-check.sh",
+      "recon_status": null,
+      "reliability_rating": 4,
+      "repo": null,
+      "subcategory": "claude-history-pipeline",
+      "updated_at": "2026-06-21 00:34:41"
     },
     {
       "actively_collecting": 1,
@@ -5770,6 +6284,7 @@
       "query_method": "ssh mac-mini:/Users/hberliand/staging/ \u2014 Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited routing (LIFE->personal, business->aeros). No listening port; reached over Tailscale SSH.",
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "customs-house",
       "updated_at": "2026-06-18T06:50:00Z"
     },
@@ -5793,6 +6308,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-15 22:45:23"
     },
@@ -5802,7 +6318,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
-      "collecting_notes": "host=personal unit=hermes-litellm-tunnel.service, telegram-voice-gateway.service",
+      "collecting_notes": "host=personal unit=gates-bot.service, telegram-voice-gateway.service",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -5816,8 +6332,9 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 09:11:08"
+      "updated_at": "2026-06-21 05:30:23"
     },
     {
       "actively_collecting": 1,
@@ -5837,8 +6354,9 @@
       "port": 8772,
       "quality_notes": "Built + verified 2026-06-20: /health board_reachable, 243 cards. Sibling of aerodeck Audit-Lane-Panel.",
       "query_method": "http://127.0.0.1:8772 \u2014 /health, /api/status; read-only loopback (ssh -L 8772 tunnel to view)",
-      "recon_status": null,
+      "recon_status": "live@personal",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-20 06:33:33"
     },
@@ -5862,6 +6380,7 @@
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -5885,6 +6404,7 @@
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -5908,6 +6428,7 @@
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -5931,6 +6452,7 @@
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -5954,6 +6476,7 @@
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -5977,6 +6500,7 @@
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -6000,6 +6524,7 @@
       "query_method": "mcphub-personal \u2192 http://100.99.185.36:3000/mcp \u2014 personal-hub travel MCP tool; Tailscale-only, served through the single hub door (no dedicated port)",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "travel",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -6023,11 +6548,12 @@
       "query_method": "direct http://100.99.185.36:8543/mcp; personal hub http://100.99.185.36:3000/mcp/gmail-aerodeck; aerodeck shadow root exposes personal-gmail-aerodeck-* tools",
       "recon_status": "live@personal",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-17 22:53:34"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
@@ -6044,13 +6570,14 @@
       "port": 3000,
       "quality_notes": "Gmail send. Account scope unverified \u2014 reconcile during estate rebuild.",
       "query_method": "http://100.99.185.36:3000/mcp/gmail-send (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-15 23:16:29"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
@@ -6067,13 +6594,14 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-calendar (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-11 01:50:06"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
@@ -6090,13 +6618,14 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-drive (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-11 01:50:06"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
@@ -6113,8 +6642,9 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-sheets (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-11 01:50:06"
     },
@@ -6138,6 +6668,7 @@
       "query_method": "http://127.0.0.1:8651/mcp (personal host, loopback/tailnet-only) \u2014 JSON-RPC tools/call; HTTP /health, /board.json",
       "recon_status": "live@personal",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-20 00:29:50"
     },
@@ -6161,11 +6692,12 @@
       "query_method": "http://100.99.185.36:8542/mcp \u2014 streamable-HTTP MCP on PERSONAL (Tailscale-only bind); health probe: ssh personal '~/bin/memory-mcp-status'",
       "recon_status": "live@personal",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "infra",
       "updated_at": "2026-06-15 23:16:29"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
@@ -6182,8 +6714,9 @@
       "port": 3000,
       "quality_notes": "Mixed-estate caveat (M5-adjacent): custody/divorce toolkits seen in container set.",
       "query_method": "http://100.99.185.36:3000/mcp/ms365 (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-11 01:50:06"
     },
@@ -6205,8 +6738,9 @@
       "port": 3001,
       "quality_notes": "LID GOTCHA: WhatsApp LID migration (~2026-06-02) split DM threads \u2014 inbound lands under <n>@lid chat_jids, outbound under <phone>@s.whatsapp.net. Mally inbound = chat_jid 202610988593344@lid (NOT 447481839911@s.whatsapp.net). Resolve LID<->phone via personal:/home/ubuntu/data/sqlite/personal/identity-index.db (whatsapp-identity-sync, 4x/day). Watchdog: whatsapp-capture-watchdog (5 checks incl. replica-lag + LID-divergence since 2026-06-12).",
       "query_method": "MCP (Streamable HTTP) at http://100.99.185.36:3001/mcp \u2014 this is an MCP server, NOT REST. Tools incl. send_message + read_messages; read_messages takes chat_jid (NOT jid). Host-specific port: personal :3001 = WhatsApp send bridge; aerodeck 127.0.0.1:3001 = shadow hub \u2014 never confuse.",
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-20 06:17:04Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-21 06:17:43Z",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "whatsapp",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -6230,6 +6764,7 @@
       "query_method": "MCP read replica on personal :8536 (hub server name sqlite-whatsapp on mcphub-personal). READ-ONLY view of the golden store.",
       "recon_status": "live@personal",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "whatsapp",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -6253,6 +6788,7 @@
       "query_method": "mcphub-personal \u2192 telegram-mcp (Telethon) ; or ssh personal docker exec telegram-mcp",
       "recon_status": "live@personal",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "comms",
       "updated_at": "2026-06-18 14:53:02Z"
     },
@@ -6276,6 +6812,7 @@
       "query_method": "http://100.99.185.36:3000/mcp \u2014 personal (LIFE) hub, bearer auth, Tailscale-only",
       "recon_status": "live@personal",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-09 19:28:47"
     },
@@ -6299,6 +6836,7 @@
       "query_method": "http://127.0.0.1:3002/mcp on the personal host (container personal-business-shadow) \u2014 proxies aerodeck business :3001 (tailnet); bearer personal-business-seat. Personal-side seats reach BUSINESS here.",
       "recon_status": "live@personal",
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "business",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -6322,6 +6860,7 @@
       "query_method": "http-static",
       "recon_status": "live@personal",
       "reliability_rating": 5,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-20 09:12:27"
     },
@@ -6345,6 +6884,7 @@
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "personal",
       "updated_at": "2026-06-09 19:28:47"
     },
@@ -6368,6 +6908,7 @@
       "query_method": "hermes-cos gateway http://127.0.0.1:8642 on personal (localhost-bound; auth=API_SERVER_KEY env). probe 2026-06-15T22:25:00Z: root/healthz 404 (server up, no root route).",
       "recon_status": "live@personal",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "hermes",
       "updated_at": "2026-06-15 23:16:29"
     },
@@ -6391,8 +6932,33 @@
       "query_method": "Do NOT open with sqlite3 on the host while the bridge runs \u2014 query in-container (docker exec personal-whatsapp-mcp node + better-sqlite3 readonly) or via the MCP servers. messages table: chat_jid, sender_jid, from_me, timestamp (unix s), text_content.",
       "recon_status": null,
       "reliability_rating": 0,
+      "repo": null,
       "subcategory": "whatsapp",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "infra",
+      "collecting_notes": "Personal-side LIFE drain for claude-history bundles. Canonical-home preserving: LIFE rows go to personal, not aeros. Script present 2026-06-21; full backfill is tracked by T8.",
+      "connection_type": "script",
+      "db_path": "personal:life.whatsapp_embeddings domain=claude_history",
+      "gaps_notes": null,
+      "host": "personal",
+      "human_owner": null,
+      "name": "history-life-drain-personal",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": null,
+      "query_method": "ssh personal sudo -n -u ubuntu python3 ~/apps/life-brain-dev/drain-history-to-lifebrain.py --verify",
+      "recon_status": null,
+      "reliability_rating": 3,
+      "repo": null,
+      "subcategory": "claude-history-pipeline",
+      "updated_at": "2026-06-21 00:34:41"
     },
     {
       "actively_collecting": 1,
@@ -6414,6 +6980,7 @@
       "query_method": "http://100.99.185.36:2283/api/server/ping \u2014 Immich v2.7.5 on personal (Docker Compose at /opt/immich)",
       "recon_status": "live@personal",
       "reliability_rating": 4,
+      "repo": null,
       "subcategory": "photos",
       "updated_at": "2026-06-11 21:59:34"
     }
@@ -6714,7 +7281,271 @@
       "writer_host": null
     }
   ],
-  "generated_at": "2026-06-20T09:15:05+00:00",
+  "generated_at": "2026-06-21T06:27:43+00:00",
+  "github_coverage": {
+    "available": true,
+    "generated_at": "2026-06-18T12:07:44.853261+00:00",
+    "repos": [
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/AgriciDaniel/claude-ads"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/BuilderIO/agent-native"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/BuilderIO/skills"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/DietrichGebert/ponytail"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/NVIDIA/SkillSpector"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/aerodeck-design"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/aerodeck-site"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 4,
+        "repo": "https://github.com/aerodeck-ai/aerodeck-template"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/agent-cockpit"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/antislop"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/banaos"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/berlai-ops"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/berlos"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/brand-assets"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/design-berlos"
+      },
+      {
+        "clean": 2,
+        "coverage": "green",
+        "paths": 2,
+        "repo": "https://github.com/aerodeck-ai/design-deck"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/estate-map"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 3,
+        "repo": "https://github.com/aerodeck-ai/factory"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/factory-v1"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/infra"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/aerodeck-ai/jiddlers"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/bytedance/deer-flow"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/cjpais/handy"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/drachtio/drachtio-server"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/freeswitch/sofia-sip"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/freeswitch/spandsp"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/helallao/perplexity-ai"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 3,
+        "repo": "https://github.com/iamlukethedev/Claw3D"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/jambonz/jambonz-api-server"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/jambonz/jambonz-feature-server"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/jambonz/sbc-inbound"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/jambonz/sbc-outbound"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/jgraph/drawio-mcp"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/karpathy/autoresearch"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/mattpocock/skills"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/nateherkai/AIS-OS"
+      },
+      {
+        "clean": 1,
+        "coverage": "green",
+        "paths": 1,
+        "repo": "https://github.com/shadcn/improve"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/simstudioai/sim"
+      },
+      {
+        "clean": 0,
+        "coverage": "red",
+        "paths": 1,
+        "repo": "https://github.com/teoobarca/perplexity-mcp"
+      }
+    ],
+    "summary": {
+      "detached": 5,
+      "missing": 6,
+      "scope-only": 1,
+      "tracked-clean": 22,
+      "tracked-dirty": 25,
+      "untracked": 4,
+      "vendor": 3
+    },
+    "untracked_paths": [
+      "/home/henry/.config/claude-code",
+      "/home/henry/bin",
+      "/home/henry/work/business/aeros-schemas",
+      "/home/henry/work/factory/autoresearch-estate",
+      "/home/henry/work/infra/aerodeck-registry",
+      "/home/henry/work/infra/plan-surface",
+      "/home/ubuntu/apps/aeros-medallion",
+      "/home/ubuntu/apps/company-brain-dev",
+      "/home/ubuntu/apps/demo-berl-ai",
+      "/home/ubuntu/apps/freeswitch",
+      "/home/ubuntu/apps/freeswitch-modules",
+      "/home/ubuntu/apps/vectos-ia",
+      "/opt/mcp"
+    ]
+  },
   "machines": [
     {
       "created_at": "2026-06-11 10:20:41",
@@ -7134,6 +7965,18 @@
       "what_it_scans": "Kanban board cards tagged 'verify-requested' (:8649 board.json); runs the close-gate on each; refused closes -> card blocked + gate-refused tag"
     },
     {
+      "id": "aerodeck:henry-cron-aero-govern-bridge",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-govern-bridge",
+      "schedule": "23 */4 * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-aero-pool-account-test",
       "invokes": "Anthropic api.anthropic.com /v1/messages directly with each pooled account token (NOT via LiteLLM/cliproxy gateway). This is a minimal entitlement probe \u2014 a tiny billable Claude call per account; trivial token cost. Model = whatever default the /v1/messages probe sends (Claude).",
       "kind": "cron",
@@ -7156,6 +7999,18 @@
       "source_path": "/home/henry/bin/aero-pool-capacity",
       "status": "active",
       "what_it_scans": "cliproxy OAuth pool capacity: N/M enabled claude accounts, per-account enabled/disabled + token expiry, :8317/v1/models HTTP code; --digest = daily summary"
+    },
+    {
+      "id": "aerodeck:henry-cron-aero-pool-rally-auto",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-pool-rally-auto",
+      "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:henry-cron-bay-freshness-sweep",
@@ -7204,6 +8059,18 @@
       "source_path": "/home/henry/.config/claude-code/brain-producer/brain-kanban.py",
       "status": "active",
       "what_it_scans": "reads DONE kanban cards via :8649 board MCP (read-only); client-assert fail-closed gate {factory,aerodeck}+business, drops LIFE/personal; condense->redact->ship prov_kind=card method=kanban-condense to company_brain (aeros)"
+    },
+    {
+      "id": "aerodeck:henry-cron-camoufox-watchdog",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: camoufox-watchdog",
+      "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:henry-cron-cc-auth-preflight-pool-native",
@@ -7360,6 +8227,30 @@
       "source_path": "/home/henry/work/factory/bin/hermes-floor-watch",
       "status": "active",
       "what_it_scans": "Live Hermes fleet status: dynamically lists hermes* units across hosts + probes the 3 dashboards (:9117/9118/9119) and aeros/personal gateways; 60s refresh tmux pane"
+    },
+    {
+      "id": "aerodeck:hermes-session-reaper-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "hermes-session-reaper.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": null,
+      "invokes": "meetily-export-watchdog.py",
+      "kind": "watchdog",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "meetily-export-liveness",
+      "schedule": "*/15 * * * * (cron)",
+      "source_path": "/home/henry/bin/meetily-export-watchdog.py",
+      "status": "active",
+      "what_it_scans": "MacBook ~/meetily-export.log for FDA/TCC 'db-unavailable' or stalled 120s job"
     },
     {
       "id": "aerodeck:ntfy-notification-broker-container",
@@ -7624,6 +8515,18 @@
       "source_path": "beszel-agent.service",
       "status": "active",
       "what_it_scans": "Host resource metrics agent for Beszel monitoring hub"
+    },
+    {
+      "id": "aeros:brain-night-shift-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "brain-night-shift.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aeros:brain-router-sentinel-sh-cron-5",
@@ -8598,6 +9501,18 @@
       "what_it_scans": "Local .bak-* backup files across aeros: >14d deleted unconditionally; >7d in a dir holding 3+ keeps newest 3, prunes the rest. Excludes /home/ubuntu/db-backups-pre-* (manual pre-migration snapshots, kept forever)."
     },
     {
+      "id": "aeros:ubuntu-cron-camoufox-watchdog",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "ubuntu cron: camoufox-watchdog",
+      "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aeros:ubuntu-cron-ch-retention-7d-s0-3-sh",
       "invokes": "docker exec langfuse-clickhouse clickhouse-client (ALTER TABLE traces MODIFY TTL). No LLM. NB: ClickHouse credential inlined in the script \u2014 flagged to the secret-flags card.",
       "kind": "cron",
@@ -8644,6 +9559,18 @@
       "source_path": "/home/ubuntu/.local/bin/hermes-dr-restore-test.sh",
       "status": "active",
       "what_it_scans": "Latest vectos-*.sql.gz backup \u2014 monthly DR restore verification (G9): recreate vectos_test, restore, query embeddings count to prove restore is real not theatre. Always drops vectos_test after."
+    },
+    {
+      "id": "aeros:ubuntu-cron-history-freshness-check-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "ubuntu cron: history-freshness-check.sh",
+      "schedule": "*/15 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aeros:ubuntu-cron-oracle-disk-hygiene-sh",
@@ -9124,6 +10051,18 @@
       "source_path": "/home/ubuntu/mcp-infra/scripts/jiddlers-weekly-reconcile.py",
       "status": "active",
       "what_it_scans": "Weekly full reconcile of silver-tier vendor mirrors: pulls every current row from each vendor API, diffs vs local mirror, soft-deletes missing rows; staleness/outage sensor flags ALERT if delta >5% AND >5 missing rows (outage vs real deletes)"
+    },
+    {
+      "id": "jiddlers:ubuntu-cron-camoufox-watchdog",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "jiddlers",
+      "name": "ubuntu cron: camoufox-watchdog",
+      "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "jiddlers:ubuntu-cron-jiddlers-resource-watchdog-sh",
@@ -9750,6 +10689,18 @@
       "what_it_scans": "Not a scanner. One-shot system tuning daemon: sets sysctl iogpu.wired_limit_mb=114688 (raise GPU wired-memory cap to ~112GB for the mlx model stack). Runs once at load."
     },
     {
+      "id": null,
+      "invokes": "meetily-export.py",
+      "kind": "launchd",
+      "llm_bearing": 1,
+      "machine_id": "macbook",
+      "name": "meetily-export",
+      "schedule": "every 120s (launchd StartInterval)",
+      "source_path": "/Users/aerodeck/meetily-export.py",
+      "status": "dead",
+      "what_it_scans": "Meetily meeting_minutes.sqlite -> scp to customs-house inbox (Mac Mini)"
+    },
+    {
       "id": "personal:banaos-pg-dump-backup-cron",
       "invokes": "pg_dump banaos | gzip. NO LLM",
       "kind": "cron",
@@ -9844,6 +10795,30 @@
       "source_path": "/home/ubuntu/bin/legal-backup.sh (ubuntu crontab)",
       "status": "active",
       "what_it_scans": "Legal data backup (not a scanner; daily backup job)"
+    },
+    {
+      "id": "personal:lesley-refresh-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "lesley-refresh.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "personal:life-backup-timer",
+      "invokes": "/home/ubuntu/bin/life-backup.sh (full: dump+stage -> restic -> Google Drive). Freshness probed by aero-probe-backup-2a-personal (36h).",
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "life-backup.timer",
+      "schedule": "OnCalendar=*-*-* 03:17:00 (nightly, Persistent, RandomizedDelaySec=600)",
+      "source_path": "/etc/systemd/system/life-backup.timer",
+      "status": "active",
+      "what_it_scans": "nothing (producer) \u2014 triggers the LIFE estate backup: pg_dump of 6 LIFE Postgres DBs (life, award_flights, cashback, berlos, banaos, frisson) + canonical SQLite, staged to /home/ubuntu/life-backups/staging, then restic -> rclone:gdrive-life (client-side encrypted)"
     },
     {
       "id": "personal:life-board-tripwire-watch-timer",
@@ -10038,6 +11013,18 @@
       "what_it_scans": "HERMES UNIVERSE (flagged) \u2014 polls Telegram for Henry's voice messages (Chief-of-Staff Path A sidecar)"
     },
     {
+      "id": "personal:ubuntu-cron-aero-lifecycle",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: aero-lifecycle",
+      "schedule": "*/10 * * * *",
+      "source_path": null,
+      "status": "gone",
+      "what_it_scans": null
+    },
+    {
       "id": "personal:ubuntu-cron-aerodeck-cold-tier-sh",
       "invokes": "rsync-pull from aeros -> restic push to Google Drive (rclone gdrive-life, client-side encrypted) \u2014 2nd offsite COLD copy of aerodeck-critical backups",
       "kind": "cron",
@@ -10046,7 +11033,7 @@
       "name": "ubuntu cron: aerodeck-cold-tier.sh",
       "schedule": "5 4 * * *",
       "source_path": null,
-      "status": "active",
+      "status": "gone",
       "what_it_scans": "aeros:~/backups/aerodeck-critical/<date>/ dirs (rsync pull, read-only on source)"
     },
     {
@@ -10058,7 +11045,7 @@
       "name": "ubuntu cron: aeros-pg-cold-tier.sh",
       "schedule": "30 4 * * 0",
       "source_path": null,
-      "status": "active",
+      "status": "gone",
       "what_it_scans": "aeros canonical Postgres set (aerodeck/mcphub/youtube_research/command_centre/jiddlers_dev/vectos/documenso/...) via pg_dump -Fc over ssh, read-only"
     },
     {
@@ -10072,6 +11059,18 @@
       "source_path": null,
       "status": "active",
       "what_it_scans": "camoufox-venv/bin/python processes \u2014 CPU rate (utime+stime \u00f7 elapsed via /proc); excludes the long-lived camoufox_mcp_server.py"
+    },
+    {
+      "id": "personal:ubuntu-cron-cron-alert-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: cron-alert.sh",
+      "schedule": "15 3 * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "personal:ubuntu-cron-obsidian-todo-sync-py",
@@ -10094,8 +11093,20 @@
       "name": "ubuntu cron: run-audit.sh",
       "schedule": "17 2 * * *",
       "source_path": null,
-      "status": "active",
+      "status": "gone",
       "what_it_scans": "the 3 audit lanes \u2014 code, factory, cloud \u2014 over the LIFE factory (FACTORY_ROOT=~/work/factory, kanban :8651)"
+    },
+    {
+      "id": "personal:ubuntu-cron-seatspy-writer-py",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: seatspy-writer.py",
+      "schedule": "47 6 * * *",
+      "source_path": null,
+      "status": "gone",
+      "what_it_scans": null
     },
     {
       "id": "personal:unified-monitoring-agent-service",
@@ -10144,6 +11155,18 @@
       "source_path": "/home/ubuntu/bin/wa-bridge-watchdog.sh (ubuntu crontab); wn6peil39 2026-05-31",
       "status": "active",
       "what_it_scans": "personal-whatsapp-mcp health at http://100.99.185.36:3001/health \u2014 whatsappStatus connected/disconnected (edge-triggered)"
+    },
+    {
+      "id": "personal:wa-chunk-embedder-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "wa-chunk-embedder.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "personal:wa-embedder-timer",
