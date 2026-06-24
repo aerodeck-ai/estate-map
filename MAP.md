@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-23T06:27:09+00:00`
+Generated: `2026-06-24T06:27:09+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -56,6 +56,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **jambonz-aerodeck-freeswitch-1** - `aerodeck:8021` - live - service - DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=docker-proxy); needs enrichment
 - **ntfy** - `aerodeck:8080` - live - service/notifications - http://100.74.200.84:8080 — ntfy push-notification relay on aerodeck (docker ntfy, container :80)
 - **open-notebook-ui** - `aerodeck:8502` - live - service/research - http://100.74.200.84:8502 — Open Notebook Streamlit UI on aerodeck (docker on-app)
+- **openclaw** - `aerodeck:18789` - live - service - DISCOVERED 2026-06-24 06:17:07Z by registry-reconcile (proc=docker-proxy); needs enrichment
 - **sim-realtime** - `aerodeck:3034` - live - service/workflow - http://100.74.200.84:3034 — Sim Studio realtime service on aerodeck (docker sim-realtime-1, container :3002)
 - **steel-browser** - `aerodeck:9222` - live - service - DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=docker-proxy); needs enrichment
 - **trigger-minio-api** - `aerodeck:9050` - live - service/storage - http://100.74.200.84:9050 — trigger.dev MinIO S3 API on aerodeck (docker trigger-minio-1, container :9000)
@@ -289,10 +290,10 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 127 scheduled jobs
-- **aeros** - 139 scheduled jobs
+- **aerodeck** - 129 scheduled jobs
+- **aeros** - 141 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
-- **jiddlers** - 16 scheduled jobs
+- **jiddlers** - 18 scheduled jobs
 - **mac-mini** - 38 scheduled jobs
 - **macbook** - 13 scheduled jobs
 - **personal** - 71 scheduled jobs
