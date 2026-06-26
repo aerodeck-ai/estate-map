@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-25T06:27:09+00:00`
+Generated: `2026-06-26T06:27:14+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -21,6 +21,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 - **@Miranda_hermes_cos_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gat...
 - **mac-mini-infrassd-archive** - `unknown:/Volumes/InfraSSD` - live - Local Service/infra - ssh mac-mini ls /Volumes/InfraSSD
+- **schoolbase-medallion** - `banaos (personal 127.0.0.1:5432, role life_sync)` - live - Script/personal - psql -d banaos: SELECT gold.bana_anna_school / silver.anna_events / bronze.anna_provider_raw; health: bana_provider_state(provider=schoolbase)
 - **aerocockpit-preview** - `unknown:8667` - live - service - TEMP IA-preview mockup (cockpit-v2 design alignment) — static HTML on loopback :8667, behind cockpit-preview.aerodeck.ai. REMOVE after the cockpit redesign lands. Henry 2026-06-24
 - **@aerodeck_gates_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gat...
 - **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gat...
@@ -73,7 +74,9 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **antislop-canon-pg-mirror** - `aeros:aerodeck.antislop_canon` - live - Database/comms - read-only SQL; refreshed by export_to_pg.py
 - **Hub-AerOS** - `aeros:3000` - live - MCP-Hub/business - http://100.64.135.5:3000/mcp (or /mcp/<server>) — aeros hub, bearer auth (fleet secret mcphub-bearer)
 - **aerodeck-db-business-core** - `aeros:/home/ubuntu/data/sqlite-local/aerodeck/aerodeck.db` - live - database/business-core - sqlite3 (host-side, ro)
+- **aero-pep-aeros** - `aeros:8951` - live - govern-pep - Registered 2026-06-25 #56657e cross-estate-spine
 - **history-freshness-check** - `aeros` - live - infra/claude-history-pipeline - ssh aeros bash /home/ubuntu/bin/history-freshness-check.sh
+- **Serve** - `aeros:3035` - live - service - DISCOVERED 2026-06-26 06:17:09Z by registry-reconcile (proc=node /usr/local); needs enrichment
 - **annaland** - `aeros:8085` - live - service - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **brain-recall-api** - `aeros:8648` - live - service - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **company-brain-recall-api** - `aeros:8647` - live - service/company-brain - GET http://127.0.0.1:8647/recall?q=
@@ -110,6 +113,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **claude-oauth-seat-pool** - `aerodeck` - live - Script/infra - Per-host ~/.claude-pool/<acct>/ holds 5 static setup-tokens. claude-pool-pick assigns one account PER PANE by live quota (lease round-robin). Quota feed http://100.74.200.84:893...
 - **humanize-benchmark** - `aerodeck:/home/henry/work/business/antislop/humanize_log.db` - live - Script/comms - humanize.py score()/fix(); SELECT producer,avg(human_score),date(ts) FROM humanize_log
 - **voice-brain-mally** - `aerodeck:8929` - live - agent/voice - Mally voice-brain instance (voice-brain-mally.service) [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERODECK box, not the personal/LIFE host.]
+- **codex-cli-oauth** - `aerodeck:8318` - live - auth-key - Registered 2026-06-25 #239701 — codex/OpenAI CLI OAuth was re-discovered ~330 sessions with no registry home; this is it. Related: cliproxyapi-8318 (pool), cliproxy (:8317 healt...
 - **aerodeck-local-kokoro** - `aerodeck:8922` - live - service/voice - http://100.74.200.84:8922 — PRIMARY TTS backend for voice-tts-router; always-up ON-box Kokoro bm_george (~2.7s/chunk RTF~2.9x), self-heal proven; POST /tts {text,voice}->wav, GE...
 - **anna-ollama** - `aerodeck:11434` - idle - service - 2026-06-20: aerodeck-local ollama models removed per No-LLM-on-servers epic (kt_1781907478205_b7ba3c). anna-relay brain now served by Mac Mini via the existing aerodeck->mac :11...
 - **bge-host-proxy** - `aerodeck:11436` - live - service/infra - bge embedding host-proxy — routes embeds to the Mac GPUs (no models on Oracle boxes); /home/henry/bin/bge-host-proxy.py [2026-06-21 RE-NAMESPACED personal->business: live-verifi...
@@ -141,6 +145,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **jack-tibbs** - `aerodeck:9117` - live - agent/business - hermes dashboard http://127.0.0.1:9117 on aerodeck (jack-tibbs profile, runs as ubuntu) — LOOPBACK-ONLY bind (not on tailnet 100.74.200.84; verified 2026-06-14 ss -tlnp). Reach...
 - **jiddlers-agent** - `aerodeck` - live - agent/client - points at Hub-Jiddlers; per-agent bearer to be minted (C1)
 - **mally-chief-of-staff** - `aerodeck` - live - agent/business - points at Hub-Aerodeck; per-agent bearer to be minted (C1)
+- **hermes-cos-token-index** - `aerodeck` - live - auth-key - Registered 2026-06-25 #bae3b2 — CoS/Hermes bot tokens were sealed under names no agent could map to a CoS without grepping. This row answers 'which token is Mally's/Henry's/Mira...
+- **mcphub-admin** - `aerodeck:3001` - live - auth-key - Registered 2026-06-25 #5d1675 — hub admin login + per-agent bearer minting was implicit-in-brain only; this is its registry home. DB-backed auth (bearer_keys), per-request looku...
 - **aerodeck-dev-design** - `aerodeck:3010` - live - service/web-app - https://dev-design.aerodeck.ai (CF Access svc-token) / http://127.0.0.1:3010 — container aeros-os-dev-design, MALLY CI (GitHub Actions runner aerodeck-dev-design), image aeros-o...
 - **beszel-agent** - `aerodeck:45876` - live - service/observability - tcp://*:45876 — beszel-agent system-metrics agent on aerodeck (dedicated `beszel` system user)
 - **beszel-hub** - `aerodeck:8090` - live - service/observability - http://100.74.200.84:8090 — beszel monitoring hub on aerodeck (docker beszel); NB aeros :8090 is a different service (nginx fleet.berl.ai legacy vhost)
@@ -185,6 +191,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **youtube_research** - `aeros:/home/ubuntu/data/sqlite/research/youtube-research.db (host: aeros)` - live - Database/research - bge-m3 semantic search (aeros :8427 history-search.py over aerodeck.embeddings source_db=youtube_research) + youtube-search MCP (business hub) + vectos-data REST (:3003 /api/dat...
 - **deep-research-search** - `aeros:8440` - live - MCP/research - /mcp/deep-research-search on Hub-Aerodeck :3001 (shadow); backend aeros 100.64.135.5:8440
 - **ms-query** - `aeros:3000` - live - MCP/personal - http://100.64.135.5:3000/mcp/ms-query
+- **govern-ledger** - `aeros:/home/ubuntu/govern-broker/ledger/govern.db` - live - govern-ledger - canonical=aeros (govern_events ledger /home/ubuntu/govern-broker/ledger/govern.db); aerodeck reads via recall/feed [cross-estate-spine A1]
 - **aeros-data** - `aeros` - idle - infra/storage - ssh aeros; df -h /mnt/data (device /dev/sdb -> /mnt/data, 196G). ALWAYS df -h (all), never df /
 - **aeros-root** - `aeros` - idle - infra/storage - ssh aeros; df -h / (device /dev/sda1 -> /, 193G)
 - **aeros-os-prod** - `aeros` - live - service/business - https://os.aerodeck.ai behind CF Access; container aeros-os on aeros (:3018). THE single canonical AerOS production site as of 2026-06-22.
@@ -217,6 +224,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **brain-mcp** - `aeros:8460` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **business-meetings-mcp** - `aeros:8461` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **connection_quota_ingest** - `aeros:8425` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
+- **dashboard-mcp-aeros** - `aeros:8652` - live - MCP - :8652 host-qualified pair — aeros dashboard-mcp; collision partner aerodeck aero-govern-feed [A1]
 - **errors_ingest** - `aeros:8654` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **gmail-sa-mcp** - `aeros:8465` - live - MCP - DISCOVERED 2026-06-19 19:55:38Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **history-search** - `aeros:8427` - live - MCP/research - GET http://100.64.135.5:8427/history-search?q=&k= — direct on aeros, NOT behind any hub; /health for liveness
@@ -272,6 +280,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 ### ACCESS
 
 - **aero-codex-quota-cap** - `aerodeck` - live - CLI/infra - /home/henry/bin/aero-codex-quota-cap --status (CLI; loopback, no port)
+- **brain-recall-tunnel** - `aerodeck:18648` - live - Tunnel - Registered 2026-06-25 #56657e cross-estate-spine
 - **aerocockpit-web** - `aerodeck:8666` - live - service - 127.0.0.1:8666 — AeroCockpit web SPA (loopback; reach via ssh tunnel)
 - **aerodeck-waitlist** - `aerodeck:443` - live - service/web-app - https://127.0.0.1:443 — aerodeck loopback HTTPS; 'Aerodeck Waitlist' Next.js app
 - **bgutil-pot-provider** - `aerodeck:4416` - live - service/youtube-infra - http://100.74.200.84:4416 — bgutil yt-dlp PO-token provider on aerodeck (docker bgutil-pot-provider)
@@ -304,7 +313,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **jiddlers** - 19 scheduled jobs
 - **mac-mini** - 38 scheduled jobs
 - **macbook** - 13 scheduled jobs
-- **personal** - 73 scheduled jobs
+- **personal** - 74 scheduled jobs
 
 ## GitHub coverage
 
