@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-26T06:27:14+00:00`
+Generated: `2026-06-27T06:27:09+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -307,13 +307,13 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 135 scheduled jobs
-- **aeros** - 147 scheduled jobs
+- **aerodeck** - 139 scheduled jobs
+- **aeros** - 149 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 19 scheduled jobs
 - **mac-mini** - 38 scheduled jobs
 - **macbook** - 13 scheduled jobs
-- **personal** - 74 scheduled jobs
+- **personal** - 76 scheduled jobs
 
 ## GitHub coverage
 

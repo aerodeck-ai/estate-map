@@ -22,7 +22,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-26 05:56:33"
+      "updated_at": "2026-06-27 06:11:07"
     },
     {
       "actively_collecting": 1,
@@ -46,7 +46,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-26 05:56:33"
+      "updated_at": "2026-06-27 06:11:07"
     },
     {
       "actively_collecting": 1,
@@ -166,7 +166,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-26 05:56:33"
+      "updated_at": "2026-06-27 06:11:07"
     },
     {
       "actively_collecting": 1,
@@ -190,7 +190,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-26 05:56:33"
+      "updated_at": "2026-06-27 06:11:07"
     },
     {
       "actively_collecting": 1,
@@ -570,7 +570,7 @@
       "port": 3000,
       "quality_notes": "Granola meeting notes/transcripts (hosted MCP mcp.granola.ai). MIGRATED aeros hub -> aerodeck shadow hub 2026-06-13: OAuth blob copied DB-to-DB, auto-refreshed, retired from aeros. Verified live 6 tools. CAUTION: ONE account mixes business+personal meetings, no upstream filter.",
       "query_method": "http://127.0.0.1:3001/mcp/granola (aerodeck shadow hub, loopback-only; OAuth access+refresh tokens in shadow-hub servers.oauth blob, auto-refresh)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
@@ -690,7 +690,7 @@
       "port": 3000,
       "quality_notes": "GATED OFF 2026-06-08 (M3 leak fix) \u2014 do not re-enable without Henry.",
       "query_method": "disabled on hub",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "infra",
@@ -714,7 +714,7 @@
       "port": 3000,
       "quality_notes": "Otter meeting transcripts (hosted MCP mcp.otter.ai). MIGRATED aeros -> aerodeck shadow 2026-06-13 AND re-authed headless (was deauthed/0-tools estate-wide): web-session cookie login + playwright consent-click + auth-code intercept to hub callback. Verified live 3 tools. Mixed business+personal caveat as granola. Bulk-transcript path otter_pull.py (direct web API) still available.",
       "query_method": "http://127.0.0.1:3001/mcp/otter (aerodeck shadow hub, loopback-only; OAuth tokens in shadow-hub servers.oauth blob)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
@@ -786,7 +786,7 @@
       "port": 3001,
       "quality_notes": "Verified live 2026-06-18 (claude-aeros): 3 tools reachable via mcp.serpapi.com direct.",
       "query_method": "mcphub-aerodeck \u2192 mcp.serpapi.com (direct, bypasses aeros hub proxy which adds session management)",
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "shopping",
@@ -1506,7 +1506,7 @@
       "port": 3001,
       "quality_notes": "Registered 2026-06-25 #5d1675 \u2014 hub admin login + per-agent bearer minting was implicit-in-brain only; this is its registry home. DB-backed auth (bearer_keys), per-request lookup, no restart; 10 keys live.",
       "query_method": null,
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -1530,7 +1530,7 @@
       "port": 3001,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "mcphub-shadow",
@@ -1938,7 +1938,7 @@
       "port": 3012,
       "quality_notes": "AerOS dev-data surface = clean canonical cockpit. Wired to gold aeros.db + meetings-gold.db + connection-registry.db. CI-deployed (gha-deploy). Verified 2026-06-19.",
       "query_method": "https://dev-data.aerodeck.ai (CF Access svc-token) / http://127.0.0.1:3012 \u2014 container aeros-os-dev-data (gha-deploy CI), image aeros-os:dev-data",
-      "recon_status": "STALE(idle): port 3012 dead @ 2026-06-26 06:17:09Z",
+      "recon_status": "STALE(idle): port 3012 dead @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "business",
@@ -2610,7 +2610,7 @@
       "port": 8782,
       "quality_notes": null,
       "query_method": "http://172.17.0.1:8782 \u2014 mcp-server-link: federation linker exposing host MCPs (e.g. notebooklm-mcp:8438) into the mcphub-aerodeck shadow hub",
-      "recon_status": "STALE(idle): port 8782 dead @ 2026-06-26 06:17:09Z",
+      "recon_status": "STALE(idle): port 8782 dead @ 2026-06-27 06:17:00Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "infra",
@@ -2730,7 +2730,7 @@
       "port": 18789,
       "quality_notes": "DISCOVERED 2026-06-24 06:17:07Z by registry-reconcile (proc=docker-proxy); needs enrichment",
       "query_method": null,
-      "recon_status": "RETIRE-PROPOSED: port 18789 dead 3 runs (awaiting approval) @ 2026-06-26 06:17:09Z",
+      "recon_status": "RETIRE-PROPOSED: port 18789 dead 4 runs (awaiting approval) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -3382,7 +3382,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-26 05:56:33"
+      "updated_at": "2026-06-27 06:11:07"
     },
     {
       "actively_collecting": 1,
@@ -3882,7 +3882,7 @@
       "port": 3000,
       "quality_notes": "Holds LIFE PII at rest on business box \u2014 open item M4 (scrub/tenant-allowlist or move to personal host).",
       "query_method": "http://100.64.135.5:3000/mcp/hermes-memory",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "infra",
@@ -3930,7 +3930,7 @@
       "port": 3000,
       "quality_notes": "Mounts telegram.db (personal) \u2014 NOT movable to business surfaces (D5 skeptic finding).",
       "query_method": "http://100.64.135.5:3000/mcp/ms-query",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -3954,7 +3954,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/playwright",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "infra",
@@ -3978,7 +3978,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/plex-mcp",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -4026,7 +4026,7 @@
       "port": 8463,
       "quality_notes": "DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=MainThread); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from category, reliability baselined 2.]",
       "query_method": null,
-      "recon_status": "STALE(idle): port 8463 dead @ 2026-06-26 06:17:09Z",
+      "recon_status": "STALE(idle): port 8463 dead @ 2026-06-27 06:17:00Z",
       "reliability_rating": 2,
       "repo": null,
       "subcategory": null,
@@ -4122,7 +4122,7 @@
       "port": 3000,
       "quality_notes": "Verified live 2026-06-18 (claude-aeros): container Up, 10 tools reachable via http://uk-transport:3000/mcp (aeros docker net). Prior OFFLINE note was a stale wrong-port probe.",
       "query_method": "http://100.64.135.5:3000/mcp/uk-transport",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "travel",
@@ -4146,7 +4146,7 @@
       "port": 3000,
       "quality_notes": "Business vault hybrid search (Henry vault + Mally Neuron_forest mirrors). On all three hubs, all probed OK 2026-06-11.",
       "query_method": "/mcp/vault-search on ALL THREE hubs (Hub-AerOS :3000, Hub-Aerodeck :3001, Hub-Personal :3000); canonical backend aeros 100.64.135.5:8439 (local hub points straight at it); second instance on personal :8439",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "research",
@@ -4206,7 +4206,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 1,
       "category": "MCP-Hub",
-      "collecting_notes": "Live production hub, probed 2026-06-11: 10/20 enabled servers healthy; 10 zero-tools (gmail-send/google-*/ms365 blocked from aeros by personal lifehub-lock firewall; gpt-researcher/deep-research-fanout/rewoo-wrapper backends dead; cube-jiddlers/kanban-tools URLs point at aeros instead of aerodeck; rewoo-wrapper2 serves cached tools over a dead backend)",
+      "collecting_notes": "2026-06-26 (hub-consolidation H8): CONSUMER-consolidation VERIFIED done \u2014 only nginx-passthrough + the infra-hermes orphan use :3000; all real consumers on aerodeck :3001. A trial stop was AUTO-REVERTED ~5min later by an unidentified re-provisioner (NOT crontab/watchdog.sh/locator-liveness), so durable container-retirement is BLOCKED until that mechanism is found+disabled. Reverted to clean two-hub state. || PRIOR: RETIRED 2026-06-26 (hub-consolidation H8, Henry+Mally authorized): aeros :3000 mcphub stopped (docker restart=no), consolidated onto aerodeck :3001. Backup pg_dump+compose .bak on aeros. Rollback: ssh aeros docker update --restart=unless-stopped mcphub && docker start mcphub. || PRIOR: Live production hub, probed 2026-06-11: 10/20 enabled servers healthy; 10 zero-tools (gmail-send/google-*/ms365 blocked from aeros by personal lifehub-lock firewall; gpt-researcher/deep-research-fanout/rewoo-wrapper backends dead; cube-jiddlers/kanban-tools URLs point at aeros instead of aerodeck; rewoo-wrapper2 serves cached tools over a dead backend)",
       "connection_type": "http",
       "db_path": null,
       "gaps_notes": null,
@@ -5302,7 +5302,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-26 05:56:33"
+      "updated_at": "2026-06-27 06:11:07"
     },
     {
       "actively_collecting": 0,
@@ -5514,7 +5514,7 @@
       "port": 3000,
       "quality_notes": "Gmail send. Account scope unverified \u2014 reconcile during estate rebuild.",
       "query_method": "http://100.99.185.36:3000/mcp/gmail-send (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "comms",
@@ -5538,7 +5538,7 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-calendar (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -5562,7 +5562,7 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-drive (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -5586,7 +5586,7 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-sheets (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -5658,7 +5658,7 @@
       "port": 3000,
       "quality_notes": "Mixed-estate caveat (M5-adjacent): custody/divorce toolkits seen in container set. [auth backfilled 2026-06-25 #7706d9-authbackfill] [discoverability keywords: email outlook microsoft M365 ms365 graph mailbox Henry-email comms]",
       "query_method": "http://100.99.185.36:3000/mcp/ms365 (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -5682,7 +5682,7 @@
       "port": 3001,
       "quality_notes": "LID GOTCHA: WhatsApp LID migration (~2026-06-02) split DM threads \u2014 inbound lands under <n>@lid chat_jids, outbound under <phone>@s.whatsapp.net. Mally inbound = chat_jid 202610988593344@lid (NOT 447481839911@s.whatsapp.net). Resolve LID<->phone via personal:/home/ubuntu/data/sqlite/personal/identity-index.db (whatsapp-identity-sync, 4x/day). Watchdog: whatsapp-capture-watchdog (5 checks incl. replica-lag + LID-divergence since 2026-06-12).",
       "query_method": "MCP (Streamable HTTP) at http://100.99.185.36:3001/mcp \u2014 this is an MCP server, NOT REST. Tools incl. send_message + read_messages; read_messages takes chat_jid (NOT jid). Host-specific port: personal :3001 = WhatsApp send bridge; aerodeck 127.0.0.1:3001 = shadow hub \u2014 never confuse.",
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-26 06:17:09Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-27 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "whatsapp",
@@ -6225,7 +6225,7 @@
       "writer_host": null
     }
   ],
-  "generated_at": "2026-06-26T06:27:14+00:00",
+  "generated_at": "2026-06-27T06:27:09+00:00",
   "github_coverage": {
     "available": true,
     "generated_at": "2026-06-18T12:07:44.853261+00:00",
@@ -7161,6 +7161,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:henry-cron-aero-kanban-tools-watchdog-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-kanban-tools-watchdog.sh",
+      "schedule": "*/10 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-aero-lane-decision-lock",
       "invokes": null,
       "kind": "cron",
@@ -7773,6 +7785,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:henry-cron-otter-capture-tick-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: otter-capture-tick.sh",
+      "schedule": "17 */6 * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-pool-rotator-runner",
       "invokes": null,
       "kind": "cron",
@@ -7893,6 +7917,18 @@
       "what_it_scans": "Finds work present in the estate's thinking but with NO card: board + factory/context docs + recent session-history titles; proposes (never cards) batched digests"
     },
     {
+      "id": "aerodeck:henry-cron-scrape-parked-questions-py",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: scrape_parked_questions.py",
+      "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-sense-bridge-py",
       "invokes": null,
       "kind": "cron",
@@ -7972,6 +8008,18 @@
       "machine_id": "aerodeck",
       "name": "henry cron: verify-bridge-cron.sh",
       "schedule": "*/2 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:henry-cron-vigo-refresh-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: vigo-refresh.sh",
+      "schedule": "15 3 * * *",
       "source_path": null,
       "status": "active",
       "what_it_scans": null
@@ -8805,6 +8853,18 @@
       "what_it_scans": "Dashboards over Prometheus/Loki/InfluxDB metrics"
     },
     {
+      "id": "aeros:granola-oauth-refresh-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "granola-oauth-refresh.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aeros:heartbeat-watchdog-sh-worker-pool-watchdog-sh-cron-5",
       "invokes": "bash; ssh to Miranda \u2014 LOCAL, no LLM",
       "kind": "cron",
@@ -9606,6 +9666,18 @@
       "schedule": "40 */2 * * *",
       "source_path": null,
       "status": "gone",
+      "what_it_scans": null
+    },
+    {
+      "id": "aeros:ubuntu-cron-brain-index-backfill-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "ubuntu cron: brain-index-backfill.sh",
+      "schedule": "7 * * * *",
+      "source_path": null,
+      "status": "active",
       "what_it_scans": null
     },
     {
@@ -10953,6 +11025,18 @@
       "what_it_scans": null
     },
     {
+      "id": "personal:anna-today-ingest-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "anna-today-ingest.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "personal:banaos-pg-dump-backup-cron",
       "invokes": "pg_dump banaos | gzip. NO LLM",
       "kind": "cron",
@@ -11683,6 +11767,18 @@
       "source_path": "/home/ubuntu/life-ops/schoolbase/run-schoolbase.sh",
       "status": "gone",
       "what_it_scans": "SchoolBase parent portal (Diana, Herne Hill): ChildAttendance/OnlineDocuments/UnreadNoticesV2/PupilBirthdays -> medallion bronze.anna_provider_raw -> silver.anna_events -> gold.bana_anna_school"
+    },
+    {
+      "id": "personal:ubuntu-cron-scrape-parked-questions-py",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: scrape_parked_questions.py",
+      "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "personal:ubuntu-cron-seatspy-writer-py",
