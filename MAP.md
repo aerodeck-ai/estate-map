@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-27T06:27:09+00:00`
+Generated: `2026-06-28T06:27:00+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -63,6 +63,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **office-runtime** - `aerodeck:3052` - live - service - DISCOVERED 2026-06-24 17:00:31Z by registry-reconcile (proc=node); needs enrichment
 - **open-notebook-ui** - `aerodeck:8502` - live - service/research - http://100.74.200.84:8502 — Open Notebook Streamlit UI on aerodeck (docker on-app)
 - **openclaw** - `aerodeck:18789` - live - service - DISCOVERED 2026-06-24 06:17:07Z by registry-reconcile (proc=docker-proxy); needs enrichment
+- **richard-guard** - `aerodeck:8092` - live - service - DISCOVERED 2026-06-28 06:17:15Z by registry-reconcile (proc=python); needs enrichment
 - **sim-realtime** - `aerodeck:3034` - live - service/workflow - http://100.74.200.84:3034 — Sim Studio realtime service on aerodeck (docker sim-realtime-1, container :3002)
 - **steel-browser** - `aerodeck:9222` - live - service - DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=docker-proxy); needs enrichment
 - **trigger-minio-api** - `aerodeck:9050` - live - service/storage - http://100.74.200.84:9050 — trigger.dev MinIO S3 API on aerodeck (docker trigger-minio-1, container :9000)
@@ -307,47 +308,53 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 139 scheduled jobs
+- **aerodeck** - 145 scheduled jobs
 - **aeros** - 149 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 19 scheduled jobs
 - **mac-mini** - 38 scheduled jobs
 - **macbook** - 13 scheduled jobs
-- **personal** - 76 scheduled jobs
+- **personal** - 78 scheduled jobs
 
 ## GitHub coverage
 
 Source: T1 coverage manifest `github-coverage-canon/coverage.json` (generated `2026-06-18T12:07:44.853261+00:00`). 🟢 = every tracked path clean, 🔴 = drift/untracked.
-- Status rollup: detached=5, missing=6, scope-only=1, tracked-clean=22, tracked-dirty=25, untracked=4, vendor=3
+- Status rollup: detached=27, missing=6, scope-only=1, tracked-clean=27, tracked-dirty=20, untracked=2, vendor=3
 
 - 🟢 **AgriciDaniel/claude-ads** - 1/1 path(s) tracked-clean
 - 🟢 **BuilderIO/agent-native** - 1/1 path(s) tracked-clean
 - 🟢 **BuilderIO/skills** - 1/1 path(s) tracked-clean
 - 🟢 **DietrichGebert/ponytail** - 1/1 path(s) tracked-clean
 - 🟢 **NVIDIA/SkillSpector** - 1/1 path(s) tracked-clean
+- 🔴 **aerodeck-ai/aerocockpit** - 0/1 path(s) tracked-clean
+- 🔴 **aerodeck-ai/aerodeck-bin** - 0/1 path(s) tracked-clean
 - 🟢 **aerodeck-ai/aerodeck-design** - 1/1 path(s) tracked-clean
 - 🟢 **aerodeck-ai/aerodeck-site** - 1/1 path(s) tracked-clean
-- 🔴 **aerodeck-ai/aerodeck-template** - 0/4 path(s) tracked-clean
-- 🟢 **aerodeck-ai/agent-cockpit** - 1/1 path(s) tracked-clean
+- 🔴 **aerodeck-ai/aerodeck-template** - 0/2 path(s) tracked-clean
+- 🔴 **aerodeck-ai/aeros-medallion** - 0/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/aeros-schemas** - 1/1 path(s) tracked-clean
 - 🔴 **aerodeck-ai/antislop** - 0/1 path(s) tracked-clean
-- 🟢 **aerodeck-ai/banaos** - 1/1 path(s) tracked-clean
-- 🔴 **aerodeck-ai/berlai-ops** - 0/1 path(s) tracked-clean
-- 🟢 **aerodeck-ai/berlos** - 1/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/berlai-ops** - 1/1 path(s) tracked-clean
 - 🟢 **aerodeck-ai/brand-assets** - 1/1 path(s) tracked-clean
-- 🟢 **aerodeck-ai/design-berlos** - 1/1 path(s) tracked-clean
-- 🟢 **aerodeck-ai/design-deck** - 2/2 path(s) tracked-clean
+- 🟢 **aerodeck-ai/camoufox-mcp** - 1/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/claude-config** - 1/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/company-brain-dev** - 1/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/cred-locate-mcp** - 1/1 path(s) tracked-clean
+- 🔴 **aerodeck-ai/deep-research** - 0/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/design-deck** - 1/1 path(s) tracked-clean
 - 🟢 **aerodeck-ai/estate-map** - 1/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/eval-layer** - 1/1 path(s) tracked-clean
 - 🔴 **aerodeck-ai/factory** - 0/3 path(s) tracked-clean
 - 🟢 **aerodeck-ai/factory-v1** - 1/1 path(s) tracked-clean
 - 🔴 **aerodeck-ai/infra** - 0/1 path(s) tracked-clean
-- 🔴 **aerodeck-ai/jiddlers** - 0/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/jiddlers** - 1/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/kanban-mcp** - 1/1 path(s) tracked-clean
+- 🟢 **aerodeck-ai/youtube-pipeline** - 1/1 path(s) tracked-clean
 - 🔴 **bytedance/deer-flow** - 0/1 path(s) tracked-clean
 - 🟢 **cjpais/handy** - 1/1 path(s) tracked-clean
 - 🔴 **drachtio/drachtio-server** - 0/1 path(s) tracked-clean
-- 🔴 **freeswitch/sofia-sip** - 0/1 path(s) tracked-clean
-- 🔴 **freeswitch/spandsp** - 0/1 path(s) tracked-clean
 - 🟢 **helallao/perplexity-ai** - 1/1 path(s) tracked-clean
-- 🔴 **iamlukethedev/Claw3D** - 0/3 path(s) tracked-clean
+- 🔴 **iamlukethedev/Claw3D** - 0/1 path(s) tracked-clean
 - 🔴 **jambonz/jambonz-api-server** - 0/1 path(s) tracked-clean
 - 🔴 **jambonz/jambonz-feature-server** - 0/1 path(s) tracked-clean
 - 🔴 **jambonz/sbc-inbound** - 0/1 path(s) tracked-clean
@@ -357,6 +364,5 @@ Source: T1 coverage manifest `github-coverage-canon/coverage.json` (generated `2
 - 🟢 **mattpocock/skills** - 1/1 path(s) tracked-clean
 - 🔴 **nateherkai/AIS-OS** - 0/1 path(s) tracked-clean
 - 🟢 **shadcn/improve** - 1/1 path(s) tracked-clean
-- 🔴 **simstudioai/sim** - 0/1 path(s) tracked-clean
 - 🔴 **teoobarca/perplexity-mcp** - 0/1 path(s) tracked-clean
-- 🔴 **13 live path(s) not in GitHub** (untracked / no origin).
+- 🔴 **33 live path(s) not in GitHub** (untracked / no origin).
