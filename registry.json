@@ -22,7 +22,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-28 05:28:11"
+      "updated_at": "2026-06-29 05:46:32"
     },
     {
       "actively_collecting": 1,
@@ -46,7 +46,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-28 05:28:11"
+      "updated_at": "2026-06-29 05:46:32"
     },
     {
       "actively_collecting": 1,
@@ -150,6 +150,30 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
+      "collecting_notes": "host=aerodeck \u2014 infra-reviewer push/alert bot (push-only, no inbound poll loop). Token id 8816353730. Read by INFRA_TG_TOKEN in profiles/infra-reviewer/.env. Registered 2026-06-28T23:17:15Z (was missing from registry).",
+      "connection_type": "telegram-bot",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "Henry",
+      "name": "@aerodeck_cos_bot",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": "[telegram-bot] aerodeck infra-reviewer alert bot (8816353730) \u2014 push-only: fires infra-reviewer health/alert pings to Henry's Telegram. Not an interactive CoS surface.",
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 3,
+      "repo": null,
+      "subcategory": "comms",
+      "updated_at": "2026-06-28T23:17:15Z"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "CLI",
       "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gateway-mally-chief-of-staff.service, hermes-gateway-miranda-berliand.service, hermes-hub-watchdog.timer, hermes-richard-guard.service, hermes-se",
       "connection_type": "telegram-bot",
       "db_path": null,
@@ -166,7 +190,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-28 05:28:11"
+      "updated_at": "2026-06-29 05:46:32"
     },
     {
       "actively_collecting": 1,
@@ -190,7 +214,31 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-28 05:28:11"
+      "updated_at": "2026-06-29 05:46:32"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "CLI",
+      "collecting_notes": "host=aerodeck unit=voice-relay-mally.service (system unit, multi-user.target). ExecStart=python3 ~/work/infra/voice-relay/relay.py. Token id 8974799158. Registered 2026-06-28T23:17:15Z (was missing from registry). Mally hardware/voice-relay leg \u2014 do NOT touch the service.",
+      "connection_type": "telegram-bot",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "Mally",
+      "name": "@mally_aerodeck_voice_bot",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": "[telegram-bot] Mally voice relay bot (8974799158) \u2014 Telegram -> STT :8917 -> Mally brain :8929 -> TTS :8918 (voice-relay-mally.service). Mally-owned voice leg.",
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 3,
+      "repo": null,
+      "subcategory": "comms",
+      "updated_at": "2026-06-28T23:17:15Z"
     },
     {
       "actively_collecting": 1,
@@ -570,7 +618,7 @@
       "port": 3000,
       "quality_notes": "Granola meeting notes/transcripts (hosted MCP mcp.granola.ai). MIGRATED aeros hub -> aerodeck shadow hub 2026-06-13: OAuth blob copied DB-to-DB, auto-refreshed, retired from aeros. Verified live 6 tools. CAUTION: ONE account mixes business+personal meetings, no upstream filter.",
       "query_method": "http://127.0.0.1:3001/mcp/granola (aerodeck shadow hub, loopback-only; OAuth access+refresh tokens in shadow-hub servers.oauth blob, auto-refresh)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
@@ -690,7 +738,7 @@
       "port": 3000,
       "quality_notes": "GATED OFF 2026-06-08 (M3 leak fix) \u2014 do not re-enable without Henry.",
       "query_method": "disabled on hub",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "infra",
@@ -714,7 +762,7 @@
       "port": 3000,
       "quality_notes": "Otter meeting transcripts (hosted MCP mcp.otter.ai). MIGRATED aeros -> aerodeck shadow 2026-06-13 AND re-authed headless (was deauthed/0-tools estate-wide): web-session cookie login + playwright consent-click + auth-code intercept to hub callback. Verified live 3 tools. Mixed business+personal caveat as granola. Bulk-transcript path otter_pull.py (direct web API) still available.",
       "query_method": "http://127.0.0.1:3001/mcp/otter (aerodeck shadow hub, loopback-only; OAuth tokens in shadow-hub servers.oauth blob)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
@@ -786,7 +834,7 @@
       "port": 3001,
       "quality_notes": "Verified live 2026-06-18 (claude-aeros): 3 tools reachable via mcp.serpapi.com direct.",
       "query_method": "mcphub-aerodeck \u2192 mcp.serpapi.com (direct, bypasses aeros hub proxy which adds session management)",
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "shopping",
@@ -1506,7 +1554,7 @@
       "port": 3001,
       "quality_notes": "Registered 2026-06-25 #5d1675 \u2014 hub admin login + per-agent bearer minting was implicit-in-brain only; this is its registry home. DB-backed auth (bearer_keys), per-request lookup, no restart; 10 keys live.",
       "query_method": null,
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -1530,7 +1578,7 @@
       "port": 3001,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "mcphub-shadow",
@@ -1938,7 +1986,7 @@
       "port": 3012,
       "quality_notes": "AerOS dev-data surface = clean canonical cockpit. Wired to gold aeros.db + meetings-gold.db + connection-registry.db. CI-deployed (gha-deploy). Verified 2026-06-19.",
       "query_method": "https://dev-data.aerodeck.ai (CF Access svc-token) / http://127.0.0.1:3012 \u2014 container aeros-os-dev-data (gha-deploy CI), image aeros-os:dev-data",
-      "recon_status": "STALE(idle): port 3012 dead @ 2026-06-28 06:17:15Z",
+      "recon_status": "STALE(idle): port 3012 dead @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "business",
@@ -1986,7 +2034,7 @@
       "port": 11434,
       "quality_notes": "MIGRATED 2026-06-20: brain models (qwen2.5:1.5b-instruct + llama-guard3:1b) moved to Mac Mini per No-LLM-on-servers; anna-relay (Ariel kid companion) now reaches them via the aerodeck->mac :11437 tunnel. Local :11434 daemon serves zero models. Voice stays chatterbox ariel clone (unaffected).",
       "query_method": null,
-      "recon_status": "live@aerodeck",
+      "recon_status": "STALE(idle): port 11434 dead @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -2610,7 +2658,7 @@
       "port": 8782,
       "quality_notes": null,
       "query_method": "http://172.17.0.1:8782 \u2014 mcp-server-link: federation linker exposing host MCPs (e.g. notebooklm-mcp:8438) into the mcphub-aerodeck shadow hub",
-      "recon_status": "STALE(idle): port 8782 dead @ 2026-06-28 06:17:15Z",
+      "recon_status": "STALE(idle): port 8782 dead @ 2026-06-29 06:17:09Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "infra",
@@ -2730,7 +2778,7 @@
       "port": 18789,
       "quality_notes": "DISCOVERED 2026-06-24 06:17:07Z by registry-reconcile (proc=docker-proxy); needs enrichment",
       "query_method": null,
-      "recon_status": "RETIRE-PROPOSED: port 18789 dead 6 runs (awaiting approval) @ 2026-06-28 06:17:15Z",
+      "recon_status": "RETIRE-PROPOSED: port 18789 dead 7 runs (awaiting approval) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -3222,7 +3270,7 @@
       "aerodeck_scope": "private",
       "architecture_significant": 1,
       "category": "service",
-      "collecting_notes": "aerodeck ~/work/infra/voice-routers/stt_router.py; verified live 2026-06-11. NB a legacy aeros stt_router.service also answers :8917 on aeros \u2014 zombie, retire gated. See memory [[voice-fabric-topology]]",
+      "collecting_notes": "aerodeck ~/work/infra/voice-routers/stt_router.py; verified live 2026-06-11. The live :8917 listener is AERODECK-ONLY. [de-staled 2026-06-28T23:20:19Z: CORRECTED the false 'aeros stt_router.service zombie also answers :8917' claim \u2014 live probe shows the aeros stt_router.service is disabled+inactive with NO :8917 listener (no zombie answering on aeros). See memory [[voice-fabric-topology]].]",
       "connection_type": "http",
       "db_path": null,
       "gaps_notes": null,
@@ -3238,7 +3286,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "voice",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-06-28 23:20:19"
     },
     {
       "actively_collecting": 1,
@@ -3294,7 +3342,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "service",
-      "collecting_notes": null,
+      "collecting_notes": "[de-staled 2026-06-28T23:20:19Z: the local Voicebox upstream (:8765, the deep-failover engine leg) is DEAD \u2014 :8912 /health reports upstream_probe.upstream_error 'Connection refused' and there is no :8765 listener on aerodeck. The :8912 shim is up but its deep-failover backing engine is down.]",
       "connection_type": "http",
       "db_path": null,
       "gaps_notes": null,
@@ -3306,11 +3354,11 @@
       "port": 8912,
       "quality_notes": "voice-routers voicebox (henry-kokoro fallback TTS); /home/henry/work/infra/voice-routers/voicebox [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERODECK box, not the personal/LIFE host.]",
       "query_method": null,
-      "recon_status": "live@aerodeck",
+      "recon_status": "STALE: port 8912 dead 1x (auto-retire at 2) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "voice",
-      "updated_at": "2026-06-18 07:25:32"
+      "updated_at": "2026-06-28 23:20:19"
     },
     {
       "actively_collecting": 1,
@@ -3382,7 +3430,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-20 11:35:37"
+      "updated_at": "2026-06-28T23:16:54Z"
     },
     {
       "actively_collecting": 1,
@@ -3406,7 +3454,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-28 05:28:11"
+      "updated_at": "2026-06-29 05:46:32"
     },
     {
       "actively_collecting": 1,
@@ -3906,7 +3954,7 @@
       "port": 3000,
       "quality_notes": "Holds LIFE PII at rest on business box \u2014 open item M4 (scrub/tenant-allowlist or move to personal host).",
       "query_method": "http://100.64.135.5:3000/mcp/hermes-memory",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "infra",
@@ -3954,7 +4002,7 @@
       "port": 3000,
       "quality_notes": "Mounts telegram.db (personal) \u2014 NOT movable to business surfaces (D5 skeptic finding).",
       "query_method": "http://100.64.135.5:3000/mcp/ms-query",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -3978,7 +4026,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/playwright",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "infra",
@@ -4002,7 +4050,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": "http://100.64.135.5:3000/mcp/plex-mcp",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -4050,7 +4098,7 @@
       "port": 8463,
       "quality_notes": "DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=MainThread); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from category, reliability baselined 2.]",
       "query_method": null,
-      "recon_status": "STALE(idle): port 8463 dead @ 2026-06-28 06:17:15Z",
+      "recon_status": "STALE(idle): port 8463 dead @ 2026-06-29 06:17:09Z",
       "reliability_rating": 2,
       "repo": null,
       "subcategory": null,
@@ -4146,7 +4194,7 @@
       "port": 3000,
       "quality_notes": "Verified live 2026-06-18 (claude-aeros): container Up, 10 tools reachable via http://uk-transport:3000/mcp (aeros docker net). Prior OFFLINE note was a stale wrong-port probe.",
       "query_method": "http://100.64.135.5:3000/mcp/uk-transport",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "travel",
@@ -4170,7 +4218,7 @@
       "port": 3000,
       "quality_notes": "Business vault hybrid search (Henry vault + Mally Neuron_forest mirrors). On all three hubs, all probed OK 2026-06-11.",
       "query_method": "/mcp/vault-search on ALL THREE hubs (Hub-AerOS :3000, Hub-Aerodeck :3001, Hub-Personal :3000); canonical backend aeros 100.64.135.5:8439 (local hub points straight at it); second instance on personal :8439",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "research",
@@ -4182,7 +4230,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "MCP",
-      "collecting_notes": null,
+      "collecting_notes": "[PM2-managed (online, 11D uptime, 0 restarts, user=ubuntu) on aeros; port 8471 listening. [de-staled 2026-06-28T23:20:19Z: reliability 2->5 \u2014 the 'baselined 2' was the auto-discover default, not a real degrade; live probe confirms healthy 11d up.]]",
       "connection_type": "mcp-server",
       "db_path": null,
       "gaps_notes": null,
@@ -4195,10 +4243,10 @@
       "quality_notes": "DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from category, reliability baselined 2.]",
       "query_method": null,
       "recon_status": "live@aeros",
-      "reliability_rating": 2,
+      "reliability_rating": 5,
       "repo": null,
       "subcategory": null,
-      "updated_at": "2026-06-18 07:56:40"
+      "updated_at": "2026-06-28 23:20:19"
     },
     {
       "actively_collecting": 1,
@@ -4206,7 +4254,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "MCP",
-      "collecting_notes": null,
+      "collecting_notes": "[PM2-managed (online, 11D uptime, 0 restarts, user=ubuntu) on aeros; port 8470, /health -> status:ok db_ok:true (voice-transcripts.db, tenants henry+mally). [de-staled 2026-06-28T23:20:19Z: reliability 2->5 \u2014 the 'baselined 2' was the auto-discover default, not a real degrade; live probe confirms healthy 11d up.]]",
       "connection_type": "mcp-server",
       "db_path": null,
       "gaps_notes": null,
@@ -4219,10 +4267,10 @@
       "quality_notes": "DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from category, reliability baselined 2.]",
       "query_method": null,
       "recon_status": "live@aeros",
-      "reliability_rating": 2,
+      "reliability_rating": 5,
       "repo": null,
       "subcategory": null,
-      "updated_at": "2026-06-18 07:56:40"
+      "updated_at": "2026-06-28 23:20:19"
     },
     {
       "actively_collecting": 1,
@@ -5281,12 +5329,12 @@
       "updated_at": "2026-06-22 12:08:24"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
-      "collecting_notes": "host=personal unit=hermes-gateway-chief-of-staff.service, hermes-litellm-tunnel.service, telegram-voice-gateway.service",
+      "collecting_notes": "host=personal ORPHAN \u2014 no live poller. [de-staled 2026-06-28T23:16:54Z: was 'unit=hermes-gateway-chief-of-staff.service' which is DEAD/decommissioned. Live probe 2026-06-28: no service polls this bot. The LIFE gateway actually polls @henry_personal_hermes_bot (8401105418), NOT this bot. Retirement decision HELD for Henry \u2014 do not mint/repurpose without sign-off.]",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -5296,13 +5344,13 @@
       "namespace": "personal",
       "owner": null,
       "port": null,
-      "quality_notes": "[telegram-bot] BerlosCoS - Henry's LIFE chief-of-staff bot on the personal host",
+      "quality_notes": "[telegram-bot] BerlosCoS (8637729934) \u2014 ORPHAN bot, no live poller as of 2026-06-28. Former LIFE CoS surface; the gateway now polls @henry_personal_hermes_bot. Retirement = Henry-gated.",
       "query_method": null,
       "recon_status": null,
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-15 22:45:23"
+      "updated_at": "2026-06-28T23:16:54Z"
     },
     {
       "actively_collecting": 1,
@@ -5310,7 +5358,31 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
-      "collecting_notes": "host=personal unit=gates-bot.service, telegram-voice-gateway.service",
+      "collecting_notes": "host=personal unit=anna-relay.service (system unit, multi-user.target). WorkingDirectory=~/work/infra/anna-relay; ExecStart=.venv/bin/python relay.py. Token id 8693159987. Registered 2026-06-28T23:17:15Z (was missing from registry). LIFE estate \u2014 sealed kid-safe companion, HENRY-ONLY allowlist.",
+      "connection_type": "telegram-bot",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "personal",
+      "human_owner": "Henry",
+      "name": "@anna_ariel_voice_bot",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": "[telegram-bot] Anna/Ariel (8693159987) \u2014 sealed kid-safe Telegram companion, Henry-only allowlist (anna-relay.service on personal). LIFE estate.",
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 3,
+      "repo": null,
+      "subcategory": "comms",
+      "updated_at": "2026-06-28T23:17:15Z"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "CLI",
+      "collecting_notes": "host=personal unit=gates-bot.service",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -5326,7 +5398,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-28 05:28:11"
+      "updated_at": "2026-06-29 05:46:32"
     },
     {
       "actively_collecting": 0,
@@ -5538,7 +5610,7 @@
       "port": 3000,
       "quality_notes": "Gmail send. Account scope unverified \u2014 reconcile during estate rebuild.",
       "query_method": "http://100.99.185.36:3000/mcp/gmail-send (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "comms",
@@ -5562,7 +5634,7 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-calendar (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -5586,7 +5658,7 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-drive (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -5610,7 +5682,7 @@
       "port": 3000,
       "quality_notes": "Account scope unverified.",
       "query_method": "http://100.99.185.36:3000/mcp/google-sheets (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -5682,7 +5754,7 @@
       "port": 3000,
       "quality_notes": "Mixed-estate caveat (M5-adjacent): custody/divorce toolkits seen in container set. [auth backfilled 2026-06-25 #7706d9-authbackfill] [discoverability keywords: email outlook microsoft M365 ms365 graph mailbox Henry-email comms]",
       "query_method": "http://100.99.185.36:3000/mcp/ms365 (PERSONAL hub \u2014 the only working route)",
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "personal",
@@ -5706,7 +5778,7 @@
       "port": 3001,
       "quality_notes": "LID GOTCHA: WhatsApp LID migration (~2026-06-02) split DM threads \u2014 inbound lands under <n>@lid chat_jids, outbound under <phone>@s.whatsapp.net. Mally inbound = chat_jid 202610988593344@lid (NOT 447481839911@s.whatsapp.net). Resolve LID<->phone via personal:/home/ubuntu/data/sqlite/personal/identity-index.db (whatsapp-identity-sync, 4x/day). Watchdog: whatsapp-capture-watchdog (5 checks incl. replica-lag + LID-divergence since 2026-06-12).",
       "query_method": "MCP (Streamable HTTP) at http://100.99.185.36:3001/mcp \u2014 this is an MCP server, NOT REST. Tools incl. send_message + read_messages; read_messages takes chat_jid (NOT jid). Host-specific port: personal :3001 = WhatsApp send bridge; aerodeck 127.0.0.1:3001 = shadow hub \u2014 never confuse.",
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-28 06:17:15Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-06-29 06:17:09Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "whatsapp",
@@ -6249,7 +6321,7 @@
       "writer_host": null
     }
   ],
-  "generated_at": "2026-06-28T06:27:00+00:00",
+  "generated_at": "2026-06-29T06:27:09+00:00",
   "github_coverage": {
     "available": true,
     "generated_at": "2026-06-18T12:07:44.853261+00:00",
@@ -6719,6 +6791,18 @@
       "what_it_scans": "Standard Ubuntu maintenance: package update checks (apt-daily), firmware refresh (fwupd), MOTD news fetch, log rotation, man-db index, dpkg DB backup, tmpfiles cleanup, fs scrub/trim. Not security/estate scanners but scheduled background checks."
     },
     {
+      "id": "aerodeck:aero-cockpit-reconcile-timer",
+      "invokes": null,
+      "kind": null,
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-cockpit-reconcile.timer (business cockpit reality-reconciler)",
+      "schedule": "*-*-* *:00/45:00",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:aero-cron-census",
       "invokes": "Local + read-only SSH; no LLM, no tokens",
       "kind": "cron",
@@ -6789,6 +6873,18 @@
       "source_path": null,
       "status": "active",
       "what_it_scans": "Refreshes SwiftBar OAuth pool capacity (claude-pool-util.json) + 5h/7d %% every 5 min; reciprocal watch with aero-pool-doctor."
+    },
+    {
+      "id": "aerodeck:govern-registry-sync-aeros",
+      "invokes": "aero-registry-identity-guard.py; rsync to aeros /home/ubuntu/govern-broker; broker door :8951",
+      "kind": "timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-registry-sync (govern registry+MTP push aerodeck->aeros, identity-safe)",
+      "schedule": "*:0/15 (systemd timer)",
+      "source_path": "/home/henry/work/factory/govern/bin/aero-registry-sync-aeros",
+      "status": "active",
+      "what_it_scans": "govern agent-registry.json + mtp.yaml: source-pinned to origin/main, identity-preserve live public_keys, mint->door abort guard before push (anti-pattern kt_1782648871511_9f8c76)"
     },
     {
       "id": "aerodeck:aero-watch-govern-ledger-watcher",
@@ -6945,6 +7041,18 @@
       "source_path": null,
       "status": "active",
       "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:estate-backup-monitor",
+      "invokes": "/home/henry/bin/estate-backup-monitor \u2014 python3 stdlib; no LLM",
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "estate-backup-monitor.timer/.service (user)",
+      "schedule": "OnCalendar=*-*-* 07:00, RandomizedDelay 300s, Persistent (user systemd)",
+      "source_path": "/home/henry/.config/systemd/user/estate-backup-monitor.service",
+      "status": "active",
+      "what_it_scans": "Daily health probe of the 3-leg estate backup chain: SSD restic snapshot <26h, gdrive-life copy <30h, last RESTORE-OK <8d. Surfaces RED to cockpit Proposals + emits ESTATE-BACKUP-OK/RED."
     },
     {
       "id": "aerodeck:factory-floor-watch-loops-board-watch-floor-status-verifier-",
@@ -7463,6 +7571,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:henry-cron-aero-regen-intel-snapshots-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-regen-intel-snapshots.sh",
+      "schedule": "13,43 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-aero-review-export-sh",
       "invokes": null,
       "kind": "cron",
@@ -7507,8 +7627,8 @@
       "name": "henry cron: aero-sqlite-rclone-drive-cold-tier",
       "schedule": "41 3 * * *",
       "source_path": null,
-      "status": "active",
-      "what_it_scans": null
+      "status": "gone",
+      "what_it_scans": " [STOPPED 2026-06-28 estate-backup-v2: gdrive-aero DEAD; superseded by personal cold-tier-aerodeck->gdrive-life]"
     },
     {
       "id": "aerodeck:henry-cron-aero-ssd-offload-sh",
@@ -7530,6 +7650,18 @@
       "machine_id": "aerodeck",
       "name": "henry cron: aero-supply-stall-monitor.sh",
       "schedule": "*/15 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:henry-cron-aerodeck-disk-gc-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aerodeck-disk-gc.sh",
+      "schedule": "23 4 * * *",
       "source_path": null,
       "status": "active",
       "what_it_scans": null
@@ -8267,6 +8399,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:infra-circuit-timer",
+      "invokes": "Read-only walk; surfaces to cockpit orchestrator-proposals.json (improvements lane, [infra-circuit] tag) + critical FAIL -> gates-bot :8688 /ask DECISIONS inbox. Reality-dedup via aero-cockpit-reconcile (infra-circuit-latest.json snapshot). Never auto-fires a fix. No LLM, no tokens.",
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "infra-circuit.timer/.service (infra-Hermes-checker estate-health circuit)",
+      "schedule": "systemd --user timer: OnUnitActiveSec=30min (OnBootSec=5min, Persistent)",
+      "source_path": "/home/henry/work/infra/infra-hermes-checker/infra-circuit.py",
+      "status": "active",
+      "what_it_scans": "Estate health: walks census.json + the connection-registry in a fixed node-class order (host->service_unit->container->hub_door->feed->drift->data_plane->capacity->backup->auth_expiry); deduped findings. Absorbs the embed-staleness-watchdog as a data_plane check."
+    },
+    {
       "id": "aerodeck:loopback-liveness-timer",
       "invokes": null,
       "kind": "systemd-timer",
@@ -8325,6 +8469,18 @@
       "source_path": "container: ntfy (binwiederhier/ntfy:latest)",
       "status": "active",
       "what_it_scans": "Pub/sub notification broker \u2014 receives alerts from gatus (henry-infra topic) and other publishers; the alert delivery bus, not itself a scanner"
+    },
+    {
+      "id": "aerodeck:preview-pr-reaper-timer-service",
+      "invokes": "preview-pr.sh teardown N (for PRs CLOSED/MERGED past 6h grace); gh pr view",
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "preview-pr-reaper.timer/.service (closed-PR preview teardown)",
+      "schedule": "OnUnitActiveSec=1h, OnBootSec=10min, RandomizedDelay 300s",
+      "source_path": "/home/henry/work/factory/template-prpreview/scripts/preview-pr-reaper.sh",
+      "status": "active",
+      "what_it_scans": "aeros-os-pr-N preview containers on aerodeck \u2014 checks each PR GitHub state"
     },
     {
       "id": "aerodeck:rc-bridge-watchdog-timer",
@@ -8447,6 +8603,18 @@
       "what_it_scans": "FM6 backstop verifier \u2014 independent kanban close verification"
     },
     {
+      "id": "aeros:aero-yt-source-freshness",
+      "invokes": "python3 \u2014 LOCAL psql probe + sqlite UPDATE, no LLM",
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "aero-yt-source-freshness (YT /connect liveness stamp)",
+      "schedule": "*/30 * * * *",
+      "source_path": "/home/ubuntu/mcp-infra/scripts/aero-yt-source-freshness.py",
+      "status": "active",
+      "what_it_scans": "Stamps the YouTube data-source last_ok_at on the connection-registry from the REAL youtube_research PG freshness (MAX(bge_m3_embeddings.embedded_at)) so AerOS /connect renders the YT feed as flowing not stale"
+    },
+    {
       "id": "aeros:aerodeck-findings-pull-py-cron-5",
       "invokes": "python3 \u2014 LOCAL cross-host pull, no LLM",
       "kind": "cron",
@@ -8457,6 +8625,18 @@
       "source_path": "/home/ubuntu/mcp-infra/scripts/aerodeck-findings-pull.py",
       "status": "active",
       "what_it_scans": "Pulls findings from aerodeck box into aeros (Cutover-2 Decision B)"
+    },
+    {
+      "id": "aeros:aeros-crm-activities-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "aeros-crm-activities.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aeros:aeros-fleet-snapshot-service-timer-user",
@@ -9021,6 +9201,18 @@
       "source_path": "/home/ubuntu/bin/{heartbeat-watchdog,worker-pool-watchdog}.sh",
       "status": "active",
       "what_it_scans": "Miranda worker heartbeat freshness (>10min stale \u2192 alert; >30min \u2192 auto-respawn)"
+    },
+    {
+      "id": "aeros:henry-cron-aero-fleet-mart-build",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "henry cron: aero-fleet-mart-build",
+      "schedule": "*/30 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aeros:hermes-attribution-bridge-service-timer-user",
@@ -9727,8 +9919,8 @@
       "name": "ubuntu cron: aero-rclone-enc-critical-cold-tier",
       "schedule": "7 4 * * *",
       "source_path": null,
-      "status": "active",
-      "what_it_scans": null
+      "status": "gone",
+      "what_it_scans": " [STOPPED 2026-06-28 estate-backup-v2: gdrive-aero DEAD; superseded by personal cold-tier-aerodeck->gdrive-life]"
     },
     {
       "id": "aeros:ubuntu-cron-aerodeck-backup-rotation-py",
@@ -9894,6 +10086,18 @@
       "machine_id": "aeros",
       "name": "ubuntu cron: embed-meetings-cron.py",
       "schedule": "*/20 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aeros:ubuntu-cron-gold-to-granola-meetings-sync-py",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "ubuntu cron: gold-to-granola-meetings-sync.py",
+      "schedule": "*/30 * * * *",
       "source_path": null,
       "status": "active",
       "what_it_scans": null
@@ -11159,6 +11363,18 @@
       "what_it_scans": "Meetily meeting_minutes.sqlite -> scp to customs-house inbox (Mac Mini)"
     },
     {
+      "id": "personal:aero-cockpit-reconcile-timer",
+      "invokes": null,
+      "kind": null,
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "aero-cockpit-reconcile.timer (LIFE cockpit reality-reconciler)",
+      "schedule": "*-*-* *:00/45:00",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "personal:aerocockpit-digest-timer",
       "invokes": null,
       "kind": "systemd-timer",
@@ -11241,6 +11457,54 @@
       "source_path": null,
       "status": "active",
       "what_it_scans": "Henry's Gmail (henryberliand@gmail.com) -> life PG core.email_index"
+    },
+    {
+      "id": "personal:estate-backup-verify",
+      "invokes": "/home/ubuntu/bin/estate-backup-verify.sh \u2014 restic restore; no LLM",
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "estate-backup-verify.timer/.service",
+      "schedule": "OnCalendar=Sun *-*-* 06:30, RandomizedDelay 600s, Persistent",
+      "source_path": "/etc/systemd/system/estate-backup-verify.service",
+      "status": "active",
+      "what_it_scans": "Section-13 restore-verify: restic check (1% data) on the SSD repo + restore connection-registry.db (PRAGMA integrity_check=ok) + restore aerodeck PG dump (pg_restore --list) + verify Drive copy opens as restic repo. Logs RESTORE-OK."
+    },
+    {
+      "id": "personal:estate-identity-backup-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "estate-identity-backup.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "personal:estate-nightly-ssd",
+      "invokes": "/home/ubuntu/bin/estate-nightly-ssd.sh \u2014 restic over sftp; no LLM",
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "estate-nightly-ssd.timer/.service",
+      "schedule": "OnCalendar=*-*-* 01:30, RandomizedDelay 600s, Persistent",
+      "source_path": "/etc/systemd/system/estate-nightly-ssd.service",
+      "status": "active",
+      "what_it_scans": "Tier-1 estate backup: nightly pull of aeros PG (aerodeck/mcphub/youtube_research) + LIFE PG/sqlite + aerodeck small-DBs(board/gates/connection-registry) + identity(govern keys/.hermes/claude-code) into ONE client-side-encrypted restic snapshot on the InfraSSD (sftp:mac-mini:/Volumes/InfraSSD/backups/restic-estate). 7d/4w/3m retention."
+    },
+    {
+      "id": "personal:estate-ssd-to-gdrive",
+      "invokes": "/home/ubuntu/bin/estate-ssd-to-gdrive.sh \u2014 rclone; no LLM",
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "estate-ssd-to-gdrive.timer/.service",
+      "schedule": "OnCalendar=*-*-* 04:30, RandomizedDelay 600s, Persistent",
+      "source_path": "/etc/systemd/system/estate-ssd-to-gdrive.service",
+      "status": "active",
+      "what_it_scans": "Tier-2 estate backup offsite: rclone sync the InfraSSD restic repo -> gdrive-life:restic/estate-nightly (ciphertext; repo already client-side encrypted)."
     },
     {
       "id": "personal:feeder-a-watcher-cron",

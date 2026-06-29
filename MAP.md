@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-28T06:27:00+00:00`
+Generated: `2026-06-29T06:27:09+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -69,7 +69,6 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **trigger-minio-api** - `aerodeck:9050` - live - service/storage - http://100.74.200.84:9050 — trigger.dev MinIO S3 API on aerodeck (docker trigger-minio-1, container :9000)
 - **trigger-minio-console** - `aerodeck:9052` - live - service/storage - http://100.74.200.84:9052 — trigger.dev MinIO console on aerodeck (docker trigger-minio-1, container :9001)
 - **trigger-registry** - `aerodeck:5050` - live - service/workflow - http://100.74.200.84:5050 — trigger.dev docker image registry on aerodeck (docker trigger-registry-1, registry:2)
-- **voice-stt-router** - `aerodeck:8917` - live - service/voice - POST http://100.74.200.84:8917 — routes to whisper backends per stt_backends.json
 - **@aerodeck_miranda_bot** - `aeros` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap.certbot.renew.timer [de-staled 2026-06-20 card kt_1781951066137_fe00a...
 - **aeros-gold-canonical** - `aeros:/home/ubuntu/data/sqlite/shared/aeros.db` - live - Database/business - aeros — canonical AerOS GOLD store (~659MB). Built hourly by aeros-gold-derivation.timer (aeros-medallion/scripts/aeros-derivation.py) from silver/sources incl. sqlite-local/ber...
 - **antislop-canon-pg-mirror** - `aeros:aerodeck.antislop_canon` - live - Database/comms - read-only SQL; refreshed by export_to_pg.py
@@ -99,8 +98,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **mac-mini-infrassd-tm** - `mac-mini` - idle - infra/storage - ssh mac-mini; df -h /Volumes/InfraSSD-TM
 - **mac-mini-staging** - `mac-mini:/Users/hberliand/customs-house/v2/master.db` - live - service/customs-house - ssh mac-mini:/Users/hberliand/staging/ — Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited r...
 - **macbook-internal** - `macbook` - idle - infra/storage - ssh macbook; df -h / (/Users/aerodeck) -- only when awake/online
-- **@BerlosCoS_bot** - `personal` - live - CLI/comms - host=personal unit=hermes-gateway-chief-of-staff.service, hermes-litellm-tunnel.service, telegram-voice-gateway.service
-- **@henry_personal_hermes_bot** - `personal` - live - CLI/comms - host=personal unit=gates-bot.service, telegram-voice-gateway.service
+- **@BerlosCoS_bot** - `personal` - idle - CLI/comms - host=personal ORPHAN — no live poller. [de-staled 2026-06-28T23:16:54Z: was 'unit=hermes-gateway-chief-of-staff.service' which is DEAD/decommissioned. Live probe 2026-06-28: no...
+- **@henry_personal_hermes_bot** - `personal` - live - CLI/comms - host=personal unit=gates-bot.service
 - **gmail-send** - `personal:3000` - idle - MCP/comms - http://100.99.185.36:3000/mcp/gmail-send (PERSONAL hub — the only working route)
 - **life-kanban** - `personal:8651` - live - MCP/personal - http://127.0.0.1:8651/mcp (personal host, loopback/tailnet-only) — JSON-RPC tools/call; HTTP /health, /board.json
 - **ski-finances-site** - `personal:8975` - live - Tunnel/personal - http-static
@@ -110,6 +109,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### MODELS
 
+- **@mally_aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=voice-relay-mally.service (system unit, multi-user.target). ExecStart=python3 ~/work/infra/voice-relay/relay.py. Token id 8974799158. Registered 2026-06-28T23...
 - **tmux-bridge** - `aerodeck:8282` - live - MCP/infra - http://127.0.0.1:8282/mcp — aerodeck loopback-only, NOT on any hub
 - **claude-oauth-seat-pool** - `aerodeck` - live - Script/infra - Per-host ~/.claude-pool/<acct>/ holds 5 static setup-tokens. claude-pool-pick assigns one account PER PANE by live quota (lease round-robin). Quota feed http://100.74.200.84:893...
 - **humanize-benchmark** - `aerodeck:/home/henry/work/business/antislop/humanize_log.db` - live - Script/comms - humanize.py score()/fix(); SELECT producer,avg(human_score),date(ts) FROM humanize_log
@@ -128,18 +128,21 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **voice-brain** - `aerodeck:8919` - live - service/voice - 127.0.0.1:8919 — headless claude -p daemon (loopback-only); reaches tmux via tmux-bridge :8282
 - **voice-call** - `aerodeck:8920` - live - service/voice - http://100.74.200.84:8920 — live-call front-end
 - **voice-capacity** - `aerodeck:8932` - live - service/voice - voice-routers capacity service; /home/henry/work/infra/voice-routers/capacity [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERODECK box, not the pe...
+- **voice-stt-router** - `aerodeck:8917` - live - service/voice - POST http://100.74.200.84:8917 — routes to whisper backends per stt_backends.json
 - **voice-tmux-vnc** - `aerodeck:5900` - live - service/voice - x11vnc for the voice tmux display :97 (voice-tmux.service); also the Camoufox+VNC re-seal bridge [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AEROD...
 - **voice-tts-router** - `aerodeck:8918` - live - service/voice - http://100.74.200.84:8918 — PRIMARY aerodeck-local-kokoro :8922 (on-box bm_george, always-up) -> failover mally/henry-kokoro :8912 (SAME voice, inaudible switch) -> Higgs :8911...
-- **voicebox** - `aerodeck:8912` - live - service/voice - voice-routers voicebox (henry-kokoro fallback TTS); /home/henry/work/infra/voice-routers/voicebox [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERO...
+- **voicebox** - `aerodeck:8912` - live - service/voice - [de-staled 2026-06-28T23:20:19Z: the local Voicebox upstream (:8765, the deep-failover engine leg) is DEAD — :8912 /health reports upstream_probe.upstream_error 'Connection refu...
 - **whisper-8771** - `aerodeck:8771` - live - service/voice - http://100.74.200.84:8771 — local whisper STT backend
-- **voice-bot-server** - `aeros:8471` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
-- **voice-ingest-server** - `aeros:8470` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
+- **voice-bot-server** - `aeros:8471` - live - MCP - [PM2-managed (online, 11D uptime, 0 restarts, user=ubuntu) on aeros; port 8471 listening. [de-staled 2026-06-28T23:20:19Z: reliability 2->5 — the 'baselined 2' was the auto-disc...
+- **voice-ingest-server** - `aeros:8470` - live - MCP - [PM2-managed (online, 11D uptime, 0 restarts, user=ubuntu) on aeros; port 8470, /health -> status:ok db_ok:true (voice-transcripts.db, tenants henry+mally). [de-staled 2026-06-2...
 - **litellm** - `aeros:4000` - live - service/llm-routing - http://100.64.135.5:4000 — fleet LLM router on aeros (socat front to localhost litellm; SpendLogs in litellm-db :5433)
 - **meetily-customs-house-ingest** - `henry-mac-mini:~/customs-house/v2/master.db (Henry Mac Mini, hberliand@100.89.244.20)` - live - Script/comms - n/a (pipeline)
+- **@anna_ariel_voice_bot** - `personal` - live - CLI/comms - host=personal unit=anna-relay.service (system unit, multi-user.target). WorkingDirectory=~/work/infra/anna-relay; ExecStart=.venv/bin/python relay.py. Token id 8693159987. Regis...
 
 ### AGENTS
 
 - **@aerodeck_alerts_bot** - `unknown` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap.certbot.renew.timer
+- **@aerodeck_cos_bot** - `aerodeck` - live - CLI/comms - host=aerodeck — infra-reviewer push/alert bot (push-only, no inbound poll loop). Token id 8816353730. Read by INFRA_TG_TOKEN in profiles/infra-reviewer/.env. Registered 2026-06-...
 - **repo:agent-cockpit** - `aerodeck` - live - Repo/infra
 - **repo:vectos-hermes** - `aerodeck` - live - Repo/infra
 - **rc-tunnel** - `aerodeck:13200` - live - Tunnel/comms - ssh -N -L 127.0.0.1:13200 -> aeros:3200 (RocketChat) — leg of the RC<->Hermes bridge
@@ -308,13 +311,13 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 145 scheduled jobs
-- **aeros** - 149 scheduled jobs
+- **aerodeck** - 152 scheduled jobs
+- **aeros** - 153 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 19 scheduled jobs
 - **mac-mini** - 38 scheduled jobs
 - **macbook** - 13 scheduled jobs
-- **personal** - 78 scheduled jobs
+- **personal** - 83 scheduled jobs
 
 ## GitHub coverage
 
