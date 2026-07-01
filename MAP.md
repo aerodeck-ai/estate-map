@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-06-30T06:27:05+00:00`
+Generated: `2026-07-01T06:27:03+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -279,6 +279,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### DATABASES
 
+- **meetings_gold-pg** - `aeros:5432/meetings_gold (host: aeros)` - live - Database/meetings-gold - psql on aeros; WRITER = customs-house gold-import.mjs (--db=meetings_gold, promoted from the mac-mini runner); READER = gold-to-granola-meetings-sync.py -> aerodeck.granola_meet...
 - **documenso-postgres** - `aerodeck:5447` - live - Database - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=docker-proxy); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from ca...
 - **jambonz-aerodeck-mysql-1** - `aerodeck:3306` - live - Database - DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=docker-proxy); needs enrichment
 - **jambonz-aerodeck-redis-1** - `aerodeck:6380` - live - Database - DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=docker-proxy); needs enrichment
@@ -288,7 +289,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aero-workspace-branches** - `aerodeck:/home/ubuntu/data/workspace-branches.json (on aeros; local mirror ~/.local/state/workspace-branches.json on aerodeck)` - live - Script/infra - read JSON feed via getWorkspaceBranches() in apps/aeros/src/lib/data-db.ts; produced by ~/bin/aero-workspace-branches.sh
 - **aeros-finance-cube** - `aerodeck:4202` - live - service/analytics - http://100.74.200.84:4202 — AerOS finance Cube.js on aerodeck (docker aeros-finance-cube, container :4000)
 - **aeros-finance-pg** - `aerodeck:5446` - live - service/database - postgres://100.74.200.84:5446 — AerOS finance Postgres on aerodeck (docker aeros-finance-pg, pgvector pg16)
-- **aeros-os-dev-data** - `aerodeck:3012` - idle - service/business - https://dev-data.aerodeck.ai (CF Access svc-token) / http://127.0.0.1:3012 — container aeros-os-dev-data (gha-deploy CI), image aeros-os:dev-data
+- **aeros-os-dev-data** - `aerodeck:3012` - idle - service/business - RETIRED — no live surface. (was https://dev-data.aerodeck.ai / 127.0.0.1:3012; CF route + DNS removed 2026-06-30)
 - **cube-jiddlers-tunnel** - `aerodeck:14200` - live - service/tunnel - tcp://127.0.0.1:14200 — aerodeck ssh -L forward to jiddlers Cube 127.0.0.1:4200
 - **documenso-aerodeck** - `aerodeck:3025` - live - service/e-sign - https://sign.aerodeck.ai — Documenso e-sign (Remix), Dockerized on aerodeck (containers documenso + documenso-postgres on documenso-net), app :3025 / pg :5447
 - **open-notebook-api** - `aerodeck:5055` - live - service/research - http://100.74.200.84:5055 — Open Notebook API on aerodeck (docker on-app; surrealdb sidecar unpublished)
@@ -394,7 +395,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aeros:brain-mcp-business.service** - `aeros` - live - Service - systemd unit brain-mcp-business.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:brain-mcp.service** - `aeros` - live - Service - systemd unit brain-mcp.service (active); auto-discovery via registry-discover-sources (T20)
 - **company-brain-mcp** - `aeros:8459` - live - service/company-brain - MCP brain_recall via mcphub-aerodeck / aeros hub
-- **oracle-mcp-infra-ms-query-1** - `aeros:8480` - live - service - DISCOVERED 2026-06-22 06:17:09Z by registry-reconcile (proc=docker-proxy); needs enrichment
+- **oracle-mcp-infra-ms-query-1** - `aeros:8480` - live - service - | .env->secret-get migration 2026-06-30: secrets now sourced from aeros secret-get as oracle-* (20 sealed), .env is a render-env.sh cache, deploy via ./deploy.sh only. Artifacts...
 - **plex-mcp-vm** - `aeros:8481` - live - service - DISCOVERED 2026-06-22 06:17:09Z by registry-reconcile (proc=docker-proxy); needs enrichment
 - **Hub-Jiddlers** - `jiddlers:3001` - live - MCP-Hub/client - http://127.0.0.1:3001/mcp on the jiddlers box (container mcphub-jiddlers; loopback-only — reach via ssh jiddlers; bearer auth pending)
 - **linkedin** - `mac-mini:8783` - live - MCP/comms - mcphub-aerodeck -> linkedin-* (17 tools). Path: hub container -> http://host.docker.internal:8782/mcp -> aerodeck SSH tunnel (systemd --user linkedin-mcp-tunnel: 172.17.0.1:8782...
@@ -449,6 +450,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:aero-notebooklm-srg-sync.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-notebooklm-srg-sync.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pool-doctor.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-pool-doctor.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pool-monitor.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-pool-monitor.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-pool-spend-cap.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-pool-spend-cap.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pressure-relief.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-pressure-relief.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-registry-sync.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-registry-sync.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-seat-heartbeat.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-seat-heartbeat.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -467,6 +469,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **changedetection-competitor-watch** - `aerodeck:8914` - live - service/marketing - HTTP API http://127.0.0.1:8914/api/v1/ (x-api-key in container datastore changedetection.json — never logged)
 - **healthchecks** - `aerodeck:8000` - live - service/observability - http://100.74.200.84:8000 — Healthchecks cron-monitoring on aerodeck (docker healthchecks)
 - **systemd:aeros:aero-bridge-cache-rotate.timer** - `aeros` - live - Scheduled Job - systemd unit aero-bridge-cache-rotate.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aeros:aero-stale-backup-sweep.timer** - `aeros` - live - Scheduled Job - systemd unit aero-stale-backup-sweep.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:brain-night-shift.timer** - `aeros` - live - Scheduled Job - systemd unit brain-night-shift.timer (active); auto-discovery via registry-discover-sources (T20)
 - **history-freshness-watchdog** - `aeros` - live - infra/claude-history-pipeline - ssh aeros systemctl --user is-active history-freshness-watchdog.timer && ssh aeros bash /home/ubuntu/bin/history-freshness-check.sh
 - **company-brain-capture-producer** - `aeros` - live - intelligence/company-brain - ssh aeros crontab -l | grep brain; scripts under /home/ubuntu/apps/company-brain-dev/brain-capture*.py|sh write to company_brain
@@ -496,14 +499,15 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **antislop-canon-pg-mirror** - `aeros:aerodeck.antislop_canon` - postgres - canonical
 - **company-brain-meetings-gold** - `aeros:/home/ubuntu/apps/company-brain-dev/meetings-gold.db` - sqlite - canonical
 - **jiddlers-live-sqlite** - `aeros:/home/ubuntu/data/sqlite/shared/jiddlers/live.db` - sqlite - canonical
+- **meetings_gold** - `aeros:meetings_gold` - postgres - canonical
 - **life-kanban** - `personal:/home/ubuntu/apps/life-kanban/board.db` - sqlite - canonical
 - **personal-whatsapp-mcp** - `personal:/var/lib/docker/volumes/miranda_whatsapp-data/_data/store.db (in-container /app/data/store.db)` - sqlite - canonical
 - **whatsapp-golden-store** - `personal:/var/lib/docker/volumes/miranda_whatsapp-data/_data/store.db` - sqlite - canonical
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 154 scheduled jobs
-- **aeros** - 154 scheduled jobs
+- **aerodeck** - 157 scheduled jobs
+- **aeros** - 155 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 19 scheduled jobs
 - **mac-mini** - 38 scheduled jobs
