@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-07-03T06:27:07+00:00`
+Generated: `2026-07-04T06:27:01+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -19,17 +19,19 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### FACTORY
 
-- **@Miranda_hermes_cos_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashb...
+- **@Feeder_sim_bot** - `unknown` - live - CLI/comms - host=personal unit=gates-bot.service
+- **@Miranda_hermes_cos_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gat...
 - **@henry_personal_hermes_bot** - `unknown` - live - CLI/comms - host=personal unit=gates-bot.service
 - **mac-mini-infrassd-archive** - `unknown:/Volumes/InfraSSD` - live - Local Service/infra - ssh mac-mini ls /Volumes/InfraSSD
 - **schoolbase-medallion** - `banaos (personal 127.0.0.1:5432, role life_sync)` - live - Script/personal - psql -d banaos: SELECT gold.bana_anna_school / silver.anna_events / bronze.anna_provider_raw; health: bana_provider_state(provider=schoolbase)
-- **@aerodeck_gates_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashb...
-- **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashb...
+- **@aerodeck_gates_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gat...
+- **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gat...
 - **aero-write-broker** - `aerodeck:/home/henry/bin/aero-write-broker` - live - CLI/governance - aero-write-broker --scope | disk-reclaim [--execute] | pool-key [--execute] (default dry-run; unknown ops default-deny)
 - **Plan-Surface** - `aerodeck:8930` - live - Dashboard/business - https://plan.aerodeck.ai (behind Cloudflare Access) or http://127.0.0.1:8930 / http://100.74.200.84:8930 on aerodeck — read-only factory dashboard (board/epics, codex verdicts,...
 - **aerlock-panel** - `aerodeck:8772` - live - Dashboard/factory-audit - curl http://127.0.0.1:8772/health; curl http://127.0.0.1:8772/api/status
 - **antislop-canon** - `aerodeck:/home/henry/work/business/antislop/canon/antislop-canon.json` - live - Database/comms - humanize.py / antislop.py (Vale) / build_canon.py
 - **kanban-board-connector** - `aerodeck` - live - Database/infra - sqlite /home/ubuntu/apps/kanban-mcp/board.db (aerodeck :8649 kanban-mcp); read-only snapshot, sudo
+- **litellm-model:glm-4.6-aerodeck** - `aerodeck` - live - LLM-model - LiteLLM model 'glm-4.6' -> openai/glm-4.6 @ https://api.z.ai/api/coding/paas/v4 (Z.ai Coding Plan, the funded coding endpoint) on host aerodeck's OWN litellm-aerodeck.service (l...
 - **kanban-readonly** - `aerodeck:8650` - live - MCP/infra - http://127.0.0.1:3001/mcp/kanban-readonly via Hub-Aerodeck (backend aerodeck :8650; Docker bridge allowed, off-box tailnet rejected since 2026-06-17)
 - **kanban-tools** - `aerodeck:8649` - live - MCP/infra - http://127.0.0.1:8649/mcp (loopback/docker only — tailnet REJECTED since 2026-06-12)
 - **mcphub:aerodeck:kanban-readonly** - `aerodeck` - live - MCP - MCP server 'kanban-readonly' fronted by the aerodeck hub; status=connected; 3 tool(s); auto-discovery via registry-discover-sources (T20)
@@ -39,10 +41,12 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:aero-gates-reconcile.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-gates-reconcile.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-kanban-ro-watchdog.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-kanban-ro-watchdog.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-kanban-tools-watchdog.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-kanban-tools-watchdog.timer (active); auto-discovery via registry-discover-sources (T20)
+- **aero-worktree-guard** - `aerodeck` - live - Script/infra
 - **systemd:aerodeck:aero-board-ui.service** - `aerodeck` - live - Service - systemd unit aero-board-ui.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-decisions-api.service** - `aerodeck` - live - Service - systemd unit aero-decisions-api.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pep.service** - `aerodeck` - live - Service - systemd unit aero-pep.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:gates-bot.service** - `aerodeck` - live - Service - systemd unit gates-bot.service (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:hermes-gateway-henry-chief-of-staff.service** - `aerodeck` - live - Service - systemd unit hermes-gateway-henry-chief-of-staff.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-gateway-infra-code-reviewer.service** - `aerodeck` - live - Service - systemd unit hermes-gateway-infra-code-reviewer.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-gateway-mally-chief-of-staff.service** - `aerodeck` - live - Service - systemd unit hermes-gateway-mally-chief-of-staff.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-gateway-miranda-berliand.service** - `aerodeck` - live - Service - systemd unit hermes-gateway-miranda-berliand.service (active); auto-discovery via registry-discover-sources (T20)
@@ -121,6 +125,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **socks5-secondary** - `aeros:9051` - live - service - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **uk-transport** - `aeros:8482` - live - service - DISCOVERED 2026-07-02 01:56:56Z by registry-reconcile (proc=docker-proxy); needs enrichment
 - **jiddlers-os** - `jiddlers:3019` - idle - MCP/client - jiddlers box; UP, serving jiddlers.aeros-app.ai; image template-v1.0.0 since 2026-06-11 (verified 2026-06-11); still PENDING federation into Hub-Jiddlers (B3)
+- **aeromeet-app** - `mac-mini:github.com/aerodeck-ai/aeromeet` - idle - Application - AeroMeet - Aerodeck fork of Meetily (MIT, Zackriya). Repo aerodeck-ai/aeromeet at ~/work/business/aeromeet. Replaces meetily.app on team Macs once first signed build ships; capt...
 - **history-pipeline-mini** - `mac-mini:/Users/hberliand/customs-house/history/history.db` - live - infra/claude-history-pipeline - ssh mac-mini ~/customs-house/history/history-pipeline-runner.sh (launchd) plus ssh aeros bash /home/ubuntu/bin/history-freshness-check.sh
 - **mac-mini-infrassd** - `mac-mini` - idle - infra/storage - ssh mac-mini; df -h /Volumes/InfraSSD
 - **mac-mini-infrassd-tm** - `mac-mini` - idle - infra/storage - ssh mac-mini; df -h /Volumes/InfraSSD-TM
@@ -131,6 +136,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### MODELS
 
+- **meetings_gold-pg** - `aeros:5432/meetings_gold (host: aeros)` - live - Database/meetings-gold - psql on aeros; WRITER = customs-house gold-import.mjs (--db=meetings_gold, promoted from the mac-mini runner); READER = gold-to-granola-meetings-sync.py -> aerodeck.granola_meet...
 - **@mally_aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=voice-relay-mally.service (system unit, multi-user.target). ExecStart=python3 ~/work/infra/voice-relay/relay.py. Token id 8974799158. Registered 2026-06-28T23...
 - **tmux-bridge** - `aerodeck:8282` - live - MCP/infra - http://127.0.0.1:8282/mcp — aerodeck loopback-only, NOT on any hub
 - **connection-registry-auto-discovery** - `aerodeck` - live - Scheduled Job - auto-discovery pass (registry-discover-sources.py): scans the LiteLLM config, the MCP-hub roster, and systemd units every ~15min and UPSERTs each new connection into the connect...
@@ -144,6 +150,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:voice-call.service** - `aerodeck` - live - Service - systemd unit voice-call.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:voice-capacity-probe.service** - `aerodeck` - live - Service - systemd unit voice-capacity-probe.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:voice-kokoro-local.service** - `aerodeck` - live - Service - systemd unit voice-kokoro-local.service (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:voice-relay-capture.service** - `aerodeck` - live - Service - systemd unit voice-relay-capture.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:voice-relay-mally.service** - `aerodeck` - live - Service - systemd unit voice-relay-mally.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:voice-stt-router.service** - `aerodeck` - live - Service - systemd unit voice-stt-router.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:voice-tmux.service** - `aerodeck` - live - Service - systemd unit voice-tmux.service (active); auto-discovery via registry-discover-sources (T20)
@@ -229,6 +236,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aeros:litellm-aerodeck-relay.service** - `aeros` - live - Service - systemd unit litellm-aerodeck-relay.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:litellm.service** - `aeros` - live - Service - systemd unit litellm.service (active); auto-discovery via registry-discover-sources (T20)
 - **litellm** - `aeros:4000` - live - service/llm-routing - http://100.64.135.5:4000 — fleet LLM router on aeros (socat front to localhost litellm; SpendLogs in litellm-db :5433)
+- **meetily-customs-house-ingest** - `mac-mini:~/customs-house/v2/master.db (table: meetings; 650+ rows)` - live - Script/comms - n/a (pipeline)
 - **@anna_ariel_voice_bot** - `personal` - live - CLI/comms - host=personal unit=anna-relay.service (system unit, multi-user.target). WorkingDirectory=~/work/infra/anna-relay; ExecStart=.venv/bin/python relay.py. Token id 8693159987. Regis...
 
 ### AGENTS
@@ -272,11 +280,12 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### DATABASES
 
+- **aerodeck-pg:granola_listing-and-transcripts** - `unknown:aeros PG db=aerodeck tables=granola_meetings,granola_transcripts` - live - Database - granola_meetings = doc-level LISTING (564 rows incl. notes-only docs with NO transcript; still written via gold-to-granola sync feeding Company Brain recall). granola_transcript...
+- **aerodeck-pg:otter_meetings-LEGACY** - `unknown:aeros PG db=aerodeck table=otter_meetings` - idle - Database - FROZEN legacy otter fetch leg - 513 rows, meetings 2024-12-16 to 2026-06-18, last fetch 2026-06-26, accounts otter-backfill+henry-pro. Superseded by customs-house v2 on henry-ma...
 - **aeros-rogold** - `unknown:/home/ubuntu/data/sqlite/shared/aeros-rogold.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **architecture** - `unknown:/home/ubuntu/data/sqlite/shared/architecture/architecture.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **errors** - `unknown:/home/ubuntu/data/sqlite/shared/errors/errors.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **kb-health** - `unknown:/home/ubuntu/data/sqlite/shared/kb-health/kb-health.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
-- **meetings_gold-pg** - `aeros:5432/meetings_gold (host: aeros)` - live - Database/meetings-gold - psql on aeros; WRITER = customs-house gold-import.mjs (--db=meetings_gold, promoted from the mac-mini runner); READER = gold-to-granola-meetings-sync.py -> aerodeck.granola_meet...
 - **propsignal** - `unknown:/home/ubuntu/data/sqlite/shared/property/propsignal.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **reservoir** - `unknown:/home/ubuntu/data/sqlite/shared/reservoir.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **swr** - `unknown:/home/ubuntu/data/sqlite-local/swr/swr.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
@@ -312,7 +321,6 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aeros-root** - `aeros` - idle - infra/storage - ssh aeros; df -h / (device /dev/sda1 -> /, 193G)
 - **company-brain-store** - `aeros:5441` - live - service/company-brain - docker exec brain-pg-dev psql -d company_brain
 - **cube** - `aeros:4200` - live - service - DISCOVERED 2026-06-22 06:17:09Z by registry-reconcile (proc=docker-proxy); needs enrichment
-- **meetily-customs-house-ingest** - `mac-mini:~/customs-house/v2/master.db (table: meetings; 650+ rows)` - live - Script/comms - n/a (pipeline)
 
 ### MCP
 
@@ -320,7 +328,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **camoufox-mcp** - `aerodeck:8775` - live - MCP/infra - camoufox anti-detect browser MCP backend (federated into hubs); /home/henry/apps/camoufox-mcp [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERODECK...
 - **connection-registry** - `aerodeck:8414` - live - MCP/infra - aerodeck systemd (henry); bound 172.17.0.1 (not tailnet); member of Hub-Aerodeck | 2026-06-11: now also serves the SCHEDULED-JOB class via cron_jobs table (248 jobs backfilled f...
 - **cred-locate-mcp** - `aerodeck:8776` - live - MCP/infra - cred-locate cross-host secret-locator MCP backend; /home/henry/apps/cred-locate-mcp [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERODECK box, not...
-- **deep-research** - `aerodeck:8436` - idle - MCP/research - aerodeck systemd (runs as henry); member of Hub-Aerodeck
+- **deep-research** - `aerodeck:8436` - live - MCP/research - aerodeck systemd (runs as henry); member of Hub-Aerodeck
 - **fetch-context** - `aerodeck:8428` - live - MCP/infra - aerodeck systemd; member of Hub-Aerodeck
 - **gws-aerodeck** - `aerodeck:8541` - live - MCP/gws-docs - mcphub-aerodeck :3001 -> host.docker.internal:8541/mcp (bound 172.17.0.1:8541, runs as ubuntu)
 - **mcphub:aerodeck:business-meetings** - `aerodeck` - live - MCP - MCP server 'business-meetings' fronted by the aerodeck hub; status=connected; 4 tool(s); auto-discovery via registry-discover-sources (T20)
@@ -368,9 +376,9 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **gmail-sa-mcp** - `aeros:8465` - live - MCP - DISCOVERED 2026-06-19 19:55:38Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **history-search** - `aeros:8427` - live - MCP/research - GET http://100.64.135.5:8427/history-search?q=&k= — direct on aeros, NOT behind any hub; /health for liveness
 - **mcphub:aeros:company-brain** - `aeros` - live - MCP - MCP server 'company-brain' fronted by the aeros hub; status=connected; 1 tool(s); auto-discovery via registry-discover-sources (T20)
-- **mcphub:aeros:granola** - `aeros` - live - MCP - MCP server 'granola' fronted by the aeros hub; status=oauth_required; 6 tool(s); auto-discovery via registry-discover-sources (T20)
+- **mcphub:aeros:granola** - `aeros` - idle - MCP - DISCONNECTED hub door - granola ingest moved to customs-house v2 on henry-mac-mini (see meetily-customs-house-ingest id 295). Do not infer granola liveness from this row (de-sta...
 - **mcphub:aeros:ms-query** - `aeros` - live - MCP - MCP server 'ms-query' fronted by the aeros hub; status=connected; 7 tool(s); auto-discovery via registry-discover-sources (T20)
-- **mcphub:aeros:otter** - `aeros` - live - MCP - MCP server 'otter' fronted by the aeros hub; status=connected; 3 tool(s); auto-discovery via registry-discover-sources (T20)
+- **mcphub:aeros:otter** - `aeros` - idle - MCP - DISCONNECTED hub door - otter ingest moved to customs-house v2 on henry-mac-mini (see meetily-customs-house-ingest id 295). Do not infer otter liveness from this row (de-staled...
 - **mcphub:aeros:plex-mcp** - `aeros` - live - MCP - MCP server 'plex-mcp' fronted by the aeros hub; status=connected; 30 tool(s); auto-discovery via registry-discover-sources (T20)
 - **mcphub:aeros:rocketchat-send** - `aeros` - live - MCP - MCP server 'rocketchat-send' fronted by the aeros hub; status=connected; 2 tool(s); auto-discovery via registry-discover-sources (T20)
 - **mcphub:aeros:serpapi** - `aeros` - live - MCP - MCP server 'serpapi' fronted by the aeros hub; status=connected; 3 tool(s); auto-discovery via registry-discover-sources (T20)
@@ -398,6 +406,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### WATCHDOGS
 
+- **systemd:aerodeck:aero-arch-sweep.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-arch-sweep.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-board-view-parity.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-board-view-parity.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-brain-recall-watchdog.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-brain-recall-watchdog.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-cockpit-reconcile.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-cockpit-reconcile.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -405,6 +414,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:aero-continuity-upgrader.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-continuity-upgrader.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-critical-backup.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-critical-backup.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-decide-shadow.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-decide-shadow.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-disk-alert.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-disk-alert.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-disk-clean.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-disk-clean.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-fleet-liveness.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-fleet-liveness.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-flow-controller.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-flow-controller.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-freshness-canaries.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-freshness-canaries.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -484,13 +495,13 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 172 scheduled jobs
-- **aeros** - 158 scheduled jobs
+- **aerodeck** - 226 scheduled jobs
+- **aeros** - 159 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 20 scheduled jobs
 - **mac-mini** - 38 scheduled jobs
 - **macbook** - 13 scheduled jobs
-- **personal** - 86 scheduled jobs
+- **personal** - 88 scheduled jobs
 
 ## GitHub coverage
 

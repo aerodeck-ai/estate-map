@@ -6,7 +6,31 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
-      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gateway-infra-code-reviewer.service, hermes-gateway-mally-chief-of-staff.service, hermes-gateway-miranda-berliand",
+      "collecting_notes": "host=personal unit=gates-bot.service",
+      "connection_type": "telegram-bot",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": null,
+      "human_owner": "Henry",
+      "name": "@Feeder_sim_bot",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": "[telegram-bot] auto-discovered sealed bot token on personal",
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 4,
+      "repo": null,
+      "subcategory": "comms",
+      "updated_at": "2026-07-04 06:07:08"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "CLI",
+      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gateway-infra-code-reviewer.service, hermes-gateway-mally-chief-of-staff.service, hermes-gateway-miranda-berliand.service, hermes-hub-watchdog.ti",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -22,7 +46,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-03 06:09:34"
+      "updated_at": "2026-07-04 06:07:08"
     },
     {
       "actively_collecting": 1,
@@ -46,7 +70,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-03 06:09:34"
+      "updated_at": "2026-07-04 06:07:08"
     },
     {
       "actively_collecting": 1,
@@ -70,7 +94,55 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-03 06:09:34"
+      "updated_at": "2026-07-04 06:07:08"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 1,
+      "category": "Database",
+      "collecting_notes": "granola_meetings = doc-level LISTING (564 rows incl. notes-only docs with NO transcript; still written via gold-to-granola sync feeding Company Brain recall). granola_transcripts = STALLED one-time backfill artifact (151 rows; Granola paywall-blocked, see backfill-granola-transcripts.mjs on the mini). Canonical granola transcripts = mini master.db (245, 100%). Never compute transcript coverage as transcripts/listing (registered 2026-07-04).",
+      "connection_type": "postgres-db",
+      "db_path": "aeros PG db=aerodeck tables=granola_meetings,granola_transcripts",
+      "gaps_notes": null,
+      "host": null,
+      "human_owner": null,
+      "name": "aerodeck-pg:granola_listing-and-transcripts",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": null,
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-07-04 01:29:43"
+    },
+    {
+      "actively_collecting": 0,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 1,
+      "category": "Database",
+      "collecting_notes": "FROZEN legacy otter fetch leg - 513 rows, meetings 2024-12-16 to 2026-06-18, last fetch 2026-06-26, accounts otter-backfill+henry-pro. Superseded by customs-house v2 on henry-mac-mini (id 295). All 513 rows retain full transcript_md (raw material for any gold backfill; 226 rows exist only here). NEVER infer otter-liveness from this table's freshness (registered 2026-07-04 after it caused a wrong dead-leg verdict).",
+      "connection_type": "postgres-db",
+      "db_path": "aeros PG db=aerodeck table=otter_meetings",
+      "gaps_notes": null,
+      "host": null,
+      "human_owner": null,
+      "name": "aerodeck-pg:otter_meetings-LEGACY",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": null,
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-07-04 01:29:43"
     },
     {
       "actively_collecting": 1,
@@ -174,7 +246,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 1,
       "category": "Database",
-      "collecting_notes": "Split out of the shared youtube_research PG DB 2026-06-30 (youtube_research is now YouTube-only). Canonical gold-tier meetings store. 412 gold meetings, 6863 chunks, 5900 bge-m3 vectors. NOTE: distinct from the SQLite company-brain meetings-gold.db and the SQLite youtube-research corpus.",
+      "collecting_notes": "433 gold meetings (otter 239 / granola 148 / meetily 24 / phone 15 / wa-voice 7, verified 2026-07-04). Parity source = mini v2 runner RECONCILE line. Writer = customs-house gold-import.mjs from henry-mac-mini. | Split out of the shared youtube_research PG DB 2026-06-30 (youtube_research is now YouTube-only). Canonical gold-tier meetings store. 412 gold meetings, 6863 chunks, 5900 bge-m3 vectors. NOTE: distinct from the SQLite company-brain meetings-gold.db and the SQLite youtube-research corpus.",
       "connection_type": "postgres-db",
       "db_path": "aeros:5432/meetings_gold (host: aeros)",
       "gaps_notes": null,
@@ -190,7 +262,7 @@
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "meetings-gold",
-      "updated_at": "2026-06-30 22:15:22"
+      "updated_at": "2026-07-04 01:29:43"
     },
     {
       "actively_collecting": 1,
@@ -366,7 +438,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
-      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gateway-infra-code-reviewer.service, hermes-gateway-mally-chief-of-staff.service, hermes-gateway-miranda-berliand",
+      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gateway-infra-code-reviewer.service, hermes-gateway-mally-chief-of-staff.service, hermes-gateway-miranda-berliand.service, hermes-hub-watchdog.ti",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -382,7 +454,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-03 06:09:34"
+      "updated_at": "2026-07-04 06:07:08"
     },
     {
       "actively_collecting": 1,
@@ -390,7 +462,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "CLI",
-      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gateway-infra-code-reviewer.service, hermes-gateway-mally-chief-of-staff.service, hermes-gateway-miranda-berliand",
+      "collecting_notes": "host=aerodeck unit=gates-bot.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboard-richard.service, hermes-gateway-infra-code-reviewer.service, hermes-gateway-mally-chief-of-staff.service, hermes-gateway-miranda-berliand.service, hermes-hub-watchdog.ti",
       "connection_type": "telegram-bot",
       "db_path": null,
       "gaps_notes": null,
@@ -406,7 +478,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-03 06:09:34"
+      "updated_at": "2026-07-04 06:07:08"
     },
     {
       "actively_collecting": 1,
@@ -652,6 +724,30 @@
       "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
+      "architecture_significant": 1,
+      "category": "LLM-model",
+      "collecting_notes": "LiteLLM model 'glm-4.6' -> openai/glm-4.6 @ https://api.z.ai/api/coding/paas/v4 (Z.ai Coding Plan, the funded coding endpoint) on host aerodeck's OWN litellm-aerodeck.service (litellm-config.aerodeck.yaml), NOT the aeros litellm-config.yaml that registry-discover-sources.py scans (LITELLM_HOST=aeros hardcoded) -- that cross-host blindspot is why this row didn't self-populate and had to be added by hand. kt_1783076106629_6da811 (2026-07-03, fable-crew-3): BILLING MODE CONFIRMED = subscription (Coding Plan), not credit -- live litellm-aerodeck-pg (127.0.0.1:5433) SpendLogs.metadata failure rows carry litellm.RateLimitError 'Weekly/Monthly Limit Exhausted. Your limit will reset at 2026-07-06 07:25:34' (a quota-reset time, not an insufficient-balance wallet error). 24h window: 584 success / 131 failure, all successes at spend=$0.00 (subscription tokens are unpriced per-call by litellm's cost model) -- amortized instead via ~/.config/claude-code/cost-subscriptions.json entry 'zai-glm-coding-plan' (needs_confirm=true, ~9.95 GBP/mo, NOT yet Henry-confirmed against a real invoice). Dispatch: aero-dispatch line:piccadilly (LINE_MODELS), opt-in only pending quota reset -- see bin/aero-dispatch.bak-glm-lane-20260703 for the pre-change state.",
+      "connection_type": "litellm-model",
+      "db_path": null,
+      "gaps_notes": "quota exhausted as of 2026-07-03 ~04:59Z, resets 2026-07-06T07:25:34Z -- zero live capacity for the GLM headless lane until then. cost_estimate_gbp below is UNCONFIRMED (web-search estimate, not an invoice). registry-discover-sources.py does not scan this host's own litellm-config.aerodeck.yaml (aeros-only) -- this row will NOT self-refresh on the registry-discover.timer like litellm-model:glm-5.2 does; a human/agent must re-run this insert or extend discover_litellm() to cover aerodeck too.",
+      "host": "aerodeck",
+      "human_owner": "fable-crew-3 (kt_1783076106629_6da811)",
+      "name": "litellm-model:glm-4.6-aerodeck",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": "LiteLLM model 'glm-4.6' -> openai/glm-4.6 @ https://api.z.ai/api/coding/paas/v4 (Z.ai Coding Plan, the funded coding endpoint) on host aerodeck's OWN litellm-aerodeck.service (litellm-config.aerodeck.yaml), NOT the aeros litellm-config.yaml that registry-discover-sources.py scans (LITELLM_HOST=aeros hardcoded) -- that cross-host blindspot is why this row didn't self-populate and had to be added by hand. kt_1783076106629_6da811 (2026-07-03, fable-crew-3): BILLING MODE CONFIRMED = subscription (Coding Plan), not credit -- live litellm-aerodeck-pg (127.0.0.1:5433) SpendLogs.metadata failure rows carry litellm.RateLimitError 'Weekly/Monthly Limit Exhausted. Your limit will reset at 2026-07-06 07:25:34' (a quota-reset time, not an insufficient-balance wallet error). 24h window: 584 success / 131 failure, all successes at spend=$0.00 (subscription tokens are unpriced per-call by litellm's cost model) -- amortized instead via ~/.config/claude-code/cost-subscriptions.json entry 'zai-glm-coding-plan' (needs_confirm=true, ~9.95 GBP/mo, NOT yet Henry-confirmed against a real invoice). Dispatch: aero-dispatch line:piccadilly (LINE_MODELS), opt-in only pending quota reset -- see bin/aero-dispatch.bak-glm-lane-20260703 for the pre-change state.",
+      "query_method": null,
+      "recon_status": "live@aerodeck (litellm model_list) -- but Coding Plan quota EXHAUSTED, resets 2026-07-06T07:25:34Z",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-07-03 13:16:11Z"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "MCP",
       "collecting_notes": null,
@@ -745,7 +841,7 @@
       "updated_at": "2026-06-15 23:16:29"
     },
     {
-      "actively_collecting": 0,
+      "actively_collecting": 1,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
@@ -760,13 +856,13 @@
       "namespace": "business",
       "owner": null,
       "port": 8436,
-      "quality_notes": " [2026-06-21: idle (:8436 down, unit inactive); superseded by deep-research-search :8440.]",
+      "quality_notes": "verified 2026-07-03: LIVE (deep-research-mcp.service active, :8436 serving). Complements (not superseded by) deep-research-search :8440 -- separate read-only corpus-search MCP on aeros; this is the job-runner MCP on aerodeck.",
       "query_method": null,
       "recon_status": "live@aerodeck",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "research",
-      "updated_at": "2026-06-15 23:16:29"
+      "updated_at": "2026-07-03 14:48:20"
     },
     {
       "actively_collecting": 1,
@@ -1722,7 +1818,7 @@
       "port": 3001,
       "quality_notes": "Verified live 2026-06-18 (claude-aeros): 3 tools reachable via mcp.serpapi.com direct.",
       "query_method": "mcphub-aerodeck \u2192 mcp.serpapi.com (direct, bypasses aeros hub proxy which adds session management)",
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-07-03 06:17:02Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "shopping",
@@ -1847,6 +1943,30 @@
       "repo": null,
       "subcategory": "factory-audit",
       "updated_at": "2026-06-20 07:26:41"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "Scheduled Job",
+      "collecting_notes": "systemd unit aero-arch-sweep.timer (active); auto-discovery via registry-discover-sources (T20)",
+      "connection_type": "systemd-timer",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "systemd:aerodeck:aero-arch-sweep.timer",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": "systemd unit aero-arch-sweep.timer (active); auto-discovery via registry-discover-sources (T20)",
+      "query_method": null,
+      "recon_status": "active@aerodeck (systemd)",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-07-03 13:19:37"
     },
     {
       "actively_collecting": 1,
@@ -2015,6 +2135,54 @@
       "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-29 13:33:30"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "Scheduled Job",
+      "collecting_notes": "systemd unit aero-disk-alert.timer (active); auto-discovery via registry-discover-sources (T20)",
+      "connection_type": "systemd-timer",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "systemd:aerodeck:aero-disk-alert.timer",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": "systemd unit aero-disk-alert.timer (active); auto-discovery via registry-discover-sources (T20)",
+      "query_method": null,
+      "recon_status": "active@aerodeck (systemd)",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-07-03 13:04:34"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "Scheduled Job",
+      "collecting_notes": "systemd unit aero-disk-clean.timer (active); auto-discovery via registry-discover-sources (T20)",
+      "connection_type": "systemd-timer",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "systemd:aerodeck:aero-disk-clean.timer",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": "systemd unit aero-disk-clean.timer (active); auto-discovery via registry-discover-sources (T20)",
+      "query_method": null,
+      "recon_status": "active@aerodeck (systemd)",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-07-03 13:04:34"
     },
     {
       "actively_collecting": 1,
@@ -3030,6 +3198,30 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "Script",
+      "collecting_notes": null,
+      "connection_type": "local-file",
+      "db_path": null,
+      "gaps_notes": "pre-commit guard refusing direct commits in designated SHARED long-lived checkouts (config: ~/.config/aero-worktree-guard.conf, currently aerodeck-template + ~/bin) unless AERO_WT_OK=1; wired via core.hooksPath -> ~/.config/aero-git-hooks/pre-commit (never touches another repos .git/hooks directly). Built for the 2026-06-18 Mally-WIP-sweep hazard. kt_1783084235327_7d163b",
+      "host": "aerodeck",
+      "human_owner": null,
+      "name": "aero-worktree-guard",
+      "namespace": "personal",
+      "owner": null,
+      "port": null,
+      "quality_notes": null,
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 0,
+      "repo": "bin/aero-worktree-guard",
+      "subcategory": "infra",
+      "updated_at": "2026-07-03 15:42:07"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "Script",
       "collecting_notes": "Two-way agent messaging (cockpit<->fable<->crew<->hermes) + RELAY delivery legs: sessionstart + userprompt inbox hooks (unread banner), aero-msg-nudge */10 cron (idle claude panes only, never Mally), agent_msg_items() in aero-cockpit-queue-refresh -> /act /api/queue. Store is aerodeck-LOCAL (cross-host = open gap). Supersedes the dead agentic-inbox mcphub row (:8429, 2026-06-11). Cards kt_1782957522265_7456b4 + kt_1782964357591_9c89af; design ~/work/fable/redesign/AGENT-RELAY-DESIGN-20260702.md. Verified live 2026-07-02.",
       "connection_type": "local-sqlite+cli",
       "db_path": "/home/henry/.local/state/agent-inbox/agent-inbox.db",
@@ -3414,6 +3606,30 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "Service",
+      "collecting_notes": "systemd unit hermes-gateway-henry-chief-of-staff.service (active); auto-discovery via registry-discover-sources (T20)",
+      "connection_type": "systemd-service",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "systemd:aerodeck:hermes-gateway-henry-chief-of-staff.service",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": "systemd unit hermes-gateway-henry-chief-of-staff.service (active); auto-discovery via registry-discover-sources (T20)",
+      "query_method": null,
+      "recon_status": "active@aerodeck (systemd)",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-07-04 01:05:22"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "Service",
       "collecting_notes": "systemd unit hermes-gateway-infra-code-reviewer.service (active); auto-discovery via registry-discover-sources (T20)",
       "connection_type": "systemd-service",
       "db_path": null,
@@ -3568,13 +3784,13 @@
       "namespace": "business",
       "owner": null,
       "port": null,
-      "quality_notes": "systemd unit litellm-aerodeck.service (active); auto-discovery via registry-discover-sources (T20)",
+      "quality_notes": "systemd unit litellm-aerodeck.service (active); auto-discovery via registry-discover-sources (T20) [2026-07-03 fable-crew-2: added deepseek-v4-flash-local alias -> Mac ds4.c server (100.120.234.21:8085/v1, openai-compat, keyless, opt-in, NOT in the ollama pool) with fallback to cloud deepseek-v4-flash on sleep/OOM; card kt_1783025237593_ae0237; config .bak-ds4-route-20260703T111500Z; service restarted + both routes smoke-verified live.]",
       "query_method": null,
       "recon_status": "active@aerodeck (systemd)",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
-      "updated_at": "2026-06-29 13:33:30"
+      "updated_at": "2026-07-03 11:20:05"
     },
     {
       "actively_collecting": 1,
@@ -3839,6 +4055,30 @@
       "repo": null,
       "subcategory": null,
       "updated_at": "2026-06-29 13:33:30"
+    },
+    {
+      "actively_collecting": 1,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "Service",
+      "collecting_notes": "systemd unit voice-relay-capture.service (active); auto-discovery via registry-discover-sources (T20)",
+      "connection_type": "systemd-service",
+      "db_path": null,
+      "gaps_notes": null,
+      "host": "aerodeck",
+      "human_owner": "auto",
+      "name": "systemd:aerodeck:voice-relay-capture.service",
+      "namespace": "business",
+      "owner": null,
+      "port": null,
+      "quality_notes": "systemd unit voice-relay-capture.service (active); auto-discovery via registry-discover-sources (T20)",
+      "query_method": null,
+      "recon_status": "active@aerodeck (systemd)",
+      "reliability_rating": 0,
+      "repo": null,
+      "subcategory": null,
+      "updated_at": "2026-07-03 17:34:45"
     },
     {
       "actively_collecting": 1,
@@ -4146,7 +4386,7 @@
       "port": 3001,
       "quality_notes": "Registered 2026-06-25 #5d1675 \u2014 hub admin login + per-agent bearer minting was implicit-in-brain only; this is its registry home. DB-backed auth (bearer_keys), per-request lookup, no restart; 10 keys live.",
       "query_method": null,
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-07-03 06:17:02Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -4482,7 +4722,7 @@
       "port": 8667,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "STALE(idle): port 8667 dead @ 2026-07-03 06:17:02Z",
+      "recon_status": "STALE(idle): port 8667 dead @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -4650,7 +4890,7 @@
       "port": 3099,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3099 \u2014 'Flight Deck \u00b7 AerOS' Next.js app on aerodeck",
-      "recon_status": "RETIRE-PROPOSED: port 3099 dead 4 runs (awaiting approval) @ 2026-07-03 06:17:02Z",
+      "recon_status": "RETIRE-PROPOSED: port 3099 dead 8 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "web-app",
@@ -4698,7 +4938,7 @@
       "port": 3014,
       "quality_notes": "DISCOVERED 2026-06-20 06:17:04Z by registry-reconcile (proc=docker-proxy); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from category, reliability baselined 2.]",
       "query_method": null,
-      "recon_status": "RETIRE-PROPOSED: port 3014 dead 3 runs (awaiting approval) @ 2026-07-03 06:17:02Z",
+      "recon_status": "RETIRE-PROPOSED: port 3014 dead 7 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 2,
       "repo": null,
       "subcategory": null,
@@ -4842,7 +5082,7 @@
       "port": 4416,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:4416 \u2014 bgutil yt-dlp PO-token provider on aerodeck (docker bgutil-pot-provider)",
-      "recon_status": "live@aerodeck",
+      "recon_status": "RETIRE-PROPOSED: port 4416 dead 3 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "youtube-infra",
@@ -5034,7 +5274,7 @@
       "port": 2026,
       "quality_notes": "HARDENED 2026-06-11: stripped host docker.sock + ~/.claude + ~/.codex mounts from gateway; nginx bound to tailnet IP 100.74.200.84 ONLY (ufw opens all tailnet ports, so 0.0.0.0 would over-expose); LiteLLM key injected at deploy time, never at rest. Runs/threads persist to sqlite (.deer-flow/data/deerflow.db, WAL); langgraph cross-thread memory store is in-memory (lost on restart \u2014 acceptable for self-contained research jobs). Verified e2e: gateway->LiteLLM->claude-sonnet 200/pong.",
       "query_method": "http://100.74.200.84:2026 (tailnet-only via nginx; localhost NOT bound). API under /api/*",
-      "recon_status": "RETIRE-PROPOSED: port 2026 dead 4 runs (awaiting approval) @ 2026-07-03 06:17:02Z",
+      "recon_status": "RETIRE-PROPOSED: port 2026 dead 8 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "research",
@@ -5370,7 +5610,7 @@
       "port": 3003,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3003 \u2014 Langfuse web UI/API on aerodeck (containers langfuse-web/-worker/-db/-redis/-clickhouse/-minio)",
-      "recon_status": "RETIRE-PROPOSED: port 3003 dead 3 runs (awaiting approval) @ 2026-07-03 06:17:02Z",
+      "recon_status": "RETIRE-PROPOSED: port 3003 dead 7 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "observability",
@@ -5490,7 +5730,7 @@
       "port": 5055,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:5055 \u2014 Open Notebook API on aerodeck (docker on-app; surrealdb sidecar unpublished)",
-      "recon_status": "live@aerodeck",
+      "recon_status": "RETIRE-PROPOSED: port 5055 dead 3 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "research",
@@ -5514,7 +5754,7 @@
       "port": 8502,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8502 \u2014 Open Notebook Streamlit UI on aerodeck (docker on-app)",
-      "recon_status": "live@aerodeck",
+      "recon_status": "RETIRE-PROPOSED: port 8502 dead 3 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "research",
@@ -5538,7 +5778,7 @@
       "port": 18789,
       "quality_notes": "DISCOVERED 2026-06-24 06:17:07Z by registry-reconcile (proc=docker-proxy); needs enrichment | RETIRED 2026-06-29: dead ghost (no openclaw container; nothing on :18789; live-verified). Auto-discovered 2026-06-24 from a transient docker-proxy proc, never returned. actively_collecting=0 so it no longer counts as a live gap. [card kt_1782668819269_9e552b]",
       "query_method": null,
-      "recon_status": "STALE(idle): port 18789 dead @ 2026-07-03 06:17:02Z",
+      "recon_status": "STALE(idle): port 18789 dead @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -5610,7 +5850,7 @@
       "port": 5455,
       "quality_notes": null,
       "query_method": "postgres://100.74.200.84:5455 \u2014 Sim Studio Postgres on aerodeck (docker sim-db-1, pgvector pg17)",
-      "recon_status": "live@aerodeck",
+      "recon_status": "RETIRE-PROPOSED: port 5455 dead 3 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "database",
@@ -5634,7 +5874,7 @@
       "port": 3034,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3034 \u2014 Sim Studio realtime service on aerodeck (docker sim-realtime-1, container :3002)",
-      "recon_status": "live@aerodeck",
+      "recon_status": "RETIRE-PROPOSED: port 3034 dead 3 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "workflow",
@@ -5658,7 +5898,7 @@
       "port": 3033,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3033 \u2014 Sim Studio web UI on aerodeck (docker sim-simstudio-1, container :3000)",
-      "recon_status": "live@aerodeck",
+      "recon_status": "RETIRE-PROPOSED: port 3033 dead 3 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "workflow",
@@ -5706,7 +5946,7 @@
       "port": 9222,
       "quality_notes": "DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=docker-proxy); needs enrichment",
       "query_method": null,
-      "recon_status": "RETIRE-PROPOSED: port 9222 dead 3 runs (awaiting approval) @ 2026-07-03 06:17:02Z",
+      "recon_status": "RETIRE-PROPOSED: port 9222 dead 7 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -5946,7 +6186,7 @@
       "port": 8921,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8921",
-      "recon_status": "live@aerodeck",
+      "recon_status": "RETIRE-PROPOSED: port 8921 dead 3 runs (awaiting approval) @ 2026-07-04 06:17:08Z",
       "reliability_rating": 3,
       "repo": null,
       "subcategory": "voice",
@@ -6114,7 +6354,7 @@
       "port": 8912,
       "quality_notes": "voice-routers voicebox (henry-kokoro fallback TTS); /home/henry/work/infra/voice-routers/voicebox [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERODECK box, not the personal/LIFE host.]",
       "query_method": null,
-      "recon_status": "STALE(idle): port 8912 dead @ 2026-07-03 06:17:02Z",
+      "recon_status": "STALE(idle): port 8912 dead @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "voice",
@@ -6186,7 +6426,7 @@
       "port": 49200,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "STALE(idle): port 49200 dead @ 2026-07-03 06:17:02Z",
+      "recon_status": "STALE(idle): port 49200 dead @ 2026-07-04 06:17:08Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "drill",
@@ -6238,7 +6478,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-03 06:09:34"
+      "updated_at": "2026-07-04 06:07:08"
     },
     {
       "actively_collecting": 0,
@@ -8185,12 +8425,12 @@
       "updated_at": "2026-06-29 13:33:30"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "MCP",
-      "collecting_notes": "MCP server 'granola' fronted by the aeros hub; status=oauth_required; 6 tool(s); auto-discovery via registry-discover-sources (T20)",
+      "collecting_notes": "DISCONNECTED hub door - granola ingest moved to customs-house v2 on henry-mac-mini (see meetily-customs-house-ingest id 295). Do not infer granola liveness from this row (de-staled 2026-07-04). | MCP server 'granola' fronted by the aeros hub; status=oauth_required; 6 tool(s); auto-discovery via registry-discover-sources (T20)",
       "connection_type": "mcphub-server (aeros)",
       "db_path": null,
       "gaps_notes": null,
@@ -8206,7 +8446,7 @@
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
-      "updated_at": "2026-06-29 13:33:30"
+      "updated_at": "2026-07-04 01:29:43"
     },
     {
       "actively_collecting": 1,
@@ -8257,12 +8497,12 @@
       "updated_at": "2026-06-29 13:33:30"
     },
     {
-      "actively_collecting": 1,
+      "actively_collecting": 0,
       "aerodeck_enabled": null,
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "MCP",
-      "collecting_notes": "MCP server 'otter' fronted by the aeros hub; status=connected; 3 tool(s); auto-discovery via registry-discover-sources (T20)",
+      "collecting_notes": "DISCONNECTED hub door - otter ingest moved to customs-house v2 on henry-mac-mini (see meetily-customs-house-ingest id 295). Do not infer otter liveness from this row (de-staled 2026-07-04). | MCP server 'otter' fronted by the aeros hub; status=connected; 3 tool(s); auto-discovery via registry-discover-sources (T20)",
       "connection_type": "mcphub-server (aeros)",
       "db_path": null,
       "gaps_notes": null,
@@ -8278,7 +8518,7 @@
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
-      "updated_at": "2026-06-29 13:33:30"
+      "updated_at": "2026-07-04 01:29:43"
     },
     {
       "actively_collecting": 1,
@@ -9630,7 +9870,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 1,
       "category": "service",
-      "collecting_notes": "aeros; Rocket.Chat Community v8.5 (ARM-native), docker rocketchat (127.0.0.1:3200->3000) + rocketchat-mongo (127.0.0.1:27017, rs0); data /mnt/data/rocketchat; public chat.aerodeck.ai via aeros CF tunnel e26976ad-fdb2-4c41-9af9-5bf3a75a0128 (aeros nginx -> localhost:3200). FIREHOSE rc-recorder.service = PAUSED/leak-blocked (inactive+disabled on aeros, stopped 2026-06-15 21:10; was record-everything -> aerodeck.embeddings bge-m3 source_db=rocketchat domain=business; DO NOT re-enable = LIFE-leak). email-2FA disabled + Mally/Jack per-user cleared 2026-06-14; admin .env pass STALE so use Mongo for admin ops; verified live 2026-06-15. | gates-bot RC bridge 2026-06-17: gates-bot (aerodeck:8688, CHAT_TRANSPORT=both) mirrors CoS approval gates to #aerodeck-gates here; taps post !gate -> outgoing-webhook 'gates-bot rc-bridge (live)' -> aerodeck /rc-webhook -> settle. See connection 'gates-bot'.",
+      "collecting_notes": "aeros; Rocket.Chat Community v8.5 (ARM-native), docker rocketchat (127.0.0.1:3200->3000) + rocketchat-mongo (127.0.0.1:27017, rs0); data /mnt/data/rocketchat; public chat.aerodeck.ai via aeros CF tunnel e26976ad-fdb2-4c41-9af9-5bf3a75a0128 (aeros nginx -> localhost:3200). FIREHOSE rc-recorder.service = PAUSED/leak-blocked (inactive+disabled on aeros, stopped 2026-06-15 21:10; was record-everything -> aerodeck.embeddings bge-m3 source_db=rocketchat domain=business; DO NOT re-enable = LIFE-leak). email-2FA disabled + Mally/Jack per-user cleared 2026-06-14; admin .env pass STALE so use Mongo for admin ops; verified live 2026-06-15. | gates-bot RC bridge 2026-06-17: gates-bot (aerodeck:8688, CHAT_TRANSPORT=both) mirrors CoS approval gates to #aerodeck-gates here; taps post !gate -> outgoing-webhook 'gates-bot rc-bridge (live)' -> aerodeck /rc-webhook -> settle. See connection 'gates-bot'. | White-labeled as Aer (by Aerodeck) 2026-07-04 via admin settings (Mongo path, aeros instance; Site_Name/Layout_Sidenav_Footer/Layout_Login_Terms/theme-custom-css; Hide_Powered_By is enterprise-gated so CSS hides it); changelog in ~/work/fable/rc-whitelabel-changelog-20260704.md. ROUTING STALE 2026-07-04: chat.aerodeck.ai currently fronts a DUPLICATE zombie RC on aerodeck (127.0.0.1:3200, started 07-02, its mongo dead since 07-03T12:27Z, public login hangs) \u2014 NOT this aeros instance; repoint/repair is an open Henry decision. rc-admin-token (aeros) EXPIRED 401 = gates-bot RC mirror leg dead; only admin user = henry.",
       "connection_type": "http",
       "db_path": null,
       "gaps_notes": null,
@@ -9646,7 +9886,7 @@
       "reliability_rating": 3,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-06-17 19:00:25Z"
+      "updated_at": "2026-07-04 02:11:37"
     },
     {
       "actively_collecting": 1,
@@ -9774,7 +10014,7 @@
       "aerodeck_scope": null,
       "architecture_significant": 0,
       "category": "Script",
-      "collecting_notes": "LIVE store = customs-house/v2/master.db on Henry's mac-mini (v2 pipeline, gold-import->meetings_gold->personal:life). RETIRED/misleading: ~/mcp-infra/data/meetings*.db (empty since May, do NOT read). Newest meeting verified 2026-07-01. De-staled 2026-07-01.",
+      "collecting_notes": "CANONICAL meeting-ingest pipeline for ALL sources: otter + granola + meetily + phone + whatsapp-voice (name is historic - this is customs-house v2, not meetily-only). Otter API swept every 300s (launchd com.aerodeck.customs-house-v2 + com.aerodeck.otter-recurring); \"0 new to pull\" is HEALTHY, not dead. master.db = 690 meetings, 100% transcripts, 100% gold-staged (verified 2026-07-04). Parity oracle = RECONCILE line in ~/customs-house/v2/customs-house-v2-runner.log (business<->meetings_gold). | LIVE store = customs-house/v2/master.db on Henry's mac-mini (v2 pipeline, gold-import->meetings_gold->personal:life). RETIRED/misleading: ~/mcp-infra/data/meetings*.db (empty since May, do NOT read). Newest meeting verified 2026-07-01. De-staled 2026-07-01.",
       "connection_type": "pipeline",
       "db_path": "mac-mini:~/customs-house/v2/master.db (table: meetings; 650+ rows)",
       "gaps_notes": "Open question only: whether the life CoS actually surfaces the 192 personal meetings action_items (route lands in life ledger / ledger-v2, not core.personal_meeting_tasks). Earlier FDA/empty-table diagnosis was WRONG (see memory meetily-customs-house-fda-break).",
@@ -9786,11 +10026,11 @@
       "port": null,
       "quality_notes": null,
       "query_method": "n/a (pipeline)",
-      "recon_status": "live@mac-mini (data-derived: newest row 2026-07-02 11:55:57Z, age 18.4h)",
+      "recon_status": "live@mac-mini (data-derived: newest row 2026-07-03 18:58:02Z, age 11.3h)",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "1782910464"
+      "updated_at": "2026-07-04 01:29:43"
     },
     {
       "actively_collecting": 0,
@@ -9839,6 +10079,30 @@
       "repo": null,
       "subcategory": "client",
       "updated_at": "2026-06-15 23:16:29"
+    },
+    {
+      "actively_collecting": 0,
+      "aerodeck_enabled": null,
+      "aerodeck_scope": null,
+      "architecture_significant": 0,
+      "category": "Application",
+      "collecting_notes": "AeroMeet - Aerodeck fork of Meetily (MIT, Zackriya). Repo aerodeck-ai/aeromeet at ~/work/business/aeromeet. Replaces meetily.app on team Macs once first signed build ships; capture feeds customs-house v2 (id 295). Toolchain recon 2026-07-04: mac-mini has Node22+CLT (needs rustup+pnpm), macbook has CLT only (needs rustup+node+pnpm) - neither builds yet. Registered 2026-07-04.",
+      "connection_type": "desktop-app",
+      "db_path": "github.com/aerodeck-ai/aeromeet",
+      "gaps_notes": null,
+      "host": "mac-mini",
+      "human_owner": "henry",
+      "name": "aeromeet-app",
+      "namespace": "business",
+      "owner": "henry",
+      "port": null,
+      "quality_notes": null,
+      "query_method": null,
+      "recon_status": null,
+      "reliability_rating": 0,
+      "repo": "aerodeck-ai/aeromeet",
+      "subcategory": null,
+      "updated_at": "2026-07-04 02:03:56"
     },
     {
       "actively_collecting": 1,
@@ -10470,7 +10734,7 @@
       "writer_host": null
     }
   ],
-  "generated_at": "2026-07-03T06:27:07+00:00",
+  "generated_at": "2026-07-04T06:27:01+00:00",
   "github_coverage": {
     "available": true,
     "generated_at": "2026-06-18T12:07:44.853261+00:00",
@@ -10952,6 +11216,30 @@
       "what_it_scans": "connection-registry connections + cred-locate cross-host index"
     },
     {
+      "id": "aerodeck:aero-arch-sweep-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 1,
+      "machine_id": "aerodeck",
+      "name": "aero-arch-sweep.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-board-view-parity-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-board-view-parity.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:aero-cockpit-reconcile-timer",
       "invokes": null,
       "kind": null,
@@ -10959,6 +11247,30 @@
       "machine_id": "aerodeck",
       "name": "aero-cockpit-reconcile.timer (business cockpit reality-reconciler)",
       "schedule": "*-*-* *:00/45:00",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-codex-seat-failover-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-codex-seat-failover.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-continuity-upgrader-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-continuity-upgrader.timer",
+      "schedule": "",
       "source_path": null,
       "status": "active",
       "what_it_scans": null
@@ -10974,6 +11286,42 @@
       "source_path": "/home/henry/bin/aero-cron-census",
       "status": "gone",
       "what_it_scans": "scheduled-job inventory freshness: enumerates systemd timers + crontabs across the 4 Linux hosts, refreshes cron_jobs, proposes new jobs via registry_proposals"
+    },
+    {
+      "id": "aerodeck:aero-decide-shadow-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-decide-shadow.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-disk-alert-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-disk-alert.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-disk-clean-timer",
+      "invokes": null,
+      "kind": "systemd-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-disk-clean.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:aero-drift-watchdog",
@@ -11000,6 +11348,138 @@
       "what_it_scans": "GOVERN decision-flow: D2 hold-pattern / D3 promotion-evidence / D5 latency-canary / G8 queue-erosion / P1 deadlock; advisory-only"
     },
     {
+      "id": "aerodeck:aero-fleet-liveness-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-fleet-liveness.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-flow-controller-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-flow-controller.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-freshness-canaries-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-freshness-canaries.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-gates-reconcile-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-gates-reconcile.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-goal-pull-nightly-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-goal-pull-nightly.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-interpret-contradiction-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-interpret-contradiction.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "gone",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-interpret-drive-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-interpret-drive.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "gone",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-interpret-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-interpret.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-kanban-ro-watchdog-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-kanban-ro-watchdog.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-learn-apply-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-learn-apply.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-life-cred-mirror-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-life-cred-mirror.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-timer-aero-model-router",
       "invokes": "aero-model-router tick -> launchctl warm/cold of MacBook ai.aerodeck.aeroflow-vllm (:8011, Qwen3-Coder-30B); hot under queue, cold+free-GPU when idle>=15m",
       "kind": "systemd-timer",
@@ -11010,6 +11490,18 @@
       "source_path": "/home/henry/bin/aero-model-router",
       "status": "active",
       "what_it_scans": "AeroFlow lane:overflow ready-queue depth + MacBook model state (:8011)"
+    },
+    {
+      "id": "aerodeck:aero-notebooklm-srg-sync-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-notebooklm-srg-sync.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:henry-timer-aero-pool-doctor",
@@ -11036,6 +11528,42 @@
       "what_it_scans": "Refreshes SwiftBar OAuth pool capacity (claude-pool-util.json) + 5h/7d %% every 5 min; reciprocal watch with aero-pool-doctor."
     },
     {
+      "id": "aerodeck:aero-pool-spend-cap-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-pool-spend-cap.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-pool-status-push-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-pool-status-push.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-pressure-relief-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-pressure-relief.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:govern-registry-sync-aeros",
       "invokes": "aero-registry-identity-guard.py; rsync to aeros /home/ubuntu/govern-broker; broker door :8951",
       "kind": "timer",
@@ -11048,6 +11576,78 @@
       "what_it_scans": "govern agent-registry.json + mtp.yaml: source-pinned to origin/main, identity-preserve live public_keys, mint->door abort guard before push (anti-pattern kt_1782648871511_9f8c76)"
     },
     {
+      "id": "aerodeck:aero-seat-heartbeat-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-seat-heartbeat.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-seat-rotator-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-seat-rotator.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-security-digest-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-security-digest.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-sense-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-sense.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-shadow-watchdog-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-shadow-watchdog.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-unpark-watchdog-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-unpark-watchdog.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:aero-watch-govern-ledger-watcher",
       "invokes": "python3 (no LLM)",
       "kind": "cron",
@@ -11058,6 +11658,30 @@
       "source_path": "/home/henry/work/factory/govern/bin/aero-watch",
       "status": "active",
       "what_it_scans": "GOVERN act-ledger: aged-intent / stalled-chain / anomaly; dedup; heartbeat; advisory-only"
+    },
+    {
+      "id": "aerodeck:aero-workspace-branches-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-workspace-branches.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:aero-youtube-spaced-recall-quiz-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aero-youtube-spaced-recall-quiz.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:henry-timer-aerocockpit-digest",
@@ -11084,6 +11708,42 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:aeros-research-topics-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "aeros-research-topics.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:airlock-keeper-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "airlock-keeper.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:autoresearch-estate-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "autoresearch-estate.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:beszel-beszel-agent-system-metrics-monitor",
       "invokes": "Local only: reads host/docker stats. No LLM, no tokens.",
       "kind": "monitor-container",
@@ -11102,6 +11762,30 @@
       "llm_bearing": 0,
       "machine_id": "aerodeck",
       "name": "board-sync.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:brain-ingest-memory-notes-life-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "brain-ingest-memory-notes-life.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "gone",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:brain-ingest-memory-notes-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "brain-ingest-memory-notes.timer",
       "schedule": "",
       "source_path": null,
       "status": "active",
@@ -11204,6 +11888,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:ds4-seat-worker-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "ds4-seat-worker.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:estate-backup-monitor",
       "invokes": "/home/henry/bin/estate-backup-monitor \u2014 python3 stdlib; no LLM",
       "kind": "systemd-timer",
@@ -11214,6 +11910,18 @@
       "source_path": "/home/henry/.config/systemd/user/estate-backup-monitor.service",
       "status": "active",
       "what_it_scans": "Daily health probe of the 3-leg estate backup chain: SSD restic snapshot <26h, gdrive-life copy <30h, last RESTORE-OK <8d. Surfaces RED to cockpit Proposals + emits ESTATE-BACKUP-OK/RED."
+    },
+    {
+      "id": "aerodeck:estate-map-export-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "estate-map-export.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:factory-floor-watch-loops-board-watch-floor-status-verifier-",
@@ -11262,6 +11970,30 @@
       "source_path": "/home/ubuntu/apps/gatus/config.yaml (container: gatus, twinproduction/gatus:latest)",
       "status": "active",
       "what_it_scans": "22 HTTP synthetic probes \u2014 9 external-cf endpoints (jiddlers prod/dev, banaos, berlos, design.berl.ai, fleet.berl.ai, llm.berl.ai, miranda-pilot, plan.aerodeck.ai...) + 13 internal-tailscale endpoints. Conditions like [STATUS]<500, 30s interval"
+    },
+    {
+      "id": "aerodeck:gen-henry-brain-bootbrief-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "gen-henry-brain-bootbrief.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:gen-mally-brain-bootbrief-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "gen-mally-brain-bootbrief.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
     },
     {
       "id": "aerodeck:grill-scanner-timer-service-the-inquisitor",
@@ -11343,6 +12075,18 @@
       "machine_id": "aerodeck",
       "name": "henry cron: MON_LABEL=plus",
       "schedule": "15,45 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:henry-cron-aero-aeros-disk-alert-watchdog-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-aeros-disk-alert-watchdog.sh",
+      "schedule": "*/30 * * * *",
       "source_path": null,
       "status": "active",
       "what_it_scans": null
@@ -11432,6 +12176,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:henry-cron-aero-bus-outbound-js",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-bus-outbound.js",
+      "schedule": "*/10 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-aero-call-ingest-poll",
       "invokes": null,
       "kind": "cron",
@@ -11504,6 +12260,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:henry-cron-canary",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-cron-canary",
+      "schedule": "*/15 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-aero-decision-autosurface",
       "invokes": null,
       "kind": "cron",
@@ -11564,6 +12332,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:henry-cron-aero-fable-desk-rotate",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-fable-desk-rotate",
+      "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-aero-fable-lane",
       "invokes": null,
       "kind": "cron",
@@ -11573,6 +12353,18 @@
       "schedule": "2-59/10 * * * *",
       "source_path": null,
       "status": "gone",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:henry-factory-mirror-sync",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-factory-mirror-sync",
+      "schedule": "0 * * * *",
+      "source_path": null,
+      "status": "active",
       "what_it_scans": null
     },
     {
@@ -11648,6 +12440,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:henry-cron-aero-intel-staleness-watchdog-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-intel-staleness-watchdog.sh",
+      "schedule": "*/30 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-aero-kanban-tools-watchdog-sh",
       "invokes": null,
       "kind": "cron",
@@ -11716,7 +12520,7 @@
       "name": "henry cron: aero-learn-promote.lock",
       "schedule": "27 */2 * * *",
       "source_path": null,
-      "status": "gone",
+      "status": "active",
       "what_it_scans": null
     },
     {
@@ -11728,7 +12532,7 @@
       "name": "henry cron: aero-lifecycle",
       "schedule": "*/15 * * * *",
       "source_path": null,
-      "status": "gone",
+      "status": "active",
       "what_it_scans": null
     },
     {
@@ -11775,6 +12579,18 @@
       "machine_id": "aerodeck",
       "name": "henry cron: aero-msg-nudge",
       "schedule": "*/10 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:henry-cron-aero-oneshot-d6-soak-check",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-oneshot-d6-soak-check",
+      "schedule": "6 16 3 7 *",
       "source_path": null,
       "status": "active",
       "what_it_scans": null
@@ -11871,6 +12687,18 @@
       "machine_id": "aerodeck",
       "name": "henry cron: aero-rank6-flip-watch",
       "schedule": "17 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:henry-cron-aero-reconciler",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: aero-reconciler",
+      "schedule": "37 3 * * *",
       "source_path": null,
       "status": "active",
       "what_it_scans": null
@@ -12032,6 +12860,18 @@
       "what_it_scans": "aerodeck (22-core dev/factory box) resources: load (1m acute>2x cores + 5m sustained>=1.5x cores, top-CPU capture), swap, RAM, disk free-GiB vs factory <5GiB wedge"
     },
     {
+      "id": "aerodeck:henry-cron-board-doc-reconciler-py",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: board-doc-reconciler.py",
+      "schedule": "13 3 * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-brain-capture-allseats-sh",
       "invokes": null,
       "kind": "cron",
@@ -12051,6 +12891,18 @@
       "machine_id": "aerodeck",
       "name": "henry cron: brain-capture-watchdog.sh",
       "schedule": "*/30 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:henry-cron-brain-decision-bundle-py",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: brain-decision-bundle.py",
+      "schedule": "*/15 * * * *",
       "source_path": null,
       "status": "active",
       "what_it_scans": null
@@ -12248,6 +13100,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:henry-cron-data-feeds-freshness-py",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: data-feeds-freshness.py",
+      "schedule": "51 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-dev-design-data-refresh-sh",
       "invokes": null,
       "kind": "cron",
@@ -12256,7 +13120,7 @@
       "name": "henry cron: dev-design-data-refresh.sh",
       "schedule": "20 * * * *",
       "source_path": null,
-      "status": "gone",
+      "status": "active",
       "what_it_scans": null
     },
     {
@@ -12644,6 +13508,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:henry-cron-vigo-staleness-monitor-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "henry cron: vigo-staleness-monitor.sh",
+      "schedule": "0 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:henry-cron-warm-models-sh",
       "invokes": null,
       "kind": "cron",
@@ -12728,6 +13604,18 @@
       "what_it_scans": null
     },
     {
+      "id": "aerodeck:hermes-strategist-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "hermes-strategist.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:history-fts-reindex-timer",
       "invokes": null,
       "kind": "systemd-timer",
@@ -12760,7 +13648,7 @@
       "name": "history-semantic-recall.timer",
       "schedule": "",
       "source_path": null,
-      "status": "active",
+      "status": "gone",
       "what_it_scans": null
     },
     {
@@ -12848,6 +13736,18 @@
       "what_it_scans": "Pub/sub notification broker \u2014 receives alerts from gatus (henry-infra topic) and other publishers; the alert delivery bus, not itself a scanner"
     },
     {
+      "id": "aerodeck:pool-concurrency-sample-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "pool-concurrency-sample.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "aerodeck:preview-pr-reaper-timer-service",
       "invokes": "preview-pr.sh teardown N (for PRs CLOSED/MERGED past 6h grace); gh pr view",
       "kind": "systemd-timer",
@@ -12866,6 +13766,18 @@
       "llm_bearing": 0,
       "machine_id": "aerodeck",
       "name": "rc-bridge-watchdog.timer",
+      "schedule": "",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aerodeck:refresh-govern-ro-timer",
+      "invokes": null,
+      "kind": "systemd-user-timer",
+      "llm_bearing": 0,
+      "machine_id": "aerodeck",
+      "name": "refresh-govern-ro.timer",
       "schedule": "",
       "source_path": null,
       "status": "active",
@@ -13768,7 +14680,7 @@
       "name": "history-semantic-embed.timer",
       "schedule": "",
       "source_path": null,
-      "status": "active",
+      "status": "gone",
       "what_it_scans": null
     },
     {
@@ -14331,6 +15243,18 @@
       "machine_id": "aeros",
       "name": "ubuntu cron: aero-brain-recall-watchdog.sh",
       "schedule": "*/5 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
+      "id": "aeros:ubuntu-cron-canary",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "ubuntu cron: aero-cron-canary",
+      "schedule": "*/15 * * * *",
       "source_path": null,
       "status": "active",
       "what_it_scans": null
@@ -16448,6 +17372,18 @@
       "what_it_scans": null
     },
     {
+      "id": "personal:ubuntu-cron-canary",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: aero-cron-canary",
+      "schedule": "*/15 * * * *",
+      "source_path": null,
+      "status": "active",
+      "what_it_scans": null
+    },
+    {
       "id": "personal:ubuntu-cron-aero-dispatch",
       "invokes": null,
       "kind": "cron",
@@ -16457,6 +17393,18 @@
       "schedule": "*/10 * * * *",
       "source_path": null,
       "status": "gone",
+      "what_it_scans": null
+    },
+    {
+      "id": "personal:ubuntu-factory-update",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "personal",
+      "name": "ubuntu cron: aero-factory-update",
+      "schedule": "*/15 * * * *",
+      "source_path": null,
+      "status": "active",
       "what_it_scans": null
     },
     {
