@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-07-07T06:27:19+00:00`
+Generated: `2026-07-08T06:27:19+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -56,6 +56,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **tower-classify** - `aerodeck` - live - Script/infra - Tower shadow/enforce classifier (v4, W3). classify_register() classifies opportunity_register rows into HUMAN-ONLY/ASSISTED/AUTO-SAFE bands. Used by tower pipeline and W4 enforc...
 - **aero-ttyd** - `aerodeck:7681` - live - Service/web-terminal
 - **systemd:aerodeck:aero-board-ui.service** - `aerodeck` - live - Service - systemd unit aero-board-ui.service (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-cf-proxy-8979.service** - `aerodeck` - live - Service - systemd unit aero-cf-proxy-8979.service (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-cf-proxy-8981.service** - `aerodeck` - live - Service - systemd unit aero-cf-proxy-8981.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-decisions-api.service** - `aerodeck` - live - Service - systemd unit aero-decisions-api.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pep.service** - `aerodeck` - live - Service - systemd unit aero-pep.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-ttyd.service** - `aerodeck` - live - Service - systemd unit aero-ttyd.service (active); auto-discovery via registry-discover-sources (T20)
@@ -88,6 +90,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aeros-flight-deck** - `aerodeck:3099` - live - service/web-app - http://100.74.200.84:3099 — 'Flight Deck · AerOS' Next.js app on aerodeck
 - **aeros-os-jiddlers** - `aerodeck:3014` - live - service - DISCOVERED 2026-06-20 06:17:04Z by registry-reconcile (proc=docker-proxy); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from ca...
 - **antislop-humanize** - `aerodeck:8466` - live - service - http on aerodeck:8466
+- **brain-recall-proxy** - `aerodeck:8663` - live - service - GET http://127.0.0.1:8663/recall?q= and /health — aerodeck loopback transport to aeros company-brain-recall-api :8647 over henry ssh; exists so the probesvc close-gate cage (no...
 - **cliproxy** - `aerodeck:8317` - live - service/llm-routing - http://100.74.200.84:8317 — Claude OAuth pool proxy on aerodeck (migrated off the Mac 2026-06-08; aeros :8318 sibling noted)
 - **deerflow** - `aerodeck:2026` - live - service/research - http://100.74.200.84:2026 (tailnet-only via nginx; localhost NOT bound). API under /api/*
 - **design-discovery-shadow** - `aerodeck:8525` - live - service - DISCOVERED 2026-07-02 01:56:56Z by registry-reconcile (proc=python3); needs enrichment
@@ -150,7 +153,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **history-pipeline-mini** - `mac-mini:/Users/hberliand/customs-house/history/history.db` - live - infra/claude-history-pipeline - ssh mac-mini ~/customs-house/history/history-pipeline-runner.sh (launchd) plus ssh aeros bash /home/ubuntu/bin/history-freshness-check.sh
 - **mac-mini-infrassd** - `mac-mini` - idle - infra/storage - ssh mac-mini; df -h /Volumes/InfraSSD
 - **mac-mini-infrassd-tm** - `mac-mini` - idle - infra/storage - ssh mac-mini; df -h /Volumes/InfraSSD-TM
-- **vexa-api-gateway** - `mac-mini:8056` - live - meeting-bot/aerie-poc - http://mac-mini:8056/
+- **vexa-api-gateway** - `mac-mini:8056` - idle - meeting-bot/aerie-poc - http://mac-mini:8056/
 - **mac-mini-staging** - `mac-mini:/Users/hberliand/customs-house/v2/master.db` - live - service/customs-house - ssh mac-mini:/Users/hberliand/staging/ — Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited r...
 - **macbook-internal** - `macbook` - idle - infra/storage - ssh macbook; df -h / (/Users/aerodeck) -- only when awake/online
 - **richard-redacted-macbook** - `macbook` - idle - privacy-service - Personal-side Richard redaction lane; registry metadata only, no LIFE data mirrored to aerodeck.
@@ -304,9 +307,9 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aeros:hermes-mcp.service** - `aeros` - live - Service - systemd unit hermes-mcp.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:hermes-memory-mcp.service** - `aeros` - live - Service - systemd unit hermes-memory-mcp.service (active); auto-discovery via registry-discover-sources (T20)
 - **mac-mini-internal** - `mac-mini` - idle - infra/storage - ssh mac-mini; df -h / (/Users/hberliand)
-- **vexa-admin-api** - `mac-mini:8057` - live - meeting-bot/aerie-poc - http://mac-mini:8057/
-- **vexa-agent-api** - `mac-mini:8100` - live - meeting-bot/aerie-poc - http://mac-mini:8100/
-- **vexa-runtime-api** - `mac-mini:8090` - live - meeting-bot/aerie-poc - http://mac-mini:8090/
+- **vexa-admin-api** - `mac-mini:8057` - idle - meeting-bot/aerie-poc - http://mac-mini:8057/
+- **vexa-agent-api** - `mac-mini:8100` - idle - meeting-bot/aerie-poc - http://mac-mini:8100/
+- **vexa-runtime-api** - `mac-mini:8090` - idle - meeting-bot/aerie-poc - http://mac-mini:8090/
 - **henry-chief-of-staff** - `personal` - idle - agent/personal - CROSS-REF: LIFE agent; managed in the Miranda registry (canonical-home rule)
 
 ### DATABASES
@@ -341,6 +344,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **trigger-postgres** - `aerodeck:5444` - live - service/database - postgres://100.74.200.84:5444 — trigger.dev Postgres on aerodeck (docker trigger-postgres-1, pg14)
 - **trigger-redis** - `aerodeck:6390` - live - service/database - redis://100.74.200.84:6390 — trigger.dev Redis on aerodeck (docker trigger-redis-1, container :6379)
 - **aero-pep-selftest** - `aeros` - idle - CLI - /usr/local/bin/aero-pep-selftest — the ONLY allowlisted remote PEP surface on aeros (read-only; verbs line|md5); installed 2026-07-02 per Henry MCQ ruling on decisions 5ecca05a/...
+- **aeros-jiddlers-gold-serve-only-mirror** - `aeros:/mnt/data/sqlite/shared/jiddlers/live.db` - live - Database/infra - ssh aeros /home/henry/bin/aero-jiddlers-mirror --status
 - **github_research** - `aeros postgres: aerodeck.embeddings WHERE source_db='github_research' (no standalone base table)` - idle - Database/research - bge-m3 semantic search (aeros :8427) + Company Brain; cross-searchable with youtube_research (same embeddings store)
 - **influxd-8086** - `aeros:8086` - live - Database - DISCOVERED 2026-06-22 06:17:09Z by registry-reconcile (proc=influxd); needs enrichment
 - **mariadbd-3306** - `aeros:3306` - live - Database - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=mariadbd); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from catego...
@@ -355,6 +359,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aeros-root** - `aeros` - idle - infra/storage - ssh aeros; df -h / (device /dev/sda1 -> /, 193G)
 - **company-brain-store** - `aeros:5441` - live - service/company-brain - docker exec brain-pg-dev psql -d company_brain
 - **cube** - `aeros:4200` - live - service - DISCOVERED 2026-06-22 06:17:09Z by registry-reconcile (proc=docker-proxy); needs enrichment
+- **jiddlers-gold-live-canonical** - `jiddlers:/home/ubuntu/data/sqlite/shared/jiddlers/live.db` - live - Database/infra - ssh jiddlers sudo -u ubuntu sqlite3 -readonly /home/ubuntu/data/sqlite/shared/jiddlers/live.db
 
 ### MCP
 
@@ -472,6 +477,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:aero-seat-heartbeat.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-seat-heartbeat.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-seat-rotator.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-seat-rotator.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-security-digest.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-security-digest.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-sense-wake.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-sense-wake.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-sense.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-sense.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-shadow-watchdog.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-shadow-watchdog.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-steward-sweep.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-steward-sweep.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -489,6 +495,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **healthchecks** - `aerodeck:8000` - live - service/observability - http://100.74.200.84:8000 — Healthchecks cron-monitoring on aerodeck (docker healthchecks)
 - **h5-spof-drill-dummy** - `aerodeck:49200` - idle - test/drill - DISPOSABLE drill target for H5 SPOF health-row probe (kt_1782949797574_464475). Listener is started and killed within the probe run to demonstrate degraded contract. NOT a perma...
 - **systemd:aeros:aero-bridge-cache-rotate.timer** - `aeros` - live - Scheduled Job - systemd unit aero-bridge-cache-rotate.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aeros:aero-jiddlers-mirror.timer** - `aeros` - live - Scheduled Job - systemd unit aero-jiddlers-mirror.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:aero-stale-backup-sweep.timer** - `aeros` - live - Scheduled Job - systemd unit aero-stale-backup-sweep.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:brain-night-shift.timer** - `aeros` - live - Scheduled Job - systemd unit brain-night-shift.timer (active); auto-discovery via registry-discover-sources (T20)
 - **brain-index-backfill** - `aeros` - live - automation/brain-intel - Keyset-paginated backfill: aerodeck.embeddings -> company_brain.index_items (brain-pg-dev). Cursor: /home/ubuntu/apps/company-brain-dev/backfill-keyset.state. Freshness: backfil...
@@ -505,6 +512,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aerodeck-waitlist** - `aerodeck:443` - live - service/web-app - https://127.0.0.1:443 — aerodeck loopback HTTPS; 'Aerodeck Waitlist' Next.js app
 - **authhook** - `aerodeck:18099` - live - service - DISCOVERED 2026-07-02 01:56:56Z by registry-reconcile (proc=python3); needs enrichment
 - **bgutil-pot-provider** - `aerodeck:4416` - live - service/youtube-infra - http://100.74.200.84:4416 — bgutil yt-dlp PO-token provider on aerodeck (docker bgutil-pot-provider)
+- **cf-access-proxy-jiddlers** - `aerodeck:8981` - live - service/infra - http on aerodeck:8981
 - **cf-access-proxy-os** - `aerodeck:8979` - live - service - http on aerodeck:8979
 - **claw3d-proxy** - `aerodeck:3051` - live - service - http on aerodeck:3051
 - **warp-svc** - `aerodeck:40000` - live - service/networking - tcp://127.0.0.1:40000 — Cloudflare WARP daemon local API on aerodeck (HTTP probe answers 502 = alive)
@@ -530,13 +538,13 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 259 scheduled jobs
-- **aeros** - 165 scheduled jobs
+- **aerodeck** - 262 scheduled jobs
+- **aeros** - 166 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 20 scheduled jobs
 - **mac-mini** - 40 scheduled jobs
 - **macbook** - 13 scheduled jobs
-- **personal** - 95 scheduled jobs
+- **personal** - 96 scheduled jobs
 
 ## GitHub coverage
 
