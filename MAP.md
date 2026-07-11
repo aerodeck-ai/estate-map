@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-07-10T06:27:04+00:00`
+Generated: `2026-07-11T06:27:01+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -20,9 +20,10 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 ### FACTORY
 
 - **@Feeder_sim_bot** - `unknown` - live - CLI/comms - host=personal unit=gates-bot.service
-- **@Miranda_hermes_cos_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboa...
-- **@henry_cos_supervisor_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboa...
+- **@Miranda_hermes_cos_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes-apiserver-jack.service, hermes-dashboard-jack.service, hermes-dashboar...
+- **@henry_cos_supervisor_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes-apiserver-jack.service, hermes-dashboard-jack.service, hermes-dashboar...
 - **@henry_personal_hermes_bot** - `unknown` - live - CLI/comms - host=personal unit=gates-bot.service
+- **aeros-customs-meetings-retired** - `aeros:5432 public.customs_meetings` - idle - Database/comms - aeros PostgreSQL. public.customs_meetings = retired-for-writes staging. No unique data vs public.meetings (verified T6). Do not drop without backup + Henry gate.
 - **dial-state-json** - `unknown:/home/henry/work/factory/govern/control/dial-state.json` - live - Database/AI - LEARN dial apply history — freshness_window_days override receipts (7 moves, 2026-06-28..07-06). Shipped by aero-govern-bridge to aeros:/home/ubuntu/data/sqlite/shared/dial-stat...
 - **verification-traces-connector** - `unknown` - live - Database/infra - sqlite3 -readonly on aerodeck (govern.db + card-attestations.db); read-only snapshot, no sudo needed (henry-owned files)
 - **mac-mini-infrassd-archive** - `unknown:/Volumes/InfraSSD` - live - Local Service/infra - ssh mac-mini ls /Volumes/InfraSSD
@@ -40,15 +41,20 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **schoolbase-medallion** - `banaos (personal 127.0.0.1:5432, role life_sync)` - live - Script/personal - psql -d banaos: SELECT gold.bana_anna_school / silver.anna_events / bronze.anna_provider_raw; health: bana_provider_state(provider=schoolbase)
 - **worker-ceiling-dial** - `unknown` - live - Script/infra - W8 (kt_1783578413922_2f6584, 2026-07-10): global active-worker ceiling dial. Config file: ~/.config/aero/worker-ceiling.conf (single integer, currently '12'). Read by aero-dispa...
 - **session-meter** - `aeros litellm-db (docker) :: table session_usage + view session_usage_clean` - live - automation/cost-metering - ssh aeros "sudo -n -u ubuntu docker exec -i litellm-db psql -U session_meter_writer -d litellm" — read session_usage_clean (excludes the pre-2026-07-05 aerodeck pool-account dup...
-- **@aerodeck_gates_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboa...
-- **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes-dashboard-jack.service, hermes-dashboard-mally.service, hermes-dashboa...
+- **@aerodeck_gates_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes-apiserver-jack.service, hermes-dashboard-jack.service, hermes-dashboar...
+- **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes-apiserver-jack.service, hermes-dashboard-jack.service, hermes-dashboar...
 - **aero-worker-ceiling-conf** - `aerodeck:/home/henry/.config/aero/worker-ceiling.conf` - live - CLI/infra - Single-integer file read by aero-dispatch on every dispatch cycle to cap concurrent worker slots. aero-ceiling CLI is the only sanctioned writer (W6, kt_1783578362941_ab642a). D...
 - **aero-write-broker** - `aerodeck:/home/henry/bin/aero-write-broker` - live - CLI/governance - aero-write-broker --scope | disk-reclaim [--execute] | pool-key [--execute] (default dry-run; unknown ops default-deny)
 - **aero-throughflow** - `aerodeck:/home/henry/bin/aero-throughflow` - live - CLI Tool/observatory - python3 ~/bin/aero-throughflow --since 5m
+- **cmux** - `aerodeck` - idle - CLI Tool/infra - CMUX is Mally's Mac-side terminal-multiplexer app (distinct from the aerodeck-box tmux/aero-shadow-watchdog stack) that he uses to drive his aero-ux/aero-ia/aero-build panes. No...
 - **Plan-Surface** - `aerodeck:8930` - live - Dashboard/business - https://plan.aerodeck.ai (behind Cloudflare Access) or http://127.0.0.1:8930 / http://100.74.200.84:8930 on aerodeck — read-only factory dashboard (board/epics, codex verdicts,...
 - **aerlock-panel** - `aerodeck:8772` - live - Dashboard/factory-audit - curl http://127.0.0.1:8772/health; curl http://127.0.0.1:8772/api/status
+- **anti-lying-ledger** - `aerodeck:/data/anti-lying-ledger.db` - live - Database/infra - Producer: /home/henry/work/factory/bin/aero-anti-lying-ledger-publish (cron 5 */4 * * *, kt_1782692536005_d87c5c). Consumer copy on aeros /mnt/data/sqlite/shared/anti-lying-ledg...
 - **antislop-canon** - `aerodeck:/home/henry/work/business/antislop/canon/antislop-canon.json` - live - Database/comms - humanize.py / antislop.py (Vale) / build_canon.py
+- **flow-health-store** - `aerodeck:/home/henry/work/factory/state/flow-health.db` - live - Database - aero-flow-health --sync appends cycle rows (ts, mode, fired, would_fire, skipped, actionable_skipped, top_reasons) from dispatch.log every 10 min (flock-guarded)
+- **govern-db-opt-shadow** - `aerodeck:/opt/aero-govern/govern/ledger/govern.db` - idle - Database/infra - RETIRED-SHADOW: last written 2026-07-05 by aero-ledger-converge (one-shot build step, not a live cron). No systemd unit writes this path. Canonical govern.db = /home/henry/work/...
 - **kanban-board-connector** - `aerodeck` - live - Database/infra - sqlite /home/ubuntu/apps/kanban-mcp/board.db (aerodeck :8649 kanban-mcp); read-only snapshot, sudo
+- **reservoir-db** - `aerodeck:/home/henry/work/factory/govern/sense/reservoir.db` - live - Database/infra - SENSE store for factory govern pipeline. 160722944 bytes, last modified 2026-07-10. Snapshotted to /home/gha-deploy/dev-data-data/reservoir.db every 15min by dev-data-govern-bri...
 - **litellm-model:glm-4.6-aerodeck** - `aerodeck` - live - LLM-model - LiteLLM model 'glm-4.6' -> openai/glm-4.6 @ https://api.z.ai/api/coding/paas/v4 (Z.ai Coding Plan, the funded coding endpoint) on host aerodeck's OWN litellm-aerodeck.service (l...
 - **kanban-readonly** - `aerodeck:8650` - live - MCP/infra - http://127.0.0.1:3001/mcp/kanban-readonly via Hub-Aerodeck (backend aerodeck :8650; Docker bridge allowed, off-box tailnet rejected since 2026-06-17)
 - **kanban-tools** - `aerodeck:8649` - live - MCP/infra - http://127.0.0.1:8649/mcp (loopback/docker only — tailnet REJECTED since 2026-06-12)
@@ -59,21 +65,27 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:aero-gates-reconcile.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-gates-reconcile.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-kanban-ro-watchdog.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-kanban-ro-watchdog.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-kanban-tools-watchdog.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-kanban-tools-watchdog.timer (active); auto-discovery via registry-discover-sources (T20)
+- **aero-attest-runner** - `aerodeck:/home/henry/work/factory/govern/card-attestations.db` - live - Script/infra - cron every 15 min on aerodeck (flock /tmp/aero-attest-runner.lock); scans :8649 kanban_list for tag attest:requested, parses ATTEST-REQUEST CHECK/EXPECT sentinels from the card...
 - **aero-daily-digest** - `aerodeck` - live - Script/infra - Henry 08:00 daily briefing: open gates, autonomous closes, ESTATE-STATE, API balances, henry-touch metric. Delivers 1 Telegram + writes ~/work/infra/DIGEST-<date>.md. Idempotent...
 - **aero-decision-execute** - `aerodeck` - live - Script/infra - D3 fenced-ops executor: drains govern.db decision bus every 5min. Auto-answers ops-fenced-ladder decisions (heal/probe-rearm/config-revert/service-restart). Flock-guarded. Sourc...
 - **aero-presence** - `aerodeck:/home/henry/.local/state/agent-presence/presence.db` - live - Script/infra - aero-presence list|free|get|register|prune
 - **aero-sentinel** - `aerodeck` - live - Script/infra - Estate sweep: service health, disk, feed freshness, queues, budget, judge rung, aerflow. Diffs against last state; anomalies -> decision-bus/kanban. Writes ESTATE-STATE.md.
 - **aero-worktree-guard** - `aerodeck` - live - Script/infra
+- **changedetection-ui** - `aerodeck:8914` - live - Script/infra - changedetection.io web UI on aerodeck 127.0.0.1:8914 (loopback only). Self-hosted website change detection v0.55.7. Verified live 2026-07-10.
+- **claude-pool-keepalive** - `aerodeck` - live - Script/infra - claude oauth pool component; systemd timer active; source /home/henry/work/factory/bin/claude-pool-keepalive
 - **fable-mission-pipeline** - `aerodeck:/home/henry/work/fable/missions/` - live - Script/infra - ~/bin/fable-mission <slug> (kick); fable-prep + fable-mission skills; doorbell address fable-0.0
 - **flow-controller-cycle-state** - `aerodeck:/home/henry/work/factory/logs/flow-controller.jsonl` - live - Script/infra - aero-flow-cycle-line (observatory ONE-line); floor-doctor board_queue_age
 - **jiddlers-vigo-pwgates-scrape** - `aerodeck:jiddlers vigo bronze/silver/gold + cube-pg` - live - Script/logistics - sqlite bronze/silver/gold + cube-pg tile
 - **tower-classify** - `aerodeck` - live - Script/infra - Tower shadow/enforce classifier (v4, W3). classify_register() classifies opportunity_register rows into HUMAN-ONLY/ASSISTED/AUTO-SAFE bands. Used by tower pipeline and W4 enforc...
+- **venue-birth-radar** - `aerodeck` - live - Script/infra - Collector: /home/henry/work/factory/collectors/venue-birth-radar.py. Writes scored F&B venue-birth rows (RatingDate proxy for new opening) into reservoir.db (feed_id=venue-birth...
 - **aero-ttyd** - `aerodeck:7681` - live - Service/web-terminal
 - **systemd:aerodeck:aero-board-ui.service** - `aerodeck` - live - Service - systemd unit aero-board-ui.service (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-brain-recall-proxy.service** - `aerodeck` - live - Service - systemd unit aero-brain-recall-proxy.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-cf-proxy-8979.service** - `aerodeck` - live - Service - systemd unit aero-cf-proxy-8979.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-cf-proxy-8981.service** - `aerodeck` - live - Service - systemd unit aero-cf-proxy-8981.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-decisions-api.service** - `aerodeck` - live - Service - systemd unit aero-decisions-api.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-humanize-gate.service** - `aerodeck` - live - Service - systemd unit aero-humanize-gate.service (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-kill-endpoint.service** - `aerodeck` - live - Service - systemd unit aero-kill-endpoint.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pep.service** - `aerodeck` - live - Service - systemd unit aero-pep.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-ttyd.service** - `aerodeck` - live - Service - systemd unit aero-ttyd.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:gates-bot.service** - `aerodeck` - live - Service - systemd unit gates-bot.service (active); auto-discovery via registry-discover-sources (T20)
@@ -90,14 +102,14 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aerflow-session** - `aerodeck` - live - Session/observatory - tmux list-panes -t aerflow:obs -F "#{pane_title}"
 - **hermes-gateway-aerodeck-miranda** - `aerodeck:8642` - live - agent-gateway/comms - hermes_cli --profile miranda-berliand gateway run
 - **hermes-gateway-miranda-berliand** - `aerodeck` - live - agent-gateway/hermes - systemd hermes-gateway-miranda-berliand.service on aerodeck; API health http://127.0.0.1:8642/health/detailed with miranda-api-server-key; Telegram @Miranda_hermes_cos_bot; read...
-- **pm-shepherd** - `aerodeck` - live - agent-gateway/hermes
+- **pm-shepherd** - `aerodeck` - live - agent-gateway/hermes - PM-DIGEST-OK, real counters, cron */45 + watchdog */15, verified live 2026-07-10T11:06Z
 - **aerocockpit-board** - `aerodeck:8649` - live - board/cockpit - kanban_list / kanban_board filter tags=[ws:aerocockpit] on the :8649 kanban-tools service (board.db) — the cockpit-v2 build slice / board of record
 - **model-roles-json** - `aerodeck:/home/henry/work/factory/config/model-roles.json` - idle - config/model-routing - ONE-source role→model map for the factory routing table. Intended path: ~/work/factory/config/model-roles.json. ABSENT as of 2026-07-02 (H4/H5 cards pending). Row registered pen...
 - **govern-ledger-canonical** - `aerodeck:/home/henry/work/factory/govern/ledger/govern.db` - live - database - CANONICAL live govern ledger = the aerodeck SPINE at /home/henry/work/factory/govern/ledger/govern.db (host aerodeck; 159k+ govern_events, full decision lifecycle, growing). Der...
 - **reason-vocab** - `aerodeck:/home/henry/work/factory/govern/control/reason-vocab.json` - live - govern-control - reason_vocab.py load_vocab/validate/check_reason; subcommands --self-test --cli-verify --enforce-verify
 - **aerodeck-root** - `aerodeck` - idle - infra/storage - ssh aerodeck; df -h / (device /dev/sda1 -> /, 194G)
 - **claude-usage-warden** - `aerodeck:8689` - live - infra/usage-monitoring - curl -sf http://127.0.0.1:8689/status
-- **aero-board-ui** - `aerodeck:8660` - live - service - DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 NEEDS-VERIFY: was auto-discovered + last_ok never — confirm live or retire.] [...
+- **aero-board-ui** - `aerodeck:8660` - idle - service - DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 NEEDS-VERIFY: was auto-discovered + last_ok never — confirm live or retire.] [...
 - **aero-govern-feed** - `aerodeck:8652` - live - service/infra - curl http://127.0.0.1:8652/{health,act,decisions} (loopback-only, read-only over govern.db views)
 - **aero-ia-design-vite** - `aerodeck:3020` - live - service
 - **aero-pep-service** - `aerodeck:8951` - live - service/infra - curl http://127.0.0.1:8951/status (loopback-only); CLI: aero-pep decide/selftest/status/check
@@ -109,6 +121,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **antislop-humanize** - `aerodeck:8466` - live - service - http on aerodeck:8466
 - **brain-recall-proxy** - `aerodeck:8663` - live - service - GET http://127.0.0.1:8663/recall?q= and /health — aerodeck loopback transport to aeros company-brain-recall-api :8647 over henry ssh; exists so the probesvc close-gate cage (no...
 - **cliproxy** - `aerodeck:8317` - live - service/llm-routing - http://100.74.200.84:8317 — Claude OAuth pool proxy on aerodeck (migrated off the Mac 2026-06-08; aeros :8318 sibling noted)
+- **cliproxyapi-8318** - `aerodeck:8318` - live - service/llm-routing - surface-B of the two-surface pool architecture: dedicated-account cliproxy leg, kept OUT of claude oauth pool rotation by design [H3]; watched not rotated
 - **deerflow** - `aerodeck:2026` - live - service/research - http://100.74.200.84:2026 (tailnet-only via nginx; localhost NOT bound). API under /api/*
 - **design-discovery-shadow** - `aerodeck:8525` - live - service - DISCOVERED 2026-07-02 01:56:56Z by registry-reconcile (proc=python3); needs enrichment
 - **ephemeral-aerodeck-18088** - `aerodeck:18088` - idle - service
@@ -132,7 +145,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **ntfy** - `aerodeck:8080` - live - service/notifications - http://100.74.200.84:8080 — ntfy push-notification relay on aerodeck (docker ntfy, container :80)
 - **office-runtime** - `aerodeck:3052` - live - service - DISCOVERED 2026-06-24 17:00:31Z by registry-reconcile (proc=node); needs enrichment
 - **open-notebook-ui** - `aerodeck:8502` - live - service/research - http://100.74.200.84:8502 — Open Notebook Streamlit UI on aerodeck (docker on-app)
-- **openclaw** - `aerodeck:18789` - idle - service - DISCOVERED 2026-06-24 06:17:07Z by registry-reconcile (proc=docker-proxy); needs enrichment | RETIRED 2026-06-29: dead ghost (no openclaw container; nothing on :18789; live-veri...
+- **openclaw** - `aerodeck:18789` - idle - service - RETIRED 2026-07-01: WS-adapter :18789 superseded by claw3d-office.service on :3050; office capability LIVE on :3050/:3051. Archived 2026-07-10 (Set-A cleanup — was in gap list a...
 - **richard-guard** - `aerodeck:8092` - live - service - DISCOVERED 2026-06-28 06:17:15Z by registry-reconcile (proc=python); needs enrichment | RICHARD-R4-DESTALE: richard-guard is the aerodeck classifier/guard surface; target archit...
 - **sim-realtime** - `aerodeck:3034` - live - service/workflow - http://100.74.200.84:3034 — Sim Studio realtime service on aerodeck (docker sim-realtime-1, container :3002)
 - **sip-probe-listener** - `aerodeck:5060` - live - service
@@ -147,6 +160,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **@aerodeck_miranda_bot** - `aeros` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap.certbot.renew.timer [de-staled 2026-06-20 card kt_1781951066137_fe00a...
 - **aeros-gold-canonical** - `aeros:/home/ubuntu/data/sqlite/shared/aeros.db` - live - Database/business - aeros — canonical AerOS GOLD store (~659MB). Built hourly by aeros-gold-derivation.timer (aeros-medallion/scripts/aeros-derivation.py) from silver/sources incl. sqlite-local/ber...
 - **interpret-db-snapshot** - `aeros:/home/ubuntu/data/sqlite/shared/interpret.db` - live - Database/infra - Read-only snapshot of interpret.db (INTERPRET-layer synthesis conclusions). Bridged from aerodeck /home/henry/work/factory/govern/interpret/interpret.db every 4h via aero-govern...
+- **propsignal** - `aeros:/home/ubuntu/data/sqlite/shared/property/propsignal.db (host: aeros)` - live - Database/legacy-root-relocation - PropSignal property collector. aeros:/home/ubuntu/data/sqlite/shared/property/propsignal.db = CANONICAL (2,756 properties, last_seen 2026-07-10 07:33, propsignal.service daily)....
+- **work-ledger** - `postgresql://aeros/aerodeck tables: workflows, workflow_probe_runs` - live - Database/infra - Aeros Postgres DB aerodeck, tables: workflows + workflow_probe_runs. Served by /api/work-ledger/tasks on aeros-os :3018. Factory ingest: http://100.64.135.5:3018/api/work-ledger...
 - **litellm-model:rewoo-planner** - `aeros` - live - LLM-model - LiteLLM model 'rewoo-planner' -> openai/claude-opus-4-8 @ http://100.74.200.84:8317/v1; provider=openai; auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:kanban-card-to-goal-bridge.timer** - `aeros` - live - Scheduled Job - systemd unit kanban-card-to-goal-bridge.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:kanban-closure-scanner.timer** - `aeros` - live - Scheduled Job - systemd unit kanban-closure-scanner.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -156,13 +171,18 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aeros:kanban-reverse-sync.timer** - `aeros` - live - Scheduled Job - systemd unit kanban-reverse-sync.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:aero-pep.service** - `aeros` - live - Service - systemd unit aero-pep.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:brain-recall-api-business.service** - `aeros` - live - Service - systemd unit brain-recall-api-business.service (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aeros:brain-recall-api-scoped.service** - `aeros` - live - Service - systemd unit brain-recall-api-scoped.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:brain-recall-api.service** - `aeros` - live - Service - systemd unit brain-recall-api.service (active); auto-discovery via registry-discover-sources (T20)
+- **data-feed:youtube-captions** - `aeros:youtube_research` - idle - data-feed
+- **data-feed:youtube-embeddings** - `aeros:youtube_research` - idle - data-feed
 - **aero-pep-aeros** - `aeros:8951` - live - govern-pep - Registered 2026-06-25 #56657e cross-estate-spine
 - **history-freshness-check** - `aeros` - live - infra/claude-history-pipeline - ssh aeros bash /home/ubuntu/bin/history-freshness-check.sh
 - **Serve** - `aeros:3035` - live - service - DISCOVERED 2026-06-26 06:17:09Z by registry-reconcile (proc=node /usr/local); needs enrichment
 - **aerodeck-settings** - `aeros:3019` - live - service/web-app - https://settings.aerodeck.ai (CF Access) / http://100.64.135.5:3019 -- same origin as aerodeck-dev-design, distinct public hostname + Access app.
+- **aeros-content-antislop-api** - `aeros:8979` - live - service/business - curl http://127.0.0.1:8979/api/content/canon ; curl -X POST http://127.0.0.1:8979/api/content/validate -d '{"text":"..."}' -H "Content-Type: application/json"
 - **annaland** - `aeros:8085` - live - service - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **brain-recall-api** - `aeros:8648` - live - service - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
+- **brain-recall-api-scoped** - `aeros:8645` - live - service/company-brain - GET http://127.0.0.1:8645/recall?q=&scope=<tenant>
 - **company-brain-recall-api** - `aeros:8647` - live - service/company-brain - GET http://127.0.0.1:8647/recall?q=
 - **embed-proxy** - `aeros:11435` - live - service - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **grafana** - `aeros:3030` - live - service - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=docker-proxy); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from ca...
@@ -191,31 +211,51 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **jiddlers-webhook-receiver** - `jiddlers:8430` - live - service
 - **listmonk-app** - `jiddlers:9000` - live - service
 - **aeromeet-app** - `mac-mini:github.com/aerodeck-ai/aeromeet` - idle - Application - AeroMeet - Aerodeck fork of Meetily (MIT, Zackriya). Repo aerodeck-ai/aeromeet at ~/work/business/aeromeet. Replaces meetily.app on team Macs once first signed build ships; capt...
+- **whisper-large-v3-8910** - `mac-mini:8910` - live - ExternalAPI/AI - Mally mac-mini (100.114.38.97:8910). Whisper large-v3 transcription engine. Accepts raw WAV POST, returns JSON transcript. Used by customs-house meetily-pull.py and transcribe-l...
 - **lifeboat-snapshot-export** - `mac-mini:/home/henry/work/factory/lifeboat-export/` - live - Script/infra - ssh mac-mini ls /Users/hberliand/aerodeck-lifeboat/snapshots/ reads the warm snapshot; source of record = aerodeck /home/henry/work/factory/lifeboat-export/
+- **mac-mini-infrassd-family-legal-qnap-stage** - `mac-mini:/Volumes/InfraSSD/Backups/legal-qnap-stage` - live - dataset/backup-family - InfraSSD canonical backup family; names/counts only, LIFE content not mirrored to aerodeck
+- **mac-mini-infrassd-family-oracle-archive** - `mac-mini:/Volumes/InfraSSD/Backups/oracle-archive` - live - dataset/backup-family - InfraSSD canonical backup family; names/counts only, LIFE content not mirrored to aerodeck
+- **mac-mini-infrassd-family-oracle-backups** - `mac-mini:/Volumes/InfraSSD/Backups/oracle-backups` - live - dataset/backup-family - InfraSSD canonical backup family; names/counts only, LIFE content not mirrored to aerodeck
+- **mac-mini-infrassd-family-oracle-pg-dumps** - `mac-mini:/Volumes/InfraSSD/Backups/oracle-pg-dumps` - live - dataset/backup-family - InfraSSD canonical backup family; names/counts only, LIFE content not mirrored to aerodeck
+- **mac-mini-infrassd-family-personal-legal** - `mac-mini:/Volumes/InfraSSD/Backups/personal-legal` - live - dataset/backup-family - InfraSSD canonical backup family; names/counts only, LIFE content not mirrored to aerodeck
+- **mac-mini-infrassd-family-restic-estate** - `mac-mini:/Volumes/InfraSSD/Backups/restic-estate` - live - dataset/backup-family - InfraSSD canonical backup family; names/counts only, LIFE content not mirrored to aerodeck
 - **history-pipeline-mini** - `mac-mini:/Users/hberliand/customs-house/history/history.db` - live - infra/claude-history-pipeline - ssh mac-mini ~/customs-house/history/history-pipeline-runner.sh (launchd) plus ssh aeros bash /home/ubuntu/bin/history-freshness-check.sh
 - **mac-mini-infrassd** - `mac-mini` - idle - infra/storage - ssh mac-mini; df -h /Volumes/InfraSSD
 - **mac-mini-infrassd-tm** - `mac-mini` - idle - infra/storage - ssh mac-mini; df -h /Volumes/InfraSSD-TM
 - **vexa-api-gateway** - `mac-mini:8056` - idle - meeting-bot/aerie-poc - http://mac-mini:8056/
 - **mac-mini-staging** - `mac-mini:/Users/hberliand/customs-house/v2/master.db` - live - service/customs-house - ssh mac-mini:/Users/hberliand/staging/ — Customs House staging area on Henry's Mac Mini (Tailscale 100.89.244.20); push-out-only quarantine inbox -> classifier -> leak-audited r...
+- **webdrive** - `macbook` - idle - CLI/infra - client: ~/bin/webdrive on aerodeck (any session, on PATH; webdrive help). Driver: ~/bin/webdrive-driver.py + webdrive-rpc on macbook, mailbox ~/.webdrive/. Source: ~/work/fable/...
 - **macbook-internal** - `macbook` - idle - infra/storage - ssh macbook; df -h / (/Users/aerodeck) -- only when awake/online
 - **richard-redacted-macbook** - `macbook` - idle - privacy-service - Personal-side Richard redaction lane; registry metadata only, no LIFE data mirrored to aerodeck.
 - **richard-sealed-queue-macbook** - `macbook` - idle - privacy-service - Personal-side sealed queue/drainer metadata; no queue contents stored in registry.
+- **dossier-schema-personcorpus** - `personal:personal life PG (life DB), schema dossier` - live - Database/personal - ssh personal psql -d life
+- **richard-ring0-queue-personal** - `personal` - live - Script/personal - Verified live 2026-07-10: job 20260710-224658-r2test ran end-to-end personal-side, holdings.xlsx reviewed, receipt counts-only on aerodeck, full report personal-side only.
 - **aerflow-session-personal** - `personal:/home/ubuntu/bin/aerflow-session.sh` - live - Session/observatory - ssh personal tmux list-panes -t aerflow:obs -F "#{pane_title}"
 - **diana.berl.ai** - `personal:8977` - live - Tunnel/personal - React (Vite SPA) + Python Starlette JSON API. Code: /home/ubuntu/diana-site-react/ on personal. Service: diana-site.service running diana_api.py. CF tunnel 4011ba96 -> localhost...
 - **hermes-gateway-cos-personal** - `personal:8642` - live - agent-gateway/hermes - hermes-cos gateway http://127.0.0.1:8642 on personal (localhost-bound; auth=API_SERVER_KEY env). probe 2026-06-15T22:25:00Z: root/healthz 404 (server up, no root route).
+- **data-feed:meetily-gold-summary** - `personal:life` - idle - data-feed
 - **richard-files-personal** - `personal` - idle - filesystem - Personal-side document store for Richard; no LIFE data at rest on aerodeck.
 - **history-life-drain-personal** - `personal:life.whatsapp_embeddings domain=claude_history` - live - infra/claude-history-pipeline - ssh personal sudo -n -u ubuntu python3 ~/apps/life-brain-dev/drain-history-to-lifebrain.py --verify
 
 ### MODELS
 
+- **ideas-ledger/aero-ideas** - `unknown:/home/henry/work/factory/state/ideas.db` - live - CLI/infra - python3 /home/henry/bin/aero-ideas stats
 - **meetings_gold-pg** - `aeros:5432/meetings_gold (host: aeros)` - live - Database/meetings-gold - psql on aeros; WRITER = customs-house gold-import.mjs (--db=meetings_gold, promoted from the mac-mini runner); READER = gold-to-granola-meetings-sync.py -> aerodeck.granola_meet...
 - **cube-jiddlers-aeros** - `unknown:4200` - live - ExternalAPI/AI - Cube.dev semantic layer for Jiddlers tenant. Docker container on aeros (100.64.135.5:4200). Cube store at :4201. JWT HS256 signed with CUBE_API_SECRET. 12 cube models: crm_custo...
 - **@mally_aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=voice-relay-mally.service (system unit, multi-user.target). ExecStart=python3 ~/work/infra/voice-relay/relay.py. Token id 8974799158. Registered 2026-06-28T23...
 - **tmux-bridge** - `aerodeck:8282` - live - MCP/infra - http://127.0.0.1:8282/mcp — aerodeck loopback-only, NOT on any hub
 - **connection-registry-auto-discovery** - `aerodeck` - live - Scheduled Job - auto-discovery pass (registry-discover-sources.py): scans the LiteLLM config, the MCP-hub roster, and systemd units every ~15min and UPSERTs each new connection into the connect...
 - **systemd:aerodeck:aero-model-router.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-model-router.timer (active); auto-discovery via registry-discover-sources (T20)
+- **claude-oauth-pool-architecture** - `aerodeck` - live - Script/infra - claude oauth pool architecture documentation row; two-surface design
 - **claude-oauth-seat-pool** - `aerodeck` - live - Script/infra - Per-host ~/.claude-pool/<acct>/ holds 5 static setup-tokens. claude-pool-pick assigns one account PER PANE by live quota (lease round-robin). Quota feed http://100.74.200.84:893...
+- **claude-pool-rotate** - `aerodeck` - live - Script/infra - claude oauth pool component; systemd timer active; source ~/bin/claude-pool-rotate
 - **humanize-benchmark** - `aerodeck:/home/henry/work/business/antislop/humanize_log.db` - live - Script/comms - humanize.py score()/fix(); SELECT producer,avg(human_score),date(ts) FROM humanize_log
+- **kokoro-onnx-arm** - `aerodeck:8922` - live - Script/AI - Kokoro ONNX TTS server (ARM) on aerodeck :8922. Script: /home/henry/work/infra/voice-routers/kokoro-local/kokoro_onnx_tts_server.py (pid 4163971). Binds 0.0.0.0:8922. Verified l...
+- **voice-stt-router** - `aerodeck:8917` - live - Script/AI - POST http://100.74.200.84:8917 — routes to whisper backends per stt_backends.json
+- **voice-tts-instance-8923** - `aerodeck:8923` - live - Script/AI - TTS worker instance on aerodeck :8923. Script: /home/henry/work/infra-repo/voice-routers/tts_router.py (pid 2159355). Worker behind voice-tts-router :8918. Verified live 2026-07...
+- **voice-tts-instance-8924** - `aerodeck:8924` - live - Script/AI - TTS worker instance on aerodeck :8924. Script: /home/henry/work/infra-repo/voice-routers/tts_router.py (pid 2159324). Worker behind voice-tts-router :8918. Verified live 2026-07...
+- **voice-tts-instance-8925** - `aerodeck:8925` - live - Script/AI - TTS worker instance on aerodeck :8925. Script: /home/henry/work/infra-repo/voice-routers/tts_router.py (pid 4179028). Worker behind voice-tts-router :8918. Verified live 2026-07...
+- **voice-tts-router** - `aerodeck:8918` - live - Script/AI - http://100.74.200.84:8918 — PRIMARY aerodeck-local-kokoro :8922 (on-box bm_george, always-up) -> failover mally/henry-kokoro :8912 (SAME voice, inaudible switch) -> Higgs :8911...
 - **systemd:aerodeck:litellm-aerodeck.service** - `aerodeck` - live - Service - systemd unit litellm-aerodeck.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:voice-bakeoff-judge.service** - `aerodeck` - live - Service - systemd unit voice-bakeoff-judge.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:voice-brain-mally.service** - `aerodeck` - live - Service - systemd unit voice-brain-mally.service (active); auto-discovery via registry-discover-sources (T20)
@@ -234,7 +274,6 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aero-llm-governor** - `aerodeck` - live - llm-governance/budget-governor - aero-llm-governor --status
 - **aerodeck-local-kokoro** - `aerodeck:8922` - live - service/voice - http://100.74.200.84:8922 — PRIMARY TTS backend for voice-tts-router; always-up ON-box Kokoro bm_george (~2.7s/chunk RTF~2.9x), self-heal proven; POST /tts {text,voice}->wav, GE...
 - **bge-host-proxy** - `aerodeck:11436` - live - service/infra - bge embedding host-proxy — routes embeds to the Mac GPUs (no models on Oracle boxes); /home/henry/bin/bge-host-proxy.py [2026-06-21 RE-NAMESPACED personal->business: live-verifi...
-- **cliproxyapi-8318** - `aerodeck:8318` - live - service - DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=cliproxyapi); needs enrichment
 - **gatus** - `aerodeck:8088` - live - service/observability - http://100.74.200.84:8088 — Gatus fleet status page on aerodeck (docker gatus, container :8080)
 - **jack-voice-tts-router** - `aerodeck:8924` - live - service/voice - http://0.0.0.0:8924 — tts_router.py (~/work/infra/voice-routers); routes Jack hermes RC replies to a Jessie Buckley voice clone via Voicebox
 - **litellm-aerodeck** - `aerodeck:4000` - live - service
@@ -244,9 +283,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **voice-brain** - `aerodeck:8919` - live - service/voice - 127.0.0.1:8919 — headless claude -p daemon (loopback-only); reaches tmux via tmux-bridge :8282
 - **voice-call** - `aerodeck:8920` - live - service/voice - http://100.74.200.84:8920 — live-call front-end
 - **voice-capacity** - `aerodeck:8932` - live - service/voice - voice-routers capacity service; /home/henry/work/infra/voice-routers/capacity [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERODECK box, not the pe...
-- **voice-stt-router** - `aerodeck:8917` - live - service/voice - POST http://100.74.200.84:8917 — routes to whisper backends per stt_backends.json
 - **voice-tmux-vnc** - `aerodeck:5900` - live - service/voice - x11vnc for the voice tmux display :97 (voice-tmux.service); also the Camoufox+VNC re-seal bridge [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AEROD...
-- **voice-tts-router** - `aerodeck:8918` - live - service/voice - http://100.74.200.84:8918 — PRIMARY aerodeck-local-kokoro :8922 (on-box bm_george, always-up) -> failover mally/henry-kokoro :8912 (SAME voice, inaudible switch) -> Higgs :8911...
 - **voice-tts-router-hal** - `aerodeck:8925` - live - service
 - **voicebox** - `aerodeck:8912` - idle - service/voice - [de-staled 2026-06-28T23:20:19Z: the local Voicebox upstream (:8765, the deep-failover engine leg) is DEAD — :8912 /health reports upstream_probe.upstream_error 'Connection refu...
 - **whisper-8771** - `aerodeck:8771` - live - service/voice - http://100.74.200.84:8771 — local whisper STT backend
@@ -318,6 +355,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **jiddlers-ocado-approve-route** - `jiddlers:jiddlers live.db` - live - Script/finance - app route + external_mutation_audit read
 - **jiddlers-cliproxyapi** - `jiddlers:8317` - live - service
 - **@anna_ariel_voice_bot** - `personal` - live - CLI/comms - host=personal unit=anna-relay.service (system unit, multi-user.target). WorkingDirectory=~/work/infra/anna-relay; ExecStart=.venv/bin/python relay.py. Token id 8693159987. Regis...
+- **richard-r3-excerpt-lane-personal** - `personal` - live - Script/personal - Verified live 2026-07-10: 2 real round-trips (value_gbp sum=324600, quantity sum=16500) + 1 refusal proven; audit log ~/richard-files/r3-excerpt-audit.log grepped for all real c...
+- **richard-ring0-review-personal** - `personal` - live - Script/personal - Personal-side deterministic reviewer at ~/richard-ring0-review.py; invoked by richard-ring0-drainer.py per queue job.
 
 ### AGENTS
 
@@ -335,6 +374,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **agent-inbox** - `aerodeck:/home/henry/.local/state/agent-inbox/agent-inbox.db` - live - Script/comms - aero-msg send|inbox|doorbell|ack|sweep|query
 - **tower-aeros-read-path** - `aerodeck:/mnt/data/tower/tower-proactive.db` - live - Script/infra - ssh aeros + curl 127.0.0.1:3018/api/agents/tower
 - **systemd:aerodeck:hermes-apiserver-henry.service** - `aerodeck` - live - Service - systemd unit hermes-apiserver-henry.service (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:hermes-apiserver-jack.service** - `aerodeck` - live - Service - systemd unit hermes-apiserver-jack.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-dashboard-henry.service** - `aerodeck` - live - Service - systemd unit hermes-dashboard-henry.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-dashboard-jack.service** - `aerodeck` - live - Service - systemd unit hermes-dashboard-jack.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-dashboard-mally.service** - `aerodeck` - live - Service - systemd unit hermes-dashboard-mally.service (active); auto-discovery via registry-discover-sources (T20)
@@ -358,10 +398,12 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aeros-bronze-snapshots** - `aeros:/mnt/data/sqlite/bronze` - live - Database/infra - ls /mnt/data/sqlite/bronze/<alias>.db (stable symlink -> newest timestamped snapshot)
 - **hermes-mcp** - `aeros:8099` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **mcphub:aeros:hermes-memory** - `aeros` - live - MCP - MCP server 'hermes-memory' fronted by the aeros hub; status=connected; 9 tool(s); auto-discovery via registry-discover-sources (T20)
+- **history-search** - `aeros:8427` - live - Script/AI - GET http://100.64.135.5:8427/history-search?q=&k= — direct on aeros, NOT behind any hub; /health for liveness
 - **systemd:aeros:hermes-mcp.service** - `aeros` - live - Service - systemd unit hermes-mcp.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:hermes-memory-mcp.service** - `aeros` - live - Service - systemd unit hermes-memory-mcp.service (active); auto-discovery via registry-discover-sources (T20)
 - **jiddlers-ocado-olive-sync** - `jiddlers:jiddlers live.db` - live - Script/finance - app code + live.db read
 - **jiddlers-rocketchat** - `jiddlers:3200` - live - service - RC-SPLIT 2026-07-09 (kt_1783588559770_bb02ca): INSTANCE B — Jiddlers CLIENT Rocket.Chat (separate from the Aerodeck-internal 'rocketchat' row). docker jiddlers-rocketchat (rocke...
+- **mac-mini-infrassd-family-hermes-archives** - `mac-mini:/Volumes/InfraSSD/Backups/hermes-archives` - live - dataset/backup-family - InfraSSD canonical backup family; names/counts only, LIFE content not mirrored to aerodeck
 - **mac-mini-internal** - `mac-mini` - idle - infra/storage - ssh mac-mini; df -h / (/Users/hberliand)
 - **vexa-admin-api** - `mac-mini:8057` - idle - meeting-bot/aerie-poc - http://mac-mini:8057/
 - **vexa-agent-api** - `mac-mini:8100` - idle - meeting-bot/aerie-poc - http://mac-mini:8100/
@@ -372,15 +414,24 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 - **aerodeck-pg:granola_listing-and-transcripts** - `unknown:aeros PG db=aerodeck tables=granola_meetings,granola_transcripts` - live - Database - granola_meetings = doc-level LISTING (564 rows incl. notes-only docs with NO transcript; still written via gold-to-granola sync feeding Company Brain recall). granola_transcript...
 - **aerodeck-pg:otter_meetings-LEGACY** - `unknown:aeros PG db=aerodeck table=otter_meetings` - idle - Database - FROZEN legacy otter fetch leg - 513 rows, meetings 2024-12-16 to 2026-06-18, last fetch 2026-06-26, accounts otter-backfill+henry-pro. Superseded by customs-house v2 on henry-ma...
+- **aerodeck:issue-ledger** - `unknown:/home/henry/work/factory/state/ideas.db (issues table)` - live - Database/infra - aero-issues CLI (record|tally|group|propose|list|stats)
+- **aeros-public-meetings** - `aeros:5432 public.meetings` - live - Database/comms - aeros PostgreSQL. public.meetings = read-canonical GOLD for all meeting transcripts. Written by customs-house ingest. Read by business-meetings MCP and AerOS surfaces.
 - **aeros-rogold** - `unknown:/home/ubuntu/data/sqlite/shared/aeros-rogold.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **architecture** - `unknown:/home/ubuntu/data/sqlite/shared/architecture/architecture.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **errors** - `unknown:/home/ubuntu/data/sqlite/shared/errors/errors.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **kb-health** - `unknown:/home/ubuntu/data/sqlite/shared/kb-health/kb-health.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **kill-state-json** - `unknown:/home/henry/work/factory/govern/control/kill-state.json` - live - Database/AI - LEARN global kill-switch / contraction state. Shipped by aero-govern-bridge to aeros:/home/ubuntu/data/sqlite/shared/kill-state.json. Read by AerOS /intelligence/learn/dials pag...
-- **propsignal** - `unknown:/home/ubuntu/data/sqlite/shared/property/propsignal.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
+- **life-pg-comms** - `unknown` - live - Database - registered 2026-07-11 drain-w12-3m (kt_1783597933882_3838f4)
+- **life-pg-custody** - `unknown` - live - Database - registered 2026-07-11 drain-w12-3m (kt_1783597933882_3838f4)
+- **life-pg-dossier** - `unknown` - live - Database - registered 2026-07-11 drain-w12-3m (kt_1783597933882_3838f4)
+- **life-pg-finance** - `unknown` - live - Database - registered 2026-07-11 drain-w12-3m (kt_1783597933882_3838f4)
+- **life-pg-health-vault** - `unknown` - live - Database - registered 2026-07-11 drain-w12-3m (kt_1783597933882_3838f4)
+- **life-pg-legal** - `unknown` - live - Database - registered 2026-07-11 drain-w12-3m (kt_1783597933882_3838f4)
 - **reservoir** - `unknown:/home/ubuntu/data/sqlite/shared/reservoir.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
 - **swr** - `unknown:/home/ubuntu/data/sqlite-local/swr/swr.db (host: aeros)` - live - Database/legacy-root-relocation - LEGACY-ROOT-RESIDENT on aeros /home/ubuntu/data; relocation target -> /mnt/data (epic kt_1782897024186_5ac755, the real P5). Registered 2026-07-01 CHILD-0 seed.
+- **customs-house-ingest** - `unknown:/Users/hberliand/customs-house/v2/master.db` - live - Script/comms - Henry mac-mini (100.89.244.20). Meeting ingest engine at ~/customs-house. Pulls meetily recordings from capture devices, transcribes via :8910, diarizes via :8913, writes to mas...
 - **govern-aeros-mirror-sync** - `unknown:/mnt/data/sqlite/shared/govern.db (aeros)` - live - Script/infra - sqlite3 -readonly on aeros
+- **qnap-nas628abc** - `unknown` - live - Script/infra - SMART health via qnap-smart-watch.sh on mac-mini every 6h. Reads /proc/mdstat + hdparm -i per disk + /tmp/smart_warning.conf.
 - **documenso-postgres** - `aerodeck:5447` - live - Database - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=docker-proxy); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from ca...
 - **jambonz-aerodeck-mysql-1** - `aerodeck:3306` - live - Database - DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=docker-proxy); needs enrichment
 - **jambonz-aerodeck-redis-1** - `aerodeck:6380` - live - Database - DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=docker-proxy); needs enrichment
@@ -401,6 +452,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **trigger-redis** - `aerodeck:6390` - live - service/database - redis://100.74.200.84:6390 — trigger.dev Redis on aerodeck (docker trigger-redis-1, container :6379)
 - **aero-pep-selftest** - `aeros` - idle - CLI - /usr/local/bin/aero-pep-selftest — the ONLY allowlisted remote PEP surface on aeros (read-only; verbs line|md5); installed 2026-07-02 per Henry MCQ ruling on decisions 5ecca05a/...
 - **aeros-jiddlers-gold-serve-only-mirror** - `aeros:/mnt/data/sqlite/shared/jiddlers/live.db` - live - Database/infra - ssh aeros /home/henry/bin/aero-jiddlers-mirror --status
+- **anti-lying-ledger-aeros-consumer** - `aeros:/mnt/data/sqlite/shared/anti-lying-ledger.db` - live - Database/infra - Consumer copy of anti-lying-ledger.db on aeros. Read by aeros-os /api/aha/state. Populated by aerodeck producer every 4h. Verified present 2026-07-10.
 - **github_research** - `aeros postgres: aerodeck.embeddings WHERE source_db='github_research' (no standalone base table)` - idle - Database/research - bge-m3 semantic search (aeros :8427) + Company Brain; cross-searchable with youtube_research (same embeddings store)
 - **influxd-8086** - `aeros:8086` - live - Database - DISCOVERED 2026-06-22 06:17:09Z by registry-reconcile (proc=influxd); needs enrichment
 - **mariadbd-3306** - `aeros:3306` - live - Database - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=mariadbd); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from catego...
@@ -409,6 +461,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **redis-6380** - `aeros:6380` - live - Database - DISCOVERED 2026-06-22 06:17:09Z by registry-reconcile (proc=redis-server); needs enrichment
 - **rocketchat-mongo** - `aeros:27017` - live - Database - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=docker-proxy); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from ca...
 - **youtube_research** - `aeros:/home/ubuntu/data/sqlite/research/youtube-research.db (host: aeros)` - live - Database/research - bge-m3 semantic search (aeros :8427 history-search.py over aerodeck.embeddings source_db=youtube_research) + youtube-search MCP (business hub) + vectos-data REST (:3003 /api/dat...
+- **aeros-session-identity-api** - `aeros` - live - ExternalAPI/infra - GET http://127.0.0.1:8979/api/session/identity (also mirrored at :3019 direct on aeros box)
+- **award-flights-v2** - `aeros:8160` - live - MCP - Award flights warehouse. DuckDB: personal:~/data/award_flights.duckdb (210MB, 1,722,961 rows availability_snapshots_v2, last updated 2026-07-09). PG: personal:award_flights (sea...
 - **deep-research-search** - `aeros:8440` - live - MCP/research - /mcp/deep-research-search on Hub-Aerodeck :3001 (shadow); backend aeros 100.64.135.5:8440
 - **mcphub:aeros:cube-jiddlers** - `aeros` - live - MCP - MCP server 'cube-jiddlers' fronted by the aeros hub; status=connected; 2 tool(s); auto-discovery via registry-discover-sources (T20)
 - **aeros-data** - `aeros` - idle - infra/storage - ssh aeros; df -h /mnt/data (device /dev/sdb -> /mnt/data, 196G). ALWAYS df -h (all), never df /
@@ -423,6 +477,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **cube-jiddlers-meta** - `jiddlers:4201` - live - service
 - **cube-jiddlers-rest** - `jiddlers:4200` - live - service
 - **jiddlers-mcphub-sqlite** - `jiddlers:8646` - live - service
+- **mac-mini-infrassd-family-timescaledb-migration** - `mac-mini:/Volumes/InfraSSD/Backups/timescaledb-migration` - live - dataset/backup-family - InfraSSD canonical backup family; names/counts only, LIFE content not mirrored to aerodeck
 
 ### MCP
 
@@ -472,14 +527,12 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **rocketchat-upload-mcp** - `aerodeck:8463` - live - service
 - **tmux-bridge-biz** - `aerodeck:8283` - live - service/infra - 127.0.0.1:8283/mcp — tmux-bridge-biz.service (BUSINESS-scoped, TMUX_SESSION_ALLOWLIST excludes LIFE/personal); the business cockpit's control bridge
 - **wa-send-mcp** - `aerodeck:8462` - live - service
-- **award-flights-v2** - `aeros:8160` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **brain-mcp** - `aeros:8460` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **business-meetings-mcp** - `aeros:8461` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **connection_quota_ingest** - `aeros:8425` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **dashboard-mcp-aeros** - `aeros:8652` - live - MCP - :8652 host-qualified pair — aeros dashboard-mcp; collision partner aerodeck aero-govern-feed [A1]
 - **errors_ingest** - `aeros:8654` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **gmail-sa-mcp** - `aeros:8465` - live - MCP - DISCOVERED 2026-06-19 19:55:38Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
-- **history-search** - `aeros:8427` - live - MCP/research - GET http://100.64.135.5:8427/history-search?q=&k= — direct on aeros, NOT behind any hub; /health for liveness
 - **mcphub:aeros:company-brain** - `aeros` - live - MCP - MCP server 'company-brain' fronted by the aeros hub; status=connected; 1 tool(s); auto-discovery via registry-discover-sources (T20)
 - **mcphub:aeros:granola** - `aeros` - idle - MCP - DISCONNECTED hub door - granola ingest moved to customs-house v2 on henry-mac-mini (see meetily-customs-house-ingest id 295). Do not infer granola liveness from this row (de-sta...
 - **mcphub:aeros:ms-query** - `aeros` - live - MCP - MCP server 'ms-query' fronted by the aeros hub; status=connected; 7 tool(s); auto-discovery via registry-discover-sources (T20)
@@ -517,6 +570,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### WATCHDOGS
 
+- **diarize-8913** - `unknown:8913` - live - ExternalAPI/AI - Mally mac-mini (100.114.38.97:8913). Speaker diarization service. Accepts raw WAV, returns speaker-labelled transcript JSON. Shreds audio after processing. Health: /health -> 200.
 - **systemd:aerodeck:aero-arch-sweep.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-arch-sweep.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-board-view-parity.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-board-view-parity.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-brain-recall-watchdog.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-brain-recall-watchdog.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -546,6 +600,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:aero-pool-spend-cap.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-pool-spend-cap.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pool-status-push.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-pool-status-push.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pressure-relief.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-pressure-relief.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-registry-sync-aerodeck.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-registry-sync-aerodeck.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-registry-sync.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-registry-sync.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-seat-drain.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-seat-drain.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-seat-heartbeat.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-seat-heartbeat.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -563,6 +618,9 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:brain-ingest-memory-notes.timer** - `aerodeck` - live - Scheduled Job - systemd unit brain-ingest-memory-notes.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:registry-discover.timer** - `aerodeck` - live - Scheduled Job - systemd unit registry-discover.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:registry-reconcile.timer** - `aerodeck` - live - Scheduled Job - systemd unit registry-reconcile.timer (active); auto-discovery via registry-discover-sources (T20)
+- **aero-pool-cred-sync** - `aerodeck` - live - Script/infra - claude oauth pool component; systemd timer active; source ~/bin/aero-pool-cred-sync
+- **aero-pool-doctor** - `aerodeck` - live - Script/infra - claude oauth pool component; systemd timer active; source ~/bin/aero-pool-doctor
+- **aero-seat-rotator** - `aerodeck` - live - Script/infra - claude oauth pool component; systemd timer active; source ~/bin/aero-seat-rotator
 - **systemd:aerodeck:aero-seat-event-watcher.service** - `aerodeck` - live - Service - systemd unit aero-seat-event-watcher.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-watchdog.service** - `aerodeck` - live - Service - systemd unit aero-watchdog.service (active); auto-discovery via registry-discover-sources (T20)
 - **aero-decisions-api** - `aerodeck:8963` - live - service - GET /decisions (feed incl. reason_options) · POST /decisions/<cid>/answer (reason chips) · GET /health
@@ -613,13 +671,13 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 287 scheduled jobs
-- **aeros** - 168 scheduled jobs
+- **aerodeck** - 314 scheduled jobs
+- **aeros** - 169 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 20 scheduled jobs
-- **mac-mini** - 40 scheduled jobs
+- **mac-mini** - 44 scheduled jobs
 - **macbook** - 13 scheduled jobs
-- **personal** - 102 scheduled jobs
+- **personal** - 107 scheduled jobs
 
 ## GitHub coverage
 
