@@ -22,7 +22,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-13 06:07:09"
+      "updated_at": "2026-07-14 06:07:07"
     },
     {
       "actively_collecting": 1,
@@ -46,7 +46,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-13 06:07:09"
+      "updated_at": "2026-07-14 06:07:07"
     },
     {
       "actively_collecting": 1,
@@ -70,7 +70,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-13 06:07:09"
+      "updated_at": "2026-07-14 06:07:07"
     },
     {
       "actively_collecting": 1,
@@ -94,7 +94,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-13 06:07:09"
+      "updated_at": "2026-07-14 06:07:07"
     },
     {
       "actively_collecting": 1,
@@ -118,7 +118,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-13 06:07:09"
+      "updated_at": "2026-07-14 06:07:07"
     },
     {
       "actively_collecting": 1,
@@ -1102,7 +1102,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-13 06:07:09"
+      "updated_at": "2026-07-14 06:07:07"
     },
     {
       "actively_collecting": 1,
@@ -1126,7 +1126,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-13 06:07:09"
+      "updated_at": "2026-07-14 06:07:07"
     },
     {
       "actively_collecting": 1,
@@ -2634,7 +2634,7 @@
       "port": 8438,
       "quality_notes": null,
       "query_method": "http on aerodeck:8438",
-      "recon_status": "RETIRE-PROPOSED: port 8438 dead 8 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 8438 dead 9 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 3,
       "repo": null,
       "subcategory": null,
@@ -2706,7 +2706,7 @@
       "port": 3001,
       "quality_notes": "Verified live 2026-06-18 (claude-aeros): 3 tools reachable via mcp.serpapi.com direct.",
       "query_method": "mcphub-aerodeck \u2192 mcp.serpapi.com (direct, bypasses aeros hub proxy which adds session management)",
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-07-13 06:17:01Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "shopping",
@@ -2778,7 +2778,7 @@
       "port": 3002,
       "quality_notes": "Built 2026-06-14 symmetric shadows; smart-routing via local ollama+pgvector; ~/work/infra/aerodeck-life-shadow. [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERODECK box, not the personal/LIFE host.] [canon-reconcile 2026-06-25 #565fc6: live shadow verified Up, reliability re-stamped]",
       "query_method": "http://127.0.0.1:3002/mcp (container aerodeck-life-shadow) \u2014 proxies the personal LIFE hub; bearer aerodeck-life-seat. The aerodeck seat .mcp.json mcphub-personal points HERE (not the raw remote).",
-      "recon_status": "STALE(idle): port 3002 dead @ 2026-07-13 06:17:01Z",
+      "recon_status": "STALE(idle): port 3002 dead @ 2026-07-14 06:17:00Z",
       "reliability_rating": 3,
       "repo": null,
       "subcategory": "life",
@@ -6642,7 +6642,7 @@
       "port": 3001,
       "quality_notes": "Registered 2026-06-25 #5d1675 \u2014 hub admin login + per-agent bearer minting was implicit-in-brain only; this is its registry home. DB-backed auth (bearer_keys), per-request lookup, no restart; 10 keys live.",
       "query_method": null,
-      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-07-13 06:17:01Z",
+      "recon_status": "hub-routed :3001 (port-probe N/A) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -6882,7 +6882,7 @@
       "port": 8660,
       "quality_notes": "DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 NEEDS-VERIFY: was auto-discovered + last_ok never \u2014 confirm live or retire.] [2026-06-21 VERIFIED LIVE on aerodeck (port listening). Curated.]",
       "query_method": null,
-      "recon_status": "STALE(idle): port 8660 dead @ 2026-07-13 06:17:01Z",
+      "recon_status": "STALE(idle): port 8660 dead @ 2026-07-14 06:17:00Z",
       "reliability_rating": 2,
       "repo": "kanban-mcp",
       "subcategory": null,
@@ -7050,7 +7050,7 @@
       "port": 8667,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "STALE(idle): port 8667 dead @ 2026-07-13 06:17:01Z",
+      "recon_status": "STALE(idle): port 8667 dead @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -7098,7 +7098,7 @@
       "port": 3019,
       "quality_notes": "AerOS dev-design = Mally CI-deployed staging (every push). Has own aerodeck-business-dev.db. 2026-06-19: meetings+connect wired via runner env (transient; make permanent in his CI). agents=needs gold aeros.db refresh; finance=Cube estate-wide gap.",
       "query_method": "https://dev-design.aerodeck.ai (CF Access) / http://100.64.135.5:3019 -- container aeros-os-dev-design-aeros, RUNS ON aeros (tailscale), reached via aerodeck-dev cloudflared tunnel. Corrected 2026-07-06: prior row said 3010/aerodeck-local, live port is 3019 on aeros.",
-      "recon_status": "RETIRE-PROPOSED: port 3019 dead 14 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 3019 dead 15 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "web-app",
@@ -7242,7 +7242,7 @@
       "port": 3099,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3099 \u2014 'Flight Deck \u00b7 AerOS' Next.js app on aerodeck",
-      "recon_status": "RETIRE-PROPOSED: port 3099 dead 14 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 3099 dead 15 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "web-app",
@@ -7290,7 +7290,7 @@
       "port": 3014,
       "quality_notes": "DISCOVERED 2026-06-20 06:17:04Z by registry-reconcile (proc=docker-proxy); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from category, reliability baselined 2.]",
       "query_method": null,
-      "recon_status": "RETIRE-PROPOSED: port 3014 dead 23 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 3014 dead 24 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 2,
       "repo": null,
       "subcategory": null,
@@ -7770,7 +7770,7 @@
       "port": 18964,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "STALE(idle): port 18964 dead @ 2026-07-13 06:17:01Z",
+      "recon_status": "STALE(idle): port 18964 dead @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -7794,7 +7794,7 @@
       "port": 18966,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "STALE(idle): port 18966 dead @ 2026-07-13 06:17:01Z",
+      "recon_status": "STALE(idle): port 18966 dead @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -7818,7 +7818,7 @@
       "port": 18971,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "STALE(idle): port 18971 dead @ 2026-07-13 06:17:01Z",
+      "recon_status": "STALE(idle): port 18971 dead @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -8466,7 +8466,7 @@
       "port": 18789,
       "quality_notes": "DISCOVERED 2026-06-24 06:17:07Z by registry-reconcile (proc=docker-proxy); needs enrichment | RETIRED 2026-06-29: dead ghost (no openclaw container; nothing on :18789; live-verified). Auto-discovered 2026-06-24 from a transient docker-proxy proc, never returned. actively_collecting=0 so it no longer counts as a live gap. [card kt_1782668819269_9e552b]",
       "query_method": null,
-      "recon_status": "STALE(idle): port 18789 dead @ 2026-07-13 06:17:01Z",
+      "recon_status": "STALE(idle): port 18789 dead @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -8730,7 +8730,7 @@
       "port": 9222,
       "quality_notes": "DISCOVERED 2026-06-21 15:39:02Z by registry-reconcile (proc=docker-proxy); needs enrichment",
       "query_method": null,
-      "recon_status": "RETIRE-PROPOSED: port 9222 dead 23 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 9222 dead 24 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -9042,7 +9042,7 @@
       "port": 8921,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:8921",
-      "recon_status": "RETIRE-PROPOSED: port 8921 dead 19 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 8921 dead 20 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 3,
       "repo": null,
       "subcategory": "voice",
@@ -9186,7 +9186,7 @@
       "port": 8912,
       "quality_notes": "voice-routers voicebox (henry-kokoro fallback TTS); /home/henry/work/infra/voice-routers/voicebox [2026-06-21 RE-NAMESPACED personal->business: live-verified running on the AERODECK box, not the personal/LIFE host.]",
       "query_method": null,
-      "recon_status": "STALE(idle): port 8912 dead @ 2026-07-13 06:17:01Z",
+      "recon_status": "STALE(idle): port 8912 dead @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "voice",
@@ -9282,7 +9282,7 @@
       "port": 49200,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "STALE(idle): port 49200 dead @ 2026-07-13 06:17:01Z",
+      "recon_status": "STALE(idle): port 49200 dead @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": "drill",
@@ -9334,7 +9334,7 @@
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "comms",
-      "updated_at": "2026-07-13 06:07:09"
+      "updated_at": "2026-07-14 06:07:07"
     },
     {
       "actively_collecting": 0,
@@ -12738,7 +12738,7 @@
       "port": 8979,
       "quality_notes": "AerOS content-generation antislop gate. GET /api/content/canon serves the 695-entry canon (source: ~/work/business/antislop/canon/antislop-canon.json, vendored into apps/aeros/src/data/ at build time -- aeros-runner-1 has no cross-host mount to the aerodeck path). POST /api/content/validate flags banned terms/constructions in outward-facing text (regex match on canon entries, case-insensitive, literal fallback for malformed patterns). Visible surface: Canon tab on /product/design. Built PR #1069 (merged main 7f28987), deployed via deploy-prod.yml workflow_dispatch run 29139324346. Card kt_1783688652444_ed4ff1. AERO_GUARDRAILS_CARD=kt_1783688652444_ed4ff1",
       "query_method": "curl http://127.0.0.1:8979/api/content/canon ; curl -X POST http://127.0.0.1:8979/api/content/validate -d '{\"text\":\"...\"}' -H \"Content-Type: application/json\"",
-      "recon_status": "RETIRE-PROPOSED: port 8979 dead 6 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 8979 dead 7 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 3,
       "repo": "aerodeck-ai/aerodeck-template",
       "subcategory": "business",
@@ -12978,7 +12978,7 @@
       "port": 8979,
       "quality_notes": "Design-discovery backend migrated from mac-mini :8525 MCP proxy to direct SQLite reads on aeros. DB at /mnt/data/sqlite/design.db (764 items). Re-homed 2026-07-11 via kt_1783690574924_44e561 PR #1086.",
       "query_method": null,
-      "recon_status": "RETIRE-PROPOSED: port 8979 dead 5 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 8979 dead 6 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -13146,7 +13146,7 @@
       "port": 3003,
       "quality_notes": null,
       "query_method": "http://100.74.200.84:3003 \u2014 Langfuse web UI/API on aerodeck (containers langfuse-web/-worker/-db/-redis/-clickhouse/-minio)",
-      "recon_status": "RETIRE-PROPOSED: port 3003 dead 15 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 3003 dead 16 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "observability",
@@ -13218,7 +13218,7 @@
       "port": 3000,
       "quality_notes": null,
       "query_method": null,
-      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-07-13 06:17:01Z",
+      "recon_status": "hub-routed :3000 (port-probe N/A) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -13314,7 +13314,7 @@
       "port": 8480,
       "quality_notes": "DISCOVERED 2026-06-22 06:17:09Z by registry-reconcile (proc=docker-proxy); needs enrichment",
       "query_method": null,
-      "recon_status": "RETIRE-PROPOSED: port 8480 dead 5 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "RETIRE-PROPOSED: port 8480 dead 6 runs (awaiting approval) @ 2026-07-14 06:17:00Z",
       "reliability_rating": 0,
       "repo": null,
       "subcategory": null,
@@ -13554,7 +13554,7 @@
       "port": null,
       "quality_notes": null,
       "query_method": "n/a (pipeline)",
-      "recon_status": "live@mac-mini (data-derived: newest row 2026-07-12 15:30:19Z, age 14.8h)",
+      "recon_status": "live@mac-mini (data-derived: newest row 2026-07-13 21:04:35Z, age 9.2h)",
       "reliability_rating": 0,
       "repo": "customs-house",
       "subcategory": "comms",
@@ -15210,7 +15210,7 @@
       "port": 8642,
       "quality_notes": " [2026-06-21 RE-NAMESPACED personal->business: aerodeck-box hermes/voice/bot service.] [auth backfilled 2026-06-25 #7706d9-authbackfill]",
       "query_method": "hermes-cos gateway http://127.0.0.1:8642 on personal (localhost-bound; auth=API_SERVER_KEY env). probe 2026-06-15T22:25:00Z: root/healthz 404 (server up, no root route).",
-      "recon_status": "RETIRE-PROPOSED: port 8642 dead 14 runs (awaiting approval) @ 2026-07-13 06:17:01Z",
+      "recon_status": "live@personal",
       "reliability_rating": 4,
       "repo": null,
       "subcategory": "hermes",
@@ -15606,7 +15606,7 @@
       "writer_host": null
     }
   ],
-  "generated_at": "2026-07-13T06:27:00+00:00",
+  "generated_at": "2026-07-14T06:27:01+00:00",
   "github_coverage": {
     "available": true,
     "generated_at": "2026-06-18T12:07:44.853261+00:00",
@@ -19049,7 +19049,7 @@
       "name": "henry cron: herald.py",
       "schedule": "*/15 * * * *",
       "source_path": null,
-      "status": "active",
+      "status": "gone",
       "what_it_scans": null
     },
     {
@@ -19157,7 +19157,7 @@
       "name": "henry cron: life_injector.py",
       "schedule": "*/30 * * * *",
       "source_path": null,
-      "status": "active",
+      "status": "gone",
       "what_it_scans": null
     },
     {
@@ -21750,6 +21750,18 @@
       "schedule": "*/10 * * * *",
       "source_path": null,
       "status": "gone",
+      "what_it_scans": null
+    },
+    {
+      "id": "aeros:ubuntu-cron-backup-restore-drill-sh",
+      "invokes": null,
+      "kind": "cron",
+      "llm_bearing": 0,
+      "machine_id": "aeros",
+      "name": "ubuntu cron: backup-restore-drill.sh",
+      "schedule": "0 6 * * 0",
+      "source_path": null,
+      "status": "active",
       "what_it_scans": null
     },
     {
