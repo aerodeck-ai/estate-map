@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-07-15T06:27:00+00:00`
+Generated: `2026-07-16T06:27:00+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -94,6 +94,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **hermes-factory-reviewer** - `aerodeck` - live - Script/infra - T5 (kt_1783552457813_18d117, 2026-07-12): Hermes factory-reviewer profile — review prompt at ~/work/infra/receipts/pinned-clones/infra/hermes-profiles/factory-reviewer/review-pr...
 - **jiddlers-vigo-pwgates-scrape** - `aerodeck` - live - Script/infra - Live since ~2026-06-29. vigo-refresh.sh + vigo_auth.py mint OIDC token; scrapes consignment data bronze→silver→gold. Last confirmed run 2026-07-08 03:15. 128 bronze consignment...
 - **jiddlers-vigo-staleness-monitor** - `aerodeck` - live - Script/infra - Read-only staleness monitor. vigo-staleness-monitor.sh T9 — alerts when vigo data is stale. Log: ~/.local/state/vigo-staleness-monitor.log.
+- **mally-diagram-sync** - `aerodeck` - live - Script/infra - read-file: parsed/*.graph.json + logs/mally-diagram-ingest.jsonl
 - **morning-composer** - `aerodeck` - idle - Script/comms - python3 /home/henry/work/factory/govern/bin/aero-morning-composer.py
 - **tower-classify** - `aerodeck` - live - Script/infra - Tower shadow/enforce classifier (v4, W3). classify_register() classifies opportunity_register rows into HUMAN-ONLY/ASSISTED/AUTO-SAFE bands. Used by tower pipeline and W4 enforc...
 - **venue-birth-radar** - `aerodeck` - live - Script/infra - Collector: /home/henry/work/factory/collectors/venue-birth-radar.py. Writes scored F&B venue-birth rows (RatingDate proxy for new opening) into reservoir.db (feed_id=venue-birth...
@@ -133,6 +134,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aero-sense-door** - `aerodeck` - live - govern-sense/door - python3 /home/henry/work/factory/govern/bin/aero-sense feeds # list registered feeds; query/validate/ingest subcommands also live
 - **aerodeck-root** - `aerodeck` - idle - infra/storage - ssh aerodeck; df -h / (device /dev/sda1 -> /, 194G)
 - **claude-usage-warden** - `aerodeck:8689` - live - infra/usage-monitoring - curl -sf http://127.0.0.1:8689/status
+- **act-workspaces-bridge** - `aerodeck:8284` - live - service/cockpit - 127.0.0.1:8284 + tailnet(100.74.200.84:8284) -- bearer required on every route (Authorization: Bearer <secret-get act-workspaces-bridge-bearer>); source /home/henry/work/infra/a...
 - **aero-board-ui** - `aerodeck:8660` - idle - service - DISCOVERED 2026-06-21 06:17:43Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 NEEDS-VERIFY: was auto-discovered + last_ok never — confirm live or retire.] [...
 - **aero-govern-feed** - `aerodeck:8652` - live - service/infra - curl http://127.0.0.1:8652/{health,act,decisions} (loopback-only, read-only over govern.db views)
 - **aero-ia-design-vite** - `aerodeck:3020` - live - service
@@ -432,7 +434,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### AGENTS
 
-- **@aerodeck_alerts_bot** - `unknown` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount
+- **@aerodeck_alerts_bot** - `unknown` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap-certbot-5759.mount
 - **@aerodeck_cos_bot** - `aerodeck` - live - CLI/comms - host=aerodeck — infra-reviewer push/alert bot (push-only, no inbound poll loop). Token id 8816353730. Read by INFRA_TG_TOKEN in profiles/infra-reviewer/.env. Registered 2026-06-...
 - **agent-roster** - `aerodeck:~/.local/state/agent-presence/presence.db (tables: agents, session_roster)` - live - Database/infra - sqlite3 ~/.local/state/agent-presence/presence.db
 - **dead-letter** - `aerodeck` - live - Database/comms - sqlite3 /home/henry/.local/state/agent-inbox/agent-inbox.db "select count(*) from dead_letter;"
@@ -469,7 +471,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **seat-system** - `aerodeck` - live - service/infra - systemctl --user seat@<name>.service (~/.config/systemd/user/seat@.service) — supervised Claude seat keep-alive (C2)
 - **sim-studio** - `aerodeck:3033` - live - service/workflow - http://100.74.200.84:3033 — Sim Studio web UI on aerodeck (docker sim-simstudio-1, container :3000)
 - **trigger-webapp** - `aerodeck:8030` - live - service/workflow - http://100.74.200.84:8030 — trigger.dev v4-beta webapp on aerodeck (docker trigger-webapp-1, container :3000)
-- **@mally_aerodeck_cos_bot** - `aeros` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount
+- **@mally_aerodeck_cos_bot** - `aeros` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap-certbot-5759.mount
 - **aeros-bronze-snapshots** - `aeros:/mnt/data/sqlite/bronze` - live - Database/infra - ls /mnt/data/sqlite/bronze/<alias>.db (stable symlink -> newest timestamped snapshot)
 - **hermes-mcp** - `aeros:8099` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **mcphub:aeros:hermes-memory** - `aeros` - live - MCP - MCP server 'hermes-memory' fronted by the aeros hub; status=connected; 9 tool(s); auto-discovery via registry-discover-sources (T20)
@@ -815,6 +817,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **cf-access-proxy-os** - `aerodeck:8979` - live - service - http on aerodeck:8979
 - **claw3d-proxy** - `aerodeck:3051` - live - service - http on aerodeck:3051
 - **warp-svc** - `aerodeck:40000` - live - service/networking - tcp://127.0.0.1:40000 — Cloudflare WARP daemon local API on aerodeck (HTTP probe answers 502 = alive)
+- **xero-aeros-finance** - `aeros` - idle - ExternalAPI/finance - apps/aeros/scripts/etl-xero-to-gold-finance.py --dry-run|<live> ; idempotent ON CONFLICT upsert, run ON aeros host
 - **systemd:aeros:aero-kill-tunnel.service** - `aeros` - live - Service - systemd unit aero-kill-tunnel.service (active); auto-discovery via registry-discover-sources (T20)
 - **oauth_router** - `aeros:9317` - live - service - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **jiddlers-mintsoft-api** - `jiddlers` - live - ExternalAPI/infra - Mirror reads mintsoft_stock + mintsoft_orders live. create_order 405 bug was diagnosed 2026-07-08 (S2 card); 07-08 run: Alice manually created 7 orders JIDDLERS-6816..6822. Toke...
@@ -841,8 +844,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 361 scheduled jobs
-- **aeros** - 175 scheduled jobs
+- **aerodeck** - 362 scheduled jobs
+- **aeros** - 178 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 25 scheduled jobs
 - **mac-mini** - 44 scheduled jobs
