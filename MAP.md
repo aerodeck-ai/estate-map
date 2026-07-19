@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-07-18T06:27:00+00:00`
+Generated: `2026-07-19T06:27:00+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -97,6 +97,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **aero-duty-scaffold** - `aerodeck` - live - Script/infra - v1 duty-folder template generator, card kt_1784231967785_9d45b8. Script: /home/henry/work/factory/bin/aero-duty-scaffold (python3). Usage: aero-duty-scaffold <name> [--dest-dir...
 - **aero-fable-judge** - `aerodeck` - live - Script/AI - W8 (kt_1783578413922_2f6584, 2026-07-10): frontier judgment gate in the chain. Source: ~/bin/aero-fable-judge. Route: LiteLLM :4000, model alias fable-judge -> claude-fable-5 (f...
 - **aero-flow** - `aerodeck` - live - Script/infra - Verified diff=0 vs repo 2026-07-12. aeroflow-worker@w1 Result=success (oneshot drain-loop, exits clean by design).
+- **aero-kill-trail-reconcile** - `aerodeck` - live - Script/infra - Reads govern_agent_registry (status=kill) + govern_events (actuator=kill-switch) via govern_ledger.connect() on /home/henry/work/factory/govern/ledger/govern.db (live write DB)....
 - **aero-precedent-attach** - `aerodeck` - live - Script/AI - CLI: /home/henry/work/factory/bin/aero-precedent-attach QUESTION [--tags t1,t2] [--k 3] [--json]; --selftest hermetic; --test-5-blocked pulls live blocked-on-henry cards
 - **aero-presence** - `aerodeck:/home/henry/.local/state/agent-presence/presence.db` - live - Script/infra - aero-presence list|free|get|register|prune
 - **aero-sentinel** - `aerodeck` - live - Script/infra - Estate sweep: service health, disk, feed freshness, queues, budget, judge rung, aerflow. Diffs against last state; anomalies -> decision-bus/kanban. Writes ESTATE-STATE.md.
@@ -500,6 +501,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:hermes-dashboard-mally.service** - `aerodeck` - live - Service - systemd unit hermes-dashboard-mally.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-dashboard-miranda.service** - `aerodeck` - live - Service - systemd unit hermes-dashboard-miranda.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-dashboard-richard.service** - `aerodeck` - live - Service - systemd unit hermes-dashboard-richard.service (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:hermes-desktop-proxy.service** - `aerodeck` - live - Service - systemd unit hermes-desktop-proxy.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-richard-guard.service** - `aerodeck` - live - Service - systemd unit hermes-richard-guard.service (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:hermes-telemetry-status.service** - `aerodeck` - live - Service - systemd unit hermes-telemetry-status.service (active); auto-discovery via registry-discover-sources (T20)
 - **jack-tibbs** - `aerodeck:9117` - live - agent/business - hermes dashboard http://127.0.0.1:9117 on aerodeck (jack-tibbs profile, runs as ubuntu) — LOOPBACK-ONLY bind (not on tailnet 100.74.200.84; verified 2026-06-14 ss -tlnp). Reach...
@@ -789,6 +791,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:aero-freshness-canaries.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-freshness-canaries.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-goal-pull-nightly.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-goal-pull-nightly.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-govern-federate.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-govern-federate.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-govern-health-alert.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-govern-health-alert.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-infra-review.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-infra-review.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-interpret-contradiction.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-interpret-contradiction.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-interpret-drive.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-interpret-drive.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -894,8 +897,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 391 scheduled jobs
-- **aeros** - 183 scheduled jobs
+- **aerodeck** - 393 scheduled jobs
+- **aeros** - 185 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 26 scheduled jobs
 - **mac-mini** - 44 scheduled jobs
