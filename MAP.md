@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-07-19T06:27:00+00:00`
+Generated: `2026-07-20T06:27:11+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -21,7 +21,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 ### FACTORY
 
 - **@Feeder_sim_bot** - `unknown` - live - CLI/comms - host=personal unit=gates-bot.service
-- **@Miranda_hermes_cos_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=actions.runner.aerodeck-ai-aerodeck-template.aerodeck-gates-3.service, gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes...
+- **@Miranda_hermes_cos_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=actions.runner.aerodeck-ai-aerodeck-template.aerodeck-gates-3.service, gates-bot.service, hal-voice-tts-router.service, hermes-dashboard-henry.service, hermes...
 - **@henry_cos_supervisor_bot** - `unknown` - live - CLI/comms - host=aerodeck unit=actions.runner.aerodeck-ai-aerodeck-template.aerodeck-gates-3.service, gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes...
 - **@henry_personal_hermes_bot** - `unknown` - live - CLI/comms - host=personal unit=gates-bot.service
 - **aeros-customs-meetings-retired** - `aeros:5432 public.customs_meetings` - idle - Database/comms - aeros PostgreSQL. public.customs_meetings = retired-for-writes staging. No unique data vs public.meetings (verified T6). Do not drop without backup + Henry gate.
@@ -54,8 +54,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **duty-model-atlas** - `aerodeck` - live - Agent/duty - Foundry-minted 2026-07-18T04:34:17Z by sonnet5-t22-atlas-duty (foundry-mint, T1 card kt_1784288530937_e11194; registry write path D5 kt_1784340068946_0774e9). consumer='T21 conf...
 - **duty-scratch-mint-test-a** - `aerodeck` - idle - Agent/duty - SCRATCH TEST ROW from D4/D5 build session 2026-07-18 (kt_1784340068946_0774e9) — safe to delete, never a real duty; left as UPDATE not DELETE per the canonical-DB destructive-co...
 - **duty-system-reviewer** - `aerodeck` - live - Agent/duty - Foundry-minted 2026-07-18T01:06:39Z by henry (foundry-mint, T1 card kt_1784288530937_e11194; registry write path D5 kt_1784340068946_0774e9). consumer='act-inbox+factory-intake'...
-- **@aerodeck_gates_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=actions.runner.aerodeck-ai-aerodeck-template.aerodeck-gates-3.service, gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes...
-- **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=actions.runner.aerodeck-ai-aerodeck-template.aerodeck-gates-3.service, gates-bot.service, hal-voice-tts-router.service, hermes-apiserver-henry.service, hermes...
+- **@aerodeck_gates_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=actions.runner.aerodeck-ai-aerodeck-template.aerodeck-gates-3.service, gates-bot.service, hal-voice-tts-router.service, hermes-dashboard-henry.service, hermes...
+- **@aerodeck_voice_bot** - `aerodeck` - live - CLI/comms - host=aerodeck unit=actions.runner.aerodeck-ai-aerodeck-template.aerodeck-gates-3.service, gates-bot.service, hal-voice-tts-router.service, hermes-dashboard-henry.service, hermes...
 - **aero-worker-ceiling-conf** - `aerodeck:/home/henry/.config/aero/worker-ceiling.conf` - live - CLI/infra - Single-integer file read by aero-dispatch on every dispatch cycle to cap concurrent worker slots. aero-ceiling CLI is the only sanctioned writer (W6, kt_1783578362941_ab642a). D...
 - **aero-write-broker** - `aerodeck:/home/henry/bin/aero-write-broker` - live - CLI/governance - aero-write-broker --scope | disk-reclaim [--execute] | pool-key [--execute] (default dry-run; unknown ops default-deny)
 - **aero-throughflow** - `aerodeck:/home/henry/bin/aero-throughflow` - live - CLI Tool/observatory - python3 ~/bin/aero-throughflow --since 5m
@@ -85,6 +85,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:aero-kanban-pull-sync.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-kanban-pull-sync.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-kanban-ro-watchdog.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-kanban-ro-watchdog.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-kanban-tools-watchdog.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-kanban-tools-watchdog.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:hermes-factory-review.timer** - `aerodeck` - live - Scheduled Job - systemd unit hermes-factory-review.timer (active); auto-discovery via registry-discover-sources (T20)
 - **aero-attest** - `aerodeck:/home/henry/work/factory/govern/card-attestations.db` - live - Script/infra - W8 (kt_1783578413922_2f6584, 2026-07-10): verified-fact writer/reader for card-attestations.db. Source: ~/bin/aero-attest -> /home/henry/work/factory/govern/bin/aero-attest. DB:...
 - **aero-attest-runner** - `aerodeck:/home/henry/work/factory/govern/card-attestations.db` - live - Script/infra - cron every 15 min on aerodeck (flock /tmp/aero-attest-runner.lock); scans :8649 kanban_list for tag attest:requested, parses ATTEST-REQUEST CHECK/EXPECT sentinels from the card...
 - **aero-codex-verify** - `aerodeck` - live - Script/infra - W8 (kt_1783578413922_2f6584, 2026-07-10): ADVISORY second-key verifier in ralph chain. Source: ~/bin/aero-codex-verify. Runs a Codex (OpenAI) second-key verification pass after...
@@ -651,6 +652,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **mcphub:aerodeck:deep-research-search** - `aerodeck` - live - MCP - MCP server 'deep-research-search' fronted by the aerodeck hub; status=connected; 2 tool(s); auto-discovery via registry-discover-sources (T20)
 - **mcphub:aerodeck:excalidraw-mcp** - `aerodeck` - live - MCP - MCP server 'excalidraw-mcp' fronted by the aerodeck hub; status=connecting; 0 tool(s); auto-discovery via registry-discover-sources (T20)
 - **mcphub:aerodeck:fetch-context** - `aerodeck` - live - MCP - MCP server 'fetch-context' fronted by the aerodeck hub; status=connected; 4 tool(s); auto-discovery via registry-discover-sources (T20)
+- **mcphub:aerodeck:gmail-aerodeck-business** - `aerodeck` - live - MCP - MCP server 'gmail-aerodeck-business' fronted by the aerodeck hub; status=connected; 19 tool(s); auto-discovery via registry-discover-sources (T20)
+- **mcphub:aerodeck:gmail-miranda-aerodeck-business** - `aerodeck` - live - MCP - MCP server 'gmail-miranda-aerodeck-business' fronted by the aerodeck hub; status=connected; 19 tool(s); auto-discovery via registry-discover-sources (T20)
 - **mcphub:aerodeck:granola** - `aerodeck` - live - MCP - MCP server 'granola' fronted by the aerodeck hub; status=connected; 6 tool(s); auto-discovery via registry-discover-sources (T20)
 - **mcphub:aerodeck:gws-aerodeck** - `aerodeck` - live - MCP - MCP server 'gws-aerodeck' fronted by the aerodeck hub; status=connected; 13 tool(s); auto-discovery via registry-discover-sources (T20)
 - **mcphub:aerodeck:linkedin** - `aerodeck` - live - MCP - MCP server 'linkedin' fronted by the aerodeck hub; status=disconnected; 0 tool(s); auto-discovery via registry-discover-sources (T20)
@@ -683,6 +686,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **business-meetings-mcp** - `aeros:8461` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **connection_quota_ingest** - `aeros:8425` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **dashboard-mcp-aeros** - `aeros:8652` - live - MCP - :8652 host-qualified pair — aeros dashboard-mcp; collision partner aerodeck aero-govern-feed [A1]
+- **deep-research-fanout-mcp** - `aeros:8435` - live - MCP - DISCOVERED 2026-07-20 06:17:00Z by registry-reconcile (proc=python3); needs enrichment
 - **errors_ingest** - `aeros:8654` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **gmail-sa-mcp** - `aeros:8465` - live - MCP - DISCOVERED 2026-06-19 19:55:38Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
 - **mcphub:aeros:company-brain** - `aeros` - live - MCP - MCP server 'company-brain' fronted by the aeros hub; status=connected; 1 tool(s); auto-discovery via registry-discover-sources (T20)
@@ -867,6 +871,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **cf-access-proxy-jiddlers** - `aerodeck:8981` - live - service/infra - http on aerodeck:8981
 - **cf-access-proxy-os** - `aerodeck:8979` - live - service - systemd unit aero-cf-proxy-8979.service (loaded/enabled) on aerodeck. Main process: python3 /home/henry/bin/aero-cf-access-proxy https://os.aerodeck.ai 8979, bound 127.0.0.1:897...
 - **claw3d-proxy** - `aerodeck:3051` - live - service - http on aerodeck:3051
+- **gmail-aerodeck-business-reauth** - `aerodeck:8467` - live - service - DISCOVERED 2026-07-20 06:17:00Z by registry-reconcile (proc=docker-proxy); needs enrichment
+- **gmail-miranda-aerodeck-business-reauth** - `aerodeck:8468` - live - service - DISCOVERED 2026-07-20 06:17:00Z by registry-reconcile (proc=docker-proxy); needs enrichment
 - **warp-svc** - `aerodeck:40000` - live - service/networking - tcp://127.0.0.1:40000 — Cloudflare WARP daemon local API on aerodeck (HTTP probe answers 502 = alive)
 - **xero-aeros-finance** - `aeros` - idle - ExternalAPI/finance - apps/aeros/scripts/etl-xero-to-gold-finance.py --dry-run|<live> ; idempotent ON CONFLICT upsert, run ON aeros host
 - **systemd:aeros:aero-kill-tunnel.service** - `aeros` - live - Service - systemd unit aero-kill-tunnel.service (active); auto-discovery via registry-discover-sources (T20)
@@ -897,8 +903,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 393 scheduled jobs
-- **aeros** - 185 scheduled jobs
+- **aerodeck** - 401 scheduled jobs
+- **aeros** - 189 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 26 scheduled jobs
 - **mac-mini** - 44 scheduled jobs
