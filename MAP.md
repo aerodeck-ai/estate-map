@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-07-21T06:27:13+00:00`
+Generated: `2026-07-22T06:27:11+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -444,6 +444,8 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **litellm-model:henry/rocinante-feeder** - `aeros` - live - LLM-model - LiteLLM model 'henry/rocinante-feeder' -> ollama/rocinante-feeder:latest @ http://100.114.38.97:11434; provider=ollama; auto-discovery via registry-discover-sources (T20)
 - **litellm-model:hermes-3-llama-3.1-405b** - `aeros` - live - LLM-model - LiteLLM model 'hermes-3-llama-3.1-405b' -> openrouter/nousresearch/hermes-3-llama-3.1-405b:free; provider=openrouter; auto-discovery via registry-discover-sources (T20)
 - **litellm-model:llama-3.3-70b** - `aeros` - live - LLM-model - LiteLLM model 'llama-3.3-70b' -> openrouter/meta-llama/llama-3.3-70b-instruct:free; provider=openrouter; auto-discovery via registry-discover-sources (T20)
+- **litellm-model:local-code-batch** - `aeros` - live - LLM-model - LiteLLM model 'local-code-batch' -> ollama/qwen3-coder:30b @ http://100.120.234.21:11434; provider=ollama; auto-discovery via registry-discover-sources (T20)
+- **litellm-model:local-large** - `aeros` - live - LLM-model - LiteLLM model 'local-large' -> ollama/gpt-oss:120b @ http://100.120.234.21:11434; provider=ollama; auto-discovery via registry-discover-sources (T20)
 - **litellm-model:macbook/bge-m3** - `aeros` - live - LLM-model - LiteLLM model 'macbook/bge-m3' -> ollama/bge-m3:latest @ http://100.120.234.21:11434; provider=ollama; auto-discovery via registry-discover-sources (T20)
 - **litellm-model:macbook/deepseek-r1-70b** - `aeros` - live - LLM-model - LiteLLM model 'macbook/deepseek-r1:70b' -> ollama/deepseek-r1:70b @ http://100.120.234.21:11434; provider=ollama; auto-discovery via registry-discover-sources (T20)
 - **litellm-model:macbook/gpt-oss-120b** - `aeros` - live - LLM-model - LiteLLM model 'macbook/gpt-oss:120b' -> ollama/gpt-oss:120b @ http://100.120.234.21:11434; provider=ollama; auto-discovery via registry-discover-sources (T20)
@@ -477,7 +479,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ### AGENTS
 
-- **@aerodeck_alerts_bot** - `unknown` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap-certbot-5759.mount
+- **@aerodeck_alerts_bot** - `unknown` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5759.mount, snap-certbot-5779.mount
 - **@aerodeck_cos_bot** - `aerodeck` - live - CLI/comms - host=aerodeck — infra-reviewer push/alert bot (push-only, no inbound poll loop). Token id 8816353730. Read by INFRA_TG_TOKEN in profiles/infra-reviewer/.env. Registered 2026-06-...
 - **agent-roster** - `aerodeck:~/.local/state/agent-presence/presence.db (tables: agents, session_roster)` - live - Database/infra - sqlite3 ~/.local/state/agent-presence/presence.db
 - **dead-letter** - `aerodeck` - live - Database/comms - sqlite3 /home/henry/.local/state/agent-inbox/agent-inbox.db "select count(*) from dead_letter;"
@@ -521,7 +523,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **seat-system** - `aerodeck` - live - service/infra - systemctl --user seat@<name>.service (~/.config/systemd/user/seat@.service) — supervised Claude seat keep-alive (C2)
 - **sim-studio** - `aerodeck:3033` - live - service/workflow - http://100.74.200.84:3033 — Sim Studio web UI on aerodeck (docker sim-simstudio-1, container :3000)
 - **trigger-webapp** - `aerodeck:8030` - live - service/workflow - http://100.74.200.84:8030 — trigger.dev v4-beta webapp on aerodeck (docker trigger-webapp-1, container :3000)
-- **@mally_aerodeck_cos_bot** - `aeros` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5604.mount, snap-certbot-5759.mount
+- **@mally_aerodeck_cos_bot** - `aeros` - live - CLI/comms - host=aeros unit=certbot.timer, hermes-mcp.service, hermes-memory-mcp.service, snap-certbot-5759.mount, snap-certbot-5779.mount
 - **aeros-bronze-snapshots** - `aeros:/mnt/data/sqlite/bronze` - live - Database/infra - ls /mnt/data/sqlite/bronze/<alias>.db (stable symlink -> newest timestamped snapshot)
 - **freeagent-aeros-finance** - `aeros` - idle - ExternalAPI/finance - apps/aeros/scripts/etl-freeagent-to-gold-finance.py --dry-run
 - **hermes-mcp** - `aeros:8099` - live - MCP - DISCOVERED 2026-06-18 07:56:32Z by registry-reconcile (proc=python3); needs enrichment [2026-06-21 CURATED from auto-discovered: live (last_ok 2026-06-21); type set from categor...
@@ -846,6 +848,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **healthchecks** - `aerodeck:8000` - live - service/observability - http://100.74.200.84:8000 — Healthchecks cron-monitoring on aerodeck (docker healthchecks)
 - **h5-spof-drill-dummy** - `aerodeck:49200` - idle - test/drill - DISPOSABLE drill target for H5 SPOF health-row probe (kt_1782949797574_464475). Listener is started and killed within the probe run to demonstrate degraded contract. NOT a perma...
 - **systemd:aeros:aero-bridge-cache-rotate.timer** - `aeros` - live - Scheduled Job - systemd unit aero-bridge-cache-rotate.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aeros:aero-fleet-mart.timer** - `aeros` - live - Scheduled Job - systemd unit aero-fleet-mart.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:aero-jiddlers-mirror.timer** - `aeros` - live - Scheduled Job - systemd unit aero-jiddlers-mirror.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:aero-stale-backup-sweep.timer** - `aeros` - live - Scheduled Job - systemd unit aero-stale-backup-sweep.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aeros:brain-night-shift.timer** - `aeros` - live - Scheduled Job - systemd unit brain-night-shift.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -908,14 +911,14 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 405 scheduled jobs
-- **aeros** - 189 scheduled jobs
+- **aerodeck** - 410 scheduled jobs
+- **aeros** - 194 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
-- **jiddlers** - 28 scheduled jobs
+- **jiddlers** - 34 scheduled jobs
 - **mac-mini** - 44 scheduled jobs
 - **macbook** - 13 scheduled jobs
 - **mally-mini** - 1 scheduled jobs
-- **personal** - 117 scheduled jobs
+- **personal** - 119 scheduled jobs
 
 ## GitHub coverage
 
