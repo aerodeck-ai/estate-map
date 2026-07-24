@@ -1,6 +1,6 @@
 # Aerodeck Estate Map
 
-Generated: `2026-07-23T06:27:19+00:00`
+Generated: `2026-07-24T06:27:09+00:00`
 Source: `/home/henry/work/infra/aerodeck-registry/aerodeck-registry.db`
 
 This is the registry-rendered lobby map for services, databases, MCP surfaces, agents, repositories, watchdogs, and access doors. The connection-registry remains the data of record.
@@ -820,6 +820,7 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 - **systemd:aerodeck:aero-learn.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-learn.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-life-cred-mirror.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-life-cred-mirror.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-lifecycle.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-lifecycle.timer (active); auto-discovery via registry-discover-sources (T20)
+- **systemd:aerodeck:aero-login-transition-ping.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-login-transition-ping.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-notebooklm-srg-sync.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-notebooklm-srg-sync.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pool-autorotate.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-pool-autorotate.timer (active); auto-discovery via registry-discover-sources (T20)
 - **systemd:aerodeck:aero-pool-cred-sync.timer** - `aerodeck` - live - Scheduled Job - systemd unit aero-pool-cred-sync.timer (active); auto-discovery via registry-discover-sources (T20)
@@ -925,14 +926,14 @@ This is the registry-rendered lobby map for services, databases, MCP surfaces, a
 
 ## Watchdogs And Scheduled Jobs
 
-- **aerodeck** - 433 scheduled jobs
-- **aeros** - 215 scheduled jobs
+- **aerodeck** - 438 scheduled jobs
+- **aeros** - 223 scheduled jobs
 - **jack-mbp** - 11 scheduled jobs
 - **jiddlers** - 35 scheduled jobs
 - **mac-mini** - 44 scheduled jobs
 - **macbook** - 13 scheduled jobs
 - **mally-mini** - 1 scheduled jobs
-- **personal** - 119 scheduled jobs
+- **personal** - 120 scheduled jobs
 
 ## GitHub coverage
 
